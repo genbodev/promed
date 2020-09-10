@@ -1,0 +1,1065 @@
+/* Reset & main styles */
+* {
+	margin: 0px;
+	padding: 0px
+}
+
+html, body {
+	height: 100%
+}
+
+body {
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	background-color: #3e5b90
+}
+
+img {
+	border: none
+}
+
+td {
+	vertical-align: top
+}
+
+wbr {
+	display: inline-block
+}
+
+.page {
+	width: 100%;
+	font-size: 100%;
+	background-color: #3e5b90;
+}
+
+a, a:visited {
+	color: #000090
+}
+
+.underline-dashed {
+	border-bottom: dashed 1px
+}
+
+.link {
+	cursor: pointer
+}
+
+/* Main page styles */
+.noscript {
+	display: block;
+	width: 100%;
+	background-color: #990000;
+	height: 50px;
+	line-height: 50px
+}
+
+.noscript span {
+	display: block;
+	width: 970px;
+	margin: auto;
+	color: #ffffff
+}
+
+.login-warning {
+	display: block;
+	width: 100%;
+	background-color: #990000;
+	height: 50px;
+	line-height: 50px
+}
+
+.login-warning span {
+	display: block;
+	width: 970px;
+	margin: auto;
+	color: #ffffff
+}
+
+#pageMain .header {
+	width: 100%;
+	background-color: #3e5b90;
+	color: #ffffff;
+	height: 270px
+}
+
+#pageMain .header a {
+	color: #ffffff
+}
+
+#pageMain .header > div {
+	width: 970px;
+	margin: auto
+}
+
+#pageMain .header h1 {
+	font-size: 300%;
+	float: left
+}
+
+#pageMain .header h1 strong {
+	font-weight: normal;
+	float: left
+}
+
+#pageMain .header h1 small {
+	font-weight: normal;
+	font-size: 35%;
+	float: left;
+	clear: left
+}
+
+#pageMain .header .links {
+	float: right;
+	font-size: 75%;
+	height: 48px;
+	line-height: 48px
+}
+
+#pageMain .header .links > span {
+	padding: 0 1em
+}
+
+#pageMain .header .content {
+	clear: both;
+	padding-top: 1em
+}
+
+#pageMain .header .content .text {
+	float: left;
+	width: 70%;
+	font-size: 85%
+}
+
+#pageMain .header .content .image {
+	float: right;
+	margin-top: -30px
+}
+
+#pageMain .header a.highlight {
+	margin-top: 1em;
+	padding: 0 2em;
+	display: block;
+	color: #000090;
+	width: 160px;
+	height: 36px;
+	line-height: 36px;
+	text-align: center;
+	background-color: #ffffff;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px
+}
+
+#pageMain .header div.highlight {
+	margin-top: 1em;
+	padding: 0.7em 2.5em;
+	width: 600px;
+	color: #000000;
+	height: 65px;
+	line-height: 21px;
+	background-color: #ffffff;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px
+}
+
+#pageMain .header div.highlight a {
+	color: #000090;
+}
+
+#pageMain .header div.highlight .right {
+	float: right;
+}
+
+#pageMain .content-wrapper {
+	background-color: #ffffff
+}
+
+#pageMain .content {
+	width: 970px;
+	margin: auto;
+	min-height: 600px;
+	padding-bottom: 2em
+}
+
+#pageMain .content .news > h2 {
+	font-size: 200%
+}
+
+.products {
+	clear: both;
+	padding-top: 2em
+}
+
+#pageCommon .products {
+	clear: none
+}
+
+.products > div {
+	float: left;
+	width: 250px;
+	height: 120px;
+	margin: 0 20px 20px 0
+}
+
+.products > div img {
+	float: left;
+	height: 48px;
+	width: 48px;
+	margin: 0 1em 1em 0
+}
+
+.products > div .title {
+	display: table-cell;
+	vertical-align: middle;
+	height: 48px;
+	font-size: 100%
+}
+
+.products > div .description {
+	clear: both;
+	font-size: 85%
+}
+
+.products > div .description > small {
+	display: block;
+	margin-top: .5em;
+	color: #888
+}
+
+.notices {
+	padding: 2em 0 0 0;
+	font-size: 85%
+}
+
+.notices > div {
+	border: red solid 1px;
+	padding: 0.5em 2em 0 2em;
+	background-color: #f0e4e4;
+	width: 750px
+}
+
+.notices h3 {
+	margin: 1em 0
+}
+
+.notices > div > div {
+	margin-bottom: 2em
+}
+
+#seminar {
+	position: relative;
+	height: 100%;
+	width: 100%;
+}
+
+#seminar .seminarLinks {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
+
+#seminar .seminarLinks .right {
+	position: absolute;
+	right: 0;
+}
+
+.news {
+	clear: both;
+	padding-top: 3em
+}
+
+.news > h2 {
+	margin-bottom: 1em;
+	float: left
+}
+
+.news #newsContainer > div {
+	clear: both;
+	margin-bottom: 3em
+}
+
+.news #newsContainer > div > h3 {
+	margin-bottom: 1em;
+	float: left;
+	width: 70%
+}
+
+.news #newsContainer > div .datetime {
+	float: right;
+	font-size: 70%;
+	color: #888;
+	width: 30%
+}
+
+.news #newsContainer > div > span.cut {
+	font-size: 85%
+}
+
+.news #newsContainer > div .body {
+	clear: both;
+	font-size: 85%;
+	max-width: 700px
+}
+
+/* Styles for news body */
+.news #newsContainer > div .body h1, .news #newsContainer > div .body h2, .news #newsContainer > div .body h3,
+.news #newsContainer > div .body h4, .news #newsContainer > div .body h5, .news #newsContainer > div .body h6 {
+	font-size: 100%;
+	margin: 0.7em 0;
+}
+
+.news #newsContainer > div .body h4, .news #newsContainer > div .body p,
+.news #newsContainer > div .body blockquote, .news #newsContainer > div .body ul,
+.news #newsContainer > div .body ol {
+	margin: 0.7em 0
+}
+
+.news #newsContainer > div .body ol, .news #newsContainer > div .body ul {
+	margin-left: 40px
+}
+
+
+.footer {
+	clear: both;
+	width: 100%;
+	height: 70px;
+	padding-top: 10px;
+	background-color: #3e5b90;
+	color: #ffffff;
+}
+
+.footer > div {
+	width: 970px;
+	margin: auto
+}
+
+.footer > div > span {
+	float: right;
+	width: 200px;
+	font-size: 60%
+}
+
+.footer a {
+	color: #ffffff
+}
+
+/* Common page styles */
+#pageCommon .header {
+	width: 100%;
+	background-color: #3e5b90;
+	color: #ffffff;
+	height: 48px
+}
+
+#pageCommon .header a {
+	color: #ffffff
+}
+
+#pageCommon .header > div {
+	width: 970px;
+	margin: auto;
+	line-height: 48px;
+	white-space: nowrap
+}
+
+#pageCommon .header .left {
+	float: left;
+	font-size: 85%
+}
+
+#pageCommon .header .right {
+	float: right;
+	font-size: 75%;
+	display: block;
+	width: 49px;
+	height: 20px;
+}
+
+#pageCommon .header .right > span {
+	padding: 0 1em
+}
+
+#pageCommon .content-wrapper {
+	background-color: #ffffff;
+	clear: both
+}
+
+#pageCommon .content-wrapper > div {
+	width: 970px;
+	margin: auto;
+	padding-bottom: 2em;
+	min-height: 600px
+}
+
+#pageCommon .content-wrapper > div > div {
+	display: table-cell
+}
+
+#pageCommon .nav {
+	float: left;
+	padding: 2em 12px;
+	width: 250px;
+	font-size: 85%
+}
+
+#pageCommon .nav ul {
+	list-style-type: none
+}
+
+#pageCommon .nav ul li {
+	margin: 1em 0;
+	height: 50px
+}
+
+#pageCommon .nav ul li img {
+	width: 48px;
+	height: 48px;
+	margin-right: 1em;
+	float: left
+}
+
+#pageCommon .nav ul li .title {
+	display: table-cell;
+	vertical-align: middle;
+	height: 48px;
+}
+
+#pageCommon .content {
+	float: right;
+	padding: 2em 12px;
+	width: 650px
+}
+
+#pageCommon .news {
+	padding-top: 0
+}
+
+#pageCommon .news > h1 {
+	margin-bottom: 1em
+}
+
+#pageCommon .support {
+	float: right;
+	width: 350px
+}
+
+#pageCommon .support h3.first-child {
+	font-size: 18px;
+	font-weight: normal
+}
+
+#pageCommon .support h3.last-child {
+	margin-bottom: 18px;
+	font-size: 12px;
+	color: #555;
+	margin-top: 6px
+}
+
+#pageCommon .support p {
+	font-size: 14px;
+}
+
+/* Common article */
+#pageCommon .article {
+	font-size: 85%;
+	margin-top: -1.67em
+}
+
+#pageCommon .article h1 {
+	font-size: 240%;
+	margin: .67em 0
+}
+
+#pageCommon .article img {
+	margin: 3em 0
+}
+
+/* CSS Defaults */
+#pageCommon .article h2 {
+	font-size: 1.5em;
+	margin: .75em 0
+}
+
+#pageCommon .article h3 {
+	font-size: 1.17em;
+	margin: .83em 0
+}
+
+#pageCommon .article h4, #pageCommon .article p,
+#pageCommon .article blockquote, #pageCommon .article ul,
+#pageCommon .article fieldset, #pageCommon .article form,
+#pageCommon .article ol, #pageCommon .article dl, #pageCommon .article dir,
+#pageCommon .article menu {
+	margin: 1.12em 0
+}
+
+#pageCommon .article h5 {
+	font-size: .83em;
+	margin: 1.5em 0
+}
+
+#pageCommon .article h6 {
+	font-size: .75em;
+	margin: 1.67em 0
+}
+
+#pageCommon .article blockquote {
+	margin-left: 40px;
+	margin-right: 40px
+}
+
+#pageCommon .article ol, #pageCommon .article ul, #pageCommon .article dir,
+#pageCommon .article menu, #pageCommon .article dd {
+	margin-left: 40px
+}
+
+/* IAS */
+#pageCommon .ias .products > div {
+	height: auto
+}
+
+/* Login */
+#pageLogin {
+	color: white
+}
+
+#pageLogin h1 {
+	margin: 1em 0
+}
+
+#pageLogin .error_msg {
+	margin-bottom: 1em;
+	color: #FF4545;
+	font-size: 150%
+}
+
+#pageLogin .login-form {
+	width: 700px;
+	margin: auto
+}
+
+#pageLogin .login-form input {
+	border: none;
+	font-size: 200%;
+	margin-bottom: 1em;
+	padding: 5px
+}
+
+#pageLogin .login-form button {
+	border: none;
+	font-size: 100%;
+	margin-bottom: 1em;
+	padding: 0.2em 1em;
+	cursor: pointer
+}
+
+/* Login */
+#pageCommon h1 {
+	margin-bottom: 1em
+}
+
+#pageCommon .error_msg {
+	margin-bottom: 1em;
+	color: #FF4545;
+	font-size: 150%
+}
+
+#pageCommon .login-form {
+	width: 700px;
+	margin: auto
+}
+
+#pageCommon .login-form input, #pageCommon .login-form select {
+	border: 1px solid grey;
+	font-size: 100%;
+	margin-bottom: 1em;
+	padding: 3px
+}
+
+#pageCommon .login-form select {
+	min-width: 200px
+}
+
+#pageCommon .login-form button {
+	border: none;
+	font-size: 100%;
+	margin-bottom: 1em;
+	padding: 0.2em 1em;
+	cursor: pointer
+}
+
+@media print {
+	body {
+		background-color: white
+	}
+
+	.header, .footer, .nav {
+		display: none
+	}
+}
+
+.textFieldVerified {
+	background: #fff url("/img/icons/ok3.png") no-repeat scroll 99% 50%;
+}
+
+/* стили для Казахстана */
+
+.kz .logo-container {
+
+}
+
+.kz .logo-container .image {
+	float: right;
+}
+
+.kz .logo-description {
+	width: 400px;
+	font-size: 14px;
+	color: rgb(164, 187, 219);
+	padding-top: 14px;
+}
+
+.kz .header {
+	height: 236px !important;
+}
+
+.kz .content {
+	padding-top: 0px;
+}
+
+.kz .products {
+	clear: none;
+	padding-top: 34px;
+}
+
+.kz .news {
+	padding-top: 14px;
+}
+
+.kz .news h2 {
+	margin-bottom: 34px;
+}
+
+.kz .highlight {
+	margin-top: 0px !important;
+	display: block;
+}
+
+.kz a.highlight {
+	margin-top: 1em;
+	padding: 0 2em;
+	display: block;
+	color: #000090;
+	width: 160px;
+	height: 36px;
+	line-height: 36px;
+	text-align: center;
+	background-color: #ffffff;
+}
+
+.kz div.highlight {
+	font-size: 14px;
+	margin-top: 1em;
+	padding-top: 34px;
+	padding-bottom: 0px;
+	width: 600px;
+	color: #000000;
+	height: 65px;
+	line-height: 21px;
+}
+
+.kz div.highlight a {
+	color: #000090;
+}
+
+.kz div.highlight .right {
+	float: right;
+}
+
+
+.kz .modal {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 1050;
+	overflow: hidden;
+	background: rgba(0, 0, 0, 0.2);
+	-webkit-overflow-scrolling: touch;
+	outline: 0;
+}
+
+.kz .modal-content {
+	width: 600px;
+	margin: 30px auto;
+	position: relative;
+	height: 400px;
+	background: #FFFFFF;
+	z-index: 100;
+	top: 30px;
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	-o-border-radius: 4px;
+	padding: 35px 50px 35px 50px;
+}
+
+.kz .kz-regions li {
+	font-family: "Tahoma";
+}
+
+.kz .kz-regions a {
+	color: #0058C4;
+	text-decoration: none;
+}
+
+.kz .kz-regions a:hover {
+	color: #FF0000;
+}
+
+.kz .modal-content .title {
+
+	font-family: "Tahoma";
+	font-size: 20px;
+	margin-bottom: 16px;
+	color: #444444;
+}
+
+.kz .modal-content a.active {
+	color: green;
+}
+
+.kz .modal-content .modal-close {
+	width: 15px;
+	height: 15px;
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	background-image: url(/img/portal/icon-modal-close.png);
+	cursor: pointer;
+}
+
+.kz .modal-content .modal-close:hover {
+	background-image: url(/img/portal/icon-modal-close-hover.png);
+}
+
+.kz .lang-container {
+	height: 34px;
+}
+
+.kz div.lang {
+	float: right;
+	margin-top: 8px;
+}
+
+.kz .set-region {
+	width: 400px;
+	font-size: 14px;
+	padding-top: 90px;
+}
+
+.kz .location-pointer {
+	background-image: url(/img/portal/icon-map-pointer-white.png);
+	width: 16px;
+	height: 24px;
+	display: inline-block;
+	margin-top: -3px;
+	position: absolute;
+}
+
+.kz .location-title {
+	font-family: "Tahoma";
+	font-size: 16px;
+	color: #ffffff;
+	border-bottom: 1px dotted white;
+	cursor: pointer;
+	margin-left: 25px;
+}
+
+.kz .change-region {
+	color: #999;
+	cursor: default;
+}
+/*Новый дизайн*/
+.new_design_page {
+	background-color: #FFFFFF;
+	font-family: 'Montserrat';
+}
+.new_design_page.login_page #pageCommon .content-wrapper > div {
+	width: 79%;
+	min-height: 650px;
+}
+.new_design_page.login_page .nav {
+	display: none;
+}
+.new_design_page.login_page #pageCommon .header {
+	background-color: #FFFFFF;
+	padding: 40px 0;
+}
+.new_design_page.login_page #pageCommon .header > div {
+	width: 79%;
+}
+.new_design_page.login_page #pageCommon .footer {
+	display: none;
+}
+.new_design_page.login_page .page {
+	background-color: #FFFFFF;
+}
+.logo-index {
+	background: url(../img/logo.svg) no-repeat center;
+	height: 50px;
+	width: 190px;
+	display: inline-block;
+}
+.new_design_page.login_page #pageCommon .content-wrapper > div > div {
+	display: flex;
+	height: 100%;
+}
+.new_design_page.login_page #pageCommon .content {
+	width: 100%;
+	background: url(../img/bg_login_women.png) no-repeat left;
+	height: 635px;
+	display: flex;
+}
+.new_design_page.login_page #pageCommon .login-form {
+	max-width: 452px;
+	height: auto;
+	float: right;
+	border-radius: 2px;
+	margin-right: 0px;
+	box-shadow: 0px 6px 42px #C0CAE891;
+	background-color: #FFFFFF;
+	padding: 31px 40px;
+	display: block;
+}
+.new_design_page.login_page #pageCommon .login-form form {
+	width: auto;
+}
+.new_design_page.login_page #pageCommon .login-form h1 {
+	font-size: 32px;
+	line-height: 40px;
+	color: #050038;
+	font-weight: bold;
+	margin-bottom: 29px;
+}
+.new_design_page.login_page #pageCommon .login-form h3 {
+	color: #050038;
+	font-size: 20px;
+	font-weight: bold;
+	line-height: 37px;
+	margin-bottom: 0;
+}
+.new_design_page.login_page #pageCommon .login-form .select_login {
+	display: flex;
+	padding: 0 0 12.5px;
+	margin-bottom: 18px;
+	border-bottom: 1px solid #D8D8D8;
+}
+.new_design_page.login_page #pageCommon .login-form .select_login li {
+	display: block;
+	flex: auto;
+}
+.new_design_page.login_page #pageCommon .login-form .select_login li:nth-child(2) {
+	text-align: center;
+}
+.new_design_page.login_page #pageCommon .login-form .select_login li:nth-child(3) {
+	text-align: right;
+}
+.new_design_page.login_page #pageCommon .login-form .select_login li a {
+	text-decoration: none;
+	font-size: 16px;
+	line-height: 26px;
+	color: #050038;
+	font-weight: 500;
+	padding: 14.5px 0;
+}
+.new_design_page.login_page #pageCommon .login-form .select_login li a.active,
+.new_design_page.login_page #pageCommon .login-form .select_login li a:hover {
+	border-bottom: 3px solid #0069EC;
+}
+.new_design_page.login_page #pageCommon .login-form input {
+	border-radius: 2px;
+	background-color: #DEEDFF;
+	border: none;
+	width: calc(100% - 32px);
+	font-size: 16px;
+	margin-bottom: 18px;
+	color: #050038;
+	padding: 16px 16px 18px;
+	font-family: 'Montserrat';
+}
+.new_design_page.login_page #pageCommon .login-form input:focus,
+.new_design_page.login_page #pageCommon .login-form select:focus {
+	outline: none;
+}
+.new_design_page.login_page #pageCommon .login-form select {
+	border-radius: 2px;
+	border: none;
+	width: 100%;
+	font-size: 16px;
+	color: #050038;
+	padding: 16px 16px 18px;
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	background: transparent;
+	font-family: 'Montserrat';
+}
+.new_design_page.login_page #pageCommon .login-form .custon-select {
+	background: url(../../img/icons/input/select.png) no-repeat right;
+	width: 100%;
+	overflow: hidden;
+	background-color: #DEEDFF;
+	height: 51px;
+	border-radius: 2px;
+	background-position-x: calc(100% - 10px);
+	margin-bottom: 18px;
+}
+.new_design_page.login_page #pageCommon .login-form input#promed-password {
+	margin-bottom: 0;
+}
+.new_design_page.login_page #pageCommon .login-form .hidden-pass {
+	background: url(../img/icons/pswd-hide.svg) no-repeat center;
+	width: 22px;
+	height: 15px;
+	display: inline-block;
+	position: absolute;
+	margin-left: 412px;
+	margin-top: 18px;
+}
+.new_design_page.login_page #pageCommon .login-form .hidden-pass.show {
+	background: url(../img/icons/pswd-show.svg) no-repeat center;
+}
+.new_design_page.login_page #pageCommon .login-form label {
+	font-size: 16px;
+	line-height: 22px;
+	color: #050038;
+	font-weight: 500;
+	margin-bottom: 8px;
+	display: block;
+	opacity: 0.7;
+}
+.new_design_page.login_page #pageCommon .login-form button {
+	border-radius: 2px;
+	background-color: #0069EC;
+	color: #FFFFFF;
+	font-size: 15px;
+	line-height: 20px;
+	text-transform: uppercase;
+	width: 100%;
+	padding: 18px 0;
+	margin-top: 16px;
+	letter-spacing: 2px;
+	font-weight: bold;
+}
+.new_design_page.login_page #pageCommon .login-form button:hover {
+	background-color: #006EF8;
+}
+.new_design_page.login_page #pageCommon .login-form button:focus {
+	background-color: #0066E5;
+}
+.new_design_page.login_page #pageCommon .login-form .password_recovery {
+	color: #0069EC;
+	font-size: 16px;
+	line-height: 26px;
+	font-weight: 500;
+	float: right;
+	text-decoration: none;
+}
+
+/*гамбургер*/
+#menu__toggle {
+	display: none;
+	opacity: 0;
+}
+#menu__toggle:checked ~ .menu__btn > span {
+	transform: rotate(45deg);
+	top: 12px;
+}
+#menu__toggle:checked ~ .menu__btn > span::before {
+	top: 0;
+	transform: rotate(0);
+}
+#menu__toggle:checked ~ .menu__btn > span::after {
+	top: 0;
+	transform: rotate(90deg);
+}
+#menu__toggle:checked ~ .menu__box {
+	visibility: visible;
+	height: auto;
+}
+
+.menu__btn {
+	display: block;
+	align-items: center;
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	margin-right: 10px;
+	cursor: pointer;
+	top: 50px;
+	z-index: 1;
+}
+.menu__btn:hover > span::before {
+	width: 16px;
+}
+.menu__btn:hover > span::after {
+	width: 11px;
+}
+#menu__toggle:checked ~ .menu__btn:hover > span::after,
+#menu__toggle:checked ~ .menu__btn:hover > span::before {
+	width: 24px;
+}
+.menu__btn > span,
+.menu__btn > span::before,
+.menu__btn > span::after {
+	display: block;
+	position: absolute;
+	width: 100%;
+	height: 2px;
+	z-index: 100500;
+	top: 20px;
+	background-color: #050038;
+	transition-duration: .25s;
+}
+.menu__btn > span::before {
+	content: '';
+	top: -16px;
+}
+.menu__btn > span::after {
+	content: '';
+	top: -8px;
+}
+.menu__box {
+	display: inline-block;
+	position: absolute;
+	visibility: hidden;
+	height: 0;
+	margin: 54px -335px 0;
+	padding: 37px 60px 37px 40px;
+	list-style: none;
+	background-color: #FFFFFF;
+	box-shadow: 0 4px 30px #C0CAE891;
+	transition: height 1.5s;
+}
+.menu__item {
+	display: block;
+	font-family: 'Roboto', sans-serif;
+	font-size: 20px;
+	text-decoration: none;
+}
+#pageCommon .header #menu__toggle:checked ~ .menu__box .menu__item {
+	display: block;
+}
+#pageCommon .header .menu__item {
+	color: #0069EC;
+	font-size: 15px;
+	line-height: 32px;
+	display: none;
+}
+#pageCommon .header .split_bottom {
+	padding-top: 60px;
+}
+/*конец гамбургера*/
+
+.region_login {
+	/*display: none;*/
+}

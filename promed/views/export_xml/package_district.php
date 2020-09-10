@@ -1,0 +1,39 @@
+<?php if (getRegionNick() == 'kareliya') { ?>
+<AREA_DATA>
+	<ZGLV>
+		<VERSION>1.0</VERSION>
+		{DATE}
+		{CODE_MO}
+		{ID_MO}
+	</ZGLV>
+	<AREA>
+		{ID_AREA}
+		{OPER_TYPE}
+		{DOC_DATE}
+		{NUM_UCH}
+		{TIP_UCH}
+		{SNILS_VR}
+	</AREA>
+</AREA_DATA>
+<?php } else { ?>
+<DISTRICT>
+	<HEADER>
+		{OPERATIONTYPE}
+		{DATE}
+		{CODE_MO}
+		{ID_MO}
+		{LPUREGION_ID}
+	</HEADER>
+	<?php if($OPERATIONTYPE!='Delete'){ ?><BODY>
+		{LPUREGION_NAME}
+		{LPUREGIONTYPE}
+		{LPUSECTION_CODETFOMS}
+		{LPUBUILDING_CODETFOMS}
+		{DOC_SNILS}
+		{DOC_TYPE}
+		{DOC_DATE}
+		{LPUREGION_BEGDATE}
+		{LPUREGION_ENDDATE}
+	</BODY><?php } ?>
+</DISTRICT>
+<?php } ?>

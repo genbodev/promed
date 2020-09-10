@@ -1,0 +1,1 @@
+{"personData": "{person_data}", "PersonMedHistory": "{PersonMedHistory}","Anthropometry":"{Anthropometry}","FeedingType":"{FeedingType}","BloodData":"{BloodData}","AllergHistory":"{AllergHistory}","ExpertHistory":"{ExpertHistory}","PersonDispInfo":"{PersonDispInfo}","DiagList":"{DiagList}","SurgicalList":"{SurgicalList}"}

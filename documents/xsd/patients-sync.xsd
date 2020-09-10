@@ -1,0 +1,219 @@
+<?xml version='1.0' encoding='UTF-8'?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://cz.atria/patient/interchange/sync" xmlns:sync="http://atria.cz/common/sync/" xmlns:pat="http://cz.atria/patient/interchange/" elementFormDefault="qualified" targetNamespace="http://cz.atria/patient/interchange/sync" version="1.0">
+    <xs:import namespace="http://atria.cz/common/sync/" schemaLocation="https://rmis66.mis66.ru/patients-ws/patientSync?xsd=http://atria.cz/common/sync/syncData.xsd"/>
+    <xs:import namespace="http://cz.atria/patient/interchange/" schemaLocation="https://rmis66.mis66.ru/patients-ws/patientSync?xsd=patients.xsd"/>
+    <xs:complexType name="PatientSync">
+        <xs:complexContent>
+            <xs:extension base="pat:savePatientRequest">
+                <xs:sequence>
+                    <xs:element maxOccurs="1" minOccurs="1" name="syncSysInfo" type="sync:SyncSysInfo"/>
+                    <xs:element maxOccurs="1" minOccurs="0" name="individualEuid" type="xs:string"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="createOrUpdatePatientRequest" type="tns:PatientSync"/>
+    <xs:element name="createOrUpdatePatientResponse" type="sync:void"/>
+    <xs:element name="deletePatientRequest" type="sync:SyncSysInfo"/>
+    <xs:element name="deletePatientResponse" type="sync:void"/>
+    <xs:element name="getPatientRequest" type="xs:string"/>
+    <xs:element name="getPatientByIndividualEuidRequest" type="xs:string"/>
+
+    <xs:complexType name="PatientExtSync">
+        <xs:complexContent>
+            <xs:extension base="pat:xPatient">
+                <xs:sequence>
+                    <xs:element maxOccurs="1" minOccurs="1" name="syncSysInfo" type="sync:SyncSysInfo"/>
+                    <xs:element maxOccurs="1" minOccurs="1" name="individualEuid" type="xs:string"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="getPatientResponse" type="tns:PatientExtSync"/>
+    <xs:element name="getPatientByIndividualEuidResponse" type="tns:PatientExtSync"/>
+
+    <xs:complexType name="PatientCriteria">
+        <xs:complexContent>
+            <xs:extension base="pat:xSearchPatientOptions">
+                <xs:sequence>
+                    <xs:element maxOccurs="1" minOccurs="0" name="individualEuid" type="xs:string"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="searchPatientRequest" type="tns:PatientCriteria"/>
+    <xs:element name="searchPatientResponse" type="sync:EUIDList"/>
+
+    <xs:element name="getChangedPatientRequest" type="sync:SyncVerListRequest"/>
+    <xs:element name="getChangedPatientResponse" type="sync:SyncSysInfoList"/>
+    <xs:element name="getDeletedPatientRequest" type="sync:SyncVerListRequest"/>
+    <xs:element name="getDeletedPatientResponse" type="sync:SyncSysInfoList"/>
+
+
+    <xs:element name="getPatientPartCasesRequest" type="xs:string"/>
+
+    <xs:complexType name="PatientPartCaseSimpleSync">
+        <xs:sequence>
+            <xs:element maxOccurs="1" minOccurs="1" name="partCase" type="xs:string"/>
+            <xs:element maxOccurs="1" minOccurs="1" name="syncSysInfo" type="sync:SyncSysInfo"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="getPatientPartCasesResponse" type="sync:EUIDList"/>
+
+    <xs:complexType name="PatientPartCaseSync">
+        <xs:complexContent>
+            <xs:extension base="pat:PatientPartCaseBase">
+                <xs:sequence>
+                    <xs:element maxOccurs="1" minOccurs="1" name="syncSysInfo" type="sync:SyncSysInfo"/>
+                    <xs:element maxOccurs="1" minOccurs="1" name="patientEuid" type="xs:string"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="createOrUpdatePartCaseRequest" type="tns:PatientPartCaseSync"/>
+    <xs:element name="createOrUpdatePartCaseResponse" type="sync:void"/>
+    <xs:element name="deletePartCaseRequest" type="sync:SyncSysInfo"/>
+    <xs:element name="deletePartCaseResponse" type="sync:void"/>
+    <xs:element name="getPartCaseRequest" type="xs:string"/>
+    <xs:element name="getPartCaseResponse" type="tns:PatientPartCaseSync"/>
+    <xs:element name="getChangedPartCaseRequest" type="sync:SyncVerListRequest"/>
+    <xs:element name="getChangedPartCaseResponse" type="sync:SyncSysInfoList"/>
+    <xs:element name="getDeletedPartCaseRequest" type="sync:SyncVerListRequest"/>
+    <xs:element name="getDeletedPartCaseResponse" type="sync:SyncSysInfoList"/>
+
+    <xs:element name="getPatientRegsRequest" type="xs:string"/>
+
+    <xs:complexType name="PatientRegSimpleSync">
+        <xs:sequence>
+            <xs:element maxOccurs="1" minOccurs="1" name="registration" type="xs:string"/>
+            <xs:element maxOccurs="1" minOccurs="1" name="syncSysInfo" type="sync:SyncSysInfo"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="getPatientRegsResponse" type="sync:EUIDList"/>
+
+    <xs:complexType name="PatientRegExtSync">
+        <xs:complexContent>
+            <xs:extension base="pat:PatientRegBase">
+                <xs:sequence>
+                    <xs:element maxOccurs="1" minOccurs="1" name="syncSysInfo" type="sync:SyncSysInfo"/>
+                    <xs:element maxOccurs="1" minOccurs="1" name="patientEuid" type="xs:string"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="getPatientRegResponse" type="tns:PatientRegExtSync"/>
+
+
+    <xs:element name="createOrUpdatePatientRegRequest" type="tns:PatientRegExtSync"/>
+    <xs:element name="createOrUpdatePatientRegResponse" type="sync:void"/>
+    <xs:element name="deletePatientRegRequest" type="sync:SyncSysInfo"/>
+    <xs:element name="deletePatientRegResponse" type="sync:void"/>
+    <xs:element name="getPatientRegRequest" type="xs:string"/>
+    <xs:element name="getChangedPatientRegRequest" type="sync:SyncVerListRequest"/>
+    <xs:element name="getChangedPatientRegResponse" type="sync:SyncSysInfoList"/>
+    <xs:element name="getDeletedPatientRegRequest" type="sync:SyncVerListRequest"/>
+    <xs:element name="getDeletedPatientRegResponse" type="sync:SyncSysInfoList"/>
+    
+    <xs:element name="getPatientBenefitsRequest" type="xs:string"/>
+    <xs:complexType name="BenefitSimpleSync">
+        <xs:sequence>
+            <xs:element maxOccurs="1" minOccurs="1" name="benefit" type="xs:string"/>
+            <xs:element maxOccurs="1" minOccurs="1" name="syncSysInfo" type="sync:SyncSysInfo"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="getPatientBenefitsResponse" type="sync:EUIDList"/>
+    <xs:complexType name="BenefitSync">
+        <xs:complexContent>
+            <xs:extension base="pat:BenefitBase">
+                <xs:sequence>
+                    <xs:element maxOccurs="1" minOccurs="1" name="syncSysInfo" type="sync:SyncSysInfo"/>
+                    <xs:element maxOccurs="1" minOccurs="1" name="patientEuid" type="xs:string"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:element name="createOrUpdatePatientBenefitRequest" type="tns:BenefitSync"/>
+    <xs:element name="createOrUpdatePatientBenefitResponse" type="sync:void"/>
+    <xs:element name="deletePatientBenefitRequest" type="sync:SyncSysInfo"/>
+    <xs:element name="deletePatientBenefitResponse" type="sync:void"/>
+    <xs:element name="getPatientBenefitRequest" type="xs:string"/>
+    <xs:element name="getPatientBenefitResponse" type="tns:BenefitSync"/>
+    <xs:element name="getChangedPatientBenefitRequest" type="sync:SyncVerListRequest"/>
+    <xs:element name="getChangedPatientBenefitResponse" type="sync:SyncSysInfoList"/>
+    <xs:element name="getDeletedPatientBenefitRequest" type="sync:SyncVerListRequest"/>
+    <xs:element name="getDeletedPatientBenefitResponse" type="sync:SyncSysInfoList"/>
+
+    <xs:element name="getDrugIntolerancesRequest" type="xs:string"/>
+
+    <xs:complexType name="DrugIntoleranceSimpleSync">
+        <xs:sequence>
+            <xs:element maxOccurs="1" minOccurs="1" name="drugIntolerance" type="xs:string"/>
+            <xs:element maxOccurs="1" minOccurs="1" name="syncSysInfo" type="sync:SyncSysInfo"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="getDrugIntolerancesResponse" type="sync:EUIDList"/>
+    <xs:complexType name="DrugIntoleranceSync">
+        <xs:complexContent>
+            <xs:extension base="pat:DrugIntoleranceBase">
+                <xs:sequence>
+                    <xs:element maxOccurs="1" minOccurs="1" name="syncSysInfo" type="sync:SyncSysInfo"/>
+                    <xs:element maxOccurs="1" minOccurs="1" name="patientEuid" type="xs:string"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:element name="createOrUpdateDrugIntoleranceRequest" type="tns:DrugIntoleranceSync"/>
+    <xs:element name="createOrUpdateDrugIntoleranceResponse" type="sync:void"/>
+    <xs:element name="deleteDrugIntoleranceRequest" type="sync:SyncSysInfo"/>
+    <xs:element name="deleteDrugIntoleranceResponse" type="sync:void"/>
+    <xs:element name="getDrugIntoleranceRequest" type="xs:string"/>
+    <xs:element name="getDrugIntoleranceResponse" type="tns:DrugIntoleranceSync"/>
+    <xs:element name="getChangedDrugIntoleranceRequest" type="sync:SyncVerListRequest"/>
+    <xs:element name="getChangedDrugIntoleranceResponse" type="sync:SyncSysInfoList"/>
+    <xs:element name="getDeletedDrugIntoleranceRequest" type="sync:SyncVerListRequest"/>
+    <xs:element name="getDeletedDrugIntoleranceResponse" type="sync:SyncSysInfoList"/>
+
+    <xs:complexType name="BenefitCriteria">
+        <xs:sequence>
+            <xs:element maxOccurs="1" minOccurs="0" name="patientEuid" type="xs:string"/>
+            <xs:element maxOccurs="1" minOccurs="0" name="fromDate" type="xs:date"/>
+            <xs:element maxOccurs="1" minOccurs="0" name="toDate" type="xs:date"/>
+            <xs:element maxOccurs="1" minOccurs="0" name="benefitType" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="searchPatientBenefitRequest" type="tns:BenefitCriteria"/>
+    <xs:element name="searchPatientBenefitResponse" type="sync:EUIDList"/>
+
+    <xs:complexType name="PatientRegCriteria">
+        <xs:sequence>
+            <xs:element maxOccurs="1" minOccurs="0" name="patientEuid" type="xs:string"/>
+            <xs:element maxOccurs="1" minOccurs="0" name="regState" type="xs:string"/>
+            <xs:element maxOccurs="1" minOccurs="0" name="regType" type="xs:string"/>
+            <xs:element maxOccurs="1" minOccurs="0" name="clinicCode" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="searchPatientRegRequest" type="tns:PatientRegCriteria"/>
+    <xs:element name="searchPatientRegResponse" type="sync:EUIDList"/>
+
+    <xs:complexType name="DrugIntoleranceCriteria">
+        <xs:sequence>
+            <xs:element maxOccurs="1" minOccurs="0" name="patientEuid" type="xs:string"/>
+            <xs:element maxOccurs="1" minOccurs="0" name="inn" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="searchDrugIntoleranceRequest" type="tns:DrugIntoleranceCriteria"/>
+    <xs:element name="searchDrugIntoleranceResponse" type="sync:EUIDList"/>
+
+    <xs:complexType name="PartCaseCriteria">
+        <xs:sequence>
+            <xs:element maxOccurs="1" minOccurs="0" name="patientEuid" type="xs:string"/>
+            <xs:element maxOccurs="1" minOccurs="0" name="partCase" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="searchPartCaseRequest" type="tns:PartCaseCriteria"/>
+    <xs:element name="searchPartCaseResponse" type="sync:EUIDList"/>
+</xs:schema>

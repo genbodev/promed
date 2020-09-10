@@ -1,0 +1,118 @@
+<table border="0" cellpadding="0" cellspacing="0">
+	<tbody>
+		<tr>
+			<td rowspan="2" style="width: 319px;">
+				<p align="center">
+					Министерство здравоохранения и социального развития РФ</p>
+			</td>
+			<td style="width: 319px;">
+				<p align="center">
+					<strong><em>ГКБ-4, ул. КИМ, 2</em></strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 319px;">
+				<p align="center">
+					(наименование и адрес ЛПУ)</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" style="width: 638px;">
+				<p align="center">
+					&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" style="width: 638px;">
+				<p align="center">
+					<strong>Отделение сосудистой хирургии</strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" style="width: 638px;">
+				<p align="center">
+					(наименование отделения)</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p align="center">
+	<strong>ОПЕРАЦИЯ № 68</strong></p>
+<p align="center">
+	ПЛАНОВАЯ</p>
+<p align="center">
+	Дата: 25.01.2011</p>
+<p align="center">
+	Время: 09:40</p>
+<p align="center">
+	&nbsp;</p>
+<table border="1" cellpadding="0" cellspacing="0">
+	<tbody>
+		<tr>
+			<td style="width: 199px;">
+				<p>
+					Пациент</p>
+			</td>
+			<td style="width: 444px;">
+				<p>
+					Плесовских Василий Кузьмич</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 199px;">
+				<p>
+					Дата рождения</p>
+			</td>
+			<td style="width: 444px;">
+				<p>
+					06.05.1949 (61 лет)</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 199px;">
+				<p>
+					История болезни</p>
+			</td>
+			<td style="width: 444px;">
+				<p>
+					А882</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 199px;">
+				<p>
+					Диагноз</p>
+			</td>
+			<td style="width: 444px;">
+				<p>
+					Атеросклероз. Сочетанное поражение. Окклюзия левой, стеноз правой ВСА. ХНМК 4 ст. С-м Лериша. ХАН 4 ст. (I653 Закупорка и стеноз множественных и двусторонних прецеребр. артерий)</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p>
+	&nbsp;</p>
+<p>
+	<strong>ОПЕРАЦИЯ:</strong>Каротидная эндартерэктомия справа.</p>
+<p>
+	<strong>Протокол</strong>:</p>
+<p>
+	Проекционным доступом справа выделены сонные артерии. После в/в введения гепарина 5 тыс ед сонные артерии пережаты. Стеноз ВСА до 80%, бляшка с язвенным кратером. Ретроградный кровоток из ВСА крайне слабый, учитывая то, что имеется контралатеральная окклюзия ВСА, установлен внутренний шунт Le-maitre8 fr. Выполнена ЭЭ из ВСА, устья НСА и с уровня бифуркации ОСА. Пластика артерии ксеноперикардом. Шунт удален. Пуск кровотока. Контроль гемостаза. Дренаж. Швы на рану. Иод. Ас. повязки.</p>
+<p>
+	&nbsp;</p>
+<p>
+	<strong>Исполнители</strong>:</p>
+<p>
+	хирург&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Опарин А.Ю.</p>
+<p>
+	хирург&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Курников Д.В.</p>
+<p>
+	анестезиолог&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Брунс Т.М.</p>
+<p>
+	м/с&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Васильцова М.М.</p>
+<p>
+	м/с анестезистка&nbsp;&nbsp;&nbsp;&nbsp; Чипчагова И.В.</p>

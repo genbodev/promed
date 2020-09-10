@@ -1,0 +1,44 @@
+<ArrayOfStaffEntry xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" version="1.4.11.6" xmlns="StaffEntry">
+{STAFF_FIELDS}
+  <StaffEntry>
+    <UZ>
+      <ID>{UZ_ID}</ID>
+      <Name>{UZ_Name}</Name>
+      <INN>{UZ_INN}</INN>
+      <KPP>{UZ_KPP}</KPP>
+      <OGRN>{UZ_OGRN}</OGRN>
+	  <OID>{UZ_OID}</OID>
+      <Type>{UZ_Type}</Type>
+      <LPULevel>
+        <ID>{UZ_LPULevel_ID}</ID>
+        <Parent>{UZ_LPULevel_Parent}</Parent>
+        <Name>{UZ_LPULevel_Name}</Name>
+      </LPULevel>
+      <Nomen>
+        <ID>{UZ_Nomen_ID}</ID>
+        <Parent>{UZ_Nomen_Parent}</Parent>
+        <Name>{UZ_Nomen_Name}</Name>
+      </Nomen>
+      <KladrMunicipality>
+        <ID>{UZ_Municipality_ID}</ID>
+        <Name>{UZ_Municipality_Name}</Name>
+        <Parent>{UZ_Municipality_Parent}</Parent>
+        <Prefix>{UZ_Municipality_Prefix}</Prefix>
+      </KladrMunicipality>
+    </UZ>
+    <Branch>
+      <ID>{Branch_ID}</ID>
+      <Name>{Branch_Name}</Name>
+      <Parent>{Branch_Parent}</Parent>
+    </Branch>
+    <Unit>{Unit}</Unit>
+    <StuffPost>
+      <ID>{StuffPost_ID}</ID>
+      <Parent>{StuffPost_Parent}</Parent>
+      <Name>{StuffPost_Name}</Name>
+    </StuffPost>
+    <Quantity>{Quantity}</Quantity>
+    <Comment>{Comment}</Comment>
+</StaffEntry>
+{/STAFF_FIELDS}
+</ArrayOfStaffEntry>

@@ -1,0 +1,32 @@
+<ZL_LIST>
+	{ZGLV}
+	<ZGLV>
+		{FILENAME}
+		<DATA><?php echo date('Y-m-d'); ?></DATA>
+		{CODE_MO}
+		{YEAR}
+		{R}
+	</ZGLV>
+	{/ZGLV}
+	{ZAP}
+	<ZAP>
+		{N_ZAP}
+		{FAM}
+		{IM}
+		{OT}
+		{W}
+		{DR}
+		{PHONE}
+		{NPOLIS}
+		{DS}
+		{DAT_INC}
+		{D_PERIOD}
+		{MCODE}
+		{DAT_PREV}
+		{MDP}
+		{SMOCOD}
+		{DISP_TYP}
+		{MES}
+	</ZAP>
+	{/ZAP}
+</ZL_LIST>

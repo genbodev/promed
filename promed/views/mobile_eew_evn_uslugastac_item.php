@@ -1,0 +1,1 @@
+<tr><td><div>{EvnUsluga_setDate} {EvnClass_Name}: <strong>{Usluga_Code}. {Usluga_Name}</strong>. Количество: <?php if (!empty($EvnUsluga_Kolvo)) { ?>Количество: {EvnUsluga_Kolvo}<?php } ?></div></td></tr>

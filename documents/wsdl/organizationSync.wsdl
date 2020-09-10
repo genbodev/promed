@@ -1,0 +1,440 @@
+<?xml version='1.0' encoding='UTF-8'?><definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://atria.cz/ns/organization/api/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:orgsync="http://atria.cz/ns/organization/sync/" xmlns:org="http://atria.cz/ns/organization/" xmlns:bi="http://atria.cz/common/base/info/build/" xmlns="http://schemas.xmlsoap.org/wsdl/" name="OrganizationEndPointService" targetNamespace="http://atria.cz/ns/organization/api/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://atria.cz/ns/organization/api/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:orgsync="http://atria.cz/ns/organization/sync/" xmlns:org="http://atria.cz/ns/organization/" xmlns:bi="http://atria.cz/common/base/info/build/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+
+  <xsd:import namespace="http://atria.cz/ns/organization/sync/" schemaLocation="../xsd/organization-sync.xsd"/>
+
+  <xsd:import namespace="http://atria.cz/common/base/info/build/" schemaLocation="https://rmis66.mis66.ru/organization-ws/organizationSync?xsd=http://atria.cz/common/base/buildInfo.xsd"/>
+
+</xsd:schema>
+  </types>
+  <message name="searchOrganizationResponse">
+    <part element="orgsync:searchOrganizationResponse" name="result">
+    </part>
+  </message>
+  <message name="deleteOrganizationResponse">
+    <part element="orgsync:deleteOrganizationResponse" name="result">
+    </part>
+  </message>
+  <message name="searchOrganizationAddressRequest">
+    <part name="criteria" type="orgsync:OrganizationAddressCriteria">
+    </part>
+  </message>
+  <message name="deleteOrganizationRequest">
+    <part element="orgsync:deleteOrganizationRequest" name="Organization">
+    </part>
+  </message>
+  <message name="getDeletedOrganizationAddressResponse">
+    <part element="orgsync:getDeletedOrganizationAddressResponse" name="result">
+    </part>
+  </message>
+  <message name="deleteOrganizationAddressResponse">
+    <part element="orgsync:deleteOrganizationAddressResponse" name="result">
+    </part>
+  </message>
+  <message name="getOrganizationAddressResponse">
+    <part element="orgsync:getOrganizationAddressResponse" name="result">
+    </part>
+  </message>
+  <message name="createOrUpdateOrganizationRequest">
+    <part element="orgsync:createOrUpdateOrganizationRequest" name="Organization">
+    </part>
+  </message>
+  <message name="searchOrganizationAddressResponse">
+    <part element="orgsync:searchOrganizationAddressResponse" name="result">
+    </part>
+  </message>
+  <message name="getChangedOrganizationResponse">
+    <part element="orgsync:getChangedOrganizationResponse" name="result">
+    </part>
+  </message>
+  <message name="createOrUpdateOrganizationAddressRequest">
+    <part element="orgsync:createOrUpdateOrganizationAddressRequest" name="OrganizationAddress">
+    </part>
+  </message>
+  <message name="getOrganizationRequest">
+    <part element="orgsync:getOrganizationRequest" name="euid">
+    </part>
+  </message>
+  <message name="getOrganizationResponse">
+    <part element="orgsync:getOrganizationResponse" name="result">
+    </part>
+  </message>
+  <message name="createOrUpdateOrganizationResponse">
+    <part element="orgsync:createOrUpdateOrganizationResponse" name="result">
+    </part>
+  </message>
+  <message name="deleteOrganizationAddressRequest">
+    <part element="orgsync:deleteOrganizationAddressRequest" name="OrganizationAddress">
+    </part>
+  </message>
+  <message name="createOrUpdateOrganizationAddressResponse">
+    <part element="orgsync:createOrUpdateOrganizationAddressResponse" name="result">
+    </part>
+  </message>
+  <message name="getChangedOrganizationAddressResponse">
+    <part element="orgsync:getChangedOrganizationAddressResponse" name="result">
+    </part>
+  </message>
+  <message name="getDeletedOrganizationAddressRequest">
+    <part element="orgsync:getDeletedOrganizationAddressRequest" name="request">
+    </part>
+  </message>
+  <message name="getVersionRequest">
+    <part element="bi:getVersionRequest" name="getVersionRequest">
+    </part>
+  </message>
+  <message name="getChangedOrganizationRequest">
+    <part element="orgsync:getChangedOrganizationRequest" name="request">
+    </part>
+  </message>
+  <message name="getVersionResponse">
+    <part element="bi:getVersionResponse" name="getVersionResponse">
+    </part>
+  </message>
+  <message name="getChangedOrganizationAddressRequest">
+    <part element="orgsync:getChangedOrganizationAddressRequest" name="request">
+    </part>
+  </message>
+  <message name="getDeletedOrganizationResponse">
+    <part element="orgsync:getDeletedOrganizationResponse" name="result">
+    </part>
+  </message>
+  <message name="searchOrganizationRequest">
+    <part element="orgsync:searchOrganizationRequest" name="criteria">
+    </part>
+  </message>
+  <message name="getDeletedOrganizationRequest">
+    <part element="orgsync:getDeletedOrganizationRequest" name="request">
+    </part>
+  </message>
+  <message name="getOrganizationAddressRequest">
+    <part element="orgsync:getOrganizationAddressRequest" name="euid">
+    </part>
+  </message>
+  <portType name="OrganizationSyncEndPoint">
+    <operation name="createOrUpdateOrganization">
+      <input message="tns:createOrUpdateOrganizationRequest" name="createOrUpdateOrganizationRequest">
+    </input>
+      <output message="tns:createOrUpdateOrganizationResponse" name="createOrUpdateOrganizationResponse">
+    </output>
+    </operation>
+    <operation name="deleteOrganization">
+      <input message="tns:deleteOrganizationRequest" name="deleteOrganizationRequest">
+    </input>
+      <output message="tns:deleteOrganizationResponse" name="deleteOrganizationResponse">
+    </output>
+    </operation>
+    <operation name="getOrganization">
+      <input message="tns:getOrganizationRequest" name="getOrganizationRequest">
+    </input>
+      <output message="tns:getOrganizationResponse" name="getOrganizationResponse">
+    </output>
+    </operation>
+    <operation name="searchOrganization">
+      <input message="tns:searchOrganizationRequest" name="searchOrganizationRequest">
+    </input>
+      <output message="tns:searchOrganizationResponse" name="searchOrganizationResponse">
+    </output>
+    </operation>
+    <operation name="getChangedOrganization">
+      <input message="tns:getChangedOrganizationRequest" name="getChangedOrganizationRequest">
+    </input>
+      <output message="tns:getChangedOrganizationResponse" name="getChangedOrganizationResponse">
+    </output>
+    </operation>
+    <operation name="getDeletedOrganization">
+      <input message="tns:getDeletedOrganizationRequest" name="getDeletedOrganizationRequest">
+    </input>
+      <output message="tns:getDeletedOrganizationResponse" name="getDeletedOrganizationResponse">
+    </output>
+    </operation>
+    <operation name="createOrUpdateOrganizationAddress">
+      <input message="tns:createOrUpdateOrganizationAddressRequest" name="createOrUpdateOrganizationAddressRequest">
+    </input>
+      <output message="tns:createOrUpdateOrganizationAddressResponse" name="createOrUpdateOrganizationAddressResponse">
+    </output>
+    </operation>
+    <operation name="deleteOrganizationAddress">
+      <input message="tns:deleteOrganizationAddressRequest" name="deleteOrganizationAddressRequest">
+    </input>
+      <output message="tns:deleteOrganizationAddressResponse" name="deleteOrganizationAddressResponse">
+    </output>
+    </operation>
+    <operation name="getOrganizationAddress">
+      <input message="tns:getOrganizationAddressRequest" name="getOrganizationAddressRequest">
+    </input>
+      <output message="tns:getOrganizationAddressResponse" name="getOrganizationAddressResponse">
+    </output>
+    </operation>
+    <operation name="getChangedOrganizationAddress">
+      <input message="tns:getChangedOrganizationAddressRequest" name="getChangedOrganizationAddressRequest">
+    </input>
+      <output message="tns:getChangedOrganizationAddressResponse" name="getChangedOrganizationAddressResponse">
+    </output>
+    </operation>
+    <operation name="getDeletedOrganizationAddress">
+      <input message="tns:getDeletedOrganizationAddressRequest" name="getDeletedOrganizationAddressRequest">
+    </input>
+      <output message="tns:getDeletedOrganizationAddressResponse" name="getDeletedOrganizationAddressResponse">
+    </output>
+    </operation>
+    <operation name="searchOrganizationAddress">
+      <input message="tns:searchOrganizationAddressRequest" name="searchOrganizationAddressRequest">
+    </input>
+      <output message="tns:searchOrganizationAddressResponse" name="searchOrganizationAddressResponse">
+    </output>
+    </operation>
+    <operation name="getVersion">
+      <input message="tns:getVersionRequest" name="getVersionRequest">
+    </input>
+      <output message="tns:getVersionResponse" name="getVersionResponse">
+    </output>
+    </operation>
+  </portType>
+  <binding name="OrganizationSyncEndPointSoapBinding" type="tns:OrganizationSyncEndPoint">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="createOrUpdateOrganization">
+      <soap:operation soapAction="" style="document"/>
+      <input name="createOrUpdateOrganizationRequest">
+        <soap:body use="literal"/>
+      </input>
+      <output name="createOrUpdateOrganizationResponse">
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="deleteOrganization">
+      <soap:operation soapAction="" style="document"/>
+      <input name="deleteOrganizationRequest">
+        <soap:body use="literal"/>
+      </input>
+      <output name="deleteOrganizationResponse">
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getOrganization">
+      <soap:operation soapAction="" style="document"/>
+      <input name="getOrganizationRequest">
+        <soap:body use="literal"/>
+      </input>
+      <output name="getOrganizationResponse">
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="searchOrganization">
+      <soap:operation soapAction="" style="document"/>
+      <input name="searchOrganizationRequest">
+        <soap:body use="literal"/>
+      </input>
+      <output name="searchOrganizationResponse">
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getChangedOrganization">
+      <soap:operation soapAction="" style="document"/>
+      <input name="getChangedOrganizationRequest">
+        <soap:body use="literal"/>
+      </input>
+      <output name="getChangedOrganizationResponse">
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getDeletedOrganization">
+      <soap:operation soapAction="" style="document"/>
+      <input name="getDeletedOrganizationRequest">
+        <soap:body use="literal"/>
+      </input>
+      <output name="getDeletedOrganizationResponse">
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="createOrUpdateOrganizationAddress">
+      <soap:operation soapAction="" style="document"/>
+      <input name="createOrUpdateOrganizationAddressRequest">
+        <soap:body use="literal"/>
+      </input>
+      <output name="createOrUpdateOrganizationAddressResponse">
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="deleteOrganizationAddress">
+      <soap:operation soapAction="" style="document"/>
+      <input name="deleteOrganizationAddressRequest">
+        <soap:body use="literal"/>
+      </input>
+      <output name="deleteOrganizationAddressResponse">
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getOrganizationAddress">
+      <soap:operation soapAction="" style="document"/>
+      <input name="getOrganizationAddressRequest">
+        <soap:body use="literal"/>
+      </input>
+      <output name="getOrganizationAddressResponse">
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getChangedOrganizationAddress">
+      <soap:operation soapAction="" style="document"/>
+      <input name="getChangedOrganizationAddressRequest">
+        <soap:body use="literal"/>
+      </input>
+      <output name="getChangedOrganizationAddressResponse">
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getDeletedOrganizationAddress">
+      <soap:operation soapAction="" style="document"/>
+      <input name="getDeletedOrganizationAddressRequest">
+        <soap:body use="literal"/>
+      </input>
+      <output name="getDeletedOrganizationAddressResponse">
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="searchOrganizationAddress">
+      <soap:operation soapAction="" style="document"/>
+      <input name="searchOrganizationAddressRequest">
+        <soap:body use="literal"/>
+      </input>
+      <output name="searchOrganizationAddressResponse">
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getVersion">
+      <soap:operation soapAction="" style="document"/>
+      <input name="getVersionRequest">
+        <soap:body use="literal"/>
+      </input>
+      <output name="getVersionResponse">
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <binding name="OrganizationSyncEndPointBinding" type="tns:OrganizationSyncEndPoint">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="createOrUpdateOrganization">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="deleteOrganization">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getOrganization">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="searchOrganization">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getChangedOrganization">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getDeletedOrganization">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="createOrUpdateOrganizationAddress">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="deleteOrganizationAddress">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getOrganizationAddress">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getChangedOrganizationAddress">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getDeletedOrganizationAddress">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="searchOrganizationAddress">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getVersion">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="OrganizationSyncEndPointService">
+    <port binding="tns:OrganizationSyncEndPointSoapBinding" name="OrganizationSyncEndPointPort">
+      <soap:address location="https://rmis66.mis66.ru/organization-ws/organizationSync"/>
+    </port>
+  </service>
+</definitions>

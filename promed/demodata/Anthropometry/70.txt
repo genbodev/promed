@@ -1,0 +1,96 @@
+<p>
+	<strong>Антропометрические данные</strong></p>
+<p>
+	&nbsp;</p>
+<table border="1" cellpadding="10" cellspacing="0" style="width: 651px;" width="651">
+	<tbody>
+		<tr>
+			<td style="width: 92px;">
+				<p>
+					Дата</p>
+			</td>
+			<td style="width: 92px;">
+				<p>
+					Показатель</p>
+			</td>
+			<td style="width: 156px;">
+				<p>
+					Значение</p>
+			</td>
+			<td style="width: 157px;">
+				<p>
+					Единица измерения</p>
+			</td>
+			<td style="width: 155px;">
+				<p>
+					Норма</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 92px;">
+				<p>
+					20.11.2010</p>
+			</td>
+			<td style="width: 92px;">
+				<p>
+					Рост</p>
+			</td>
+			<td style="width: 156px;">
+				<p>
+					165</p>
+			</td>
+			<td style="width: 157px;">
+				<p>
+					см</p>
+			</td>
+			<td style="width: 155px;">
+				<p>
+					&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 92px;">
+				<p>
+					20.11.2010</p>
+			</td>
+			<td style="width: 92px;">
+				<p>
+					Вес</p>
+			</td>
+			<td style="width: 156px;">
+				<p>
+					68</p>
+			</td>
+			<td style="width: 157px;">
+				<p>
+					кг</p>
+			</td>
+			<td style="width: 155px;">
+				<p>
+					&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 92px;">
+				<p>
+					20.11.2010</p>
+			</td>
+			<td style="width: 92px;">
+				<p>
+					Индекс массы тела</p>
+			</td>
+			<td style="width: 156px;">
+				<p>
+					24,97</p>
+			</td>
+			<td style="width: 157px;">
+				<p>
+					&nbsp;</p>
+			</td>
+			<td style="width: 155px;">
+				<p>
+					&nbsp;</p>
+			</td>
+		</tr>
+	</tbody>
+</table>

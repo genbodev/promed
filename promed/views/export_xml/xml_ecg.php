@@ -1,0 +1,17 @@
+<web:sendMessage>
+	<Examine>
+		<Sender>
+			<name>{Sender_Name}</name>
+		</Sender>
+		<PatientInfo>
+			<Code>{Code}</Code>
+			<LastName>{Person_SurName}</LastName>
+			<MiddleName>{Person_SecName}</MiddleName>
+			<FirstName>{Person_FirName}</FirstName>
+			<Comment>{Comment}</Comment>
+			<BirthDate>{Person_BirthDay}</BirthDate>
+			<Sex>{Sex}</Sex>
+		</PatientInfo>
+		<DoExam>{DoExam}</DoExam>
+	</Examine>
+</web:sendMessage>

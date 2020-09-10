@@ -1,0 +1,1 @@
+<table width=&quot;100%&quot;><thead><tr><th>Категория льготы</th><th>Дата открытия</th><th>Дата закрытия</th><th>Актуальность</th></tr></thead><tbody>{items}</tbody></table>

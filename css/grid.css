@@ -1,0 +1,520 @@
+.additionalGridRowHoverIcon {
+    cursor: pointer;
+    display: none;
+    font-size: 11px;
+    height: 13px !important;
+    line-height: 11px;
+    margin: 0;
+    padding: 0;
+}
+
+.additionalGridRowHoverClass tr:hover td .additionalGridRowHoverIcon {display:inline-block}
+
+.additionalGridRowHoverClass .x-grid3-row-selected table tr td {
+	font-weight: bold !important;
+}
+
+.hidenMessageForLoadMask {
+	display: none;
+}
+
+.x-grid3-check-col-on-non-border-gray{
+	width:100%;
+	height:16px;
+	background-position:center center;
+	background-repeat:no-repeat;
+	background-color:transparent;
+	background-image:url(../img/grid/checkednonborder-gray.gif);
+}
+
+.x-grid3-check-col-on-non-border-red{
+	width:100%;
+	height:16px;
+	background-position:center center;
+	background-repeat:no-repeat;
+	background-color:transparent;
+	background-image:url(../img/grid/checkednonborder-red.gif);
+}
+
+.x-grid3-check-col-on-non-border-yellow{
+	width:100%;
+	height:16px;
+	background-position:center center;
+	background-repeat:no-repeat;
+	background-color:transparent;
+	background-image:url(../img/grid/checkednonborder-yellow.gif);
+}
+.x-grid3-check-col-on-non-border-blue{
+	width:100%;
+	height:16px;
+	background-position:center center;
+	background-repeat:no-repeat;
+	background-color:transparent;
+	background-image:url(../img/grid/checkednonborder-blue.gif);
+}
+.x-grid3-check-col-on-non-border-orange{
+	width:100%;
+	height:16px;
+	background-position:center center;
+	background-repeat:no-repeat;
+	background-color:transparent;
+	background-image:url(../img/grid/checkednonborder-orange.gif);
+}
+.x-grid3-check-col-non-border-on {
+    width:100%;
+    height:16px;
+    background-position:center center;
+    background-repeat:no-repeat;
+    background-color:transparent;
+	background-image:url(../img/grid/checkednonborder.gif);
+}
+
+.x-grid3-check-col-non-border {
+    width:100%;
+    height:16px;
+    background-position:center center;
+    background-repeat:no-repeat;
+    background-color:transparent;
+	background-image:url(../img/grid/uncheckednonborder.gif);
+}
+
+/* Главная запись в таблице при объединении */
+.mainrec  {
+    color: blue;
+    font: bold 11px "sans serif", tahoma, verdana, helvetica;
+}
+
+.farmacy_list {
+	border-collapse: collapse;
+	
+}
+
+.farmacy_list td {
+	border: 1px dotted gray;
+	padding-left: 2px;
+}
+
+.x-grid-rowselect {
+}
+
+.x-grid-rowselect td {
+	font-weight: bold;
+	vertical-align:middle;
+}
+
+
+.x-grid-rowblue {
+}
+
+.x-grid-rowblue td {
+	color: blue;
+	vertical-align:middle;
+}
+
+.x-grid-roworange {
+}
+
+.x-grid-roworange td {
+	color: #FF4500;
+	vertical-align:middle;
+}
+
+.x-grid-rowred {
+}
+
+.x-grid-rowred td {
+	color: red;
+	vertical-align:middle;
+}
+
+.x-grid-rowchildred {
+}
+
+.x-grid-rowchildred > table > tbody > tr:first-child {
+	color: red;
+	vertical-align:middle;
+}
+
+.x-grid-rowgray {
+}
+
+.x-grid-rowgray td {
+	color: gray;
+   vertical-align:middle;
+}
+
+.x-grid-rowdeleted{
+}
+
+.x-grid-rowdeleted td {
+   text-decoration: line-through;
+}
+
+.x-grid-errornotedited td {
+	background-color:LightSalmon;
+}
+
+.x-grid-erroredited td {
+	background-color:LightGreen;
+}
+
+.x-grid-rowgreen {
+}
+
+.x-grid-rowgreen td {
+	color: green;
+   vertical-align:middle;
+}
+
+.x-grid-rowbackgreen {
+}
+
+.x-grid-rowbackgreen tr {
+	background: #CFC;
+	vertical-align:middle;
+}
+
+.x-grid-rowbackblue {
+}
+
+.x-grid-rowbackblue tr {
+	background: #c0ceff;
+	vertical-align:middle;
+}
+
+.x-grid-rowbackyellow {
+}
+
+.x-grid-rowbackyellow tr {
+	background: #FFFF99;
+	vertical-align:middle;
+}
+
+.x-grid-rowbackred {
+}
+
+.x-grid-rowbackred tr {
+	background: #FCC;
+	vertical-align:middle;
+}
+
+.x-grid-rowbackpalepink {
+}
+
+.x-grid-rowbackpalepink tr { /* бледно розовый */
+	background: #ffdddd;
+	vertical-align:middle;
+}
+
+.x-grid-rowbackorange {
+}
+
+.x-grid-rowbackorange tr {
+	background: #FDC2A8;
+	vertical-align:middle;
+}
+
+.x-grid-rowbackgray {
+}
+
+.x-grid-rowbackgray tr {
+	background: #DAD6D3;
+	vertical-align:middle;
+}
+
+.x-grid-rowbackdarkgray {
+}
+
+.x-grid-rowbackdarkgray tr {
+	background: #DCDCDC;
+	vertical-align:middle;
+}
+.x-grid-rowbacklightgray {
+}
+
+.x-grid-rowbacklightgray tr {
+	background: #F5F5F5;
+	vertical-align:middle;
+}
+
+tr.x-grid-rowbacklightblue {
+	background: #E3F2FD;
+	vertical-align:middle;
+}
+
+tr.x-grid-rowbacklightgreen {
+	background: #E3FFE3;
+}
+
+.x-grid-rowbackdarkred {
+	background: #D58787;
+}
+
+.x-grid-rowbackgainsboro {
+	background: #DCDCDC;
+}
+
+.x-grid-cell-free{
+ /*background-color: lime;свободные ярко-зеленый*/
+ background-color: #ddffdd; /* зеленый чай */
+ cursor: pointer;
+}
+.x-grid-cell-busy{
+ background-color: #ffdddd; /* бледно-розовый */
+ /*background-color: rgb(255,128,255);занятые светло-розовый*/
+ cursor: pointer;
+}
+.x-grid-cell-busy-free{
+ background-color: #ffdddd; /* бледно-розовый */
+ /*background-color: rgb(255,128,255);занятые светло-розовый*/
+ cursor: pointer;
+}
+
+.x-grid-cell-free-pay{
+ /*background-color: rgb(128,0,128);платные фиолетовый*/ /* непонятно почему это фиолетовый, Яндекс говорит что это цвет влюбленной жабы, вот фиолетовый #8b00ff */
+ background-color: #8b00ff;
+ cursor: pointer;
+}
+.x-grid-cell-busy-pay{
+ background-color: #ff9999; /* темно-лососевый */
+ cursor: pointer;
+}
+.x-grid-cell-free-vet{
+ background-color: #66cccc; /* яйца дрозда */
+ cursor: pointer;
+}
+.x-grid-cell-busy-vet{
+ background-color: #227777; /* сине-зеленый */
+ cursor: pointer;
+}
+
+.x-grid-cell-free-extr{
+ background-color: pink;
+ cursor: pointer;
+}
+.x-grid-cell-busy-extr{
+ background-color: orange;
+ cursor: pointer;
+}
+
+.x-grid-cell-free-reserved{
+ background-color: rgb(255,255,128);/*резервные желтый*/
+ cursor: pointer;
+}
+.x-grid-cell-busy-reserved{
+ background-color: orange;
+ cursor: pointer;
+}
+
+.x-grid-cell-invalid{
+	background: #cfc;
+}
+
+.x-grid-cell-reded{
+	background: #FCC;
+}
+
+.x-grid-cell-red{
+	background: #ff8a8a	;
+}
+
+.x-grid3-dir-col-non-border-on {
+    width:100%;
+    height:16px;
+    background-position:center center;
+    background-repeat:no-repeat;
+    background-color:transparent;
+	background-image:url(../img/icons/directions16.png);
+}
+.x-grid3-dir-col {
+    width:100%;
+    height:16px;
+	cursor: pointer;
+    background-position:right center;
+    background-repeat:no-repeat;
+    background-color:transparent;
+	background-image:url(../img/icons/directions16.png);
+}
+.x-grid3-smp-col {
+    width:100%;
+    height:16px;
+    background-position:right center;
+    background-repeat:no-repeat;
+    background-color:transparent;
+	background-image:url(../img/icons/ambulance16.png);
+}
+.x-grid3-xmltemplate-col-view{
+    width:100%;
+    height:16px;
+	padding-left: 20px;
+    background-position:left center;
+    background-repeat:no-repeat;
+    background-color:transparent;
+	background-image:url(../img/icons/document-locked16.png);
+}
+.x-grid3-xmltemplate-col-edit {
+    width:100%;
+    height:16px;
+	padding-left: 20px;
+    background-position:left center;
+    background-repeat:no-repeat;
+    background-color:transparent;
+	background-image:url(../img/icons/document16.png);
+}
+.x-grid3-xmltemplatecat-col-view{
+    width:100%;
+    height:16px;
+	padding-left: 20px;
+    background-position:left center;
+    background-repeat:no-repeat;
+    background-color:transparent;
+	background-image:url(../img/icons/folder-locked16.png);
+}
+.x-grid3-xmltemplatecat-col-edit {
+    width:100%;
+    height:16px;
+	padding-left: 20px;
+    background-position:left center;
+    background-repeat:no-repeat;
+    background-color:transparent;
+	background-image:url(../img/icons/folder16.png);
+}
+.x-grid3-wait-col-non-border-on {
+    width:100%;
+    height:16px;
+    background-position:center center;
+    background-repeat:no-repeat;
+    background-color:transparent;
+    background-image:url(../img/grid/hourglass.gif);
+}
+.x-grid3-dir-col-non-border {
+    width:100%;
+    height:16px;
+    background-position:center center;
+    background-repeat:no-repeat;
+    background-color:transparent;
+	background-image:url(../img/grid/uncheckednonborder.gif);
+}
+.x-grid-rowbold {
+}
+
+.x-grid-rowbold td {
+	font-weight: bold !important;
+}
+.x-grid-rowitalic {
+}
+
+.x-grid-rowitalic td {
+	font-style: italic!important;
+}
+/**----**/
+.filterInput{
+	height:25px;
+	padding-top:8px;
+}
+/*ѓруппа новые заЯвки*/
+.x-grid-state-1-3:hover, .x-grid-state-1-3-selected, .x-grid-state-1-3 .x-grid3-cell-first, .x-grid-state-1-3 .x6-grid-cell-first/*Ќужно взЯть одну пробу lis-prob-needone.png*/ {
+	background-color:#f4d7f3!important;
+	background-image:url('')!important
+}
+.x-grid-state-1-1:hover, .x-grid-state-1-1-selected, .x-grid-state-1-1 .x-grid3-cell-first, .x-grid-state-1-1 .x6-grid-cell-first/*Ќеобходимо 2 или более проб lis-prob-needmore.png*/{
+	background-color:#e2d3f8!important;
+	background-image:url('')!important
+}
+.x-grid-state-1-2:hover, .x-grid-state-1-2-selected, .x-grid-state-1-2 .x-grid3-cell-first, .x-grid-state-1-2 .x6-grid-cell-first/*‚зЯты не все пробы lis-prob-notall.png*/{
+	background-color:#ffdddc!important;
+	background-image:url('')!important
+}
+.x-grid-state-1:hover, .x-grid-state-1-selected, .x-grid-state-1 .x-grid3-cell-first, .x-grid-state-1 .x6-grid-cell-first/*‚зЯто но не отправлено lis-prob-new.png*/{
+	background-color:#f4d7f3!important;
+	background-image:url('')!important
+}
+/*ѓруппа в работе*/
+.x-grid-state-2:hover, .x-grid-state-2-selected, .x-grid-state-2 .x-grid3-cell-first, .x-grid-state-2 .x6-grid-cell-first/*Ћтправлена на анализатор lis-prob-toanaliz.png*/{
+	background-color:#fffddc!important;
+	background-image:url('')!important
+}
+
+/*ѓруппа ‚ыполненные*/
+.x-grid-state-3:hover, .x-grid-state-3-selected, .x-grid-state-3 .x-grid3-cell-first, .x-grid-state-3 .x6-grid-cell-first/*‚ыполено. …сть результат lis-prob-exec.png*/{
+	background-color:#dcffd4!important;
+	background-image:url('')!important;
+}
+/*ѓруппа Ћдобренные*/
+.x-grid-state-4:hover, .x-grid-state-4-selected, .x-grid-state-4 .x-grid3-cell-first, .x-grid-state-4 .x6-grid-cell-first /*Ћдобрено lis-prob-OK.png*/{
+	background-color:#bff3ff!important;
+	background-image:url('')!important
+}
+.x-grid-state-4-1:hover, .x-grid-state-4-1-selected, .x-grid-state-4-1 .x-grid3-cell-first, .x-grid-state-4-1 .x6-grid-cell-first /*—астично одобрено lis-prob-someOk.png*/{
+	background-color:#c8ffee!important;
+	background-image:url('')!important
+}
+/*ѓруппа Ќевыполненые*/
+.x-grid-state-5:hover, .x-grid-state-5-selected, .x-grid-state-5 .x-grid3-cell-first, .x-grid-state-5 .x6-grid-cell-first /*Ѓрак пробы lis-prob-bad.png*/{
+	background-color:#d5d5d5!important;
+	background-image:url('')!important
+}
+
+
+
+
+
+.x-grid-state-prob-1:hover, .x-grid-state-prob-1-selected, .x-grid-state-prob-1 > table > tbody > tr > td.x-grid3-cell-first{
+	background-color:#feead4!important;
+}
+.x-grid-state-prob-2:hover, .x-grid-state-prob-2-selected, .x-grid-state-prob-2 > table > tbody > tr > td.x-grid3-cell-first{
+	background-color:#fffddc!important;
+}
+.x-grid-state-prob-3:hover, .x-grid-state-prob-3-selected, .x-grid-state-prob-3 > table > tbody > tr > td.x-grid3-cell-first{
+	background-color:#dcffd4!important;
+}
+.x-grid-state-prob-4:hover, .x-grid-state-prob-4-selected, .x-grid-state-prob-4 > table > tbody > tr > td.x-grid3-cell-first{
+	background-color:#bff3ff!important;
+}
+.x-grid-state-prob-5:hover, .x-grid-state-prob-5-selected, .x-grid-state-prob-5 > table > tbody > tr > td.x-grid3-cell-first{
+	background-color:#d5d5d5!important;
+}
+.x-grid-state-prob-6:hover, .x-grid-state-prob-6-selected, .x-grid-state-prob-6 > table > tbody > tr > td.x-grid3-cell-first{
+	background-color:#bff3ff!important;
+}
+.x-grid-state-prob-7:hover, .x-grid-state-prob-7-selected, .x-grid-state-prob-7 > table > tbody > tr > td.x-grid3-cell-first{
+	background-color:#fffddc!important;
+}
+
+/* фикс гридов для хрома */
+@media screen and (-webkit-min-device-pixel-ratio: 0) { 
+    .x-grid3-cell, /* Normal grid cell */
+    .x-grid3-gcell { /* Grouped grid cell (esp. in head)*/
+        box-sizing: border-box;
+		-moz-box-sizing: content-box;
+    }
+}
+
+.x-grid-gray-text {
+	color:gray
+}
+
+.archiveBtn{
+	text-decoration:none;
+	color:blue;
+}
+
+.teamStatusFree{background-color:#d6ffd2!important;}
+.teamStatusUnaccepted{background-color:#d9d9d9!important;}
+.callAccepted{background-color:#fed1d1!important;}
+
+.attemption { background-color: #FFFFAA; }
+.danger { background-color: #fed1d1; }
+
+.x-grid-redborderrow {
+	border: 1px solid red;
+}
+
+.x-grid-rowlightpink td {
+	background-color: lightpink;;
+	vertical-align:middle;
+}
+
+#ONMKRegistry .x-grid3-scroller .x-grid3-cell { 
+    border-right: 0.1px solid #ccc;    
+}

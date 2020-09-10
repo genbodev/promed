@@ -1,0 +1,8 @@
+<PERS_LIST>  
+	<ZGLV>
+		<VERSION>2.1</VERSION>
+		<DATA><?php echo date('Y-m-d'); ?></DATA>
+		<FILENAME>{FILENAME}</FILENAME>
+		<FILENAME1>{FILENAME1}</FILENAME1>
+	</ZGLV>
+

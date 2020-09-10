@@ -1,0 +1,16 @@
+<WebGetIns>
+	<Header>
+		{ID}
+	</Header>
+	<Content>
+		{FAM}
+		{IM}
+		{OT}
+		{MR}
+		{DR}
+		{DOCTYPE}
+		{DOCSER}
+		{DOCNUM}
+		{SS}
+	</Content>
+</WebGetIns>

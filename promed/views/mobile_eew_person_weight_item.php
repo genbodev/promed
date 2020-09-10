@@ -1,0 +1,1 @@
+<tr><td>{PersonWeight_setDate}</td><td>{WeightMeasureType_Name}</td><td>{PersonWeight_Weight}</td><td>{WeightAbnormType_Name}</td></tr>

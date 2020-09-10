@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+	<xsd:element name="source">
+		<xsd:annotation>
+			<xsd:documentation>Исходный документ</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:all>				
+				<xsd:element name="ObjectiveData" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Объективные данные</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="Examination" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Обследование</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="AssignedCure" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Назначенное лечение</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="Recomendations" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Рекомендации</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>				
+			</xsd:all>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

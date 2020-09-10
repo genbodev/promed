@@ -1,0 +1,9 @@
+<ZL_LIST>
+	<ZGLV>
+		<DATA>{DATA}</DATA>
+		<FILENAME>{FILENAME}</FILENAME>
+	</ZGLV>
+
+	{ZAP}
+
+</ZL_LIST>

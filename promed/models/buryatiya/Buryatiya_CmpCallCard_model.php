@@ -1,0 +1,711 @@
+<?php	defined('BASEPATH') or die ('No direct script access allowed');
+/**
+* Buryatiya_CmpCallCardModel - модель для работы с картами вызова СМП. Версия для Карелии
+*
+* PromedWeb - The New Generation of Medical Statistic Software
+* http://swan.perm.ru/PromedWeb
+*
+*
+* @package			Common
+* @access			public
+* @copyright		Copyright (c) 2013 Swan Ltd.
+* @author			Popkov Sergey
+* @version			Buryatiya
+*/
+
+require_once(APPPATH.'models/CmpCallCard_model.php');
+
+class Buryatiya_CmpCallCard_model extends CmpCallCard_model {
+	
+	
+	
+	/**
+	 * default desc 
+	 */
+	 /*
+	function loadCmpCloseCardViewForm($data) {
+		$filter = "FALSE";
+		$queryParams = array();
+		
+		if (!empty($data['CmpCallCard_id'])) {
+			$filter = "CCC.CmpCallCard_id = :CmpCallCard_id";
+			$queryParams['CmpCallCard_id'] = $data['CmpCallCard_id'];
+		} elseif (!empty($data['CmpCloseCard_id'])) {
+			$filter = "CClC.CmpCloseCard_id = :CmpCloseCard_id";
+			$queryParams['CmpCloseCard_id'] = $data['CmpCloseCard_id'];
+		}
+		
+		$query = "
+			select top 1
+				CClC.CmpCallCard_id,
+				--CClC.CmpCallCard_IsAlco as isAlco,
+				CClC.CmpCloseCard_id,
+				CCC.CmpReason_id,
+				CClC.Year_num,
+				CClC.Day_num,
+				CClC.Sex_id,
+				CClC.Area_id,
+				CClC.City_id,
+				CClC.Town_id,
+				CClC.Street_id,
+				CClC.House,
+				CClC.Office,
+				CClC.Entrance,
+				CClC.Level,
+				CClC.CodeEntrance,
+				CClC.Phone,
+				CClC.DescText,
+				CClC.Fam,
+                CClC.Name,
+                CClC.Middle,
+				CClC.Age,
+				CCC.Person_id,
+				CClC.Ktov,
+				CClC.CmpCallerType_id,
+		
+				CClC.PayType_id,
+
+				CCC.KLRgn_id,
+				CClC.Area_id as Area_id,
+				CClC.City_id as City_id,
+				CClC.Town_id as Town_id,
+				CClC.Street_id as Street_id,
+				CClC.Room,
+				CClC.Korpus
+				
+				,CClC.EmergencyTeamNum as EmergencyTeamNum
+				,CCLC.EmergencyTeam_id as EmergencyTeam_id
+				,CClC.EmergencyTeamSpec_id as EmergencyTeamSpec_id
+				,CClC.LpuSection_id as LpuSection_id
+				,CClC.MedPersonal_id as MedPersonal_id
+				,CClC.MedPersonal_id as MedStaffFact_id
+				,CClC.StationNum as StationNum
+				,CClC.LpuBuilding_id
+				,CClC.pmUser_insID as Feldsher_id
+				--,CClC.pmUser_insID as FeldsherAccept
+				,CCLC.FeldsherAccept
+				,CClC.FeldsherTrans
+		
+				,CClC.isSogl
+				,CClC.isOtkazMed
+				,CClC.isOtkazHosp				
+		
+				,convert(varchar(10), CClC.AcceptTime, 104)+' '+convert(varchar(5), cast(CClC.AcceptTime as datetime), 108) as AcceptTime
+				,convert(varchar(10), CClC.TransTime, 104)+' '+convert(varchar(5), cast(CClC.TransTime as datetime), 108) as TransTime
+				,convert(varchar(10), CClC.GoTime, 104)+' '+convert(varchar(5), cast(CClC.GoTime as datetime), 108) as GoTime
+				
+				,convert(varchar(10), CClC.ArriveTime, 104)+' '+convert(varchar(5), cast(CClC.ArriveTime as datetime), 108) as ArriveTime
+				,convert(varchar(10), CClC.TransportTime, 104)+' '+convert(varchar(5), cast(CClC.TransportTime as datetime), 108) as TransportTime
+				,convert(varchar(10), CClC.ToHospitalTime, 104)+' '+convert(varchar(5), cast(CClC.ToHospitalTime as datetime), 108) as ToHospitalTime
+				,convert(varchar(10), CClC.EndTime, 104)+' '+convert(varchar(5), cast(CClC.EndTime as datetime), 108) as EndTime
+				,convert(varchar(10), CClC.BackTime, 104)+' '+convert(varchar(5), cast(CClC.BackTime as datetime), 108) as BackTime
+		
+				,CClC.SummTime
+				,CClC.Work
+				,CClC.DocumentNum
+				,CClC.CallType_id
+				,CASE WHEN ISNULL(CCC.CmpCallCard_IsReceivedInPPD,1) = 1 THEN NULL ELSE 1 END as CmpCallCard_IsReceivedInPPD
+				,CClC.CallPovod_id				
+				,CASE WHEN ISNULL(CClC.isAlco,0) = 0 THEN NULL ELSE CClC.isAlco END as isAlco								
+				,CClC.Complaints
+				,CClC.Anamnez
+				,CASE WHEN ISNULL(CClC.isMenen,0) = 0 THEN NULL ELSE CClC.isMenen END as isMenen
+				,CASE WHEN ISNULL(CClC.isAnis,0) = 0 THEN NULL ELSE CClC.isAnis END as isAnis
+				,CASE WHEN ISNULL(CClC.isNist,0) = 0 THEN NULL ELSE CClC.isNist END as isNist
+				,CASE WHEN ISNULL(CClC.isLight,0) = 0 THEN NULL ELSE CClC.isLight END as isLight
+				,CASE WHEN ISNULL(CClC.isAcro,0) = 0 THEN NULL ELSE CClC.isAcro END as isAcro
+				,CASE WHEN ISNULL(CClC.isMramor,0) = 0 THEN NULL ELSE CClC.isMramor END as isMramor
+				,CASE WHEN ISNULL(CClC.isHale,0) = 0 THEN NULL ELSE CClC.isHale END as isHale
+				,CASE WHEN ISNULL(CClC.isPerit,0) = 0 THEN NULL ELSE CClC.isPerit END as isPerit		
+				,CClC.Urine
+				,CClC.Shit
+				,CClC.OtherSympt
+				,CClC.WorkAD
+				,CClC.AD,
+				CASE WHEN COALESCE(CClC.Pulse,0)=0 THEN NULL ELSE CClC.Pulse END as Pulse,
+				CASE WHEN COALESCE(CClC.Chss,0)=0 THEN NULL ELSE CClC.Chss END as Chss,
+				CASE WHEN COALESCE(CClC.Chd,0)=0 THEN NULL ELSE CClC.Chd END as Chd,
+				CClC.Temperature
+				,CClC.Pulsks
+				,CClC.Gluck
+				,CClC.LocalStatus
+				,convert(varchar(5), cast(CClC.Ekg1Time as datetime), 108) as Ekg1Time
+				,CClC.Ekg1
+				,convert(varchar(5), cast(CClC.Ekg2Time as datetime), 108) as Ekg2Time
+				,CClC.Ekg2
+				,CClC.Diag_id
+				,CClC.EfAD
+				,CASE WHEN ISNULL(CClC.EfChss,0) = 0 THEN NULL ELSE CClC.EfChss END as EfChss
+				,CASE WHEN ISNULL(CClC.EfPulse,0) = 0 THEN NULL ELSE CClC.EfPulse END as EfPulse
+				,CClC.EfTemperature
+				,CASE WHEN ISNULL(CClC.EfChd,0) = 0 THEN NULL ELSE CClC.EfChd END as EfChd
+				,CClC.EfPulsks
+				,CClC.EfGluck
+				,CClC.Kilo
+				,CClC.Lpu_id
+				,CClC.HelpPlace
+				,CClC.HelpAuto
+				,CClC.DescText
+				,UCA.PMUser_Name as FeldsherAcceptName
+				,UCT.PMUser_Name as FeldsherTransName
+				
+			from
+				v_CmpCloseCard CClC with (nolock)
+				left join v_CmpCallCard CCC (nolock) on CCC.CmpCallCard_id = CClC.CmpCallCard_id
+				left join v_PersonState PS (nolock) on PS.Person_id = CCC.Person_id
+				LEFT JOIN v_Lpu L with (nolock) on L.Lpu_id = CClC.Lpu_id	
+				LEFT JOIN v_EmergencyTeam EMT with (nolock) on EMT.EmergencyTeam_id = CCC.EmergencyTeam_id	
+				LEFT JOIN v_pmUserCache UCA with (nolock) on UCA.PMUser_id = CClC.pmUser_insID
+				LEFT JOIN v_pmUserCache UCT with (nolock) on UCT.PMUser_id = CClC.FeldsherTrans
+				outer apply (
+					select top 1
+						CCCS.CmpCallCardStatus_insDT as TransTime,
+						CCCS.pmUser_insID as FeldsherTransPmUser_id
+					from
+						v_CmpCallCardStatus CCCS with (nolock) 
+					where
+						CCCS.CmpCallCard_id = CClC.CmpCallCard_id
+						and CCCS.CmpCallCardStatusType_id = 2
+					order by
+						CCCS.pmUser_insID desc
+				) as CCCStatusData
+			where
+				{$filter}
+		";
+		
+		//LEFT JOIN v_pmUser P with (nolock) on P.PMUser_id = CCC.pmUser_updID
+			
+		$result = $this->db->query($query, $queryParams);
+
+		if ( is_object($result) ) {			
+			return $result->result('array');
+		}
+		else {
+			return false;
+		}
+	}
+	*/
+		
+	/**
+	 * @desc Сохранение формы 110у с набором полей для Карелии
+	 * @param array $data
+	 * @return boolean 
+	 */
+	/*
+	function saveCmpCloseCard110($data) {		
+		$action = null;
+		$oldresult = null;
+		$NewCmpCloseCard_id = null;
+
+		$rules = array(
+			array( 'field' => 'Kilo' , 'label' => 'Километраж' , 'type' => 'float', 'maxValue' => '1000' ),
+		);
+
+		$queryParams = $this->_checkInputData( $rules , $data , $err , true ) ;
+		if ( !empty( $err ) )
+			return $err ;
+
+		if ( isset( $data[ 'CmpCloseCard_id' ] ) && $data[ 'CmpCloseCard_id' ] ) {
+			$action = 'edit';
+			$closeCard = '@CmpCloseCard_id :CmpCloseCard_id';
+
+			$procedure = 'p_CmpCloseCard_upd';
+			$relProcedure = 'p_CmpCloseCardRel_ins';
+		} else {
+			$query = "
+				SELECT
+					CLC.CmpCloseCard_id
+				FROM
+					{$this->schema}.v_CmpCloseCard CLC with (nolock)
+				WHERE
+					CLC.CmpCallCard_id = :CmpCallCard_id
+			";
+			$result = $this->db->query( $query, array(
+				'CmpCallCard_id' => $data[ 'CmpCallCard_id' ]
+			) );
+			$retrun = $result->result( 'array' );
+
+			if ( sizeof( $retrun ) ) {
+				$data[ 'CmpCloseCard_id' ] = $retrun[ 0 ][ 'CmpCloseCard_id' ];
+				$action = 'edit';
+				$closeCard = '@CmpCloseCard_id :CmpCloseCard_id';
+				$procedure = 'p_CmpCloseCard_upd';
+				$relProcedure = 'p_CmpCloseCardRel_ins';
+			} else {
+				$action = 'add';
+				$closeCard = '';
+
+				$procedure = 'p_CmpCloseCard_ins';
+				$relProcedure = 'p_CmpCloseCardRel_ins';
+			}
+		}
+
+		$UnicNums = ';';
+		if ( isset( $data[ 'CmpCloseCard_prmTime' ] ) ) {
+			$data[ 'CmpCloseCard_prmDate' ] .= ' '.$data[ 'CmpCloseCard_prmTime' ].':00.000';
+		}
+		//Добавил проверки на новые поля, которых нет в CmpCallCard
+		if ( !isset( $data[ 'Korpus' ] ) ) {
+			$data[ 'Korpus' ] = '';
+		}
+		if ( !isset( $data[ 'Room' ] ) ) {
+			$data[ 'Room' ] = '';
+		}
+
+		//Приводим данные в полях с типом datetime к виду, в котором их принимает БД
+		$timeFiledsNames = array(
+			'AcceptTime',
+			'TransTime',
+			'GoTime',
+			'ArriveTime',
+			'TransportTime',
+			'CmpCloseCard_TranspEndDT',
+			'ToHospitalTime',
+			'BackTime',
+			'EndTime'
+		);
+
+		foreach( $timeFiledsNames as $key => $timeFieldName ){
+			if ( !empty( $data[ $timeFieldName ] ) ) {
+				if ( isset( $data[ $timeFieldName ] ) && $data[ $timeFieldName ] != '' )
+					$data[ $timeFieldName ] = substr( $data[ $timeFieldName ], 3, 3 ).substr( $data[ $timeFieldName ], 0, 3 ).substr( $data[ $timeFieldName ], 6, 10 );
+			}
+		}
+
+		if ( $data[ 'Entrance' ] == 0 || $data[ 'Entrance' ] == '' )
+			$data[ 'Entrance' ] = null;
+		if ( $data[ 'Level' ] == 0 || $data[ 'Level' ] == '' )
+			$data[ 'Level' ] = null;
+		$queryParams = array(
+			'CmpCallCard_id' => $data[ 'CmpCallCard_id' ],
+			'Day_num' => $data[ 'Day_num' ],
+			'Year_num' => $data[ 'Year_num' ],
+			'Feldsher_id' => !empty($data[ 'Feldsher_id' ]) ? $data[ 'Feldsher_id' ] : null,
+			'StationNum' =>(!empty( $data['StationNum'] )) ? $data[ 'StationNum' ] : null,
+			'LpuBuilding_id' => (!empty( $data['LpuBuilding_id'] ) ? $data['LpuBuilding_id'] : null),
+			'EmergencyTeamNum' => $data[ 'EmergencyTeamNum' ],
+			'EmergencyTeam_id' => !empty($data['EmergencyTeam_id']) ? $data['EmergencyTeam_id'] : null,
+			'EmergencyTeamSpec_id' => !empty($data['EmergencyTeamSpec_id']) ? $data['EmergencyTeamSpec_id'] : null,
+
+			'PayType_id' => !empty($data['PayType_id']) ? $data['PayType_id'] : null,
+
+			'AcceptTime' => (isset( $data[ 'AcceptTime' ])) ? $data[ 'AcceptTime' ] : null,
+			'TransTime' => (isset( $data[ 'TransTime' ])) ? $data[ 'TransTime' ] : null,
+			'GoTime' => (isset( $data[ 'GoTime' ])) ? $data[ 'GoTime' ] : null,
+			'ArriveTime' => (isset( $data[ 'ArriveTime' ])) ? $data[ 'ArriveTime' ] : null,
+			'TransportTime' => (isset( $data[ 'TransportTime' ])) ? $data[ 'TransportTime' ] : null,
+			'ToHospitalTime' => (isset( $data[ 'ToHospitalTime' ])) ? $data[ 'ToHospitalTime' ] : null,
+			'EndTime' => (isset( $data[ 'EndTime' ])) ? $data[ 'EndTime' ] : null,
+			'BackTime' => (isset( $data[ 'BackTime' ])) ? $data[ 'BackTime' ] : null,
+			'SummTime' => (isset( $data[ 'SummTime' ])) ? $data[ 'SummTime' ] : null,
+			'CmpCloseCard_TranspEndDT' => (isset( $data[ 'CmpCloseCard_TranspEndDT' ])) ? $data[ 'CmpCloseCard_TranspEndDT' ] : null,
+			'Area_id' => (int)$data[ 'Area_id' ] ? (int)$data[ 'Area_id' ] : null,
+			'City_id' => (int)$data[ 'City_id' ] ? (int)$data[ 'City_id' ] : null,
+			'Town_id' => (int)$data[ 'Town_id' ] ? (int)$data[ 'Town_id' ] : null,
+			//'Street_id' => (!empty( $data['Street_id'] )) ? (int)$data[ 'Street_id' ] : null,
+			'Street_id' => (isset( $data[ 'Street_id' ]) && !isset( $data[ 'CmpCloseCard_Street' ] ) && $data[ 'Street_id' ] > 0 ) ? $data[ 'Street_id' ] : null,
+			'CmpCloseCard_Street' => (!empty( $data['CmpCloseCard_Street'] )) ? $data[ 'CmpCloseCard_Street' ] : null,
+			'House' => $data[ 'House' ],
+			'Korpus' => $data[ 'Korpus' ],
+			'Office' => $data[ 'Office' ],
+			'Room' => $data[ 'Room' ],
+			'Entrance' => $data[ 'Entrance' ],
+			'Level' => $data[ 'Level' ],
+			'CodeEntrance' => $data[ 'CodeEntrance' ],
+			'MedStaffFact_id' => (!empty( $data['MedStaffFactDoc_id'] ) ? $data['MedStaffFactDoc_id'] : null),
+			'CmpCloseCard_IsHeartNoise' => (!empty( $data['CmpCloseCard_IsHeartNoise'] ) ? $data['CmpCloseCard_IsHeartNoise'] : null),
+			'CmpCloseCard_IsIntestinal' => (!empty( $data['CmpCloseCard_IsIntestinal'] ) ? $data['CmpCloseCard_IsIntestinal'] : null),
+			'CmpCloseCard_IsDiuresis' => (!empty( $data['CmpCloseCard_IsDiuresis'] ) ? $data['CmpCloseCard_IsDiuresis'] : null),
+			'CmpCloseCard_IsVomit' => (!empty( $data['CmpCloseCard_IsVomit'] ) ? $data['CmpCloseCard_IsVomit'] : null),
+			'CmpCloseCard_IsDefecation' => (!empty( $data['CmpCloseCard_IsDefecation'] ) ? $data['CmpCloseCard_IsDefecation'] : null),
+			'CmpCloseCard_IsTrauma' => (!empty( $data['CmpCloseCard_IsTrauma'] ) ? $data['CmpCloseCard_IsTrauma'] : null),
+			'CmpCloseCard_BegTreatDT' => (!empty( $data['CmpCloseCard_BegTreatDT'] ) ? $data['CmpCloseCard_BegTreatDT'] : null),
+			'CmpCloseCard_EndTreatDT' => (!empty( $data['CmpCloseCard_EndTreatDT'] ) ? $data['CmpCloseCard_EndTreatDT'] : null),
+			'CmpCloseCard_HelpDT' => (!empty( $data['CmpCloseCard_HelpDT'] ) ? $data['CmpCloseCard_HelpDT'] : null),
+			'CmpCloseCard_Sat' => (!empty( $data['CmpCloseCard_Sat'] ) ? $data['CmpCloseCard_Sat'] : null),
+			'CmpCloseCard_AfterSat' => (!empty( $data['CmpCloseCard_AfterSat'] ) ? $data['CmpCloseCard_AfterSat'] : null),
+			'CmpCloseCard_Rhythm' => (!empty( $data['CmpCloseCard_Rhythm'] ) ? $data['CmpCloseCard_Rhythm'] : null),
+			'CmpCloseCard_AfterRhythm' => (!empty( $data['CmpCloseCard_AfterRhythm'] ) ? $data['CmpCloseCard_AfterRhythm'] : null),
+			'CmpLethalType_id' => (!empty( $data['CmpLethalType_id'] ) ? $data['CmpLethalType_id'] : null),
+			'CmpCloseCard_LethalDT' => (!empty( $data['CmpCloseCard_LethalDT'] ) ? $data['CmpCloseCard_LethalDT'] : null),
+			'Person_id' => (!empty( $data['Person_id'] ) ? $data['Person_id'] : null),
+			'Fam' => $data[ 'Fam' ],
+			'Name' => $data[ 'Name' ],
+			'Middle' => $data[ 'Middle' ],
+			'Age' => $data[ 'Age' ],
+			'Sex_id' => $data[ 'Sex_id' ],
+			'Work' => $data[ 'Work' ],
+			'DocumentNum' => $data[ 'DocumentNum' ],
+			'Ktov' => (!empty( $data[ 'Ktov' ] ) ? $data[ 'Ktov' ] : null),
+			'CmpCallerType_id' => (!empty( $data['CmpCallerType_id'] ) ? $data['CmpCallerType_id'] : null),
+			'Phone' => $data[ 'Phone' ],
+			'SocStatus_id' => (!empty( $data[ 'SocStatus_id' ] ) ? $data[ 'SocStatus_id' ] : null),
+			'CallPovodNew_id' => (!empty( $data[ 'CallPovodNew_id' ] ) ? $data[ 'CallPovodNew_id' ] : null),
+			'FeldsherAccept' => $data[ 'FeldsherAccept' ],
+			'FeldsherTrans' => $data[ 'FeldsherTrans' ],
+			'CallType_id' => $data[ 'CallType_id' ],
+			'CallPovod_id' => $data[ 'CallPovod_id' ],
+			'isAlco' => (($data[ 'isAlco' ] > 0) ? $data[ 'isAlco' ] : null),
+			'Complaints' => $data[ 'Complaints' ],
+			'Anamnez' => $data[ 'Anamnez' ],
+			'isMenen' => $data[ 'isMenen' ],
+			'isNist' => $data[ 'isNist' ],
+			'isAnis' => (isset( $data[ 'isAnis' ] ) && $data[ 'isAnis' ] != '') ? $data[ 'isAnis' ] : null,
+
+			'isLight' => $data[ 'isLight' ],
+			'isAcro' => (isset( $data[ 'isAcro' ] ) && $data[ 'isAcro' ] != '') ? $data[ 'isAcro' ] : null,
+			'isMramor' => (isset( $data[ 'isMramor' ] ) && $data[ 'isMramor' ] != '') ? $data[ 'isMramor' ] : null,
+			'isSogl' => (isset( $data[ 'isSogl' ] ) && $data[ 'isSogl' ] != '') ? $data[ 'isSogl' ] : null,
+			'isOtkazMed' => (isset( $data[ 'isOtkazMed' ] ) && $data[ 'isOtkazMed' ] != '') ? $data[ 'isOtkazMed' ] : null,
+			'isOtkazHosp' => (isset( $data[ 'isOtkazHosp' ] ) && $data[ 'isOtkazHosp' ] != '') ? $data[ 'isOtkazHosp' ] : null,
+			'isOtkazSign' => (isset( $data[ 'isOtkazSign' ] ) && $data[ 'isOtkazSign' ] != '') ? $data[ 'isOtkazSign' ] : null,
+			'OtkazSignWhy' => (isset( $data[ 'OtkazSignWhy' ] ) && $data[ 'OtkazSignWhy' ] != '') ? $data[ 'OtkazSignWhy' ] : null,
+			'CmpCloseCard_IsExtra' => (isset( $data[ 'CmpCloseCard_IsExtra' ] ) && $data[ 'CmpCloseCard_IsExtra' ] != '') ? $data[ 'CmpCloseCard_IsExtra' ] : null,
+			'CmpCloseCard_IsProfile' => (isset( $data[ 'CmpCloseCard_IsProfile' ] ) && $data[ 'CmpCloseCard_IsProfile' ] != '') ? $data[ 'CmpCloseCard_IsProfile' ] : null,
+			'isHale' => $data[ 'isHale' ],
+			'isPerit' => $data[ 'isPerit' ],
+			'Urine' => (isset( $data[ 'Urine' ] ) && $data[ 'Urine' ] != '') ? $data[ 'Urine' ] : null,
+			'Shit' => (isset( $data[ 'Shit' ] ) && $data[ 'Shit' ] != '') ? $data[ 'Shit' ] : null,
+			'OtherSympt' => $data[ 'OtherSympt' ],
+			'WorkAD' => $data[ 'WorkAD' ],
+			'AD' => $data[ 'AD' ],
+			'Chss' => $data[ 'Chss' ],
+			'Pulse' => (isset( $data[ 'Pulse' ] ) && $data[ 'Pulse' ] != '') ? $data[ 'Pulse' ] : null,
+			'Temperature' => $data[ 'Temperature' ],
+			'Chd' => $data[ 'Chd' ],
+			'Pulsks' => (isset( $data[ 'Pulsks' ] ) && $data[ 'Pulsks' ] != '') ? $data[ 'Pulsks' ] : null,
+			'Gluck' => $data[ 'Gluck' ],
+			'LocalStatus' => (isset( $data[ 'LocalStatus' ] ) && $data[ 'LocalStatus' ] != '') ? $data[ 'LocalStatus' ] : null,
+			'Ekg1' => $data[ 'Ekg1' ],
+			'Ekg1Time' => (isset( $data[ 'Ekg1Time' ] ) && $data[ 'Ekg1Time' ] != '') ? $data[ 'Ekg1Time' ] : null,
+			'Ekg2' => $data[ 'Ekg2' ],
+			'Ekg2Time' => (isset( $data[ 'Ekg2Time' ] ) && $data[ 'Ekg2Time' ] != '') ? $data[ 'Ekg2Time' ] : null,
+			'Diag_id' => (isset( $data[ 'Diag_id' ] ) && $data[ 'Diag_id' ] != '') ? $data[ 'Diag_id' ] : null,
+			'Diag_uid' => (isset( $data[ 'Diag_uid' ] ) && $data[ 'Diag_uid' ] != '') ? $data[ 'Diag_uid' ] : null,
+			'Diag_sid' => (isset( $data[ 'Diag_sid' ] ) && $data[ 'Diag_sid' ] != '') ? $data[ 'Diag_sid' ] : null,
+			'HelpPlace' => (isset( $data[ 'HelpPlace' ] ) && $data[ 'HelpPlace' ] != '') ? $data[ 'HelpPlace' ] : null,
+			'HelpAuto' => $data[ 'HelpAuto' ],
+			'EfAD' => $data[ 'EfAD' ],
+			'EfChss' => $data[ 'EfChss' ],
+			'EfPulse' => (isset( $data[ 'EfPulse' ] ) && $data[ 'EfPulse' ] != '') ? $data[ 'EfPulse' ] : null,
+			'EfTemperature' => $data[ 'EfTemperature' ],
+			'EfChd' => $data[ 'EfChd' ],
+			'EfPulsks' => (isset( $data[ 'EfPulsks' ] ) && $data[ 'EfPulsks' ] != '') ? $data[ 'EfPulsks' ] : null,
+			'EfGluck' => $data[ 'EfGluck' ],
+			'Kilo' => (isset( $data[ 'Kilo' ] ) && $data[ 'Kilo' ] != '') ? $data[ 'Kilo' ] : null,
+			'DescText' => (isset( $data[ 'DescText' ] ) && $data[ 'DescText' ] != '') ? $data[ 'DescText' ] : null,
+			'pmUser_id' => $data[ 'pmUser_id' ],
+			'CmpCloseCard_IsNMP' =>  (isset($data[ 'CmpCloseCard_IsNMP' ]) ? 2 : 1),
+			'CmpCloseCard_Epid' => (isset($data[ 'CmpCloseCard_Epid' ]) ? $data[ 'CmpCloseCard_Epid' ] : null),
+			'CmpCloseCard_Glaz' => (isset($data[ 'CmpCloseCard_Glaz' ]) ? $data[ 'CmpCloseCard_Glaz' ] : null),
+			'CmpCloseCard_GlazAfter' => (isset($data[ 'CmpCloseCard_GlazAfter' ]) ? $data[ 'CmpCloseCard_GlazAfter' ] : null),
+			'CmpCloseCard_m1' => (isset($data[ 'CmpCloseCard_m1' ]) ? $data[ 'CmpCloseCard_m1' ] : null),
+			'CmpCloseCard_e1' => (isset($data[ 'CmpCloseCard_e1' ]) ? $data[ 'CmpCloseCard_e1' ] : null),
+			'CmpCloseCard_v1' => (isset($data[ 'CmpCloseCard_v1' ]) ? $data[ 'CmpCloseCard_v1' ] : null),
+			'CmpCloseCard_m2' => (isset($data[ 'CmpCloseCard_m2' ]) ? $data[ 'CmpCloseCard_m2' ] : null),
+			'CmpCloseCard_e2' => (isset($data[ 'CmpCloseCard_e2' ]) ? $data[ 'CmpCloseCard_e2' ] : null),
+			'CmpCloseCard_v2' => (isset($data[ 'CmpCloseCard_v2' ]) ? $data[ 'CmpCloseCard_v2' ] : null),
+			'CmpCloseCard_Topic' => (isset($data[ 'CmpCloseCard_Topic' ]) ? $data[ 'CmpCloseCard_Topic' ] : null)
+		);
+
+		$txt = "";
+		foreach( $queryParams as $q => $p ){
+			$txt .= "@".$q." = :".$q.",\r\n";
+		}
+
+		$query = "
+			declare
+				@Res bigint,
+				@ErrCode int,
+				@ErrMessage varchar(4000)
+				".$UnicNums."
+			set @Res = 0;
+			exec ".$procedure."
+				@CmpCloseCard_id = @Res output,
+				".$txt."
+				@Error_Code = @ErrCode output,
+				@Error_Message = @ErrMessage output;
+			select @Res as CmpCloseCard_id, @ErrCode as Error_Code, @ErrMessage as Error_Msg;
+		";
+
+		if ( $action == 'edit' ) {
+			$NewCmpCloseCard_id = null;
+			//Если админ смп , то делаем копию исходной записи, а измененную копию сохраняем на место старой
+			//1 - выбираем старую запись
+			$squery = "
+				SELECT *
+				FROM {$this->schema}.v_CmpCloseCard CLC (nolock)
+				WHERE CLC.CmpCloseCard_id = ".$data[ 'CmpCloseCard_id' ]."
+			";
+
+			$result = $this->db->query( $squery, $data );
+
+			if ( !is_object( $result ) ) {
+				return false;
+			}
+			$oldresult = $result->result( 'array' );
+			$oldresult = $oldresult[ 0 ];
+
+			
+			//2 - сохраняем страую запись в новую
+
+			$squeryParams = array(
+				'CmpCallCard_id' => $oldresult[ 'CmpCallCard_id' ],
+				'Day_num' => $oldresult[ 'Day_num' ],
+				'Year_num' => $oldresult[ 'Year_num' ],
+				'Feldsher_id' => $oldresult[ 'Feldsher_id' ],
+				'StationNum' => $oldresult[ 'StationNum' ],
+				'LpuBuilding_id' => $oldresult[ 'LpuBuilding_id' ],
+				'EmergencyTeamNum' => $oldresult[ 'EmergencyTeamNum' ],
+				'EmergencyTeam_id' => $oldresult['EmergencyTeam_id'],
+
+				'PayType_id' => $oldresult['PayType_id'],
+
+				'AcceptTime' => ($oldresult[ 'AcceptTime' ] != '') ? $oldresult[ 'AcceptTime' ] : null,
+				'TransTime' => ($oldresult[ 'TransTime' ] != '') ? $oldresult[ 'TransTime' ] : null,
+				'GoTime' => ($oldresult[ 'GoTime' ] != '') ? $oldresult[ 'GoTime' ] : null,
+				'ArriveTime' => ($oldresult[ 'ArriveTime' ] != '') ? $oldresult[ 'ArriveTime' ] : null,
+				'TransportTime' => ($oldresult[ 'TransportTime' ] != '') ? $oldresult[ 'TransportTime' ] : null,
+				'ToHospitalTime' => ($oldresult[ 'ToHospitalTime' ] != '') ? $oldresult[ 'ToHospitalTime' ] : null,
+				'CmpCloseCard_TranspEndDT' => ($oldresult[ 'CmpCloseCard_TranspEndDT' ] != '') ? $oldresult[ 'CmpCloseCard_TranspEndDT' ] : null,
+				'CmpCloseCard_IsExtra' => ($oldresult[ 'CmpCloseCard_IsExtra' ] != '') ? $oldresult[ 'CmpCloseCard_IsExtra' ] : null,
+				'CmpCloseCard_IsProfile' => ($oldresult[ 'CmpCloseCard_IsProfile' ] != '') ? $oldresult[ 'CmpCloseCard_IsProfile' ] : null,
+				'CallPovodNew_id' => ($oldresult[ 'CallPovodNew_id' ] != '') ? $oldresult[ 'CallPovodNew_id' ] : null,
+				'EndTime' => ($oldresult[ 'EndTime' ] != '') ? $oldresult[ 'EndTime' ] : null,
+				'BackTime' => ($oldresult[ 'BackTime' ] != '') ? $oldresult[ 'BackTime' ] : null,
+				'SummTime' => $oldresult[ 'SummTime' ],
+				'Area_id' => (int)$oldresult[ 'Area_id' ] ? (int)$oldresult[ 'Area_id' ] : null,
+				'City_id' => (int)$oldresult[ 'City_id' ] ? (int)$oldresult[ 'City_id' ] : null,
+				'Town_id' => (int)$oldresult[ 'Town_id' ] ? (int)$oldresult[ 'Town_id' ] : null,
+				'Street_id' => (!empty($oldresult['Street_id'])) ? (int)$oldresult[ 'Street_id' ] : null,
+				'CmpCloseCard_Street' => (!empty($oldresult['CmpCloseCard_Street'])) ? $oldresult[ 'CmpCloseCard_Street' ] : null,
+				'House' => $oldresult[ 'House' ],
+				'Office' => $oldresult[ 'Office' ],
+				'Entrance' => $oldresult[ 'Entrance' ],
+				'Level' => $oldresult[ 'Level' ],
+				'CodeEntrance' => $oldresult[ 'CodeEntrance' ],
+
+				'MedStaffFact_id' => (!empty($oldresult['MedStaffFact_id'])) ? $oldresult['MedStaffFact_id'] : null,
+				'CmpCloseCard_IsHeartNoise' => (!empty($oldresult['CmpCloseCard_IsHeartNoise'])) ? $oldresult['CmpCloseCard_IsHeartNoise'] : null,
+				'CmpCloseCard_IsIntestinal' => (!empty($oldresult['CmpCloseCard_IsIntestinal'])) ? $oldresult['CmpCloseCard_IsIntestinal'] : null,
+				'CmpCloseCard_IsVomit' => (!empty($oldresult['CmpCloseCard_IsVomit'])) ? $oldresult['CmpCloseCard_IsVomit'] : null,
+				'EmergencyTeamSpec_id' => (!empty($oldresult['EmergencyTeamSpec_id'])) ? $oldresult['EmergencyTeamSpec_id'] : null,
+				'CmpCloseCard_IsDiuresis' => (!empty($oldresult['CmpCloseCard_IsDiuresis'])) ? $oldresult['CmpCloseCard_IsDiuresis'] : null,
+				'CmpCloseCard_IsDefecation' => (!empty($oldresult['CmpCloseCard_IsDefecation'])) ? $oldresult['CmpCloseCard_IsDefecation'] : null,
+				'CmpCloseCard_IsTrauma' => (!empty($oldresult['CmpCloseCard_IsTrauma'])) ? $oldresult['CmpCloseCard_IsTrauma'] : null,
+				'CmpCloseCard_BegTreatDT' => (!empty($oldresult['CmpCloseCard_BegTreatDT'])) ? $oldresult['CmpCloseCard_BegTreatDT'] : null,
+				'CmpCloseCard_EndTreatDT' => (!empty($oldresult['CmpCloseCard_EndTreatDT'])) ? $oldresult['CmpCloseCard_EndTreatDT'] : null,
+				'CmpCloseCard_HelpDT' => (!empty($oldresult['CmpCloseCard_HelpDT'])) ? $oldresult['CmpCloseCard_HelpDT'] : null,
+				'CmpCloseCard_Sat' => (!empty($oldresult['CmpCloseCard_Sat'])) ? $oldresult['CmpCloseCard_Sat'] : null,
+				'CmpCloseCard_AfterSat' => (!empty($oldresult['CmpCloseCard_AfterSat'])) ? $oldresult['CmpCloseCard_AfterSat'] : null,
+				'CmpCloseCard_Rhythm' => (!empty($oldresult['CmpCloseCard_Rhythm'])) ? $oldresult['CmpCloseCard_Rhythm'] : null,
+				'CmpCloseCard_AfterRhythm' => (!empty($oldresult['CmpCloseCard_AfterRhythm'])) ? $oldresult['CmpCloseCard_AfterRhythm'] : null,
+				'CmpLethalType_id' => (!empty($oldresult['CmpLethalType_id'])) ? $oldresult['CmpLethalType_id'] : null,
+				'CmpCloseCard_LethalDT' => (!empty($oldresult['CmpCloseCard_LethalDT'])) ? $oldresult['CmpCloseCard_LethalDT'] : null,
+				'Person_id' => (!empty($oldresult['Person_id'])) ? $oldresult['Person_id'] : null,
+				'Fam' => $oldresult[ 'Fam' ],
+				'Name' => $oldresult[ 'Name' ],
+				'Middle' => $oldresult[ 'Middle' ],
+				'Age' => $oldresult[ 'Age' ],
+				'Sex_id' => $oldresult[ 'Sex_id' ],
+				'Work' => $oldresult[ 'Work' ],
+				'DocumentNum' => $oldresult[ 'DocumentNum' ],
+				'Ktov' => $oldresult[ 'Ktov' ],
+				'CmpCallerType_id' => $oldresult[ 'CmpCallerType_id' ],
+				'Phone' => $oldresult[ 'Phone' ],
+				'SocStatus_id' => $oldresult[ 'SocStatus_id' ],
+				'FeldsherAccept' => $oldresult[ 'FeldsherAccept' ],
+				'FeldsherTrans' => $oldresult[ 'FeldsherTrans' ],
+				'CallType_id' => $oldresult[ 'CallType_id' ],
+				'CallPovod_id' => $oldresult[ 'CallPovod_id' ],
+				'isAlco' => $oldresult[ 'isAlco' ],
+				'Complaints' => $oldresult[ 'Complaints' ],
+				'Anamnez' => $oldresult[ 'Anamnez' ],
+				'Korpus' => $oldresult[ 'Korpus' ],
+				'Room' => $oldresult[ 'Room' ],
+				'isMenen' => $oldresult[ 'isMenen' ],
+				'isNist' => $oldresult[ 'isNist' ],
+				'isAnis' => $oldresult[ 'isAnis' ],
+				'isLight' => $oldresult[ 'isLight' ],
+				'isAcro' => $oldresult[ 'isAcro' ],
+				'isMramor' => $oldresult[ 'isMramor' ],
+				'isHale' => $oldresult[ 'isHale' ],
+				'isPerit' => $oldresult[ 'isPerit' ],
+				'Urine' => $oldresult[ 'Urine' ],
+				'Shit' => $oldresult[ 'Shit' ],
+				'OtherSympt' => $oldresult[ 'OtherSympt' ],
+				'WorkAD' => $oldresult[ 'WorkAD' ],
+				'AD' => $oldresult[ 'AD' ],
+				'Chss' => $oldresult[ 'Chss' ],
+				'Pulse' => $oldresult[ 'Pulse' ],
+				'Temperature' => $oldresult[ 'Temperature' ],
+				'Chd' => $oldresult[ 'Chd' ],
+				'Pulsks' => $oldresult[ 'Pulsks' ],
+				'Gluck' => $oldresult[ 'Gluck' ],
+				'LocalStatus' => $oldresult[ 'LocalStatus' ],
+				'Ekg1' => $oldresult[ 'Ekg1' ],
+				'Ekg1Time' => ($oldresult[ 'Ekg1Time' ] != '') ? $oldresult[ 'Ekg1Time' ] : null,
+				'Ekg2' => $oldresult[ 'Ekg2' ],
+				'Ekg2Time' => ($oldresult[ 'Ekg2Time' ] != '') ? $oldresult[ 'Ekg2Time' ] : null,
+				'Diag_id' => $oldresult[ 'Diag_id' ],
+				'Diag_uid' => $oldresult[ 'Diag_uid' ],
+				'Diag_sid' => $oldresult[ 'Diag_sid' ],
+				'HelpPlace' => $oldresult[ 'HelpPlace' ],
+				'HelpAuto' => $oldresult[ 'HelpAuto' ],
+				'EfAD' => $oldresult[ 'EfAD' ],
+				'EfChss' => $oldresult[ 'EfChss' ],
+				'EfPulse' => $oldresult[ 'EfPulse' ],
+				'EfTemperature' => $oldresult[ 'EfTemperature' ],
+				'EfChd' => $oldresult[ 'EfChd' ],
+				'EfPulsks' => $oldresult[ 'EfPulsks' ],
+				'EfGluck' => $oldresult[ 'EfGluck' ],
+				'Kilo' => $oldresult[ 'Kilo' ],
+				'DescText' => $oldresult[ 'DescText' ],
+				'pmUser_id' => $oldresult[ 'pmUser_insID' ],
+				'CmpCloseCard_IsNMP' => $oldresult[ 'CmpCloseCard_IsNMP' ],
+				'CmpCloseCard_firstVersion' => $oldresult[ 'CmpCloseCard_firstVersion' ],
+				'CmpCloseCard_Epid' => $oldresult[ 'CmpCloseCard_Epid' ],
+				'CmpCloseCard_Glaz' => $oldresult[ 'CmpCloseCard_Glaz' ],
+				'CmpCloseCard_GlazAfter' => $oldresult[ 'CmpCloseCard_GlazAfter' ],
+				'CmpCloseCard_m1' => $oldresult[ 'CmpCloseCard_m1' ],
+				'CmpCloseCard_e1' => $oldresult[ 'CmpCloseCard_e1' ],
+				'CmpCloseCard_v1' => $oldresult[ 'CmpCloseCard_v1' ],
+				'CmpCloseCard_m2' => $oldresult[ 'CmpCloseCard_m2' ],
+				'CmpCloseCard_e2' => $oldresult[ 'CmpCloseCard_e2' ],
+				'CmpCloseCard_v2' => $oldresult[ 'CmpCloseCard_v2' ],
+				'CmpCloseCard_Topic' => $oldresult[ 'CmpCloseCard_Topic' ]
+			);
+
+			$txt = "";
+			foreach( $squeryParams as $q => $p ){
+				$txt .= "@".$q." = :".$q.",\r\n";
+			}
+
+			$squery = "
+				declare
+					@Res bigint,
+					@ErrCode int,
+					@ErrMessage varchar(4000);
+
+				set @Res = 0;
+
+				exec p_CmpCloseCard_ins
+					".$txt."
+					@CmpCloseCard_id = @Res output,
+					@Error_Code = @ErrCode output,
+					@Error_Message = @ErrMessage output;
+
+				-- здесь должен быть вызов p_CmpCloseCard_del
+
+				select @Res as CmpCloseCard_id, @ErrCode as Error_Code, @ErrMessage as Error_Msg;
+			";
+
+			$result = $this->db->query( $squery, $squeryParams );
+
+			if ( !is_object( $result ) ) {
+				return false;
+			}
+
+			$result = $result->result( 'array' );
+			$result = $result[ 0 ];
+
+			$NewCmpCloseCard_id = $result[ 'CmpCloseCard_id' ];
+
+			// 3 - заменяем старую запись текущими изменениями
+
+			$newParams = $queryParams;
+			$newParams[ 'CmpCloseCard_id' ] = $oldresult[ 'CmpCloseCard_id' ];
+
+			if ( (!isset( $newParams[ 'CmpCloseCard_id' ] )) || ($newParams[ 'CmpCloseCard_id' ] == null ) ) {
+				$newParams[ 'CmpCallCard_id' ] = $oldresult[ 'CmpCallCard_id' ];
+			}
+
+			$txt = "";
+			foreach( $newParams as $q => $p ){
+				$txt .= "@".$q." = :".$q.",\r\n";
+			}
+
+			$squery = "
+				declare
+					@Res bigint,
+					@ErrCode int,
+					@ErrMessage varchar(4000);
+
+				set @Res = :CmpCloseCard_id;
+
+				exec p_CmpCloseCard_upd
+				".$txt."
+					@Error_Code = @ErrCode output,
+					@Error_Message = @ErrMessage output;
+				select @Res as CmpCloseCard_id, @ErrCode as Error_Code, @ErrMessage as Error_Msg;
+			";
+			//var_dump(getDebugSQL($squery, $newParams)); exit;
+			$result = $this->db->query( $squery, $newParams );
+			$resArray = $result->result( 'array' );
+
+			// 4 - устанавливаем значение старого id в перезаписанной записи
+			$squery = "
+				exec p_CmpCloseCard_setFirstVersion
+				@CmpCloseCard_id = ".$oldresult[ 'CmpCloseCard_id' ].",
+				@CmpCloseCard_firstVersion = ".$NewCmpCloseCard_id.",
+				@pmUser_id = ".$data[ 'pmUser_id' ].";
+			";
+
+			$this->db->query( $squery );
+		} else { // add
+			$result = $this->db->query( $query, $queryParams );
+			$resArray = $result->result( 'array' );
+		}
+
+		// Связь документа списания медикаментов на пациента и талона закрытия вызова
+		if ( isset( $data['DocumentUc_id'] ) && $data['DocumentUc_id'] ) {
+			$this->saveCmpCloseCardDocumentUcRel( array_merge( $data, array( 'CmpCloseCard_id' => $resArray[ 0 ][ 'CmpCloseCard_id' ] ) ) );
+		}
+
+		if ( isset( $data['CmpEquipment'] ) && $data['CmpEquipment'] ) {
+			// Использованное оборудование
+			$this->saveCmpCloseCardEquipmentRel( array_merge( $data, array( 'CmpCloseCard_id' => $resArray[ 0 ][ 'CmpCloseCard_id' ] ) ) );
+		}
+
+		if (!empty($data['AcceptTime']) && !empty($data['CmpCallCard_id'])) {
+
+			$AcceptDate = DateTime::createFromFormat('d.m.Y H:i', $data['AcceptTime']);
+			$aDate = $AcceptDate->format('Y-m-d H:i');
+
+			$pars = array(
+				'CmpCallCard_id'=>$data['CmpCallCard_id'],
+				//'CmpCallCard_prmDT'=>$data['AcceptTime'],
+				'CmpCallCard_prmDT'=>$aDate,
+				'pmUser_id'=>$data['pmUser_id']
+			);
+
+			$update_CmpCallCard_prmDT_result = $this->swUpdate('CmpCallCard', $pars, false);
+
+			if (!$this->isSuccessful( $update_CmpCallCard_prmDT_result )) {
+				return $update_CmpCallCard_prmDT_result;
+			}
+
+		}
+
+		//сохранение person_id в CmpCallCard
+		if (isset($data['Person_id']) && $data['Person_id'] != '')
+		{
+			$personQuery = "
+				exec {$this->schema}.p_CmpCallCard_setPerson
+				@CmpCallCard_id = " . $data['CmpCallCard_id'] . ",
+				@Person_id = " . $data['Person_id'] . ",
+				@pmUser_id = " . $data['pmUser_id'] . "
+			";
+
+			$persRes = $this->db->query($personQuery);
+		}
+
+		//унес сохранение комбос в функцию
+		$res = $this->saveCmpCloseCardComboValues($data, $action, $oldresult, $resArray, $NewCmpCloseCard_id, $UnicNums, $relProcedure);
+
+		return $res;
+	}
+	*/
+	
+		
+}

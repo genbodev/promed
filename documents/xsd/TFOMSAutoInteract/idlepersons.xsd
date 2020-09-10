@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="IDLEPERSONS">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="HEADER">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="OPERATIONTYPE">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:maxLength value="6" />
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="VERSION">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:pattern value="\d+\.\d+" />
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="DATA" type="xs:date" />
+							<xs:element name="DN" type="xs:date" />
+							<xs:element name="DK" type="xs:date" />
+							<xs:element name="DT_REPORT" type="xs:date" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="BODY">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="PERSON">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="FAM" type="xs:string" />
+										<xs:element name="IM" type="xs:string" />
+										<xs:element name="OT" type="xs:string" minOccurs="0" />
+										<xs:element name="DR" type="xs:date" />
+										<xs:element name="W">
+											<xs:simpleType>
+												<xs:restriction base="xs:int">
+													<xs:pattern value="\d{1}" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="DOCTYPE">
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="2" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="DOCSER" minOccurs="0">
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="10" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="DOCNUM">
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="20" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="SNILS" minOccurs="0">
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="14" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="B_ADDRSES_NAME" type="xs:string" />
+										<xs:element name="OKSM_ALFA3" type="xs:string" />
+										<xs:element name="P_ADDRSES_NAME" type="xs:string" minOccurs="0" />
+										<xs:element name="R_ADDRSES_NAME" type="xs:string" minOccurs="0" />
+										<xs:element name="R_ADDRESS_BEGDT" type="xs:date" />
+										<xs:element name="PR_FNI" type="xs:int" />
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="BDZ_ID" type="xs:string" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

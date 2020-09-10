@@ -1,0 +1,96 @@
+<table border="0" cellpadding="0" cellspacing="0">
+	<tbody>
+		<tr>
+			<td rowspan="2" style="width: 319px;">
+				<p align="center">
+					Министерство здравоохранения и социального развития РФ</p>
+			</td>
+			<td style="width: 319px;">
+				<p align="center">
+					<strong><em>ГКБ-4, ул. КИМ, 2</em></strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 319px;">
+				<p align="center">
+					(наименование и адрес ЛПУ)</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" style="width: 638px;">
+				<p align="center">
+					&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" style="width: 638px;">
+				<p align="center">
+					<strong>Отделение кардиологии</strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" style="width: 638px;">
+				<p align="center">
+					(наименование отделения)</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p align="center">
+	<strong>ОСМОТР КАРДИОЛОГА</strong></p>
+<p align="center">
+	Дата: 24.01.2011</p>
+<p align="center">
+	Время: 13:00</p>
+<p align="center">
+	&nbsp;</p>
+<table border="1" cellpadding="0" cellspacing="0">
+	<tbody>
+		<tr>
+			<td style="width: 199px;">
+				<p>
+					Пациент</p>
+			</td>
+			<td style="width: 444px;">
+				<p>
+					Плесовских Василий Кузьмич</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 199px;">
+				<p>
+					Дата рождения</p>
+			</td>
+			<td style="width: 444px;">
+				<p>
+					06.05.1949 (61 лет)</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 199px;">
+				<p>
+					История болезни</p>
+			</td>
+			<td style="width: 444px;">
+				<p>
+					А882</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p>
+	&nbsp;</p>
+<p>
+	<strong>ЖАЛОБЫ</strong>:</p>
+<p>
+	<strong>ОБЪЕКТИВНЫЙ СТАТУС</strong>:</p>
+<p>
+	<strong>ДИАГНОЗ</strong>: Пролапс митрального клапана I ст. В кардиотропной терапии не нуждается.</p>
+<p>
+	&nbsp;</p>
+<p>
+	<strong>Врач</strong>: Корнеевский М.Ю.</p>

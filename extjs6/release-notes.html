@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Ext JS Release Notes
+        </title>
+        <link rel="stylesheet" type="text/css" href="welcome/release-notes.css" media="all">
+    </head>
+    <body>
+        <p>
+            <a href="http://www.sencha.com/" id="logo" name="logo">Ext JS - JavaScript Framework</a>
+        </p>
+        <div id="releases">
+<!-- ************************************************************************** -->
+            <!--
+            When a release is made edit the queries below to adjust for the next release.
+            -->
+            <div class="release">
+                <h1>Release Notes for Ext JS 6.5.3</h1>
+                <p class="notes">
+                    Release Date: Tue Jan 23 2018<br>
+                    Version Number: 6.5.3.57
+                </p>
+<!--                
+                <h2>Noteworthy</h2>
+-->
+                
+                <h2>New Features</h2>
+                <ul>
+<li class="component">Examples (1)
+<ul class="tickets">
+<li class="ticket">
+<span class="ticket-number">EXTJS-21885</span>&#160;<span class="ticket-notes">Request colorpicker fields not be readonly</span>
+</li>
+</ul>
+</li>
+<li class="component">List (1)
+<ul class="tickets">
+<li class="ticket">
+<span class="ticket-number">EXTJS-26553</span>&#160;<span class="ticket-notes">NestedList Issues</span>
+</li>
+</ul>
+</li>
+</ul>
+
+                <h2>Bugs Fixed</h2>
+                <ul>
+<li class="component">Calendar (1)
+<ul class="tickets">
+<li class="ticket">
+<span class="ticket-number">EXTJS-26610</span>&#160;<span class="ticket-notes">Calendar event is not drawn when the event is less than 24 hours</span>
+</li>
+</ul>
+</li>
+<li class="component">Charts (4)
+<ul class="tickets">
+<li class="ticket">
+<span class="ticket-number">EXTJS-26751</span>&#160;<span class="ticket-notes">Case error in trackMouse config in chart series</span>
+</li>
+<li class="ticket">
+<span class="ticket-number">EXTJS-26423</span>&#160;<span class="ticket-notes">The overlay selection rect of the CrossZoom interaction doesn't render on top of the series but behind them.</span>
+</li>
+<li class="ticket">
+<span class="ticket-number">EXTJS-26102</span>&#160;<span class="ticket-notes">Tooltip is not visible in the middle of bar chart</span>
+</li>
+<li class="ticket">
+<span class="ticket-number">EXTJS-26415</span>&#160;<span class="ticket-notes">Adding records to Pie store does not call performLayout ('dom' legend doesn't schedule chart layout when the legend size changes)</span>
+</li>
+</ul>
+</li>
+<li class="component">Core (1)
+<ul class="tickets">
+<li class="ticket">
+<span class="ticket-number">EXTJS-26201</span>&#160;<span class="ticket-notes">Apps, Examples not loading on Android 8 - Oreo GA</span>
+</li>
+</ul>
+</li>
+<li class="component">Documentation (2)
+<ul class="tickets">
+<li class="ticket">
+<span class="ticket-number">EXTJS-25401</span>&#160;<span class="ticket-notes">Application - getRouter method is not documented</span>
+</li>
+<li class="ticket">
+<span class="ticket-number">EXTJS-26437</span>&#160;<span class="ticket-notes">Ext.field.Field.validator has incorrect reference to Ext.data.validator.Validator</span>
+</li>
+</ul>
+</li>
+<li class="component">Examples (1)
+<ul class="tickets">
+<li class="ticket">
+<span class="ticket-number">EXTJS-26747</span>&#160;<span class="ticket-notes">Ambiguous panel content in Responsive app example</span>
+</li>
+</ul>
+</li>
+<li class="component">Forms (6)
+<ul class="tickets">
+<li class="ticket">
+<span class="ticket-number">EXTJS-25839</span>&#160;<span class="ticket-notes">Ext.field.File#reset does not reset result of getFiles method</span>
+</li>
+<li class="ticket">
+<span class="ticket-number">EXTJS-26476</span>&#160;<span class="ticket-notes">Datefield closing by choosing a year (on tablets)</span>
+</li>
+<li class="ticket">
+<span class="ticket-number">EXTJS-26343</span>&#160;<span class="ticket-notes">Tagfield with mutliselect false does not clear emptyText</span>
+</li>
+<li class="ticket">
+<span class="ticket-number">EXTJS-26154</span>&#160;<span class="ticket-notes">Calling setValue consecutively clears combo lastSelectedRecords and breaks forceSelection</span>
+</li>
+<li class="ticket">
+<span class="ticket-number">EXTJS-26768</span>&#160;<span class="ticket-notes">Running Msg/Prompt window twice causes issue</span>
+</li>
+<li class="ticket">
+<span class="ticket-number">EXTJS-26177</span>&#160;<span class="ticket-notes">Select already selected item in selectfield make it unselected</span>
+</li>
+</ul>
+</li>
+<li class="component">Grid (12)
+<ul class="tickets">
+<li class="ticket">
+<span class="ticket-number">EXTJS-26623</span>&#160;<span class="ticket-notes">grid with locked column scrolls to top on refresh with preserveScrollOnRefresh: true</span>
+</li>
+<li class="ticket">
+<span class="ticket-number">EXTJS-26268</span>&#160;<span class="ticket-notes">Grid no longer scrollable when a menu item</span>
+</li>
+<li class="ticket">
+<span class="ticket-number">EXTJS-26678</span>&#160;<span class="ticket-notes">6.5.3.36 classic nightly regression - Too Many Row Widgets</span>
+</li>
+<li class="ticket">
+<span class="ticket-number">EXTJS-26331</span>&#160;<span class="ticket-notes">Grid set as Viewport ignores preserveScrollOnReload:false</span>
+</li>
+<li class="ticket">
+<span class="ticket-number">EXTJS-26563</span>&#160;<span class="ticket-notes">Modern list multi-selection produces inconsistent behavior</span>
+</li>
+<li class="ticket">
+<span class="ticket-number">EXTJS-24892</span>&#160;<span class="ticket-notes">rowexpander with grid adding extra record</span>
+</li>
+<li class="ticket">
+<span class="ticket-number">EXTJS-24893</span>&#160;<span class="ticket-notes">Rowexpander immediately collapses second level expander</span>
+</li>
+<li class="ticket">
+<span class="ticket-number">EXTJS-20980</span>&#160;<span class="ticket-notes">Classic grouped grid scrolls back to focused cell when user expands row</span>
+</li>
+<li class="ticket">
+<span class="ticket-number">EXTJS-19955</span>&#160;<span class="ticket-notes">Visual sort state is not applied when store is sorted via API</span>
+</li>
+<li class="ticket">
+<span class="ticket-number">EXTJS-23479</span>&#160;<span class="ticket-notes">Grid reconfigure does not update column alignment</span>
+</li>
+<li class="ticket">
+<span class="ticket-number">EXTJS-26172</span>&#160;<span class="ticket-notes">Scrolling upwards quickly when there are many expanded rows throws error</span>
+</li>
+<li class="ticket">
+<span class="ticket-number">EXTJS-19300</span>&#160;<span class="ticket-notes">Store state is not applied when store binding is used</span>
+</li>
+</ul>
+</li>
+<li class="component">List (1)
+<ul class="tickets">
+<li class="ticket">
+<span class="ticket-number">EXTJS-25502</span>&#160;<span class="ticket-notes">More Undo buttons can be shown in list with listswiper plugin</span>
+</li>
+</ul>
+</li>
+<li class="component">Misc (6)
+<ul class="tickets">
+<li class="ticket">
+<span class="ticket-number">EXTJS-25536</span>&#160;<span class="ticket-notes">Grid is grouped but no group headers or other visual indications are visible</span>
+</li>
+<li class="ticket">
+<span class="ticket-number">EXTJS-25779</span>&#160;<span class="ticket-notes">[Multisort DateView] items stay selected when sort </span>
+</li>
+<li class="ticket">
+<span class="ticket-number">EXTJS-25838</span>&#160;<span class="ticket-notes">Change rating affects item below when it is grouped by rating</span>
+</li>
+<li class="ticket">
+<span class="ticket-number">EXTJS-26409</span>&#160;<span class="ticket-notes">Ext.util.TSV#decode does not handle quotes correctly</span>
+</li>
+<li class="ticket">
+<span class="ticket-number">EXTJS-26190</span>&#160;<span class="ticket-notes">Specifying ui config as array results in an error</span>
+</li>
+<li class="ticket">
+<span class="ticket-number">EXTJS-25950</span>&#160;<span class="ticket-notes">Document requires of Summary plugin types </span>
+</li>
+</ul>
+</li>
+<li class="component">Panel (3)
+<ul class="tickets">
+<li class="ticket">
+<span class="ticket-number">EXTJS-26457</span>&#160;<span class="ticket-notes">Collapsible panel throws exception on expand</span>
+</li>
+<li class="ticket">
+<span class="ticket-number">EXTJS-26605</span>&#160;<span class="ticket-notes">MODERN: Floated panel with alwaysOnTop: true throws error</span>
+</li>
+<li class="ticket">
+<span class="ticket-number">EXTJS-26578</span>&#160;<span class="ticket-notes">Ext.panel.Table buildColumHash should not initially assign value to var len</span>
+</li>
+</ul>
+</li>
+<li class="component">PivotGrid (1)
+<ul class="tickets">
+<li class="ticket">
+<span class="ticket-number">EXTJS-26373</span>&#160;<span class="ticket-notes">PG configurator does not appear when clicking fields</span>
+</li>
+</ul>
+</li>
+<li class="component">Scroller (2)
+<ul class="tickets">
+<li class="ticket">
+<span class="ticket-number">EXTJS-26614</span>&#160;<span class="ticket-notes">grid viewoptions scrollbar jumps to the top when scrolling</span>
+</li>
+<li class="ticket">
+<span class="ticket-number">EXTJS-25632</span>&#160;<span class="ticket-notes">SetScroller animation can prevent/close combo picker</span>
+</li>
+</ul>
+</li>
+<li class="component">Tree (2)
+<ul class="tickets">
+<li class="ticket">
+<span class="ticket-number">EXTJS-26515</span>&#160;<span class="ticket-notes">Tree panel scroll on refresh when a row is focused</span>
+</li>
+<li class="ticket">
+<span class="ticket-number">EXTJS-26452</span>&#160;<span class="ticket-notes">treepanel scrolls to top when using replaceChild</span>
+</li>
+</ul>
+</li>
+</ul>
+
+                <h2>Known Issues</h2>
+                <ul>
+<li class="component">Tabs (1)
+<ul class="tickets">
+<li class="ticket">
+<span class="ticket-number">EXTJS-13538</span>&#160;<span class="ticket-notes">Ext.ux.TabScrollerMenu has not been updated to work in Ext JS 5 and 6</span>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,60 @@
+<table border="1" cellpadding="0" cellspacing="0">
+	<tbody>
+		<tr>
+			<td style="width: 213px;">
+				<p>
+					<strong>&nbsp;Дата возникновения</strong></p>
+			</td>
+			<td style="width: 213px;">
+				<p>
+					<strong>&nbsp;Вид аллергена</strong></p>
+			</td>
+			<td style="width: 213px;">
+				<p>
+					<strong>&nbsp;Характер аллерг. реакции</strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 213px;">
+				<p>
+					&nbsp;12.01.1997</p>
+			</td>
+			<td style="width: 213px;">
+				<p>
+					&nbsp;новокаин</p>
+			</td>
+			<td style="width: 213px;">
+				<p>
+					&nbsp;Отек Квинке</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 213px;">
+				<p>
+					&nbsp;21.05.2010</p>
+			</td>
+			<td style="width: 213px;">
+				<p>
+					&nbsp;Анальгин</p>
+			</td>
+			<td style="width: 213px;">
+				<p>
+					&nbsp;Крапивница</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 213px;">
+				<p>
+					&nbsp;2009</p>
+			</td>
+			<td style="width: 213px;">
+				<p>
+					&nbsp;Бытовая пыль</p>
+			</td>
+			<td style="width: 213px;">
+				<p>
+					&nbsp;Аллергический ринит</p>
+			</td>
+		</tr>
+	</tbody>
+</table>

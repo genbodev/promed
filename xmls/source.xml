@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<source>
+	<!--<DocumentDate>21.09.2009</DocumentDate>
+	<DocumentTime>12:23</DocumentTime>
+	<Person_FIO>Каверзин Борис Николаевич</Person_FIO>-->
+	<Jaloby>Доктор, у меня что-то болит</Jaloby>
+	<Anamnes_Zab>Начало болеть здесь, потом вот здесь.</Anamnes_Zab>
+	<Anamnez_Jizn>Родился, учился, заболел</Anamnez_Jizn>
+	<Expert_Anamn>Да, поциент конечно в хорошей форме, но вряд ли выживет.</Expert_Anamn>
+	<Object_Stat>Поциент держится молодцом!</Object_Stat>
+	<Local_Stat>О, сейчас вроде хорошо выглядит</Local_Stat>
+	<Brah_Stvol>false</Brah_Stvol>
+	<SonPulsR>true</SonPulsR>
+	<SonPulsL>true</SonPulsL>
+	<SonShumR>false</SonShumR>
+	<SonShumL>true</SonShumL>
+	<VisArtPulsR>true</VisArtPulsR>
+	<VisArtPulsL>false</VisArtPulsL>
+	<PozvonArtPulsR>true</PozvonArtPulsR>
+	<PozvonArtPulsL>true</PozvonArtPulsL>
+	<PodkluchArtPulsR>true</PodkluchArtPulsR>
+	<PodkluchArtPulsL>true</PodkluchArtPulsL>
+	<PodkluchArtShumR>false</PodkluchArtShumR>
+	<PodkluchArtShumL>true</PodkluchArtShumL>
+	<PodmyshArtPulsR>false</PodmyshArtPulsR>
+	<PodmyshArtPulsL>true</PodmyshArtPulsL>	
+	<Consult>2</Consult>
+</source>

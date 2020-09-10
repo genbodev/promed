@@ -1,0 +1,249 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:typens="http://atria.cz/renderedServices/types" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:bi="http://atria.cz/common/base/info/build/" name="renderedServicesService" targetNamespace="http://atria.cz/renderedServices/types">
+  <wsdl:types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:typens="http://atria.cz/renderedServices/types" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:bi="http://atria.cz/common/base/info/build/">
+            
+  <xsd:import namespace="http://atria.cz/renderedServices/types" schemaLocation="https://rmis66.mis66.ru/medservices-ws/renderedServices?xsd=renderedServices.xsd"/>
+            
+  <xsd:import namespace="http://atria.cz/common/base/info/build/" schemaLocation="https://rmis66.mis66.ru/medservices-ws/renderedServices?xsd=http://atria.cz/common/base/buildInfo.xsd"/>
+        
+</xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="searchRenderedServicesResponse">
+    <wsdl:part element="typens:searchRenderedServicesResponse" name="searchRenderedServicesResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getViewStudyURLsResponse">
+    <wsdl:part element="typens:getViewStudyURLsResponse" name="getViewStudyURLsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="sendRenderedServicesResponse">
+    <wsdl:part element="typens:sendRenderedServicesResponse" name="sendRenderedServicesResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getStudyUIDByServiceIdResponse">
+    <wsdl:part element="typens:getStudyUIDByServiceIdResponse" name="getStudyUIDByServiceIdResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getViewStudyURLs">
+    <wsdl:part element="typens:getViewStudyURLsRequest" name="getViewStudyURLsRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteRenderedServicesResponse">
+    <wsdl:part element="typens:deleteRenderedServicesResponse" name="deleteRenderedServicesResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getVersionResponse">
+    <wsdl:part element="bi:getVersionResponse" name="getVersionResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getStudyUIDsResponse">
+    <wsdl:part element="typens:getStudyUIDsResponse" name="getStudyUIDsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getVersionRequest">
+    <wsdl:part element="bi:getVersionRequest" name="getVersionRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getStudyUIDByServiceIdRequest">
+    <wsdl:part element="typens:getStudyUIDByServiceIdRequest" name="getStudyUIDByServiceIdRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRenderedServicesByIdRequest">
+    <wsdl:part element="typens:getRenderedServicesByIdRequest" name="getRenderedServicesByIdRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRenderedServicesAppointmentIdResponse">
+    <wsdl:part element="typens:getRenderedServicesAppointmentIdResponse" name="getRenderedServicesAppointmentIdResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRenderedServicesByIdResponse">
+    <wsdl:part element="typens:getRenderedServicesByIdResponse" name="getRenderedServicesByIdResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRenderedServicesByAppointmentIdRequest">
+    <wsdl:part element="typens:getRenderedServicesByAppointmentIdRequest" name="getRenderedServicesByAppointmentIdRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="searchRenderedServicesRequest">
+    <wsdl:part element="typens:searchRenderedServicesRequest" name="searchRenderedServicesRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getStudyUIDs">
+    <wsdl:part element="typens:getStudyUIDsRequest" name="getStudyUIDsRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="sendRenderedServicesRequest">
+    <wsdl:part element="typens:sendRenderedServicesRequest" name="sendRenderedServicesRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteRenderedServicesRequest">
+    <wsdl:part element="typens:deleteRenderedServicesRequest" name="deleteRenderedServicesRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="RenderedServicesPortType">
+<wsdl:documentation>
+            SOAP Server description file
+        </wsdl:documentation>
+    <wsdl:operation name="sendServiceRend">
+<wsdl:documentation>
+                Передача данных объекта учёта «Оказанная услуга» и получение его уникального идентификатора
+            </wsdl:documentation>
+      <wsdl:input message="typens:sendRenderedServicesRequest">
+    </wsdl:input>
+      <wsdl:output message="typens:sendRenderedServicesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getServiceRendById">
+<wsdl:documentation>
+                Получение данных объекта учёта «Оказанная услуга» по ее уникальному идентификатору
+            </wsdl:documentation>
+      <wsdl:input message="typens:getRenderedServicesByIdRequest">
+    </wsdl:input>
+      <wsdl:output message="typens:getRenderedServicesByIdResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="searchServiceRend">
+<wsdl:documentation>
+                Поиск объекта учёта «Оказанная уcлуга» по набору параметров
+            </wsdl:documentation>
+      <wsdl:input message="typens:searchRenderedServicesRequest">
+    </wsdl:input>
+      <wsdl:output message="typens:searchRenderedServicesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getServiceRendByAppointmentId">
+<wsdl:documentation>
+                Получение кода «Оказанной уcлуги» по коду предварительной записи
+            </wsdl:documentation>
+      <wsdl:input message="typens:getRenderedServicesByAppointmentIdRequest">
+    </wsdl:input>
+      <wsdl:output message="typens:getRenderedServicesAppointmentIdResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteServiceRend">
+<wsdl:documentation>
+                Удаление данных объекта учёта «Оказанная услуга» по ее уникальному идентификатору
+            </wsdl:documentation>
+      <wsdl:input message="typens:deleteRenderedServicesRequest">
+    </wsdl:input>
+      <wsdl:output message="typens:deleteRenderedServicesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStudyUIDByServiceId">
+<wsdl:documentation>
+                Получение "UID исследования"(Study UID) по идентификатору услуги/исследования
+            </wsdl:documentation>
+      <wsdl:input message="typens:getStudyUIDByServiceIdRequest">
+    </wsdl:input>
+      <wsdl:output message="typens:getStudyUIDByServiceIdResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getViewStudyURLs">
+      <wsdl:input message="typens:getViewStudyURLs" name="getViewStudyURLs">
+    </wsdl:input>
+      <wsdl:output message="typens:getViewStudyURLsResponse" name="getViewStudyURLsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStudyUIDs">
+      <wsdl:input message="typens:getStudyUIDs" name="getStudyUIDs">
+    </wsdl:input>
+      <wsdl:output message="typens:getStudyUIDsResponse" name="getStudyUIDsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVersion">
+      <wsdl:input message="typens:getVersionRequest" name="getVersionRequest">
+    </wsdl:input>
+      <wsdl:output message="typens:getVersionResponse" name="getVersionResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="RenderedServicesBinding" type="typens:RenderedServicesPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="sendServiceRend">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getServiceRendById">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="searchServiceRend">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getServiceRendByAppointmentId">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteServiceRend">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStudyUIDByServiceId">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getViewStudyURLs">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getViewStudyURLs">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getViewStudyURLsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStudyUIDs">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getStudyUIDs">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getStudyUIDsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVersion">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="RenderedServicesService">
+    <wsdl:port binding="typens:RenderedServicesBinding" name="RenderedServicesPort">
+      <soap:address location="https://rmis66.mis66.ru/medservices-ws/renderedServices"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

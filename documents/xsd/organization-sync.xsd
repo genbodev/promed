@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8'?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://atria.cz/ns/organization/sync/" xmlns:sync="http://atria.cz/common/sync/" xmlns:org="http://atria.cz/ns/organization/" elementFormDefault="qualified" targetNamespace="http://atria.cz/ns/organization/sync/" version="1.0">
+    <!--todo: use same AddressType in Organization -->
+    <xs:import namespace="http://atria.cz/ns/organization/" schemaLocation="https://rmis66.mis66.ru/organization-ws/organizationSync?xsd=organization.xsd"/>
+    <xs:import namespace="http://atria.cz/common/sync/" schemaLocation="https://rmis66.mis66.ru/organization-ws/organizationSync?xsd=http://atria.cz/common/sync/syncData.xsd"/>
+
+    <xs:complexType name="OrganizationSync">
+        <xs:complexContent>
+            <xs:extension base="org:Organization">
+                <xs:sequence>
+                    <xs:element maxOccurs="1" minOccurs="1" name="syncSysInfo" type="sync:SyncSysInfo"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="OrganizationAddressSync">
+        <xs:complexContent>
+            <xs:extension base="org:OrganizationAddressBase">
+                <xs:sequence>
+                    <xs:element maxOccurs="1" minOccurs="1" name="organizationEuid" type="xs:string"/>
+                    <xs:element maxOccurs="1" minOccurs="1" name="syncSysInfo" type="sync:SyncSysInfo"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="addressTypes" type="xs:string"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="createOrUpdateOrganizationRequest" type="tns:OrganizationSync"/>
+    <xs:element name="createOrUpdateOrganizationResponse" type="sync:void"/>
+    <xs:element name="deleteOrganizationRequest" type="sync:SyncSysInfo"/>
+    <xs:element name="deleteOrganizationResponse" type="sync:void"/>
+    <xs:element name="getOrganizationRequest" type="xs:string"/>
+    <xs:element name="getOrganizationResponse" type="tns:OrganizationSync"/>
+    <xs:element name="getChangedOrganizationRequest" type="sync:SyncVerListRequest"/>
+    <xs:element name="getChangedOrganizationResponse" type="sync:SyncSysInfoList"/>
+    <xs:element name="getDeletedOrganizationRequest" type="sync:SyncVerListRequest"/>
+    <xs:element name="getDeletedOrganizationResponse" type="sync:SyncSysInfoList"/>
+    <xs:element name="searchOrganizationRequest" type="org:OrganizationCriteria"/>
+    <xs:element name="searchOrganizationResponse" type="sync:EUIDList"/>
+    
+    <xs:element name="createOrUpdateOrganizationAddressRequest" type="tns:OrganizationAddressSync"/>
+    <xs:element name="createOrUpdateOrganizationAddressResponse" type="sync:void"/>
+    <xs:element name="deleteOrganizationAddressRequest" type="sync:SyncSysInfo"/>
+    <xs:element name="deleteOrganizationAddressResponse" type="sync:void"/>
+    <xs:element name="getOrganizationAddressRequest" type="xs:string"/>
+    <xs:element name="getOrganizationAddressResponse" type="tns:OrganizationAddressSync"/>
+    <xs:element name="getChangedOrganizationAddressRequest" type="sync:SyncVerListRequest"/>
+    <xs:element name="getChangedOrganizationAddressResponse" type="sync:SyncSysInfoList"/>
+    <xs:element name="getDeletedOrganizationAddressRequest" type="sync:SyncVerListRequest"/>
+    <xs:element name="getDeletedOrganizationAddressResponse" type="sync:SyncSysInfoList"/>
+    <xs:complexType name="OrganizationAddressCriteria">
+        <xs:sequence>
+            <xs:element maxOccurs="1" minOccurs="0" name="organizationEuid" type="xs:string"/>
+            <xs:element maxOccurs="1" minOccurs="0" name="addressType" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="searchOrganizationAddressRequest" type="tns:OrganizationAddressCriteria"/>
+    <xs:element name="searchOrganizationAddressResponse" type="sync:EUIDList"/>
+</xs:schema>

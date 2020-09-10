@@ -1,0 +1,628 @@
+<table border="0" cellpadding="0" cellspacing="0">
+	<tbody>
+		<tr>
+			<td rowspan="2" style="width: 319px;">
+				<p align="center">
+					Министерство здравоохранения и социального развития РФ</p>
+			</td>
+			<td style="width: 324px;">
+				<p align="center">
+					<strong><em>г. Пермь, ГКБ-4, ул. КИМ, 2</em></strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 324px;">
+				<p align="center">
+					(наименование и адрес ЛПУ)</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 319px; height: 15px;">
+				<p align="center">
+					&nbsp;</p>
+			</td>
+			<td style="width: 324px; height: 15px;">
+				<p align="center">
+					<strong>Клиническая лаборатория</strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="2" style="width: 319px; height: 15px;">
+				<p align="center">
+					<strong>ОБЩИЙ АНАЛИЗ МОЧИ № 5401</strong></p>
+			</td>
+			<td style="width: 324px; height: 15px;">
+				<p align="center">
+					(наименование отделения)</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 324px; height: 15px;">
+				<p align="center">
+					&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 319px; height: 15px;">
+				<p align="center">
+					<strong>Дата выполнения: </strong>31.01.2011</p>
+			</td>
+			<td style="width: 324px; height: 15px;">
+				<p align="center">
+					(врач, код врача)</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p>
+	&nbsp;</p>
+<table border="1" cellpadding="0" cellspacing="0">
+	<tbody>
+		<tr>
+			<td style="width: 199px;">
+				<p>
+					Пациент</p>
+			</td>
+			<td style="width: 444px;">
+				<p>
+					Плесовских В.К., 06.05.1949 г.р., ИБ А882</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 199px;">
+				<p>
+					Пол</p>
+			</td>
+			<td style="width: 444px;">
+				<p>
+					Мужской</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 199px;">
+				<p>
+					Кто направил</p>
+			</td>
+			<td style="width: 444px;">
+				<p>
+					Сятчихин А.В.</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 199px;">
+				<p>
+					Палата / кабинет</p>
+			</td>
+			<td style="width: 444px;">
+				<p>
+					&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 199px;">
+				<p>
+					Диагноз</p>
+			</td>
+			<td style="width: 444px;">
+				<p>
+					I70.2 Атеросклероз артерий конечностей</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p align="center">
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<table border="1" cellpadding="0" cellspacing="0">
+	<tbody>
+		<tr>
+			<td style="width: 165px;">
+				<p>
+					<strong>Показатель</strong></p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					<strong>Значение</strong></p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					<strong>Единица измерения</strong></p>
+			</td>
+			<td style="width: 148px;">
+				<p>
+					<strong>Норма</strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 165px;">
+				<p>
+					Количество</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					100</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					мл</p>
+			</td>
+			<td style="width: 148px;">
+				<p>
+					&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 165px;">
+				<p>
+					Цвет (COL)</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					с/жел</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					&nbsp;</p>
+			</td>
+			<td style="width: 148px;">
+				<p>
+					сол-жел</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 165px;">
+				<p>
+					Прозрачность (CLA)</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					прозр</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					&nbsp;</p>
+			</td>
+			<td style="width: 148px;">
+				<p>
+					прозр</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 165px;">
+				<p>
+					Удельный вес (SG)</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					1020</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					г/л</p>
+			</td>
+			<td style="width: 148px;">
+				<p>
+					1010-1025</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 165px;">
+				<p>
+					Реакция (PH)</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					Кисл</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					кисл,нейтр</p>
+			</td>
+			<td style="width: 148px;">
+				<p>
+					&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 165px;">
+				<p>
+					глюкоза кач</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					+</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					&nbsp;</p>
+			</td>
+			<td style="width: 148px;">
+				<p>
+					-</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 165px;">
+				<p>
+					глюкоза кол (GLU)</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					5.0</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					г/л</p>
+			</td>
+			<td style="width: 148px;">
+				<p>
+					0</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 165px;">
+				<p>
+					Ацетон (KET)</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					++</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					&nbsp;</p>
+			</td>
+			<td style="width: 148px;">
+				<p>
+					-</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 165px;">
+				<p>
+					Белок кач</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					+</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					&nbsp;</p>
+			</td>
+			<td style="width: 148px;">
+				<p>
+					-</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 165px;">
+				<p>
+					Белок кол (PRO)</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					0.02</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					г/л</p>
+			</td>
+			<td style="width: 148px;">
+				<p>
+					0</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 165px;">
+				<p>
+					Лейкоциты (LEU)</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					0-1</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					&nbsp;</p>
+			</td>
+			<td style="width: 148px;">
+				<p>
+					0-1</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 165px;">
+				<p>
+					Эритроциты (BLO)</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					1-2</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					&nbsp;</p>
+			</td>
+			<td style="width: 148px;">
+				<p>
+					-</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 165px;">
+				<p>
+					Цилиндры гиалиновые</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					-</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					&nbsp;</p>
+			</td>
+			<td style="width: 148px;">
+				<p>
+					-</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 165px;">
+				<p>
+					Цилиндры зернистые</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					-</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					&nbsp;</p>
+			</td>
+			<td style="width: 148px;">
+				<p>
+					-</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 165px;">
+				<p>
+					Цилиндры восковидные</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					-</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					&nbsp;</p>
+			</td>
+			<td style="width: 148px;">
+				<p>
+					-</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 165px;">
+				<p>
+					Цилиндроиды</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					-</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					&nbsp;</p>
+			</td>
+			<td style="width: 148px;">
+				<p>
+					-</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 165px;">
+				<p>
+					Эпителий плоский</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					ед</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					&nbsp;</p>
+			</td>
+			<td style="width: 148px;">
+				<p>
+					&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 165px;">
+				<p>
+					Эпителий почечный</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					-</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					&nbsp;</p>
+			</td>
+			<td style="width: 148px;">
+				<p>
+					-</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 165px;">
+				<p>
+					Слизь</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					-</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					&nbsp;</p>
+			</td>
+			<td style="width: 148px;">
+				<p>
+					-</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 165px;">
+				<p>
+					Ураты</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					-</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					&nbsp;</p>
+			</td>
+			<td style="width: 148px;">
+				<p>
+					-</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 165px;">
+				<p>
+					Оксалаты</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					-</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					&nbsp;</p>
+			</td>
+			<td style="width: 148px;">
+				<p>
+					-</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 165px;">
+				<p>
+					Фосфаты</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					-</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					&nbsp;</p>
+			</td>
+			<td style="width: 148px;">
+				<p>
+					-</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 165px;">
+				<p>
+					Нитриты (NIT)</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					-</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					&nbsp;</p>
+			</td>
+			<td style="width: 148px;">
+				<p>
+					-</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 165px;">
+				<p>
+					Мочевая кислота</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					-</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					&nbsp;</p>
+			</td>
+			<td style="width: 148px;">
+				<p>
+					-</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 165px;">
+				<p>
+					Бактерии</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					-</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					&nbsp;</p>
+			</td>
+			<td style="width: 148px;">
+				<p>
+					-</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 165px;">
+				<p>
+					Дрожжевые грибки</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					-</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					&nbsp;</p>
+			</td>
+			<td style="width: 148px;">
+				<p>
+					-</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 165px;">
+				<p>
+					Простейшие</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					-</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					&nbsp;</p>
+			</td>
+			<td style="width: 148px;">
+				<p>
+					-</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p>
+	&nbsp;</p>
+<p>
+	<strong>Примечание:</strong></p>

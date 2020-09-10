@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="CANCEL_HOSPITALISATION_REFERRAL">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ZGLV">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="DATA" type="xs:date" />
+							<xs:element name="TYPE">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:maxLength value="6" />
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="ID" type="xs:string" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="ZAP" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="NOM_NAP">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:length value="16" />
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="DTA_NAP" type="xs:date" />
+							<xs:element name="MCOD_NAP">
+								<xs:simpleType>
+									<xs:restriction base="xs:int">
+										<xs:pattern value="\d{0,6}" />
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="IST_ANL" type="xs:int" />
+							<xs:element name="ACOD" type="xs:string" />
+							<xs:element name="MPODR_ANL" type="xs:int" minOccurs="0" />
+							<xs:element name="PR_ANL" type="xs:int" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

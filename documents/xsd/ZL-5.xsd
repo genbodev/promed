@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="Windows-1251"?>
+<xs:schema xmlns:tns="http://uir.ffoms.ru" xmlns:xs="http://www.w3.org/2001/XMLSchema" target-Namespace="http://uir.ffoms.ru" elementFormDefault="qualified">
+<xs:element name="PERS_LIST">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name="ZGLV" minOccurs="1" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="VERSION" type="xs:string" minOccurs="1" maxOccurs="1"/>
+						<xs:element name="DATA" type="xs:date" minOccurs="1" maxOccurs="1"/>
+						<xs:element name="FILENAME" type="xs:string" minOccurs="1" maxOccurs="1" />
+						<xs:element name="CODE_MO" type="xs:int" minOccurs="1" maxOccurs="1" />
+						<xs:element name="ID_MO" type="xs:string" minOccurs="1" maxOccurs="1"/>
+						<xs:element name="SMO" type="xs:int" minOccurs="1" maxOccurs="1" />
+						<xs:element name="ZAP" type="xs:int" minOccurs="1" maxOccurs="1" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="PERS" minOccurs="1" maxOccurs="unbounded" >
+				<xs:complexType>
+					<xs:sequence>
+					    <xs:element name="ID_PAC" type="xs:string" minOccurs="1" maxOccurs="1"/>
+						<xs:element name="FAM" type="xs:string" minOccurs="1" maxOccurs="1"/>
+						<xs:element name="IM" type="xs:string" minOccurs="1" maxOccurs="1"/>
+						<xs:element name="OT" type="xs:string" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="W" type="xs:int" minOccurs="1" maxOccurs="1"/>
+						<xs:element name="DR" type="xs:date" minOccurs="1" maxOccurs="1"/>
+						<xs:element name="VPOLIS" type="xs:int" minOccurs="1" maxOccurs="1"/>
+						<xs:element name="SPOLIS" type="xs:string" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="NPOLIS" type="xs:string" minOccurs="1" maxOccurs="1"/>
+						<xs:element name="DATE" type="xs:date" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="KOD_PODR" type="xs:string" minOccurs="1" maxOccurs="1"/>
+						<xs:element name="NUM_UCH" type="xs:string" minOccurs="1" maxOccurs="1"/>
+						<xs:element name="TIP_UCH" type="xs:string" minOccurs="1" maxOccurs="1"/>
+						<xs:element name="SNILS_VR" type="xs:string" minOccurs="1" maxOccurs="1"/>
+						<xs:element name="IDENT_RESULT" type="xs:int" minOccurs="1" maxOccurs="1"/>
+						<xs:element name="PR_RESULT" type="xs:int" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="PR_CODE_MO" type="xs:int" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="REASON" type="xs:int" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="DATE_CLOSE" type="xs:date" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="VPOLIS_NEW" type="xs:int" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="SPOLIS_NEW" type="xs:string" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="NPOLIS_NEW" type="xs:string" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="DATE_NEW" type="xs:date" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="COMMENT" type="xs:string" minOccurs="0" maxOccurs="1"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>	
+	</xs:complexType>
+</xs:element>
+</xs:schema>

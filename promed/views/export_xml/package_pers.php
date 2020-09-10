@@ -1,0 +1,24 @@
+<PERS>
+	<HEADER>
+		{OPERATIONTYPE}
+		{DATA}
+		{PERSONID}
+	</HEADER>
+	<?php if($OPERATIONTYPE!='Delete'){ ?><BODY>
+		{FAM}
+		{IM}
+		{OT}
+		{DR}
+		{W}
+		{DOCTYPE}
+		{DOCSER}
+		{DOCNUM}
+		{SNILS}
+		{POLISTYPE}
+		{POLISSER}
+		{POLISNUM}
+		{POLISBEGDT}
+		{POLISENDDT}
+		{ENP}
+	</BODY><?php } ?>
+</PERS>

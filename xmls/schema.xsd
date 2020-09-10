@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+	<!--<xsd:simpleType name="time">
+		<xsd:annotation>
+			<xsd:documentation>Время в формате: hh:mm</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:length value="5"/>
+			<xsd:pattern value="[0-2][0-9]:[0-5][0-9]"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="date">
+		<xsd:annotation>
+			<xsd:documentation>Дата в формате: d.m.Y</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:length value="10"/>
+			<xsd:pattern value="[0-3][0-9].[0-1][0-9].[1-2][0-9][0-9][0-9]"/>
+		</xsd:restriction>
+	</xsd:simpleType>-->
+	<xsd:element name="source">
+		<xsd:annotation>
+			<xsd:documentation>Исходный документ</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:all>
+				<!--<xsd:element name="DocumentDate" type="date">
+					<xsd:annotation>
+						<xsd:documentation>Дата осмотра</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="DocumentTime" type="time">
+					<xsd:annotation>
+						<xsd:documentation>Время осмотра</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="Person_FIO" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>ФИО пациента</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>-->
+				<xsd:element name="Anamnes_Zab" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Анамнез заболевания</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="Jaloby" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Жалобы</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="Anamnez_Jizn" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Анамнез жизни</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="Expert_Anamn" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Экспертный анамнез</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="Object_Stat" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Объективный статус</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="Local_Stat" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Локальный статус</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="Brah_Stvol" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation></xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="SonPulsR" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation></xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="SonPulsL" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation></xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="SonShumR" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation></xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="SonShumL" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation></xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="VisArtPulsR" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation></xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="VisArtPulsL" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation></xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="PozvonArtPulsR" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation></xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="PozvonArtPulsL" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation></xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="PodkluchArtPulsR" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation></xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="PodkluchArtPulsL" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation></xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="PodkluchArtShumR" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation></xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="PodkluchArtShumL" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation></xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="PodmyshArtPulsR" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation></xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="PodmyshArtPulsL" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation></xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="Consult" type="xsd:int">
+					<xsd:annotation>
+						<xsd:documentation></xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:all>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

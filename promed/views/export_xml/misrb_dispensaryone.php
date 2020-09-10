@@ -1,0 +1,73 @@
+<mr:MedRecord i:type="mrd:DispensaryOne" xmlns:mrd="http://schemas.datacontract.org/2004/07/N3.EMK.Dto.MedRec.MedDoc">
+	<mrd:CreationDate>{CreationDate}</mrd:CreationDate>
+	<mrd:Author xmlns:emk="http://schemas.datacontract.org/2004/07/N3.EMK.Dto">
+		<emk:Person>
+			<emk:HumanName>
+				<emk:GivenName>{GivenName}</emk:GivenName>
+				<emk:MiddleName>{MiddleName}</emk:MiddleName>
+				<emk:FamilyName>{FamilyName}</emk:FamilyName>
+			</emk:HumanName>
+			<emk:Sex>{Sex}</emk:Sex>
+			<emk:Birthdate>{Birthdate}</emk:Birthdate>
+			<emk:IdPersonMis>{IdPersonMis}</emk:IdPersonMis>
+			<emk:Documents>
+				{Documents}
+				<emk:IdentityDocument>
+					<emk:DocN>{DocN}</emk:DocN>
+					<emk:DocS>{DocS}</emk:DocS>
+					<emk:ExpiredDate>{ExpiredDate}</emk:ExpiredDate>
+					<emk:IdDocumentType>{IdDocumentType}</emk:IdDocumentType>
+					<emk:IdProvider i:nil="true"/>
+					<emk:IssuedDate>{IssuedDate}</emk:IssuedDate>
+					<emk:ProviderName>{ProviderName}</emk:ProviderName>
+				</emk:IdentityDocument>
+				{/Documents}
+			</emk:Documents>
+		</emk:Person>
+		<emk:IdLpu>{IdLpu}</emk:IdLpu>
+		<emk:IdSpeciality>{IdSpeciality}</emk:IdSpeciality>
+		<emk:IdPosition>{IdPosition}</emk:IdPosition>
+	</mrd:Author>
+	<mrd:Header>{Header}</mrd:Header>
+	<mrd:IsGuested>{IsGuested}</mrd:IsGuested>
+	<mrd:HasExtraResearchRefferal>{HasExtraResearchRefferal}</mrd:HasExtraResearchRefferal>
+	<mrd:IsUnderObservation>{IsUnderObservation}</mrd:IsUnderObservation>
+	<mrd:HasExpertCareRefferal>{HasExpertCareRefferal}</mrd:HasExpertCareRefferal>
+	<mrd:HasPrescribeCure>{HasPrescribeCure}</mrd:HasPrescribeCure>
+	<mrd:HasHealthResortRefferal>{HasHealthResortRefferal}</mrd:HasHealthResortRefferal>
+	<mrd:HasSecondStageRefferal>{HasSecondStageRefferal}</mrd:HasSecondStageRefferal>
+	<mrd:HealthGroup>
+		<mrd:Doctor xmlns:emk="http://schemas.datacontract.org/2004/07/N3.EMK.Dto">
+			<emk:Person>
+				<emk:HumanName>
+					<emk:GivenName>{GivenName}</emk:GivenName>
+					<emk:MiddleName>{MiddleName}</emk:MiddleName>
+					<emk:FamilyName>{FamilyName}</emk:FamilyName>
+				</emk:HumanName>
+				<emk:Sex>{Sex}</emk:Sex>
+				<emk:Birthdate>{Birthdate}</emk:Birthdate>
+				<emk:IdPersonMis>{IdPersonMis}</emk:IdPersonMis>
+				<emk:Documents>
+					{Documents}
+					<emk:IdentityDocument>
+						<emk:DocN>{DocN}</emk:DocN>
+						<emk:DocS>{DocS}</emk:DocS>
+						<emk:ExpiredDate>{ExpiredDate}</emk:ExpiredDate>
+						<emk:IdDocumentType>{IdDocumentType}</emk:IdDocumentType>
+						<emk:IdProvider i:nil="true"/>
+						<emk:IssuedDate>{IssuedDate}</emk:IssuedDate>
+						<emk:ProviderName>{ProviderName}</emk:ProviderName>
+					</emk:IdentityDocument>
+					{/Documents}
+				</emk:Documents>
+			</emk:Person>
+			<emk:IdLpu>{IdLpu}</emk:IdLpu>
+			<emk:IdSpeciality>{IdSpeciality}</emk:IdSpeciality>
+			<emk:IdPosition>{IdPosition}</emk:IdPosition>
+		</mrd:Doctor>
+		<mrd:HealthGroupInfo>
+			<mrd:IdHealthGroup>{IdHealthGroup}</mrd:IdHealthGroup>
+			<mrd:Date>{Date}</mrd:Date>
+		</mrd:HealthGroupInfo>
+	</mrd:HealthGroup>
+</mr:MedRecord>

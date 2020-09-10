@@ -1,0 +1,2 @@
+{zl}<zl><nomer_z>{nomer_z}</nomer_z><snils>{snils}</snils><id_zl>{id_zl}</id_zl><fam>{fam}</fam><im>{im}</im><ot>{ot}</ot><dr>{dr}</dr><w>{w}</w><address_r>{address_r}</address_r><index>{index}</index><address_reg>{address_reg}</address_reg><doc><name_doc>{name_doc}</name_doc><s_doc>{s_doc}</s_doc><n_doc>{n_doc}</n_doc><data_doc>{data_doc}</data_doc></doc></zl>
+{/zl}

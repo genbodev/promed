@@ -1,0 +1,63 @@
+<mr:MedRecord i:type="mrd:SickList" xmlns:mrd="http://schemas.datacontract.org/2004/07/N3.EMK.Dto.MedRec.MedDoc">
+	<mrd:CreationDate>{CreationDate}</mrd:CreationDate>
+	<mrd:Author xmlns:emk="http://schemas.datacontract.org/2004/07/N3.EMK.Dto">
+		<emk:Person>
+			<emk:HumanName>
+				<emk:GivenName>{Author/GivenName}</emk:GivenName>
+				<emk:MiddleName>{Author/MiddleName}</emk:MiddleName>
+				<emk:FamilyName>{Author/FamilyName}</emk:FamilyName>
+			</emk:HumanName>
+			<emk:Sex>{Author/Sex}</emk:Sex>
+			<emk:Birthdate>{Author/Birthdate}</emk:Birthdate>
+			<emk:IdPersonMis>{Author/IdPersonMis}</emk:IdPersonMis>
+			<emk:Documents>
+				{Author/Documents}
+				<emk:IdentityDocument>
+					<emk:DocN>{DocN}</emk:DocN>
+					<emk:DocS>{DocS}</emk:DocS>
+					<emk:ExpiredDate>{ExpiredDate}</emk:ExpiredDate>
+					<emk:IdDocumentType>{IdDocumentType}</emk:IdDocumentType>
+					<emk:IdProvider i:nil="true"/>
+					<emk:IssuedDate>{IssuedDate}</emk:IssuedDate>
+					<emk:ProviderName>{ProviderName}</emk:ProviderName>
+				</emk:IdentityDocument>
+				{/Author/Documents}
+			</emk:Documents>
+		</emk:Person>
+		<emk:IdLpu>{Author/IdLpu}</emk:IdLpu>
+		<emk:IdSpeciality>{Author/IdSpeciality}</emk:IdSpeciality>
+		<emk:IdPosition>{Author/IdPosition}</emk:IdPosition>
+	</mrd:Author>
+	<mrd:Header>{Header}</mrd:Header>
+	<mrd:SickListInfo>
+		<mrd:Number>{Number}</mrd:Number>
+		<mrd:DateStart>{DateStart}</mrd:DateStart>
+		<mrd:DateEnd>{DateEnd}</mrd:DateEnd>
+		<mrd:IsPatientTaker>{IsPatientTaker}</mrd:IsPatientTaker>
+	</mrd:SickListInfo>
+	<mrd:Guardian xmlns:emk="http://schemas.datacontract.org/2004/07/N3.EMK.Dto">
+		<emk:Person>
+			<emk:HumanName>
+				<emk:GivenName>{Guardian/GivenName}</emk:GivenName>
+				<emk:MiddleName>{Guardian/MiddleName}</emk:MiddleName>
+				<emk:FamilyName>{Guardian/FamilyName}</emk:FamilyName>
+			</emk:HumanName>
+			<emk:Sex>{Guardian/Sex}</emk:Sex>
+			<emk:Birthdate>{Guardian/Birthdate}</emk:Birthdate>
+			<emk:IdPersonMis>{Guardian/IdPersonMis}</emk:IdPersonMis>
+			<emk:Documents>
+				{Guardian/Documents}
+				<emk:IdentityDocument>
+					<emk:DocN>{DocN}</emk:DocN>
+					<emk:DocS>{DocS}</emk:DocS>
+					<emk:ExpiredDate>{ExpiredDate}</emk:ExpiredDate>
+					<emk:IdDocumentType>{IdDocumentType}</emk:IdDocumentType>
+					<emk:IdProvider i:nil="true"/>
+					<emk:IssuedDate>{IssuedDate}</emk:IssuedDate>
+					<emk:ProviderName>{ProviderName}</emk:ProviderName>
+				</emk:IdentityDocument>
+				{/Guardian/Documents}
+			</emk:Documents>
+		</emk:Person>
+	</mrd:Guardian>
+</mr:MedRecord>

@@ -1,0 +1,1 @@
+<table width=&quot;100%&quot;><thead><tr><th>Дата возникновения реакции</th><th>Тип аллергической реакции</th><th>Вид аллергена</th><th>Характер аллергической реакции</th></tr></thead><tbody>{items}</tbody></table>

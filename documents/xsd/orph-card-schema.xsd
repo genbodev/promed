@@ -1,0 +1,1699 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema version="20141210" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:annotation>
+    <xs:documentation>
+      Формат данных для импорта карт детей-сирот и их карт диспансеризации
+      в Подсистему мониторинга проведения диспансеризации детей-сирот
+      и детей, находящихся в трудной жизненной ситуации
+
+      Дата актуальности схемы: 10.12.2014
+    </xs:documentation>
+  </xs:annotation>
+
+  <!-- Корень -->
+  <xs:element name="children" type="arrayOfChildBlock">
+    <xs:annotation>
+      <xs:documentation>
+        Перечень карт детей — корневой элемент
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+
+  <!-- Типы -->
+  <!-- Типы для ребёнка -->
+  <xs:complexType name="arrayOfChildBlock">
+    <xs:sequence minOccurs="1" maxOccurs="unbounded">
+      <xs:element name="child" type="childBlock" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="childBlock">
+    <xs:annotation>
+      <xs:documentation>
+        Блок карты ребёнка
+      </xs:documentation>
+    </xs:annotation>
+
+    <xs:all>
+      <xs:element name="idInternal" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            Внутренний идентификатор карты ребёнка предоставляющей системы
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <!-- Личные данные -->
+      <xs:element name="idType">
+        <xs:annotation>
+          <xs:documentation>
+            Тип карты ребёнка: 1 — сирота, 3 — несовершенолетний
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:int">
+            <xs:enumeration value="1" />
+            <xs:enumeration value="3" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="name">
+        <xs:annotation>
+          <xs:documentation>
+            Фамилия, имя, отчество
+
+            Данное поле может быть изменено при повторной загрузке.
+          </xs:documentation>
+        </xs:annotation>
+
+        <xs:complexType>
+          <xs:all>
+            <xs:element name="last" type="xs:string">
+              <xs:annotation>
+                <xs:documentation>
+                  Фамилия
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="first" type="xs:string">
+              <xs:annotation>
+                <xs:documentation>
+                  Имя
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="middle" type="xs:string" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>
+                  Отчество
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:all>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="idSex">
+        <xs:annotation>
+          <xs:documentation>
+            Пол ребёнка: 1 — мужской, 2 — женский
+
+            Данное поле может быть изменено при повторной загрузке.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:int">
+            <xs:enumeration value="1" />
+            <xs:enumeration value="2" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="dateOfBirth" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>
+            Дата рождения
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="idCategory">
+        <xs:annotation>
+          <xs:documentation>
+            Категория ребёнка:
+            1 — ребёнок-сирота
+            2 — ребёнок, находящийся в трудной жизненной ситуации
+            3 — ребёнок, оставшийся без попечения родителей
+            4 — нет категории
+
+            Данное поле может быть изменено при повторной загрузке.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:int">
+            <xs:enumeration value="1" />
+            <xs:enumeration value="2" />
+            <xs:enumeration value="3" />
+            <xs:enumeration value="4" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="idDocument">
+        <xs:annotation>
+          <xs:documentation>
+            Документ, удостоверяющий личность:
+            3 — Свидетельство о рождении
+            14 — Паспорт гражданина РФ
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:int">
+            <xs:enumeration value="3" />
+            <xs:enumeration value="14" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="documentSer" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Серия документа, удостоверяющий личность
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="documentNum" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Номер документа, удостоверяющий личность
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="snils" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            Номер СНИЛС
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9]{3}-[0-9]{3}-[0-9]{3}-[0-9]{2}" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="idPolisType" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            Формат страхового полиса:
+            1 — Полис старого образца
+            2 — Полис нового образца
+
+            Если поле опущено, принимается значение 2.
+            Данное поле может быть изменено при повторной загрузке.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:int">
+            <xs:enumeration value="1" />
+            <xs:enumeration value="2" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="polisSer" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            Серия страхового полиса
+
+            Данное поле может быть изменено при повторной загрузке.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="polisNum" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Номер страхового полиса
+
+            Данное поле может быть изменено при повторной загрузке.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="idInsuranceCompany" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>
+            Справочный идентификатор страховой компании
+
+            Данное поле может быть изменено при повторной загрузке.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="medSanName" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Наименование медицинской организации, выбранной для получения первичной медико-санитарной помощи
+
+            Данное поле может быть изменено при повторной загрузке.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="medSanAddress" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Юридический адрес медицинской организации, выбранной для получения первичной медико-санитарной помощи
+
+            Данное поле может быть изменено при повторной загрузке.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="address">
+        <xs:annotation>
+          <xs:documentation>
+            Адрес места постоянного пребывания
+
+            Данное поле может быть изменено при повторной загрузке.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:all>
+            <xs:element name="index" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>
+                  Почтовый индекс
+                </xs:documentation>
+              </xs:annotation>
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:pattern value="[1-9][0-9]{5}" />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+
+            <xs:element name="kladrNP">
+              <xs:annotation>
+                <xs:documentation>
+                  Код населённого пункта проживания по КЛАДР
+                </xs:documentation>
+              </xs:annotation>
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:pattern value="[0-9]{13}" />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+
+            <xs:element name="kladrStreet" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>
+                  Код улицы проживания по КЛАДР
+                </xs:documentation>
+              </xs:annotation>
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:pattern value="[0-9]{17}" />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+
+            <xs:element name="house" type="xs:string" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>
+                  Номер дома
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+
+            <xs:element name="building" type="xs:string" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>
+                  Номер строения
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+
+            <xs:element name="appartment" type="xs:string" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>
+                  Номер квартиры
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:all>
+        </xs:complexType>
+      </xs:element>
+
+      <!-- Место нахождения и образование -->
+      <xs:element name="education" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            Данные образовательного учреждения
+
+            Данное поле имеет приоритет над полем idEducationOrg.
+            Данное поле может быть изменено при повторной загрузке.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:all>
+            <xs:element name="kladrDistr" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>
+                  Код района по КЛАДР, в котором находится образовательное учреждение
+                </xs:documentation>
+              </xs:annotation>
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:pattern value="[0-9]{13}" />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+
+            <xs:element name="idEducType" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>
+                  Вид образовательного учреждения:
+                  1 — Дошкольные образовательные учреждения
+                  2 — Общеобразовательные (начального общего, основного общего, среднего (полного) общего образования) образовательные учреждения
+                  3 — Образовательные учреждения начального профессионального, среднего профессионального, высшего профессионального образования
+                  4 — Специальные (коррекционные) образовательные учреждения для обучающихся, воспитанников с ограниченными возможностями здоровья
+                  5 — Образовательные учреждения для детей-сирот и детей, оставшихся без попечения родителей (законных представителей)
+                </xs:documentation>
+              </xs:annotation>
+              <xs:simpleType>
+                <xs:restriction base="xs:int">
+                  <xs:enumeration value="1" />
+                  <xs:enumeration value="2" />
+                  <xs:enumeration value="3" />
+                  <xs:enumeration value="4" />
+                  <xs:enumeration value="5" />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+
+            <xs:element name="educOrgName" type="xs:string">
+              <xs:annotation>
+                <xs:documentation>
+                  Наименование образовательного учреждения
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:all>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="idEducationOrg" type="xs:int" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            Справочный идентификатор образовательного учреждения
+
+            Данное поле игнорируется при указании поля education
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="idOrphHabitation" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            Место текущего нахождения:
+            0 — стационарное учреждение
+            1 — опека
+            2 — попечительство
+            3 — усыновление (удочерение)
+            4 — передан в приёмную семью
+            8 — передан в патронатную семью
+
+            Поле заполняется обязательно для ребёнка-сироты.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:int">
+            <xs:enumeration value="0" />
+            <xs:enumeration value="1" />
+            <xs:enumeration value="2" />
+            <xs:enumeration value="3" />
+            <xs:enumeration value="4" />
+            <xs:enumeration value="8" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="dateOrphHabitation" type="xs:date" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            Дата поступление в место текущего нахождения
+
+            Поле заполняется обязательно для ребёнка-сироты.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="idStacOrg" type="xs:int" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            Справочный идентификатор стационарного учреждения
+
+            Поле заполняется обязательно при значении idOrphHabitation равном 0.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <!-- Карты -->
+      <xs:element name="cards" type="arrayOfCardBLock" minOccurs="0" maxOccurs="1" />
+    </xs:all>
+  </xs:complexType>
+
+
+
+  <!-- Типы для обследований -->
+  <xs:complexType name="arrayOfCardBLock">
+    <xs:annotation>
+      <xs:documentation>
+        Перечень карт обследований ребёнка
+      </xs:documentation>
+    </xs:annotation>
+
+    <xs:sequence minOccurs="1" maxOccurs="unbounded">
+      <xs:element name="card" type="cardBlock" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="cardBlock">
+    <xs:annotation>
+      <xs:documentation>
+        Блок карты обследования ребёнка
+      </xs:documentation>
+    </xs:annotation>
+
+    <xs:all>
+      <xs:element name="idInternal" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            Внутренний идентификатор/номер карты предоставляющей системы
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="dateOfObsled" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>
+            Дата начала обследования
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ageObsled" type="xs:int" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            Возраст ребёнка в месяцах на момент проведения обследования
+
+            В случае указания приводится к ближайшему допустимому возрасту из справочника возрастов. Указанный возраст должен соответствовать дате начала обследования, иначе будет выбран минимально допустимый возраст.
+            В случае неуказания вычисляется на основе даты начала обследования и даты рождения.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="idType">
+        <xs:annotation>
+          <xs:documentation>
+            Вид карты обследования
+
+            Должен соответствовать полю idType карты ребёнка.
+            Для детей-сирот:
+            1 — карта диспансеризации
+            Для всех:
+            2 — профилактический осмотр
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:int">
+            <xs:enumeration value="1" />
+            <xs:enumeration value="2" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+
+      <!-- Развитие -->
+      <xs:element name="height" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>
+            Рост в сантиметрах
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="weight" type="xs:decimal">
+        <xs:annotation>
+          <xs:documentation>
+            Вес в килограмах
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="headSize" type="xs:int" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            Окружность головы в сантиметрах
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="healthProblems" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            Нарушения в развитии
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence minOccurs="1" maxOccurs="2">
+            <xs:element name="problem">
+              <xs:annotation>
+                <xs:documentation>
+                  1 — дефицит массы тела
+                  2 — избыток массы тела
+                  3 — низкий рост
+                  4 — высокий рост
+
+                  1 и 2, 3 и 4 — взаимоисключающие значения.
+                </xs:documentation>
+              </xs:annotation>
+              <xs:simpleType>
+                <xs:restriction base="xs:int">
+                  <xs:enumeration value="1" />
+                  <xs:enumeration value="2" />
+                  <xs:enumeration value="3" />
+                  <xs:enumeration value="4" />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="pshycDevelopment" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            Оценка возраста психического развития для детей от 0 до 4 лет в месяцах
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:all>
+            <xs:element name="poznav" type="xs:int">
+              <xs:annotation>
+                <xs:documentation>
+                  познавательная функция
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="motor" type="xs:int">
+              <xs:annotation>
+                <xs:documentation>
+                  моторная функция
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="emot" type="xs:int">
+              <xs:annotation>
+                <xs:documentation>
+                  эмоциональная и социальная (контакт с окружающим миром) функции
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="rech" type="xs:int">
+              <xs:annotation>
+                <xs:documentation>
+                  предречевое и речевое развитие
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:all>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="pshycState" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            Оценка состояния психического развития для детей от 5 лет
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:all>
+            <xs:element name="psihmot" type="pshycStateType">
+              <xs:annotation>
+                <xs:documentation>
+                  Психомоторная сфера
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="intel" type="pshycStateType">
+              <xs:annotation>
+                <xs:documentation>
+                  Интеллект
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="emotveg" type="pshycStateType">
+              <xs:annotation>
+                <xs:documentation>
+                  Эмоционально-вегетативная сфера
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:all>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="sexFormulaMale" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            Половая формула (муж.)
+
+            Поле заполняется обязательно для мальчиков от 10 лет
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:all>
+            <xs:element name="P" type="sexFormulaType" />
+            <xs:element name="Ax" type="sexFormulaType" />
+            <xs:element name="Fa" type="sexFormulaType" />
+          </xs:all>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="sexFormulaFemale" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            Половая формула (жен.)
+
+            Поле заполняется обязательно для девочек от 10 лет
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:all>
+            <xs:element name="P" type="sexFormulaType" />
+            <xs:element name="Ma" type="sexFormulaType" />
+            <xs:element name="Ax" type="sexFormulaType" />
+            <xs:element name="Me" type="sexFormulaType" />
+          </xs:all>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="menses" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            Менструальная функция
+
+            Поле заполняется обязательно для девочек от 10 лет
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:all>
+            <xs:element name="menarhe" type="xs:int">
+              <xs:annotation>
+                <xs:documentation>
+                  Menarhe в месяцах
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="characters">
+              <xs:complexType>
+                <xs:sequence minOccurs="0" maxOccurs="3">
+                  <xs:element name="char">
+                    <xs:annotation>
+                      <xs:documentation>
+                        Характеристика
+                        1 — регулярные
+                        2 — нерегулярные
+                        3 — обильные
+                        4 — скудные
+                        5 — умеренные
+                        6 — болезненные
+                        7 — безболезненные
+                        1 и 2; 3, 4 и 5; 6 и 7 — взаимоисключающие значения
+                      </xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:int">
+                        <xs:enumeration value="1" />
+                        <xs:enumeration value="2" />
+                        <xs:enumeration value="3" />
+                        <xs:enumeration value="4" />
+                        <xs:enumeration value="5" />
+                        <xs:enumeration value="6" />
+                        <xs:enumeration value="7" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:all>
+        </xs:complexType>
+      </xs:element>
+
+      <!-- Состояние здоровья до обследования -->
+      <xs:element name="healthGroupBefore">
+        <xs:annotation>
+          <xs:documentation>
+            Группа здоровья до проведения обследования (числом)
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:int">
+            <xs:minInclusive value="1" />
+            <xs:maxInclusive value="5" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="fizkultGroupBefore" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            Медицинская группа для занятий физической культурой:
+            1-4 — группы
+            -1 — не допущен
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:int">
+            <xs:enumeration value="-1" />
+            <xs:enumeration value="1" />
+            <xs:enumeration value="2" />
+            <xs:enumeration value="3" />
+            <xs:enumeration value="4" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="diagnosisBefore" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            Диагнозы до проведения обследования
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence minOccurs="1" maxOccurs="unbounded">
+            <xs:element name="diagnosis">
+              <xs:complexType>
+                <xs:all>
+                  <xs:element name="mkb" type="mkbCode" />
+                  <xs:element name="dispNablud">
+                    <xs:annotation>
+                      <xs:documentation>
+                        Диспансерное наблюдение
+                        1 — установлено ранее
+                        2 — установлено впервые
+                        3 — не установлено
+                      </xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:int">
+                        <xs:enumeration value="1" />
+                        <xs:enumeration value="2" />
+                        <xs:enumeration value="3" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="lechen" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>
+                        Лечение назначено
+                      </xs:documentation>
+                    </xs:annotation>
+
+                    <xs:complexType>
+                      <xs:all>
+                        <xs:element name="condition" type="diagCondition" />
+                        <xs:element name="organ" type="diagOrgan" />
+                        <xs:element name="notDone" type="diagNotDone" minOccurs="0">
+                          <xs:annotation>
+                            <xs:documentation>
+                              Лечение не выполнено в соответствии с назначением
+                            </xs:documentation>
+                          </xs:annotation>
+                        </xs:element>
+                      </xs:all>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="reabil" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>
+                        Медицинская реабилитация/санаторно-курортное лечение назначены
+                      </xs:documentation>
+                    </xs:annotation>
+
+                    <xs:complexType>
+                      <xs:all>
+                        <xs:element name="condition" type="diagCondition" />
+                        <xs:element name="organ" type="diagOrgan" />
+                        <xs:element name="notDone" type="diagNotDone" minOccurs="0">
+                          <xs:annotation>
+                            <xs:documentation>
+                              Медицинская реабилитация/санаторно-курортное лечение не выполнены в соответствии с назначением
+                            </xs:documentation>
+                          </xs:annotation>
+                        </xs:element>
+                      </xs:all>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="vmp">
+                    <xs:annotation>
+                      <xs:documentation>
+                        Высокотехнологичная медицинская помощь
+                        1 — рекомендована и оказана
+                        2 — рекомендована и не оказана
+                        0 — не рекомендована
+                      </xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:int">
+                        <xs:enumeration value="0" />
+                        <xs:enumeration value="1" />
+                        <xs:enumeration value="2" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:all>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <!-- Состояние здоровья после обследования -->
+      <xs:element name="healthyMKB" type="mkbCodeZ" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            Код осмотра, если ребёнок здоров
+
+            Код должен находиться в диапозоне Z00-Z10.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="diagnosisAfter" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            Диагнозы после обследования
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence minOccurs="1" maxOccurs="unbounded">
+            <xs:element name="diagnosis">
+              <xs:complexType>
+                <xs:all>
+                  <xs:element name="mkb" type="mkbCode" />
+                  <xs:element name="firstTime">
+                    <xs:annotation>
+                      <xs:documentation>
+                        Выявлен впервые
+                        1 — да
+                        0 — нет
+                      </xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:int">
+                        <xs:enumeration value="0" />
+                        <xs:enumeration value="1" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="dispNablud">
+                    <xs:annotation>
+                      <xs:documentation>
+                        Диспансерное наблюдение
+                        1 — установлено ранее
+                        2 — установлено впервые
+                        0 — не установлено
+                      </xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:int">
+                        <xs:enumeration value="0" />
+                        <xs:enumeration value="1" />
+                        <xs:enumeration value="2" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="lechen" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>
+                        Лечение назначено
+                      </xs:documentation>
+                    </xs:annotation>
+
+                    <xs:complexType>
+                      <xs:all>
+                        <xs:element name="condition" type="diagCondition" />
+                        <xs:element name="organ" type="diagOrgan" />
+                      </xs:all>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="reabil" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>
+                        Реабилитация/санаторно-курортное лечение назначены
+                      </xs:documentation>
+                    </xs:annotation>
+
+                    <xs:complexType>
+                      <xs:all>
+                        <xs:element name="condition" type="diagCondition" />
+                        <xs:element name="organ" type="diagOrgan" />
+                      </xs:all>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="consul" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>
+                        Дополнительные консультации и исследования назначены
+                      </xs:documentation>
+                    </xs:annotation>
+
+                    <xs:complexType>
+                      <xs:all>
+                        <xs:element name="condition" type="diagCondition" />
+                        <xs:element name="organ" type="diagOrgan" />
+                        <xs:element name="state">
+                          <xs:annotation>
+                            <xs:documentation>
+                              Дополнительные консультации и исследования выполнены
+                              0 — не выполнены в соответствии с назначением
+                              1 — выполнены в полном объёме
+                              2 — выполнены в неполном объёме
+                            </xs:documentation>
+                          </xs:annotation>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:int">
+                              <xs:enumeration value="0" />
+                              <xs:enumeration value="1" />
+                              <xs:enumeration value="2" />
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                      </xs:all>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="needVMP">
+                    <xs:annotation>
+                      <xs:documentation>
+                        Рекомендована ВМП
+                      </xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:int">
+                        <xs:enumeration value="0" />
+                        <xs:enumeration value="1" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="needSMP">
+                    <xs:annotation>
+                      <xs:documentation>
+                        Рекомендована СМП
+                      </xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:int">
+                        <xs:enumeration value="0" />
+                        <xs:enumeration value="1" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="needSKL">
+                    <xs:annotation>
+                      <xs:documentation>
+                        Рекомендовано СКЛ
+                      </xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:int">
+                        <xs:enumeration value="0" />
+                        <xs:enumeration value="1" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="recommendNext" type="xs:string">
+                    <xs:annotation>
+                      <xs:documentation>
+                        Рекомендации по диспансерному наблюдению, лечению, медицинской реабилитации и санаторно-курортному лечению с указанием вида медицинской организации и специальности врача
+                      </xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                </xs:all>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <!-- Инвалидность -->
+      <xs:element name="invalid" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            Информация об инвалидности
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:all>
+            <xs:element name="type">
+              <xs:annotation>
+                <xs:documentation>
+                  Вид инвалидности
+                  1 — с рождения
+                  2 — приобретённая
+                </xs:documentation>
+              </xs:annotation>
+              <xs:simpleType>
+                <xs:restriction base="xs:int">
+                  <xs:enumeration value="1" />
+                  <xs:enumeration value="2" />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element name="dateFirstDetected" type="xs:date">
+              <xs:annotation>
+                <xs:documentation>
+                  Дата первого освидетельствования
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="dateLastConfirmed" type="xs:date">
+              <xs:annotation>
+                <xs:documentation>
+                  Дата последнего освидетельствования
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="illnesses">
+              <xs:annotation>
+                <xs:documentation>
+                  Заболевания, обусловившие возникновение инвалидности
+                  1 — Некоторые инфекционные и паразитарные, из них:
+                  2 — туберкулез
+                  3 — сифилис
+                  4 — ВИЧ
+                  5 — Новообразования
+                  6 — Болезни крови, кроветворных органов и отдельные нарушения, вовлекающие имунный механизм, в том числе:
+                  9 — СПИД
+                  10 — Болезни эндокринной системы, расстройства питания и нарушения обмена веществ, из них:
+                  13 — сахарный диабет
+                  14 — Психические расстройства и расстройства поведения, в том числе:
+                  15 — умственная отсталость
+                  16 — Болезни нервной системы, из них:
+                  17 — церебральный паралич и др. паралитические синдромы
+                  18 — Болезни глаза и его придаточного аппарата
+                  19 — Болезни уха и сосцевидного отростка
+                  20 — Болезни системы кровообращения
+                  21 — Болезни органов дыхания, из них:
+                  22 — астма
+                  23 — астматический статус
+                  24 — Болезни органов пищеварения
+                  25 — Болезни кожи и подкожной клетчатки
+                  26 — Болезни костно-мышечной системы и соединительной ткани
+                  27 — Болезни мочеполовой системы
+                  28 — Отдельные состояния, возникающие в перинатальном периоде
+                  29 — Врожденные аномалии, из них:
+                  30 — аномалии нервной системы
+                  31 — аномалии системы кровообращения
+                  32 — аномалии опорно-двигательного аппарата
+                  33 — Последствия травм, отравлений и других воздействий внешних причин
+                </xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence minOccurs="1" maxOccurs="29">
+                  <xs:element name="illness">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:int">
+                        <xs:enumeration value="1" />
+                        <xs:enumeration value="2" />
+                        <xs:enumeration value="3" />
+                        <xs:enumeration value="4" />
+                        <xs:enumeration value="5" />
+                        <xs:enumeration value="6" />
+                        <xs:enumeration value="9" />
+                        <xs:enumeration value="10" />
+                        <xs:enumeration value="13" />
+                        <xs:enumeration value="14" />
+                        <xs:enumeration value="15" />
+                        <xs:enumeration value="16" />
+                        <xs:enumeration value="17" />
+                        <xs:enumeration value="18" />
+                        <xs:enumeration value="19" />
+                        <xs:enumeration value="20" />
+                        <xs:enumeration value="21" />
+                        <xs:enumeration value="22" />
+                        <xs:enumeration value="23" />
+                        <xs:enumeration value="24" />
+                        <xs:enumeration value="25" />
+                        <xs:enumeration value="26" />
+                        <xs:enumeration value="27" />
+                        <xs:enumeration value="28" />
+                        <xs:enumeration value="29" />
+                        <xs:enumeration value="30" />
+                        <xs:enumeration value="31" />
+                        <xs:enumeration value="32" />
+                        <xs:enumeration value="33" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="defects">
+              <xs:annotation>
+                <xs:documentation>
+                  Виды нарушений в состоянии здоровья
+                  1 — умственные
+                  2 — другие психологические
+                  3 — языковые и речевые
+                  4 — слуховые и вестибулярные
+                  5 — зрительные
+                  6 — висцеральные и метаболические расстройства питания
+                  7 — двигательные
+                  8 — уродующие
+                  9 — общие и генерализованные
+                </xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence minOccurs="1" maxOccurs="9">
+                  <xs:element name="defect">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:int">
+                        <xs:enumeration value="1" />
+                        <xs:enumeration value="2" />
+                        <xs:enumeration value="3" />
+                        <xs:enumeration value="4" />
+                        <xs:enumeration value="5" />
+                        <xs:enumeration value="6" />
+                        <xs:enumeration value="7" />
+                        <xs:enumeration value="8" />
+                        <xs:enumeration value="9" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:all>
+        </xs:complexType>
+      </xs:element>
+
+      <!-- Исследования -->
+      <xs:element name="issled" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            Проведённые исследования
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:all>
+            <xs:element name="basic" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>
+                  Обязательные исследования
+                </xs:documentation>
+              </xs:annotation>
+
+              <xs:complexType>
+                <xs:sequence minOccurs="1" maxOccurs="19">
+                  <xs:element name="record">
+                    <xs:complexType>
+                      <xs:all>
+                        <xs:element name="id">
+                          <xs:annotation>
+                            <xs:documentation>
+                              Идентификатор обязательного исследования
+                              1 — Анализ крови
+                              2 — Анализ мочи
+                              3 — Общий анализ кала
+                              4 — Исследование уровня глюкозы в крови
+                              5 — Исследование уровня гормонов в крови
+                              6 — УЗИ органов брюшной полости
+                              7 — УЗИ сердца
+                              8 — УЗИ щитовидной железы
+                              9 — УЗИ органов репродуктивной сферы
+                              10 — УЗИ тазобедренных суставов
+                              11 — Нейросонография
+                              12 — Флюорография
+                              13 — Электрокардиография
+                              14 — Неонатальный скрининг на врожденный гипотиреоз, фенилкетонурию, адреногенитальный синдром, муковисцидоз и галактоземию
+                              15 — Аудиологический скрининг
+                              16 — Анализ кала на яйца глистов
+                              17 — Анализ окиси углерода выдыхаемого воздуха с определением карбоксигемоглобина
+                              18 — УЗИ почек
+                              19 — УЗИ печени
+                            </xs:documentation>
+                          </xs:annotation>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:int">
+                              <xs:enumeration value="1" />
+                              <xs:enumeration value="2" />
+                              <xs:enumeration value="3" />
+                              <xs:enumeration value="4" />
+                              <xs:enumeration value="5" />
+                              <xs:enumeration value="6" />
+                              <xs:enumeration value="7" />
+                              <xs:enumeration value="8" />
+                              <xs:enumeration value="9" />
+                              <xs:enumeration value="10" />
+                              <xs:enumeration value="11" />
+                              <xs:enumeration value="12" />
+                              <xs:enumeration value="13" />
+                              <xs:enumeration value="14" />
+                              <xs:enumeration value="15" />
+                              <xs:enumeration value="16" />
+                              <xs:enumeration value="17" />
+                              <xs:enumeration value="18" />
+                              <xs:enumeration value="19" />
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="date" type="xs:date">
+                          <xs:annotation>
+                            <xs:documentation>
+                              Дата исследования
+                            </xs:documentation>
+                          </xs:annotation>
+                        </xs:element>
+                        <xs:element name="result" type="xs:string">
+                          <xs:annotation>
+                            <xs:documentation>
+                              Результат исследования
+                            </xs:documentation>
+                          </xs:annotation>
+                        </xs:element>
+                      </xs:all>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="other" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>
+                  Дополнительные исследования
+                </xs:documentation>
+              </xs:annotation>
+
+              <xs:complexType>
+                <xs:sequence minOccurs="1" maxOccurs="unbounded">
+                  <xs:element name="record">
+                    <xs:complexType>
+                      <xs:all>
+                        <xs:element name="date" type="xs:date">
+                          <xs:annotation>
+                            <xs:documentation>
+                              Дата проведения исследования
+                            </xs:documentation>
+                          </xs:annotation>
+                        </xs:element>
+                        <xs:element name="name" type="xs:string">
+                          <xs:annotation>
+                            <xs:documentation>
+                              Название исследования
+                            </xs:documentation>
+                          </xs:annotation>
+                        </xs:element>
+                        <xs:element name="result" type="xs:string">
+                          <xs:annotation>
+                            <xs:documentation>
+                              Результат исследования
+                            </xs:documentation>
+                          </xs:annotation>
+                        </xs:element>
+                      </xs:all>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:all>
+        </xs:complexType>
+      </xs:element>
+
+      <!-- Заключение -->
+      <xs:element name="healthGroup">
+        <xs:annotation>
+          <xs:documentation>
+            Группа здоровья (числом)
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:int">
+            <xs:minInclusive value="1" />
+            <xs:maxInclusive value="5" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="fizkultGroup" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            Медицинская группа для занятий физической культурой:
+            1-4 — группы
+            -1 — не допущен
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:int">
+            <xs:enumeration value="-1" />
+            <xs:enumeration value="1" />
+            <xs:enumeration value="2" />
+            <xs:enumeration value="3" />
+            <xs:enumeration value="4" />
+
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="zakluchDate" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>
+            Дата заключения
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="zakluchVrachName">
+        <xs:annotation>
+          <xs:documentation>
+            Фамилия, имя, отчество врача, давшего заключение
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:all>
+            <xs:element name="last" type="xs:string">
+              <xs:annotation>
+                <xs:documentation>
+                  Фамилия
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="first" type="xs:string">
+              <xs:annotation>
+                <xs:documentation>
+                  Имя
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="middle" type="xs:string">
+              <xs:annotation>
+                <xs:documentation>
+                  Отчество
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:all>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="osmotri">
+        <xs:annotation>
+          <xs:documentation>
+            Осмотры врачей
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence minOccurs="1" maxOccurs="11">
+            <xs:element name="record">
+              <xs:complexType>
+                <xs:all>
+                  <xs:element name="id">
+                    <xs:annotation>
+                      <xs:documentation>
+                        Идентификатор осмотра
+                        1 — Педиатр
+                        2 — Невролог
+                        3 — Офтальмолог
+                        4 — Детский хирург
+                        5 — Оториноларинголог
+                        6 — Травмотолог-ортопед
+                        7 — Психиатр
+                        8 — Детский стоматолог
+                        9 — Детский эндокринолог
+                        10 — Детский уролог-андролог
+                        11 — Акушер-гинеколог
+                      </xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:int">
+                        <xs:enumeration value="1" />
+                        <xs:enumeration value="2" />
+                        <xs:enumeration value="3" />
+                        <xs:enumeration value="4" />
+                        <xs:enumeration value="5" />
+                        <xs:enumeration value="6" />
+                        <xs:enumeration value="7" />
+                        <xs:enumeration value="8" />
+                        <xs:enumeration value="9" />
+                        <xs:enumeration value="10" />
+                        <xs:enumeration value="11" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="date" type="xs:date">
+                    <xs:annotation>
+                      <xs:documentation>
+                        Дата осмотра
+                      </xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                </xs:all>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="recommendZOZH" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Рекомендации по формированию здорового образа жизни, режиму дня, питанию, физическому развитию, иммунопрофилактике, занятиям физической культурой
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <!-- Реабилитация -->
+      <xs:element name="reabilitation" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            Программа реабилитация
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:all>
+            <xs:element name="date" type="xs:date">
+              <xs:annotation>
+                <xs:documentation>
+                  Дата назначения
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="state">
+              <xs:annotation>
+                <xs:documentation>
+                  Степень выполнения:
+                  1 — полностью
+                  2 — частично
+                  3 — начато
+                  4 — не выполнено
+                </xs:documentation>
+              </xs:annotation>
+              <xs:simpleType>
+                <xs:restriction base="xs:int">
+                  <xs:enumeration value="1" />
+                  <xs:enumeration value="2" />
+                  <xs:enumeration value="3" />
+                  <xs:enumeration value="4" />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+          </xs:all>
+        </xs:complexType>
+      </xs:element>
+
+      <!-- Прививки -->
+      <xs:element name="privivki">
+        <xs:annotation>
+          <xs:documentation>
+            Проведение вакцинации
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:all>
+            <xs:element name="state">
+              <xs:annotation>
+                <xs:documentation>
+                  Выполнение программы вакцинации
+                  1 — привит по возрасту
+                  2 — не привит по медицинским показаниям: полностью
+                  3 — не привит по медицинским показаниям: частично
+                  4 — не привит по другим причинам: полностью
+                  5 — не привит по другим причинам: частично
+                </xs:documentation>
+              </xs:annotation>
+              <xs:simpleType>
+                <xs:restriction base="xs:int">
+                  <xs:enumeration value="1" />
+                  <xs:enumeration value="2" />
+                  <xs:enumeration value="3" />
+                  <xs:enumeration value="4" />
+                  <xs:enumeration value="5" />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element name="privs" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>
+                  Нуждается в проведении вакцинации/ревакцинации
+                </xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence minOccurs="1" maxOccurs="23">
+                  <xs:element name="priv">
+                    <xs:annotation>
+                      <xs:documentation>
+                        6 — БЦЖ - V
+                        7 — БЦЖ - R1
+                        8 — БЦЖ - R2
+                        9 — Полиомиелит - V1
+                        10 — Полиомиелит - V2
+                        11 — Полиомиелит - V3
+                        12 — Полиомиелит - R1
+                        13 — Полиомиелит - R2
+                        14 — Полиомиелит - R3
+                        15 — АКДС - V1
+                        16 — АКДС - V2
+                        17 — АКДС - V3
+                        18 — АКДС - АДСМ
+                        19 — АКДС - АДМ
+                        20 — Корь - V
+                        21 — Корь - R
+                        22 — Эпид.паротит - V
+                        23 — Эпид.паротит - R
+                        24 — Краснуха - V
+                        25 — Краснуха - R
+                        26 — Гепатит В - V1
+                        27 — Гепатит В - V2
+                        28 — Гепатит В - V3
+                      </xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:int">
+                        <xs:enumeration value="6" />
+                        <xs:enumeration value="7" />
+                        <xs:enumeration value="8" />
+                        <xs:enumeration value="9" />
+                        <xs:enumeration value="10" />
+                        <xs:enumeration value="11" />
+                        <xs:enumeration value="12" />
+                        <xs:enumeration value="13" />
+                        <xs:enumeration value="14" />
+                        <xs:enumeration value="15" />
+                        <xs:enumeration value="16" />
+                        <xs:enumeration value="17" />
+                        <xs:enumeration value="18" />
+                        <xs:enumeration value="19" />
+                        <xs:enumeration value="20" />
+                        <xs:enumeration value="21" />
+                        <xs:enumeration value="22" />
+                        <xs:enumeration value="23" />
+                        <xs:enumeration value="24" />
+                        <xs:enumeration value="25" />
+                        <xs:enumeration value="26" />
+                        <xs:enumeration value="27" />
+                        <xs:enumeration value="28" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:all>
+        </xs:complexType>
+      </xs:element>
+
+      <!-- Оплата ОМС -->
+      <xs:element name="oms">
+        <xs:annotation>
+          <xs:documentation>
+            Состояние оплаты ОМС:
+            0 — не указано
+            1 — оплачено
+            2 — не оплачено
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:int">
+            <xs:enumeration value="0" />
+            <xs:enumeration value="1" />
+            <xs:enumeration value="2" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:simpleType name="pshycStateType">
+    <xs:annotation>
+      <xs:documentation>
+        0 — норма
+        1 — отклонение
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:int">
+      <xs:enumeration value="0" />
+      <xs:enumeration value="1" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="sexFormulaType">
+    <xs:restriction base="xs:int">
+      <xs:enumeration value="0" />
+      <xs:enumeration value="1" />
+      <xs:enumeration value="2" />
+      <xs:enumeration value="3" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="mkbCode">
+    <xs:annotation>
+      <xs:documentation>
+        Код по МКБ-10
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[A-Z][0-9]{2}(\.[0-9])?" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="mkbCodeZ">
+    <xs:annotation>
+      <xs:documentation>
+        Код осмотра по МКБ-10
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[Z][0-1][0-9](\.[0-9])?" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="diagCondition">
+    <xs:annotation>
+      <xs:documentation>
+        1 — амбулаторные условия
+        2 — условия дневного стационара
+        3 — стационарные условия
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:int">
+      <xs:enumeration value="1" />
+      <xs:enumeration value="2" />
+      <xs:enumeration value="3" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="diagOrgan">
+    <xs:annotation>
+      <xs:documentation>
+        1 — муниципальная медицинская организация
+        2 — государственная медицинская организация субъекта РФ
+        3 — федеральная медицинская организация
+        4 — частная медицинская организация
+        5 — санаторно-курортная организация
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:int">
+      <xs:enumeration value="1" />
+      <xs:enumeration value="2" />
+      <xs:enumeration value="3" />
+      <xs:enumeration value="4" />
+      <xs:enumeration value="5" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="diagNotDone">
+    <xs:all>
+      <xs:element name="reason" type="diagNotDoneReason" />
+      <xs:element name="reasonOther" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            Иная причина невыполнения
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+  <xs:simpleType name="diagNotDoneReason">
+    <xs:annotation>
+      <xs:documentation>
+        Причина невыполнения
+        1 — отсутствие на момент проведения диспансеризации
+        2 — отказ от медицинского вмешательства
+        3 — смена места жительства
+        4 — выполнение не в полном объёме
+        5 — проблемы организации медицинской помощи
+        10 — прочие
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:int">
+      <xs:enumeration value="1" />
+      <xs:enumeration value="2" />
+      <xs:enumeration value="3" />
+      <xs:enumeration value="4" />
+      <xs:enumeration value="5" />
+      <xs:enumeration value="10" />
+    </xs:restriction>
+  </xs:simpleType>
+
+</xs:schema>

@@ -1,0 +1,1849 @@
+<?php defined('BASEPATH') or die ('No direct script access allowed');
+/**
+ * PromedWeb - The New Generation of Medical Statistic Software
+ *
+ * @package		PromedWeb
+ * @access		public
+ * @copyright	Copyright (c) 2013 Swan Ltd.
+ * @link		http://swan.perm.ru/PromedWeb
+ */
+
+/**
+ * MorbusOnkoSpecifics_model - Модель логического объекта "Специфика (онкология)"
+ *
+ * @package      MorbusOnko
+ * @author       Пермяков Александр
+ * @version      06.2013
+ *
+ * Онкоспецифика человека (MorbusOnkoPerson.Person_id = Person.Person_id)
+ * Person has many MorbusOnkoPerson 1:0..*
+ *
+ * Общее заболевание (MorbusBase.Person_id = Person.Person_id)
+ * Person has many MorbusBase 1:0..*
+ * @property integer MorbusBase_id PK
+ * @property integer Person_id Человек
+ * @property integer Evn_rid (MorbusBase.Evn_pid) Учетный документ, в рамках которого было добавлено заболевание
+ * @property integer MorbusType_id Тип заболевания (перечисление MorbusType)
+ * @property datetime MorbusBase_setDT Дата взятия на учет в ОД
+ * @property datetime MorbusBase_disDT Дата снятия с учета в ОД
+ * @property integer MorbusResult_cid (MorbusBase.MorbusResult_id) Результат (перечисление MorbusResult)
+ * @property integer MorbusBase_Deleted признак удаления
+ *
+ * Онкоспецифика общего заболевания (MorbusOnkoBase.MorbusBase_id = MorbusBase.MorbusBase_id)
+ * MorbusBase has one MorbusOnkoBase 1:1
+ *
+ * @property integer MorbusOnkoBase_id идентификатор
+ * @property string MorbusOnkoBase_NumCard Порядковый номер регистрационной карты
+ * @property integer AutopsyPerformType_id аутопсия (перечисление AutopsyPerformType)
+ * @property integer OnkoRegType_id взят на учет в ОД (перечисление OnkoRegType)
+ * @property integer OnkoRegOutType_id причина снятия с учета (перечисление OnkoRegOutType)
+ * @property integer OnkoStatusYearEndType_id клиническая группа (перечисление OnkoStatusYearEndType)
+ * @property datetime MorbusOnkoBase_deadDT Дата смерти
+ * @property integer Diag_did Диагноз причины смерти (справочник МКБ-10 Diag)
+ * @property string MorbusOnkoBase_deathCause Описание причины смерти
+ * @property integer TumorPrimaryMultipleType_id первично-множественная опухоль (перечисление TumorPrimaryMultipleType)
+ * @property integer OnkoInvalidType_id инвалидность по основному (онкологическому) заболеванию (перечисление OnkoInvalidType)
+ *
+ * Общее состояние пациента (MorbusOnkoBasePersonState.MorbusOnkoBase_id = MorbusOnkoBase.MorbusOnkoBase_id)
+ * MorbusOnkoBase has many MorbusOnkoBasePersonState 1:0..*
+ *
+ * Сведения о госпитализациях (MorbusOnkoBasePS.MorbusOnkoBase_id = MorbusOnkoBase.MorbusOnkoBase_id)
+ * MorbusOnkoBase has many MorbusOnkoBasePS 1:0..*
+ *
+ * Заболевание (Morbus.MorbusBase_id = MorbusBase.MorbusBase_id)
+ * MorbusBase has many Morbus 1:1..*
+ * @property integer Morbus_id идентификатор
+ * @property integer Evn_pid Учетный документ, в рамках которого было добавлено заболевание
+ * @property integer Diag_id Диагноз (справочник МКБ-10 Diag)
+ * @property integer MorbusKind_id Характер заболевания
+ * @property string Morbus_Name Описание
+ * @property string Morbus_Nick Краткое описание
+ * @property datetime Morbus_setDT Начало заболевания
+ * @property datetime Morbus_disDT Окончание заболевания
+ * @property integer MorbusResult_id Исход заболевания
+ * @property integer Morbus_Deleted признак удаления
+ *
+ * Онкоспецифика заболевания (MorbusOnko.Morbus_id = Morbus.Morbus_id)
+ * Morbus has one MorbusOnko 1:1
+ *
+ * @property integer   MorbusOnko_id                   идентификатор
+ * @property datetime  MorbusOnko_firstSignDT          Дата появления первых признаков заболевания
+ * @property datetime  MorbusOnko_firstVizitDT         Дата первого обращения
+ * @property datetime  MorbusOnko_setDiagDT            Дата установления диагноза
+ * @property integer   Lpu_foid                        В какое медицинское учреждение
+ * @property integer   MorbusOnko_IsMainTumor          Признак основной опухоли
+ * @property integer   OnkoDiag_mid                    Морфологический тип опухоли. (Гистология опухоли)
+ * @property string    MorbusOnko_NumHisto             Номер гистологического исследования
+ * @property string    MorbusOnko_MorfoDiag            Подробный морфологический диагноз
+ * @property integer   OnkoLesionSide_id               Сторона поражения
+ * @property integer   TumorAutopsyResultType_id       Результат аутопсии применительно к данной опухоли
+ * @property integer   TumorStage_id                   Стадия опухолевого процесса
+ * @property integer   TumorCircumIdentType_id         Обстоятельства выявления опухоли
+ * @property integer   OnkoLateDiagCause_id            Причины поздней диагностики
+ * @property integer   OnkoT_id                        T
+ * @property integer   OnkoN_id                        N
+ * @property integer   OnkoM_id                        M
+ * @property integer   MorbusOnko_IsTumorDepoUnknown   Локализация отдаленных метастазов: Неизвестна
+ * @property integer   MorbusOnko_IsTumorDepoLympha    Локализация отдаленных метастазов: Отдаленные лимфатические узлы
+ * @property integer   MorbusOnko_IsTumorDepoBones     Локализация отдаленных метастазов: Кости
+ * @property integer   MorbusOnko_IsTumorDepoLiver     Локализация отдаленных метастазов: Печень
+ * @property integer   MorbusOnko_IsTumorDepoLungs     Локализация отдаленных метастазов: Легкие и/или плевра
+ * @property integer   MorbusOnko_IsTumorDepoBrain     Локализация отдаленных метастазов: Головной мозг
+ * @property integer   MorbusOnko_IsTumorDepoSkin      Локализация отдаленных метастазов: Кожа
+ * @property integer   MorbusOnko_IsTumorDepoKidney    Локализация отдаленных метастазов: Почки
+ * @property integer   MorbusOnko_IsTumorDepoOvary     Локализация отдаленных метастазов: Яичники
+ * @property integer   MorbusOnko_IsTumorDepoPerito    Локализация отдаленных метастазов: Брюшина
+ * @property integer   MorbusOnko_IsTumorDepoMarrow    Локализация отдаленных метастазов: Костный мозг
+ * @property integer   MorbusOnko_IsTumorDepoOther     Локализация отдаленных метастазов: Другие органы
+ * @property integer   MorbusOnko_IsTumorDepoMulti     Локализация отдаленных метастазов: Множественные
+ * @property integer   OnkoTumorStatusType_id          Cостояние опухолевого процесса (мониторинг опухоли)
+ * @property integer   OnkoDiagConfType_id             Метод подтверждения диагноза
+ * @property integer   OnkoPostType_id                 Выявлен врачом
+ * @property integer   MorbusOnko_NumTumor             Порядковый номер опухоли
+ *
+ * Магические свойства
+ * @property-read int $morbusTypeId
+ * @property-read string $morbusTypeSysNick
+ * @property-read string $groupRegistry
+ * @property MorbusOnkoVizitPLDop_model   MorbusOnkoVizitPLDop
+ * @property MorbusOnkoLeave_model   MorbusOnkoLeave
+ * @property Morbus_model   Morbus
+ * @property swMongoExt   swmongoext
+ *
+ * @use dbo.GetNewMorbusOnkoBaseNumCard
+ * @use dbo.p_MorbusOnkoIsMainTumor_set
+ */
+class MorbusOnkoSpecifics_model extends swModel
+{
+	/**
+	 * @var bool Требуется ли параметр pmUser_id для хранимки удаления
+	 */
+	protected $_isNeedPromedUserIdForDel = true;
+
+	protected $_MorbusType_id = null;
+	/**
+	 * Список полей, значения которых не должны изменяться при редактировании
+	 * специфики из формы просмотра
+	 */
+	private $not_edit_fields = array(
+		'Evn_pid', 'Person_id','MorbusOnko_id', 'Morbus_id', 'MorbusBase_id','MorbusType_id',
+		'Morbus_setDT','Morbus_disDT','MorbusOnkoBase_id','MorbusOnko_NumTumor',
+	);
+
+	/**
+	 * Список редактируемых полей для метода updateMorbusSpecific
+	 */
+	private $entityFields = array(
+		'MorbusOnkoPerson' => array(//редактируется на форме перс.данных
+			'Person_id', //Человек
+			'Ethnos_id', //этническая группа
+			'OnkoOccupationClass_id', //социально-профессиональная группа
+			'KLAreaType_id', //житель
+		),
+		'MorbusBase' => array(
+			'Person_id',
+			'Evn_pid', //Учетный документ, в рамках которого добавлено заболевание
+			'MorbusType_id',
+			'MorbusBase_setDT', //Дата взятия на учет в ОД
+			'MorbusBase_disDT', //Дата снятия с учета в ОД
+			'MorbusResult_id', //Результат
+		),
+		'MorbusOnkoBase' => array(
+			'MorbusBase_id', //Принадлежность общему заболеванию
+			'MorbusOnkoBase_NumCard', //Порядковый номер регистрационной карты
+			'AutopsyPerformType_id', //аутопсия
+			'OnkoRegType_id', //взят на учет в ОД
+			'OnkoRegOutType_id', //причина снятия с учета
+			'OnkoStatusYearEndType_id', //клиническая группа
+			'MorbusOnkoBase_deadDT', //Дата смерти
+			'Diag_did', //Диагноз причины смерти (справочник МКБ-10 Diag)
+			'MorbusOnkoBase_deathCause', //Описание причины смерти
+			'TumorPrimaryMultipleType_id', //первично-множественная опухоль
+			'OnkoInvalidType_id', //инвалидность по основному (онкологическому) заболеванию
+			'OnkoVariance_id', //вариантность
+			'OnkoRiskGroup_id', //Группа риска
+			'OnkoResistance_id', //Резистентность
+			'OnkoStatusBegType_id', // Клиническая группа при взятии на учет
+		),
+		'Morbus' => array(
+			'MorbusBase_id',//Принадлежность общему заболеванию
+			'Evn_pid', //Учетный документ, в рамках которого добавлено заболевание
+			'Diag_id', //Диагноз (справочник МКБ-10 Diag)
+			'MorbusKind_id',//Характер заболевания
+			'Morbus_Name',//Описание
+			'Morbus_Nick',//Краткое описание
+			'Morbus_disDT',//Окончание заболевания
+			'Morbus_setDT',//Начало заболевания
+			'MorbusResult_id',//Исход заболевания
+		),
+		'MorbusOnko' => array(
+			'Morbus_id',//Принадлежность заболеванию
+			'MorbusOnko_firstSignDT',//Дата появления первых признаков заболевания
+			'MorbusOnko_firstVizitDT',//Дата первого обращения
+			'Lpu_foid',//В какое медицинское учреждение
+			'MorbusOnko_setDiagDT',//Дата установления диагноза
+			'MorbusOnko_IsMainTumor',//Признак основной опухоли
+			'OnkoDiag_mid',//Морфологический тип опухоли. (Гистология опухоли)
+			'MorbusOnko_NumHisto',//Номер гистологического исследования
+			'MorbusOnko_MorfoDiag',//Подробный морфологический диагноз
+			'OnkoLesionSide_id',//Сторона поражения
+			'TumorAutopsyResultType_id',//Результат аутопсии применительно к данной опухоли
+			'TumorStage_id',//Стадия опухолевого процесса
+			'TumorCircumIdentType_id',//Обстоятельства выявления опухоли
+			'OnkoLateDiagCause_id',//Причины поздней диагностики
+			'OnkoT_id',//T
+			'OnkoN_id',//N
+			'OnkoM_id',//M
+			'MorbusOnko_IsTumorDepoUnknown',//Локализация отдаленных метастазов: Неизвестна
+			'MorbusOnko_IsTumorDepoLympha',//Локализация отдаленных метастазов: Отдаленные лимфатические узлы
+			'MorbusOnko_IsTumorDepoBones',//Локализация отдаленных метастазов: Кости
+			'MorbusOnko_IsTumorDepoLiver',//Локализация отдаленных метастазов: Печень
+			'MorbusOnko_IsTumorDepoLungs',//Локализация отдаленных метастазов: Легкие и/или плевра
+			'MorbusOnko_IsTumorDepoBrain',//Локализация отдаленных метастазов: Головной мозг
+			'MorbusOnko_IsTumorDepoSkin',//Локализация отдаленных метастазов: Кожа
+			'MorbusOnko_IsTumorDepoKidney',//Локализация отдаленных метастазов: Почки
+			'MorbusOnko_IsTumorDepoOvary',//Локализация отдаленных метастазов: Яичники
+			'MorbusOnko_IsTumorDepoPerito',//Локализация отдаленных метастазов: Брюшина
+			'MorbusOnko_IsTumorDepoMarrow',//Локализация отдаленных метастазов: Костный мозг
+			'MorbusOnko_IsTumorDepoOther',//Локализация отдаленных метастазов: Другие органы
+			'MorbusOnko_IsTumorDepoMulti',//Локализация отдаленных метастазов: Множественные
+			'OnkoTumorStatusType_id',//Cостояние опухолевого процесса (мониторинг опухоли)
+			'OnkoDiagConfType_id',//Метод подтверждения диагноза
+			'OnkoPostType_id',//Выявлен врачом
+			'MorbusOnko_NumTumor',//Порядковый номер опухоли
+		),
+	);
+
+	/**
+	 * Конструктор
+	 */
+	function __construct()
+	{
+		parent::__construct();
+	}
+
+	/**
+	 * @return string
+	 */
+	function getMorbusTypeSysNick()
+	{
+		return 'onko';
+	}
+
+	/**
+	 * @return int
+	 * @throws Exception
+	 */
+	function getMorbusTypeId()
+	{
+		return 3; // для всех регионов
+	}
+
+	/**
+	 * @return string
+	 */
+	function getGroupRegistry()
+	{
+		return 'OnkoRegistry';
+	}
+
+	/**
+	 * Определение имени таблицы с данными объекта
+	 * @return string
+	 */
+	protected function tableName()
+	{
+		return 'MorbusOnko';
+	}
+
+	/**
+	 * Удаление данных специфик заболевания заведенных из регистра, когда заболевание нельзя удалить
+	 *
+	 * Вызывается из swMorbus::onBeforeDeletePersonRegister
+	 * @param PersonRegister_model $model
+	 * @param array $data
+	 * @throws Exception Если выбросить исключение, то будет отменено удаление записи регистра
+	 */
+	public function onBeforeDeletePersonRegister(PersonRegister_model $model, $data)
+	{
+		// тут должно быть реализовано удаление данных введенных в разделах специфики заболевания,
+		// в которых нет ссылки на Evn
+		// если таковых разделов нет, то этот метод можно убрать
+	}
+
+	/**
+	 * Удаление данных специфик заболевания заведенных в учетном документе, когда заболевание нельзя удалить
+	 *
+	 * Вызывается из swMorbus::onBeforeDeleteEvn
+	 * @param EvnAbstract_model $evn
+	 * @param array $data
+	 * @throws Exception Если выбросить исключение, то будет отменено удаление учетного документа
+	 */
+	public function onBeforeDeleteEvn(EvnAbstract_model $evn, $data)
+	{
+		// тут должно быть реализовано удаление данных введенных в разделах специфики заболевания,
+		// в которых есть ссылка на Evn
+		// если таковых нет, то этот метод можно убрать
+	}
+
+	/**
+	 * Метод получения данных онкозаболевания
+	 * При вызове из формы просмотра записи регистра параметр MorbusOnko_pid будет содержать Person_id, также будет передан PersonRegister_id
+	 * При вызове из формы просмотра движения/посещения параметр MorbusOnko_pid будет содержать Evn_id просматриваемого движения/посещения
+	 * @param $data
+	 * @return mixed
+	 */
+	function getViewData($data)
+	{
+		if (empty($data['session'])) { $data['session'] = null; }
+		if (empty($data['MorbusOnko_pid'])) { $data['MorbusOnko_pid'] = null; }
+		if (empty($data['PersonRegister_id'])) { $data['PersonRegister_id'] = null; }
+		$this->load->library('swMorbus');
+		$params = swMorbus::onBeforeViewData($this->getMorbusTypeSysNick(), $data['session'], $data['MorbusOnko_pid'], $data['PersonRegister_id']);
+		if ($params['Error_Msg']) {
+			throw new Exception($params['Error_Msg']);
+		}
+		$params['MorbusOnko_pid'] = $data['MorbusOnko_pid'];
+		if(empty($data['countDiagConfs'])){
+			$countDiagConfs = 1;
+		} else {
+			$countDiagConfs = $data['countDiagConfs'];
+		}
+
+		// предусмотрено создание специфических учетных документов (в которых есть ссылка на посещение/движение из которого они созданы):
+		// нужен контроль на редактирование специфики по актуальному документу
+		/*
+		по 
+		union all
+		select top 1 v_MorbusOnkoBasePS.Evn_id
+		from v_MorbusOnkoBasePS with (nolock)
+		where v_MorbusOnkoBasePS.Evn_id = Evn.Evn_id
+		union all
+		select top 1 v_MorbusOnkoDrug.Evn_id
+		from v_MorbusOnkoDrug with (nolock)
+		where v_MorbusOnkoDrug.Evn_id = Evn.Evn_id
+		union all
+		select top 1 v_EvnUslugaOnkoGormun.EvnUslugaOnkoGormun_pid as Evn_id
+		from v_EvnUslugaOnkoGormun with (nolock)
+		where v_EvnUslugaOnkoGormun.EvnUslugaOnkoGormun_pid = Evn.Evn_id
+		union all
+		select top 1 v_EvnUslugaOnkoSurg.EvnUslugaOnkoSurg_pid as Evn_id
+		from v_EvnUslugaOnkoSurg with (nolock)
+		where v_EvnUslugaOnkoSurg.EvnUslugaOnkoSurg_pid = Evn.Evn_id
+		union all
+		select top 1 v_EvnUslugaOnkoChem.EvnUslugaOnkoChem_pid as Evn_id
+		from v_EvnUslugaOnkoChem with (nolock)
+		where v_EvnUslugaOnkoChem.EvnUslugaOnkoChem_pid = Evn.Evn_id
+		union all
+		select top 1 v_EvnUslugaOnkoBeam.EvnUslugaOnkoBeam_pid as Evn_id
+		from v_EvnUslugaOnkoBeam with (nolock)
+		where v_EvnUslugaOnkoBeam.EvnUslugaOnkoBeam_pid = Evn.Evn_id
+		
+		можно не проверять, т.к. при изменении специфики сохраняются данные в v_MorbusOnkoVizitPLDop или в v_MorbusOnkoLeave
+		*/
+		$query = "
+			select top 1
+				" . swMorbus::getAccessTypeQueryPart('M', 'MB', 'MorbusOnko_pid', 'edit', 'view', 'accessType', 'AND not exists(
+									select top 1 Evn.Evn_id from v_Evn Evn with (nolock)
+									where
+										Evn.Person_id = MB.Person_id
+										and Evn.Morbus_id = M.Morbus_id
+										and Evn.EvnClass_id in (11,13,32)
+										and Evn.Evn_id <> :MorbusOnko_pid
+										and Evn.Evn_setDT > EvnEdit.Evn_setDT
+										and exists (
+											select top 1 v_MorbusOnkoVizitPLDop.EvnVizitPL_id as Evn_id
+											from v_MorbusOnkoVizitPLDop with (nolock)
+											where v_MorbusOnkoVizitPLDop.EvnVizit_id = Evn.Evn_id
+											union all
+											select top 1 v_MorbusOnkoLeave.EvnSection_id as Evn_id
+											from v_MorbusOnkoLeave with (nolock)
+											where v_MorbusOnkoLeave.EvnSection_id = Evn.Evn_id
+										)
+								) /* можно редактировать, если нет более актуального документа в рамках которого изменялась специфика */') . "
+				,MO.MorbusOnko_id
+				,MO.Morbus_id
+				,convert(varchar(10), MO.MorbusOnko_firstSignDT, 104) as MorbusOnko_firstSignDT
+				,convert(varchar(10), MO.MorbusOnko_firstVizitDT, 104) as MorbusOnko_firstVizitDT
+				,convert(varchar(10), MO.MorbusOnko_setDiagDT, 104) as MorbusOnko_setDiagDT
+				,null as MorbusOnko_NumCard
+				,Diag.Diag_FullName as Diag_id_Name
+				-- ,Diag.Diag_Name as Diag_id_Nick
+				,M.Diag_id
+				,MO.MorbusOnko_NumHisto
+				,MO.Lpu_foid
+				,lpu.Lpu_Nick as Lpu_foid_Name
+				,MOB.OnkoRegType_id
+				,ort.OnkoRegType_Name as OnkoRegType_id_Name
+				,MOB.OnkoRegOutType_id
+				,orot.OnkoRegOutType_Name as OnkoRegOutType_id_Name
+				,MO.OnkoLesionSide_id
+				,ols.OnkoLesionSide_Name as OnkoLesionSide_id_Name
+				,MO.OnkoDiag_mid as OnkoDiag_mid
+				,od.OnkoDiag_Code + '. ' + od.OnkoDiag_Name as OnkoDiag_mid_Name
+				,MO.OnkoT_id
+				,MO.OnkoN_id
+				,MO.OnkoM_id
+				,OnkoT.OnkoT_Name as OnkoT_id_Name
+				,OnkoN.OnkoN_Name as OnkoN_id_Name
+				,OnkoM.OnkoM_Name as OnkoM_id_Name
+				,MO.TumorStage_id
+				,ts.TumorStage_Name as TumorStage_id_Name
+				,MO.MorbusOnko_IsMainTumor
+				,IsMainTumor.YesNo_Name as MorbusOnko_IsMainTumor_Name
+				,MO.MorbusOnko_IsTumorDepoUnknown
+				,IsTumorDepoUnknown.YesNo_Name as MorbusOnko_IsTumorDepoUnknown_Name
+				,MO.MorbusOnko_IsTumorDepoLympha
+				,IsTumorDepoLympha.YesNo_Name as MorbusOnko_IsTumorDepoLympha_Name
+				,MO.MorbusOnko_IsTumorDepoBones
+				,IsTumorDepoBones.YesNo_Name as MorbusOnko_IsTumorDepoBones_Name
+				,MO.MorbusOnko_IsTumorDepoLiver
+				,IsTumorDepoLiver.YesNo_Name as MorbusOnko_IsTumorDepoLiver_Name
+				,MO.MorbusOnko_IsTumorDepoLungs
+				,IsTumorDepoLungs.YesNo_Name as MorbusOnko_IsTumorDepoLungs_Name
+				,MO.MorbusOnko_IsTumorDepoBrain
+				,IsTumorDepoBrain.YesNo_Name as MorbusOnko_IsTumorDepoBrain_Name
+				,MO.MorbusOnko_IsTumorDepoSkin
+				,IsTumorDepoSkin.YesNo_Name as MorbusOnko_IsTumorDepoSkin_Name
+				,MO.MorbusOnko_IsTumorDepoKidney
+				,IsTumorDepoKidney.YesNo_Name as MorbusOnko_IsTumorDepoKidney_Name
+				,MO.MorbusOnko_IsTumorDepoOvary
+				,IsTumorDepoOvary.YesNo_Name as MorbusOnko_IsTumorDepoOvary_Name
+				,MO.MorbusOnko_IsTumorDepoPerito
+				,IsTumorDepoPerito.YesNo_Name as MorbusOnko_IsTumorDepoPerito_Name
+				,MO.MorbusOnko_IsTumorDepoMarrow
+				,IsTumorDepoMarrow.YesNo_Name as MorbusOnko_IsTumorDepoMarrow_Name
+				,MO.MorbusOnko_IsTumorDepoOther
+				,IsTumorDepoOther.YesNo_Name as MorbusOnko_IsTumorDepoOther_Name
+				,MO.MorbusOnko_IsTumorDepoMulti
+				,IsTumorDepoMulti.YesNo_Name as MorbusOnko_IsTumorDepoMulti_Name
+				,null as MorbusOnko_IsDiagConfUnknown
+				,null as MorbusOnko_IsDiagConfUnknown_Name
+				,null as MorbusOnko_IsDiagConfMorfo
+				,null as MorbusOnko_IsDiagConfMorfo_Name
+				,null as MorbusOnko_IsDiagConfCito
+				,null as MorbusOnko_IsDiagConfCito_Name
+				,null as MorbusOnko_IsDiagConfExplo
+				,null as MorbusOnko_IsDiagConfExplo_Name
+				,null as MorbusOnko_IsDiagConfLab
+				,null as MorbusOnko_IsDiagConfLab_Name
+				,null as MorbusOnko_IsDiagConfClinic
+				,null as MorbusOnko_IsDiagConfClinic_Name
+				,MO.TumorCircumIdentType_id
+				,MO.OnkoLateDiagCause_id
+				,MO.TumorAutopsyResultType_id
+				,tcit.TumorCircumIdentType_Name as TumorCircumIdentType_id_Name
+				,oldc.OnkoLateDiagCause_Name as OnkoLateDiagCause_id_Name
+				,tart.TumorAutopsyResultType_Name as TumorAutopsyResultType_id_Name
+				,MOB.MorbusOnkoBase_id
+				,MOB.MorbusBase_id
+				,MOB.MorbusOnkoBase_NumCard
+				,MOB.MorbusOnkoBase_deathCause
+				,convert(varchar(10), MOB.MorbusOnkoBase_deadDT, 104) as MorbusOnkoBase_deadDT
+				,MOB.OnkoInvalidType_id
+				,MOB.Diag_did
+				,MOB.AutopsyPerformType_id
+				,MOB.TumorPrimaryMultipleType_id
+				,MOB.OnkoStatusYearEndType_id
+				,oit.OnkoInvalidType_Name as OnkoInvalidType_id_Name
+				,apt.AutopsyPerformType_Name as AutopsyPerformType_id_Name
+				,osyet.OnkoStatusYearEndType_Name as OnkoStatusYearEndType_id_Name
+				,tpmt.TumorPrimaryMultipleType_Name as TumorPrimaryMultipleType_id_Name
+				/*
+				,MOP.MorbusOnkoPerson_id
+				,MOP.Person_id
+				,MOP.Ethnos_id
+				,MOP.OnkoOccupationClass_id
+				,MOP.KLAreaType_id
+				*/
+				,convert(varchar(10), MB.MorbusBase_setDT, 104) as MorbusBase_setDT
+				,convert(varchar(10), MB.MorbusBase_disDT, 104) as MorbusBase_disDT
+				,MOB.Diag_did
+				,DiagD.Diag_FullName as Diag_did_Name
+				,MO.MorbusOnko_NumTumor
+				,MO.OnkoDiagConfType_id
+				,MO.OnkoPostType_id
+				,odcf.OnkoDiagConfType_Name as OnkoDiagConfType_id_Name
+				,opt.OnkoPostType_Name as OnkoPostType_id_Name
+				,:MorbusOnko_pid as MorbusOnko_pid
+				,:EvnClass_SysNick as EvnClass_SysNick
+				,M.Diag_id
+				,M.Person_id
+				,STUFF(
+					(SELECT
+						',' + cast(OnkoDiagConfType_id as varchar)
+					FROM
+						v_MorbusOnkoLink WITH (nolock)
+					WHERE
+						MorbusOnko_id = MO.MorbusOnko_id
+					FOR XML PATH ('')
+					), 1, 1, ''
+				) as OnkoDiagConfTypes
+				,STUFF(
+					(SELECT
+						',' + cast(odcf2.OnkoDiagConfType_Name as varchar)
+					FROM
+						v_MorbusOnkoLink mol2 WITH (nolock)
+						left join v_OnkoDiagConfType odcf2 with (nolock) on mol2.OnkoDiagConfType_id = odcf2.OnkoDiagConfType_id
+					WHERE
+						mol2.MorbusOnko_id = MO.MorbusOnko_id
+					FOR XML PATH ('')
+					), 1, 1, ''
+				) as OnkoDiagConfTypeNames
+				,MOB.OnkoVariance_id
+				,MOB.OnkoVariance_Name as OnkoVariance_id_Name
+				,MOB.OnkoRiskGroup_id
+				,MOB.OnkoRiskGroup_Name as OnkoRiskGroup_id_Name
+				,MOB.OnkoResistance_id
+				,MOB.OnkoResistance_Name as OnkoResistance_id_Name
+				,MOB.OnkoStatusBegType_id
+				,MOB.OnkoStatusBegType_Name as OnkoStatusBegType_id_Name
+			from
+				v_Morbus M with (nolock)
+				inner join v_MorbusBase MB with (nolock) on M.MorbusBase_id = MB.MorbusBase_id
+				inner join v_MorbusOnko MO with (nolock) on M.Morbus_id = MO.Morbus_id
+				outer apply (
+					select top 1 
+						moob.*,
+						ov.OnkoVariance_Name,
+						orisk.OnkoRiskGroup_Name,
+						ores.OnkoResistance_Name,
+						osbt.OnkoStatusBegType_Name
+					from v_MorbusOnkoBase moob with (nolock) 
+					left join v_OnkoVariance ov with (nolock) on ov.OnkoVariance_id = moob.OnkoVariance_id
+					left join v_OnkoRiskGroup orisk with (nolock) on orisk.OnkoRiskGroup_id = moob.OnkoRiskGroup_id
+					left join v_OnkoResistance ores with (nolock) on ores.OnkoResistance_id = moob.OnkoResistance_id
+					left join v_OnkoStatusBegType osbt with (nolock) on osbt.OnkoStatusBegType_id = moob.OnkoStatusBegType_id
+					where moob.MorbusBase_id = M.MorbusBase_id order by moob.MorbusOnkoBase_insDT asc
+				) MOB
+				outer apply (
+					select top 1 * from  v_MorbusOnkoPerson with (nolock) where M.Person_id = Person_id order by MorbusOnkoPerson_insDT asc
+				) MOP
+				left join v_YesNo IsMainTumor with (nolock) on MO.MorbusOnko_IsMainTumor = IsMainTumor.YesNo_id
+				left join v_YesNo IsTumorDepoUnknown with (nolock) on MO.MorbusOnko_IsTumorDepoUnknown = IsTumorDepoUnknown.YesNo_id
+				left join v_YesNo IsTumorDepoLympha with (nolock) on MO.MorbusOnko_IsTumorDepoLympha = IsTumorDepoLympha.YesNo_id
+				left join v_YesNo IsTumorDepoBones with (nolock) on MO.MorbusOnko_IsTumorDepoBones = IsTumorDepoBones.YesNo_id
+				left join v_YesNo IsTumorDepoLiver with (nolock) on MO.MorbusOnko_IsTumorDepoLiver = IsTumorDepoLiver.YesNo_id
+				left join v_YesNo IsTumorDepoLungs with (nolock) on MO.MorbusOnko_IsTumorDepoLungs = IsTumorDepoLungs.YesNo_id
+				left join v_YesNo IsTumorDepoBrain with (nolock) on MO.MorbusOnko_IsTumorDepoBrain = IsTumorDepoBrain.YesNo_id
+				left join v_YesNo IsTumorDepoSkin with (nolock) on MO.MorbusOnko_IsTumorDepoSkin = IsTumorDepoSkin.YesNo_id
+				left join v_YesNo IsTumorDepoKidney with (nolock) on MO.MorbusOnko_IsTumorDepoKidney = IsTumorDepoKidney.YesNo_id
+				left join v_YesNo IsTumorDepoOvary with (nolock) on MO.MorbusOnko_IsTumorDepoOvary = IsTumorDepoOvary.YesNo_id
+				left join v_YesNo IsTumorDepoPerito with (nolock) on MO.MorbusOnko_IsTumorDepoPerito = IsTumorDepoPerito.YesNo_id
+				left join v_YesNo IsTumorDepoMarrow with (nolock) on MO.MorbusOnko_IsTumorDepoMarrow = IsTumorDepoMarrow.YesNo_id
+				left join v_YesNo IsTumorDepoOther with (nolock) on MO.MorbusOnko_IsTumorDepoOther = IsTumorDepoOther.YesNo_id
+				left join v_YesNo IsTumorDepoMulti with (nolock) on MO.MorbusOnko_IsTumorDepoMulti = IsTumorDepoMulti.YesNo_id
+				left join v_Lpu lpu with (nolock) on MO.Lpu_foid = lpu.Lpu_id
+				left join v_OnkoRegType ort with (nolock) on MOB.OnkoRegType_id = ort.OnkoRegType_id
+				left join v_OnkoRegOutType orot with (nolock) on MOB.OnkoRegOutType_id = orot.OnkoRegOutType_id
+				left join v_OnkoLesionSide ols with (nolock) on MO.OnkoLesionSide_id = ols.OnkoLesionSide_id
+				left join v_OnkoDiag od with (nolock) on MO.OnkoDiag_mid = od.OnkoDiag_id
+				left join v_TumorStage ts with (nolock) on MO.TumorStage_id = ts.TumorStage_id
+				left join v_OnkoM OnkoM with (nolock) on MO.OnkoM_id = OnkoM.OnkoM_id
+				left join v_OnkoN OnkoN with (nolock) on MO.OnkoN_id = OnkoN.OnkoN_id
+				left join v_OnkoT OnkoT with (nolock) on MO.OnkoT_id = OnkoT.OnkoT_id
+				left join v_TumorCircumIdentType tcit with (nolock) on MO.TumorCircumIdentType_id = tcit.TumorCircumIdentType_id
+				left join v_OnkoLateDiagCause oldc with (nolock) on MO.OnkoLateDiagCause_id = oldc.OnkoLateDiagCause_id
+				left join v_TumorAutopsyResultType tart with (nolock) on MO.TumorAutopsyResultType_id = tart.TumorAutopsyResultType_id
+				left join v_OnkoInvalidType oit with (nolock) on MOB.OnkoInvalidType_id = oit.OnkoInvalidType_id
+				left join v_AutopsyPerformType apt with (nolock) on MOB.AutopsyPerformType_id = apt.AutopsyPerformType_id
+				left join v_TumorPrimaryMultipleType tpmt with (nolock) on MOB.TumorPrimaryMultipleType_id = tpmt.TumorPrimaryMultipleType_id
+				left join v_Diag Diag with (nolock) on M.Diag_id = Diag.Diag_id
+				left join v_Diag DiagD with (nolock) on MOB.Diag_did = DiagD.Diag_id
+				left join v_OnkoDiagConfType odcf with (nolock) on MO.OnkoDiagConfType_id = odcf.OnkoDiagConfType_id
+				left join v_OnkoPostType opt with (nolock) on MO.OnkoPostType_id = opt.OnkoPostType_id
+				left join v_OnkoStatusYearEndType osyet with (nolock) on MOB.OnkoStatusYearEndType_id = osyet.OnkoStatusYearEndType_id
+			where
+				M.Morbus_id = :Morbus_id
+			order by
+				 M.Morbus_disDT ASC, M.Morbus_setDT DESC
+		";
+		// echo getDebugSQL($query, $params); exit;
+
+		$result = $this->db->query($query, $params);
+		if ( is_object($result) )
+		{
+			$res = $result->result('array');
+			// Формирование методов подтверждения диагноза вынесено отдельно
+			// Количество полей подтверждение диагноза для ЭМК
+			if(!empty($res[0]['OnkoDiagConfTypes'])){
+				$OnkoDiagConfTypes = $res[0]['OnkoDiagConfTypes'];
+			} else {
+				$OnkoDiagConfTypes = '';
+			}
+			if(!empty($res[0]['OnkoDiagConfTypeNames'])){
+				$OnkoDiagConfTypeNames = $res[0]['OnkoDiagConfTypeNames'];
+			} else {
+				$OnkoDiagConfTypeNames = '';
+			}
+			if(strpos($OnkoDiagConfTypes, ',')>0){
+				$OnkoDiagConfTypes = explode(',', $OnkoDiagConfTypes);
+			} else {
+				$OnkoDiagConfTypes = array($OnkoDiagConfTypes);
+			}
+			if(strpos($OnkoDiagConfTypeNames, ',')>0){
+				$OnkoDiagConfTypeNames = explode(',', $OnkoDiagConfTypeNames);
+			} else {
+				$OnkoDiagConfTypeNames = array($OnkoDiagConfTypeNames);
+			}
+			$confString = "";
+			if( count($OnkoDiagConfTypes)>$countDiagConfs ) {
+				$countDiagConfs = count($OnkoDiagConfTypes);
+			}
+			if($countDiagConfs>7){$countDiagConfs = 7;}
+			for($i=1;$i<=$countDiagConfs;$i++){
+				$n = '';
+				if($i>1){
+					if($this->getRegionNick() != 'perm'){
+						break;
+					}
+					$n = $i;
+				}
+				$confString .= '<div class="data-row-container"><div class="data-row">';
+				if($this->getRegionNick() == 'kz'){
+					$confString .= 'Диагнозды растау әдiстерi (тек бiр негiзгi әдiстi көрсетiңiз) (Метод подтверждения диагноза): ';
+				} else {
+					$confString .= 'Метод подтверждения диагноза: ';
+				}
+				$confString .= '<span ';
+				if ($res[0]['accessType'] == 'edit') { 
+					$confString .= 'id="MorbusOnko_'.$res[0]['MorbusOnko_pid'].'_'.$res[0]['Morbus_id'].'_inputOnkoDiagConfType'.$n.'" class="value link"';
+				} else { 
+					$confString .=' class="value"';
+				}
+				$confString .= ' dataid="';
+				if(!empty($OnkoDiagConfTypes[$i-1])){
+					$confString .= $OnkoDiagConfTypes[$i-1];
+				}
+				$confString .='">';
+				if(!empty($OnkoDiagConfTypeNames[$i-1])){
+					$confString .= $OnkoDiagConfTypeNames[$i-1];
+				} else {
+					$confString .= 'Не указано';
+				}
+				$confString .='</span></div><div id="MorbusOnko_'.$res[0]['MorbusOnko_pid'].'_'.$res[0]['Morbus_id'].'_inputareaOnkoDiagConfType'.$n.'" class="input-area"></div>';
+				if($this->getRegionNick() == 'perm'){
+					if($i>1){
+						$confString .= '<a id="MorbusOnko_'.$res[0]['MorbusOnko_pid'].'_'.$res[0]['Morbus_id'].'_removeOnkoDiagConfType'.$n.'" el-index="'.$n.'" class="button icon icon-delete16" style="margin-left:5px" title="Удалить метод подтверждения"><span></span></a>';
+					}
+				}
+				$confString .='</div>';
+				if($this->getRegionNick() == 'perm'){
+					if($i==1){
+						$confString .= '<a id="MorbusOnko_'.$res[0]['MorbusOnko_pid'].'_'.$res[0]['Morbus_id'].'_addConf" class="button icon icon-add16" style="margin-left:5px" title="Добавить метод подтверждения"><span></span></a>';
+					}
+				}
+			} 
+			$res[0]['confString'] = $confString;
+			$res[0]['region'] = $this->getRegionNick();
+
+			if($this->getRegionNick() == 'kz'){
+				// Другие требования к формированию регистрационного номера для Кз
+				if(!empty($res[0]['MorbusOnkoBase_NumCard']) && strpos($res[0]['MorbusOnkoBase_NumCard'], '/') > 0){
+					$num = str_replace(' ', '', $res[0]['MorbusOnkoBase_NumCard']);
+					$num_ar = explode('/', $num);
+					$num = $num_ar[1];
+					if(strlen($num_ar[0]) < 6){
+						for($i=0;$i<(6-strlen($num_ar[0]));$i++){
+							$num .= '0';
+						}
+					}
+					$num .= $num_ar[0];
+					$res[0]['MorbusOnkoBase_NumCard'] = $num;
+				}
+			}
+
+			return $res;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	/**
+	 * Сохранение специфики заболевания
+	 * Обязательные параметры:
+	 * 1) Evn_pid или пара Person_id и Diag_id
+	 * 2) pmUser_id
+	 * 3) Mode
+	 *	- personregister_viewform - это ввод данных специфики из панели просмотра в форме записи регистра (\jscore\Forms\Morbus\Specifics\swMorbusOnkoWindow.js) Evn_pid не передается
+	 *	- evnsection_viewform - это ввод данных специфики из панели просмотра движения в ЭМК (\jscore\Forms\Common\swPersonEmkWindow.js) передается Evn_pid
+	 *	- evnvizitpl_viewform - это ввод данных специфики из панели просмотра посещения в ЭМК (\jscore\Forms\Common\swPersonEmkWindow.js) передается Evn_pid
+	 * @param bool $isAllowTransaction
+	 * @author Alexander Permyakov aka Alexpm
+	 * @return array Идентификаторы заболевания, специфики заболевания или ошибка
+	 * @comment Будут сохранены те данные, которые переданы, т.е. можно отдельные параметры сохранять
+	 */
+	function saveMorbusSpecific($data, $isAllowTransaction = true) {
+		try {
+			$this->isAllowTransaction = false;
+			$data = $this->checkParams($data);
+
+			/*$data['Evn_aid'] = null;
+			if (in_array($data['Mode'],array(
+				'evnsection_viewform','evnvizitpl_viewform'
+			))) {
+				// Проверка существования у человека актуального учетного документа с данной группой диагнозов для привязки к нему заболевания и определения последнего диагноза заболевания
+				if (empty($data['Evn_pid'])) {
+					$data['Evn_pid'] = null;
+				}
+				$this->load->library('swMorbus');
+				$result = swMorbus::getStaticMorbusCommon()->loadLastEvnData($this->getMorbusTypeSysNick(), $data['Evn_pid'], null, null);
+				if ( !empty($result) ) {
+					//учетный документ найден
+					$data['Evn_aid'] = $result[0]['Evn_id'];
+					$data['Diag_id'] = $result[0]['Diag_id'];
+					$data['Person_id'] = $result[0]['Person_id'];
+				} else {
+					throw new Exception('Ошибка определения актуального учетного документа с данным заболеванием');
+				}
+			}*/
+
+			if ($data['Mode'] == 'personregister_viewform' || $data['Evn_pid'] /*== $data['Evn_aid']*/) {
+				// Если редактирование происходит из актуального учетного документа
+				// или из панели просмотра в форме записи регистра, то сохраняем данные
+				// Стартуем транзакцию
+				$this->isAllowTransaction = $isAllowTransaction;
+				if ( !$this->beginTransaction() ) {
+					$this->isAllowTransaction = false;
+					throw new Exception('Ошибка при попытке запустить транзакцию');
+				}
+
+				//update таблиц Morbus, MorbusIBS
+				$tmp = $this->updateMorbusSpecific($data);
+				if ( isset($tmp[0]['Error_Msg']) ) {
+					throw new Exception($tmp[0]['Error_Msg']);
+				}
+				$response = $tmp;
+				//Данные специфики сохранились
+				$this->commitTransaction();
+
+				//сохраняем MorbusOnkoLeave и MorbusOnkoVizitPLDop вне транзакции, т.к. специфика читается из БД
+				$this->isAllowTransaction = false;
+				if ($data['Mode'] == 'evnsection_viewform') {
+					//сохраняем выписку из стационарной карты онкобольного только после сохранения специфики
+					$this->load->model('MorbusOnkoLeave_model','MorbusOnkoLeave');
+					$result = $this->MorbusOnkoLeave->save(array('EvnSection_id' => $data['Evn_pid'],'MorbusOnko_id' => $data['MorbusOnko_id'],'pmUser_id' => $data['pmUser_id']));
+					if( empty($result) || !is_array($result[0]) || empty($result[0]) ) {
+						throw new Exception('Cохранение выписки из стационарной карты онкобольного. Неправильный результат запроса');
+					}
+					if ( isset($result[0]['Error_Msg']) ) {
+						throw new Exception($result[0]['Error_Msg']);
+					}
+					if ( empty($result[0]['MorbusOnkoLeave_id']) ) {
+						throw new Exception('Cохранение выписки из стационарной карты онкобольного. По какой-то причине талон дополнений не создан');
+					}
+					$response[0]['MorbusOnkoLeave_id'] = $result[0]['MorbusOnkoLeave_id'];
+				}
+
+				if ($data['Mode'] == 'evnvizitpl_viewform') {
+					//сохраняем талон дополнений для посещения только после сохранения специфики
+					$this->load->model('MorbusOnkoVizitPLDop_model','MorbusOnkoVizitPLDop');
+					$result = $this->MorbusOnkoVizitPLDop->save(array('EvnVizitPL_id' => $data['Evn_pid'],'MorbusOnko_id' => $data['MorbusOnko_id'],'pmUser_id' => $data['pmUser_id']));
+					if ( empty($result) || !is_array($result[0]) || empty($result[0]) ) {
+						throw new Exception('Cохранение талона дополнений. Неправильный результат запроса');
+					}
+					if ( isset($result[0]['Error_Msg']) ) {
+						throw new Exception($result[0]['Error_Msg']);
+					}
+					if ( empty($result[0]['MorbusOnkoVizitPLDop_id']) ) {
+						throw new Exception('Cохранение талона дополнений. По какой-то причине талон дополнений не создан');
+					}
+					$response[0]['MorbusOnkoVizitPLDop_id'] = $result[0]['MorbusOnkoVizitPLDop_id'];
+				}
+
+				return $response;
+			}
+			else
+			{
+				//Ничего не сохраняем
+				throw new Exception('Данные не были сохранены, т.к. данный учетный документ не является актуальным для данного заболевания.');
+			}
+		} catch (Exception $e) {
+			$this->rollbackTransaction();
+			return array(array('Error_Msg' => 'Сохранение специфики заболевания. <br />'. $e->getMessage()));
+		}
+	}
+
+	/**
+	 * Создание специфики заболевания
+	 * @param array $data
+	 * @param bool $isAllowTransaction
+	 * @return array
+	 * @throws Exception
+	 */
+	public function autoCreate($data, $isAllowTransaction = true)
+	{
+		if (empty($data['MorbusBase_id']) ||empty($data['Person_id'])
+			|| empty($data['Morbus_id']) || empty($data['Diag_id']) || empty($data['Morbus_setDT'])
+			|| empty($data['mode'])
+			|| false == in_array($data['mode'], array('onBeforeViewData', 'onBeforeSavePersonRegister', 'onBeforeSaveEvnNotify','repairSpecifics'))
+		) {
+			throw new Exception('Переданы неправильные параметры', 500);
+		}
+		$this->setParams($data);
+		$data['MorbusOnkoBase_NumCard'] = $data['MorbusBase_id'];
+
+		$mongodb = checkMongoDb();
+		if (!empty($mongodb)) {
+			$this->load->library('swMongoExt');
+			$s = $this->swmongoext->getCode('MorbusOnkoBase', array('Lpu_id'=> $this->sessionParams['lpu_id']));
+			if (!empty($s)) {
+				// Если уже сохранено значение то берем новое из Монго
+				$nc = $this->swmongoext->generateCode('MorbusOnkoBase','year', array('Lpu_id'=> $this->sessionParams['lpu_id']));
+				// преобразуем в нужный вид 00000 / 00
+				// в оригинале количество первых нулей определяется максимальным значением, но считаю что для этого делать еще запрос - явно лишнее
+				$data['MorbusOnkoBase_NumCard'] = $nc;
+			} else {
+				// Берем из БД и пересохраняем в Монго
+				$data['MorbusOnkoBase_NumCard'] = $this->GetNewMorbusOnkoBaseNumCard(array('Lpu_id'=> $this->sessionParams['lpu_id']));
+				// Поскольку номер тут специфический - надо обрезать ненужное и преобразовать в нормальный номер, а затем сохранить
+				$nc = (int)$data['MorbusOnkoBase_NumCard'];
+				$this->swmongoext->generateCode('MorbusOnkoBase','year', array('Lpu_id'=> $this->sessionParams['lpu_id']),$nc); // сохраним в Mongo
+			}
+		} else {
+			$data['MorbusOnkoBase_NumCard'] = $this->GetNewMorbusOnkoBaseNumCard(array('Lpu_id'=> $this->sessionParams['lpu_id']));
+		}
+
+		// MorbusOnkoPerson должен быть один на одного Person
+		$this->_saveResponse['MorbusOnkoPerson_id'] = null;
+		$result = $this->db->query('
+			select top 1 MorbusOnkoPerson_id
+			from v_MorbusOnkoPerson with (nolock)
+			where Person_id = :Person_id
+		', array('Person_id' => $data['Person_id']));
+		if (is_object($result)) {
+			$tmp = $result->result('array');
+			if (isset($tmp[0])) {
+				$this->_saveResponse['MorbusOnkoPerson_id'] = $tmp[0]['MorbusOnkoPerson_id'];
+			}
+		} else {
+			throw new Exception('Не удалось проверить наличие объекта MorbusOnkoPerson', 500);
+		}
+		if (empty($this->_saveResponse['MorbusOnkoPerson_id'])) {
+			$tmp = $this->execCommonSP('p_MorbusOnkoPerson_ins', array(
+				'MorbusOnkoPerson_id' => array(
+					'value' => null,
+					'out' => true,
+					'type' => 'bigint',
+				),
+				'Person_id' => $data['Person_id'],
+				'pmUser_id' => $this->promedUserId,
+			), 'array_assoc');
+			if (empty($tmp)) {
+				throw new Exception('Ошибка запроса записи данных объекта MorbusOnkoPerson', 500);
+			}
+			if (isset($tmp['Error_Msg'])) {
+				throw new Exception($tmp['Error_Msg'], $tmp['Error_Code']);
+			}
+			if (empty($tmp['MorbusOnkoPerson_id'])) {
+				throw new Exception('Не удалось создать объект MorbusOnkoPerson', 500);
+			}
+			$this->_saveResponse['MorbusOnkoPerson_id'] = $tmp['MorbusOnkoPerson_id'];
+		}
+
+		// MorbusOnkoBase должен быть один на одного MorbusBase
+		$this->_saveResponse['MorbusOnkoBase_id'] = null;
+		$result = $this->db->query('
+			select top 1 MorbusOnkoBase_id
+			from v_MorbusOnkoBase with (nolock)
+			where MorbusBase_id = :MorbusBase_id
+		', array('MorbusBase_id' => $data['MorbusBase_id']));
+		if (is_object($result)) {
+			$tmp = $result->result('array');
+			if (isset($tmp[0])) {
+				$this->_saveResponse['MorbusOnkoBase_id'] = $tmp[0]['MorbusOnkoBase_id'];
+			}
+		} else {
+			throw new Exception('Не удалось проверить наличие объекта MorbusOnkoBase', 500);
+		}
+		if (empty($this->_saveResponse['MorbusOnkoBase_id'])) {
+			$tmp = $this->execCommonSP('p_MorbusOnkoBase_ins', array(
+				'MorbusOnkoBase_id' => array(
+					'value' => null,
+					'out' => true,
+					'type' => 'bigint',
+				),
+				'MorbusBase_id' => $data['MorbusBase_id'],
+				'MorbusOnkoBase_NumCard' => $data['MorbusOnkoBase_NumCard'],
+				'pmUser_id' => $this->promedUserId,
+			), 'array_assoc');
+			if (empty($tmp)) {
+				throw new Exception('Ошибка запроса записи данных объекта MorbusOnkoBase', 500);
+			}
+			if (isset($tmp['Error_Msg'])) {
+				throw new Exception($tmp['Error_Msg'], $tmp['Error_Code']);
+			}
+			if (empty($tmp['MorbusOnkoBase_id'])) {
+				throw new Exception('Не удалось создать объект MorbusOnkoBase', 500);
+			}
+			$this->_saveResponse['MorbusOnkoBase_id'] = $tmp['MorbusOnkoBase_id'];
+		}
+
+		// MorbusOnko должен быть один на одного Morbus
+		$this->_saveResponse['MorbusOnko_id'] = null;
+		$this->_saveResponse['IsCreate'] = 1;
+		$result = $this->db->query('
+			select top 1 MorbusOnko_id
+			from v_MorbusOnko with (nolock)
+			where Morbus_id = :Morbus_id
+		', array('Morbus_id' => $data['Morbus_id']));
+		if (is_object($result)) {
+			$tmp = $result->result('array');
+			if (isset($tmp[0])) {
+				$this->_saveResponse['MorbusOnko_id'] = $tmp[0]['MorbusOnko_id'];
+			}
+		} else {
+			throw new Exception('Не удалось проверить наличие объекта MorbusOnko', 500);
+		}
+		if (empty($this->_saveResponse['MorbusOnko_id'])) {
+			$tmp = $this->getFirstRowFromQuery('
+				SELECT
+					ISNULL(MAX(MO.MorbusOnko_NumTumor),0)+1 as MorbusOnko_NumTumor,
+					case when COUNT(MO.MorbusOnko_id) > 0 then 1 else 2 end as MorbusOnko_IsMainTumor
+				FROM dbo.v_MorbusOnko MO with(nolock)
+				inner join dbo.v_Morbus M with(nolock) on MO.Morbus_id = M.Morbus_id
+				WHERE M.MorbusBase_id = :MorbusBase_id;
+			', array('MorbusBase_id' => $data['MorbusBase_id']));
+			if (empty($tmp)) {
+				throw new Exception('Ошибка запроса данных объекта MorbusOnko_NumTumor, MorbusOnko_IsMainTumor', 500);
+			}
+			$data['MorbusOnko_NumTumor'] = $tmp['MorbusOnko_NumTumor'];
+			$data['MorbusOnko_IsMainTumor'] = $tmp['MorbusOnko_IsMainTumor'];
+
+			$tmp = $this->execCommonSP('p_MorbusOnko_ins', array(
+				'MorbusOnko_id' => array(
+					'value' => null,
+					'out' => true,
+					'type' => 'bigint',
+				),
+				'Morbus_id' => $data['Morbus_id'],
+				'MorbusOnko_IsMainTumor' => $data['MorbusOnko_IsMainTumor'],
+				'MorbusOnko_NumTumor' => $data['MorbusOnko_NumTumor'],
+				'pmUser_id' => $this->promedUserId,
+			), 'array_assoc');
+			if (empty($tmp)) {
+				throw new Exception('Ошибка запроса записи данных объекта MorbusOnko', 500);
+			}
+			if (isset($tmp['Error_Msg'])) {
+				throw new Exception($tmp['Error_Msg'], $tmp['Error_Code']);
+			}
+			if (empty($tmp['MorbusOnko_id'])) {
+				throw new Exception('Не удалось создать объект MorbusOnko', 500);
+			}
+			$this->_saveResponse['MorbusOnko_id'] = $tmp['MorbusOnko_id'];
+			$this->_saveResponse['IsCreate'] = 2;
+		}
+		return $this->_saveResponse;
+	}
+
+	/**
+	 * Получение номера из БД
+	 * @param $data
+	 * @return mixed
+	 * @throws Exception
+	 */
+	public function GetNewMorbusOnkoBaseNumCard($data)
+	{
+		$query = "
+			Select dbo.GetNewMorbusOnkoBaseNumCard(dbo.tzGetDate(), :Lpu_id) as numcard
+		";
+		$numcard = null;
+		$result = $this->db->query($query, $data);
+		if ( is_object($result) ) {
+			$res = $result->result('array');
+			if (count($res)>0 && is_array($res[0])) {
+				$numcard = $res[0]['numcard'];
+			}
+		}
+		return $numcard;
+	}
+
+	/**
+	 * Сохранение специфики
+	 * @param $data
+	 * @return array Идентификаторы объектов, которые были обновлены или ошибка
+	 * @comment Будут сохранены те данные, которые переданы, т.е. можно отдельные параметры сохранять
+	 */
+	private function updateMorbusSpecific($data) {
+		$err_arr = array();
+		$entity_saved_arr = array();
+		if(isset($data['field_notedit_list']) && is_array($data['field_notedit_list']))
+		{
+			$this->not_edit_fields = array_merge($this->not_edit_fields,$data['field_notedit_list']);
+		}
+		foreach($this->entityFields as $entity => $l_arr) {
+			$allow_save = false;
+			foreach($data as $key => $value) {
+				if(in_array($key, $l_arr) && !in_array($key, $this->not_edit_fields))
+				{
+					$allow_save = true;
+					break;
+				}
+			}
+
+			if( $allow_save && !empty($data[$entity.'_id']) )
+			{
+				$q = 'select top 1 '. implode(', ',$l_arr) .' from dbo.v_'. $entity .' WITH (NOLOCK) where '. $entity .'_id = :'. $entity .'_id';
+				$p = array($entity.'_id' => $data[$entity.'_id']);
+				$field_str = '';
+				$r = $this->db->query($q, $p);
+				if (is_object($r))
+				{
+					$result = $r->result('array');
+					if( empty($result) || !is_array($result[0]) || count($result[0]) == 0 )
+					{
+						$err_arr[] = 'Получение данных '. $entity .' По идентификатору '. $data[$entity.'_id'] .' данные не получены';
+						continue;
+					}
+					foreach($result[0] as $key => $value) {
+						$this->processingSavingData(
+							$data, $key, $value, // IN
+							$field_str, $p, $err_arr // OUT
+						);
+					}
+				}
+				else
+				{
+					$err_arr[] = 'Получение данных '. $entity .' Ошибка при выполнении запроса к базе данных';
+					continue;
+				}
+				if (empty($field_str)) {
+					continue;
+				}
+				$q = '
+					declare
+						@'. $entity .'_id bigint,
+						@ErrCode int,
+						@ErrMessage varchar(4000);
+					set @'. $entity .'_id = :'. $entity .'_id;
+					exec dbo.p_'. $entity .'_upd
+						@'. $entity .'_id = @'. $entity .'_id output, '. $field_str .'
+						@pmUser_id = :pmUser_id,
+						@Error_Code = @ErrCode output,
+						@Error_Message = @ErrMessage output;
+					select @'. $entity .'_id as '. $entity .'_id, @ErrCode as Error_Code, @ErrMessage as Error_Msg;
+				';
+				$p['pmUser_id'] = $data['pmUser_id'];
+				//if($entity == 'MorbusBase') { echo getDebugSQL($q, $p); break; }
+				$r = $this->db->query($q, $p);
+				if (is_object($r)) {
+					$result = $r->result('array');
+					if( !empty($result[0]['Error_Msg']) )
+					{
+						$err_arr[] = 'Сохранение данных '. $entity .' '. $result[0]['Error_Msg'];
+						continue;
+					}
+					$entity_saved_arr[$entity .'_id'] = $data[$entity.'_id'];
+					if($entity == 'MorbusOnko'){
+						$this->updateMorbusOnkoDiagConfTypes($data);
+					}
+				} else {
+					$err_arr[] = 'Сохранение данных '. $entity .' Ошибка при выполнении запроса к базе данных';
+					continue;
+				}
+			}
+			else
+			{
+				continue;
+			}
+		}
+		if (!empty($data['Evn_pid']) && !empty($data['Morbus_id'])) {
+			$this->load->library('swMorbus');
+			$tmp = swMorbus::updateMorbusIntoEvn(array(
+				'Evn_id' => $data['Evn_pid'],
+				'Morbus_id' => $data['Morbus_id'],
+				'session' => $data['session'],
+				'mode' => 'onAfterSaveMorbusSpecific',
+			));
+			if (isset($tmp['Error_Msg'])) {
+				//нужно откатить транзакцию
+				throw new Exception($tmp['Error_Msg']);
+			}
+		}
+		$entity_saved_arr['Morbus_id'] = $data['Morbus_id'];
+		$entity_saved_arr['Error_Msg'] = (count($err_arr) > 0) ? implode('<br />',$err_arr) : null;
+		return array($entity_saved_arr);
+	}
+
+	/**
+	 * Обработка данных перед формированием запроса на сохранение
+	 *
+	 * @param array $data
+	 * @param string $key
+	 * @param mixed $value
+	 * @param string $field_str
+	 * @param array $params
+	 * @param array $err_arr
+	 * @return bool Если возвращает ложь, то данные не должны сохраняться
+	 */
+	private function processingSavingData($data, $key, $value, &$field_str, &$params, &$err_arr)
+	{
+		if (is_object($value) && $value instanceof DateTime)
+		{
+			$value = $value->format('Y-m-d');
+		}
+		$is_changed = true;
+		//будем сохранять только то, что изменилось
+		if (
+			!array_key_exists($key, $data)
+			|| $data[$key] == $value
+			|| in_array($key, $this->not_edit_fields)
+		) {
+			$is_changed = false;
+		}
+
+		if ($is_changed && 'MorbusOnko_IsMainTumor' == $key) {
+			//сохраняем отдельной процедурой
+			$error_msg = null;
+			if ($this->setMorbusOnkoIsMainTumor($data[$key], $data['MorbusOnko_id'], $data['pmUser_id'], $error_msg)) {
+				$value = $data[$key];
+			}
+			if (!empty($error_msg)) {
+				$err_arr[] = 'Сохранение признака основной опухоли. '.$error_msg;
+				$is_changed = false;
+			}
+		}
+
+		if ($is_changed && 'MorbusOnkoBase_NumCard' == $key) {
+			// если имеет неправильный формат или дублируется, то не сохраняем
+			$error_msg = null;
+			$this->checkMorbusOnkoBaseNumCard($data[$key], $data['MorbusOnkoBase_id'], $error_msg);
+			if (!empty($error_msg)) {
+				$err_arr[] = 'Регистрационный номер не сохранен! '.$error_msg;
+				$is_changed = false;
+			}
+		}
+
+		// Собираем параметры
+		if ($is_changed) {
+			//в $data[$key] может быть null
+			$params[$key] = $data[$key];
+			// ситуация, когда пользователь удалил какое-то значение
+			$params[$key] = (empty($params[$key]) || $params[$key]=='0')?null:$params[$key];
+		} else {
+			$params[$key] = $value;
+		}
+
+		// Собираем часть запроса с полями
+		$field_str .= '
+						@'. $key .' = :'. $key .' ,';
+		return true;
+	}
+
+	/**
+	 * Сохранение признака основной опухоли
+	 *
+	 * @param string $MorbusOnko_IsMainTumor
+	 * @param int $MorbusOnko_id
+	 * @param int $pmUser_id
+	 * @param string $error_msg
+	 * @return bool
+	 */
+	private function setMorbusOnkoIsMainTumor($MorbusOnko_IsMainTumor, $MorbusOnko_id, $pmUser_id, &$error_msg)
+	{
+		$query = "
+			DECLARE
+				@MorbusOnko_id bigint,
+				@Error_Code int,
+				@Error_Message varchar(4000);
+			exec dbo.p_MorbusOnkoIsMainTumor_set
+				@MorbusOnko_id = :MorbusOnko_id,
+				@MorbusOnko_IsMainTumor = :MorbusOnko_IsMainTumor,
+				@pmUser_id = :pmUser_id,
+				@Error_Code = @Error_Code,
+				@Error_Message = @Error_Message;
+			select @Error_Code as Error_Code, @Error_Message as Error_Msg;
+		";
+		$params = array(
+			'MorbusOnko_IsMainTumor' => $MorbusOnko_IsMainTumor,
+			'MorbusOnko_id' => $MorbusOnko_id,
+			'pmUser_id' => $pmUser_id,
+		);
+		$result = $this->db->query($query, $params);
+		if ( !is_object($result) ) {
+			$error_msg = 'Ошибка запроса сохранения признака основной опухоли!';
+			return false;
+		}
+		$resp = $result->result('array');
+		if (count($resp) > 0 && !empty($resp[0]['Error_Msg'])) {
+			$error_msg = $resp[0]['Error_Msg'];
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * Проверка регистрационного номера на дублирование
+	 *
+	 * @param string $MorbusOnkoBase_NumCard
+	 * @param int $MorbusOnkoBase_id
+	 * @param string $error_msg
+	 * @return bool
+	 */
+	private function checkMorbusOnkoBaseNumCardDoubling($MorbusOnkoBase_NumCard, $MorbusOnkoBase_id, &$error_msg)
+	{
+		$query = "
+			select top 1
+				MorbusOnkoBase_id
+			from dbo.v_MorbusOnkoBase with (nolock)
+			where
+				MorbusOnkoBase_NumCard = :MorbusOnkoBase_NumCard
+				and MorbusOnkoBase_id != ISNULL(:MorbusOnkoBase_id, 0)
+		";
+		$params = array(
+			'MorbusOnkoBase_NumCard' => $MorbusOnkoBase_NumCard,
+			'MorbusOnkoBase_id' => $MorbusOnkoBase_id,
+		);
+		$result = $this->db->query($query, $params);
+		if ( !is_object($result) ) {
+			$error_msg = 'Ошибка запроса проверки дублирования регистрационного номера';
+			return true;
+		}
+		if (count($result->result('array')) > 0) {
+			//дублируется
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * Проверка регистрационного номера
+	 *
+	 * @param string $MorbusOnkoBase_NumCard
+	 * @param int $MorbusOnkoBase_id
+	 * @param string $error_msg
+	 * @return bool
+	 */
+	private function checkMorbusOnkoBaseNumCard($MorbusOnkoBase_NumCard, $MorbusOnkoBase_id, &$error_msg)
+	{
+		if (preg_match('/^[0-9]{1,10}$/', $MorbusOnkoBase_NumCard)) {
+			if (!$this->checkMorbusOnkoBaseNumCardDoubling($MorbusOnkoBase_NumCard, $MorbusOnkoBase_id, $error_msg)) {
+				$error_msg = 'Регистрационный номер дублируется';
+				return false;
+			}
+		} else if($this->getRegionNick() != 'kz'){
+			$error_msg = 'Регистрационный номер должен состоять из цифр';
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * Проверка обязательных параметров специфики
+	 *
+	 * @param array $data Обязательные параметры:
+	 * Mode
+	 *	- check_by_personregister - это создание нового заболевания при ручном вводе новой записи регистра из формы "Регистр по ..." (если есть открытое заболевание, то ничего не сохраняем. В регистре сохранится связь с открытым или созданным заболевание)
+	 *	- personregister_viewform - это ввод данных специфики из панели просмотра в форме записи регистра
+	 *	- evnsection_viewform - это ввод данных специфики из панели просмотра движения в ЭМК
+	 *	- evnvizitpl_viewform - это ввод данных специфики из панели просмотра посещения в ЭМК
+	 *	- check_by_evn - это создание нового заболевания при редактировании данных движения/посещения (если есть открытое заболевание и диагноз уточнился и посещение/движение актуально, то сохраняем диагноз и привязываем заболевание к этому посещению/движению)
+	 * @return array
+	 * @throws Exception
+	 */
+	private function checkParams($data)
+	{
+		if( empty($data['Mode']) )
+		{
+			throw new Exception('Не указан режим сохранения');
+		}
+		$check_fields_list = array();
+		$fields = array(
+			'Diag_id' => 'Идентификатор диагноза'
+		,'Person_id' => 'Идентификатор человека'
+		,'Evn_pid' => 'Идентификатор движения/посещения'
+		,'pmUser_id' => 'Идентификатор пользователя'
+		,'Morbus_id' => 'Идентификатор заболевания'
+		,'MorbusOnko_id' => 'Идентификатор специфики заболевания'
+		,'Morbus_setDT' => 'Дата заболевания'
+		);
+		switch ($data['Mode']) {
+			case 'check_by_evn':
+				$check_fields_list = array('Evn_pid','pmUser_id','Diag_id','Person_id');
+				break;
+			case 'check_by_personregister':
+				$check_fields_list = array('Morbus_setDT','Diag_id','Person_id','pmUser_id');
+				$data['Evn_pid'] = null;
+				break;
+			case 'personregister_viewform':
+				$check_fields_list = array('MorbusOnko_id','Morbus_id','Diag_id','Person_id','pmUser_id');
+				$data['Evn_pid'] = null;
+				break;
+			case 'evnsection_viewform':
+			case 'evnvizitpl_viewform':
+				$check_fields_list = array('MorbusOnko_id','Morbus_id','Evn_pid','pmUser_id'); //'Diag_id','Person_id',
+				break;
+			default:
+				throw new Exception('Указан неправильный режим сохранения');
+				break;
+		}
+		$errors = array();
+		foreach($check_fields_list as $field) {
+			if( empty($data[$field]) )
+			{
+				$errors[] = 'Не указан '. $fields[$field];
+			}
+		}
+		if( count($errors) > 0 )
+		{
+			throw new Exception(implode('<br />',$errors));
+		}
+		return $data;
+	}
+
+	/**
+	 * Загрузка данных заболевания для проверок перед сохранением данных лечения
+	 *
+	 * @param array $Morbus_id
+	 * @return array
+	 */
+	public function getDataForCheckEvnUslugaOnko($Morbus_id)
+	{
+		$query = "
+			SELECT top 1
+				convert(varchar(10),MO.MorbusOnko_setDiagDT,120) as MorbusOnko_setDiagDT,
+				convert(varchar(10),SpecTreat.MorbusOnko_specDisDT,120) as MorbusOnko_specDisDT,
+				convert(varchar(10),SpecTreat.MorbusOnko_specSetDT,120) as MorbusOnko_specSetDT
+			FROM v_MorbusOnko MO with (nolock)
+			outer apply (
+				select
+				MIN(SpecTreat.MorbusOnkoSpecTreat_specSetDT) as MorbusOnko_specSetDT,
+				MAX(isnull(SpecTreat.MorbusOnkoSpecTreat_specDisDT,dbo.tzGetDate())) as MorbusOnko_specDisDT /*CAST('2999-12-31' as datetime)*/
+				from v_MorbusOnkoSpecTreat SpecTreat with (nolock)
+				where SpecTreat.MorbusOnko_id = MO.MorbusOnko_id
+			) SpecTreat
+			WHERE MO.Morbus_id = ?
+		";
+		$result = $this->db->query($query, array($Morbus_id));
+		if ( !is_object($result) )
+		{
+			return array();
+		}
+		return $result->result('array');
+	}
+
+	/**
+	 * Выгрузка регистра онкобольных
+	 */
+	public function exportMorbusOnkoData($data) {
+		/**
+		 * Формирование строки атрибутов
+		 */
+		function createAttributesStr($attr_data, $except_arr) {
+			$attr_arr = array();
+			$attr_name = ''; $attr_value = '';
+			foreach($attr_data as $attr_name => $attr_value) {
+				if (!empty($attr_value) && !in_array($attr_name, $except_arr)) {
+					$attr_arr[] = $attr_name.'="'.$attr_value.'"';
+				}
+			}
+			return implode(' ', $attr_arr);
+		}
+
+		$params = array();
+		$exp_data = array();
+
+		//данные пациента
+		$query = "
+			select ps.Person_Snils as 'insurancenum', os.Orgsmo_f002smocod as 'policy_company_cd',
+			case when ps.Polis_Num IS null then null else
+			case when ps.Polis_Ser IS Not null then ps.Polis_ser+' '+CAST(ps.Polis_num as varchar) else ps.Polis_num end
+			end as 'policy_number', convert(varchar(10), p.Polis_begDate, 120) as 'policy_date',
+			ps.Person_SurName as 'family', ps.Person_FirName as 'name',
+			ps.Person_SecName as 'patronymic', null as 'oldpasser1', null as 'oldpasser2', null as 'oldpasnum',
+			dn.Document_Ser as 'newpasser1', null as 'newpasser2', dn.Document_Num as 'newpasnum', a.Address_Address as 'address', ps.Person_Phone as 'phone',
+			null as 'map_number', convert(varchar(10), ps.Person_BirthDay, 120) AS 'birth_date',
+			ps.Sex_id as 'sex', e.Ethnos_Code as 'ethnic_group', a.KLRgn_id as 'region',
+			ISNULL(a.KLCity_id,a.KLTown_id) as 'subarea_cd', kat.KLAreaType_Name as 'area_tp', ooc.OnkoOccupationClass_Code as 'prof_group',
+			convert(varchar(10), mb.MorbusBase_setDT, 120) as 'reg_date',
+			ort.OnkoRegType_Code as 'reg_tp', null as 'unreg_tp_date', orot.OnkoRegOutType_Code as 'unreg_tp',
+			null as 'obsorg', oit.OnkoInvalidType_Code as 'disablement', convert(varchar(10), mob.MorbusOnkoBase_deadDT, 120) as 'death_date',
+			mob.MorbusOnkoBase_deathCause as 'death_cause', apt.AutopsyPerformType_Code as 'autopsy',/*для связи с пациентом*/ mop.Person_id as 'id'
+			from v_PersonRegister PR with (nolock)
+			inner join v_PersonState ps with (nolock) on ps.Person_id = PR.Person_id
+			outer apply (select top 1 mop.Person_id, mop.Ethnos_id, mop.OnkoOccupationClass_id from v_MorbusOnkoPerson mop with (nolock) where mop.Person_id = PR.Person_id order by mop.MorbusOnkoPerson_updDT desc) mop
+			left join Polis p with(nolock) on ps.Polis_id=p.Polis_id
+			left join v_OrgSmo os with(nolock) on p.OrgSmo_id=os.OrgSMO_id
+			--outer apply (select top 1 * from v_PersonDocument with(nolock) where Person_id=ps.Person_id and DocumentType_id=1 order by PersonDocument_id desc) do
+			outer apply (select top 1 * from v_PersonDocument (nolock) where Person_id=ps.Person_id and DocumentType_id=13 order by PersonDocument_id desc) dn
+			left join Address a (nolock) on ISNULL(ps.Uaddress_id,ps.PAddress_id)=a.Address_id
+			left join Ethnos e (nolock) on mop.Ethnos_id=e.Ethnos_id
+			--left join KLArea ka with(nolock) on a.KLSubRgn_id=ka.KLArea_id
+			left join KLAreatype kat (nolock) on a.KLAreaType_id=kat.KLAreatype_id
+			left join OnkoOccupationClass ooc (nolock) on mop.OnkoOccupationClass_id=ooc.OnkoOccupationClass_id
+			outer apply (select top 1 * from v_MorbusBase with(nolock) where ps.Person_id=Person_id and MorbusType_id=:MorbusType_id order by MorbusBase_id desc) mb
+			outer apply (select top 1 * from v_MorbusOnkoBase with(nolock) where mb.MorbusBase_id=MorbusBase_id order by MorbusOnkoBase_id desc) mob
+			--inner join MorbusOnkoBase mob (nolock) on mb.MorbusBase_id=mob.MorbusBase_id
+			left join OnkoRegType ort (nolock) on mob.OnkoRegType_id=ort.OnkoRegType_id
+			left join OnkoRegOutType orot (nolock) on mob.OnkoRegOutType_id=orot.OnkoRegOutType_id
+			left join OnkoInvalidType oit (nolock) on mob.OnkoInvalidType_id=oit.OnkoInvalidType_id
+			left join AutopsyPerformType apt (nolock) on mob.AutopsyPerformType_id=apt.AutopsyPerformType_id
+			where PR.MorbusType_id = :MorbusType_id
+		";
+		$params['MorbusType_id'] = $this->getMorbusTypeId();
+		$result = $this->db->query($query, $params);
+		if (!is_object($result)) {
+			return array('Error_Msg' => 'Ошибка при получении данных пациентов');
+		}
+		$result = $result->result('array');
+		if(count($result) == 0){
+			return array('Error_Msg' => 'Нет данных для выгрузки');
+		}
+		$exp_data['patient'] = $result;
+
+		//Данные диагноза
+		$query = "
+			select
+			convert(varchar(10), mo.MorbusOnko_setDiagDT, 120) as 'ds_date', mo.MorbusOnko_NumTumor as 'number', null as 'plural', mo.MorbusOnko_IsMainTumor as 'main',
+			null as 'ds_reg_tp', null as 'tор', ols.OnkoLesionSide_Name as 'side', od.OnkoDiag_Name as 'morph', t.OnkoT_Name as 'tnm_t',
+			n.OnkoN_Name as 'tnm_n', m.OnkoM_Name as 'tnm_m',ts.TumorStage_Name as 'stage', odct.OnkoDiagConfType_Name as 'method',
+			tcit.TumorCircumIdentType_Name as 'how_disc', oldc.OnkoLateDiagCause_Name as 'why_old', tart.TumorAutopsyResultType_Name as 'res_autopsy',
+			convert(varchar(10), SpecTreat.MorbusOnko_specSetDT, 120) as 'beg_spec_date',
+			case when '2999-12-31' = convert(varchar(10), SpecTreat.MorbusOnko_specDisDT, 120) then null
+				else convert(varchar(10), SpecTreat.MorbusOnko_specDisDT, 120)
+			end as 'end_spec_date',
+			tptt.TumorPrimaryTreatType_Name as 'prim_treat',
+			trtit.TumorRadicalTreatIncomplType_Name as 'why_incompl',
+			olctt.OnkoLateComplTreatType_Name as 'late_compl',
+			case when mo.MorbusOnko_IsTumorDepoUnknown=2 then 'Неизвестна'
+			when mo.MorbusOnko_IsTumorDepoLympha=2 then 'Отдаленные лимфатические узлы'
+			when mo.MorbusOnko_IsTumorDepoBones=2 then 'Кости'
+			when mo.MorbusOnko_IsTumorDepoLiver=2 then 'Печень'
+			when mo.MorbusOnko_IsTumorDepoLungs=2 then 'Легкие и/или плевра'
+			when mo.MorbusOnko_IsTumorDepoBrain=2 then 'Головной мозг'
+			when mo.MorbusOnko_IsTumorDepoSkin=2 then 'Кожа'
+			when mo.MorbusOnko_IsTumorDepoKidney=2 then 'Почки'
+			when mo.MorbusOnko_IsTumorDepoOvary=2 then 'Яичники'
+			when mo.MorbusOnko_IsTumorDepoPerito=2 then 'Брюшина'
+			when mo.MorbusOnko_IsTumorDepoMarrow=2 then 'Костный мозг'
+			when mo.MorbusOnko_IsTumorDepoOther=2 then 'Другие органы'
+			when mo.MorbusOnko_IsTumorDepoMulti=2 then 'Множественные'
+			else null end as 'loc_met', /*для связи с пациентом*/ mor.Person_id as 'pid', /*для связи с лечением*/ mor.Morbus_id as 'id'
+			from v_MorbusOnko mo (nolock)
+			inner join v_Morbus mor (nolock) on mo.Morbus_id=mor.Morbus_id
+			outer apply (
+				select
+				MAX(SpecTreat.TumorPrimaryTreatType_id) as TumorPrimaryTreatType_id,
+				MAX(SpecTreat.TumorRadicalTreatIncomplType_id) as TumorRadicalTreatIncomplType_id,
+				MAX(SpecTreat.OnkoLateComplTreatType_id) as OnkoLateComplTreatType_id,
+				MIN(SpecTreat.MorbusOnkoSpecTreat_specSetDT) as MorbusOnko_specSetDT,
+				MAX(isnull(SpecTreat.MorbusOnkoSpecTreat_specDisDT,CAST('2999-12-31' as datetime))) as MorbusOnko_specDisDT
+				from v_MorbusOnkoSpecTreat SpecTreat with (nolock)
+				where SpecTreat.MorbusOnko_id = MO.MorbusOnko_id
+			) SpecTreat
+			left join OnkoLesionSide ols (nolock) on mo.OnkoLesionSide_id=ols.OnkoLesionSide_id
+			left join OnkoDiag od (nolock) on mo.OnkoDiag_mid=od.OnkoDiag_id
+			left join OnkoT t (nolock) on mo.OnkoT_id=t.OnkoT_id
+			left join OnkoN n (nolock) on mo.OnkoN_id=n.OnkoN_id
+			left join OnkoM m (nolock) on mo.OnkoM_id=m.OnkoM_id
+			left join TumorStage ts (nolock) on mo.TumorStage_id=ts.TumorStage_id
+			left join OnkoDiagConfType odct (nolock) on mo.OnkoDiagConfType_id=odct.OnkoDiagConfType_id
+			left join TumorCircumIdentType tcit (nolock) on mo.TumorCircumIdentType_id=tcit.TumorCircumIdentType_id
+			left join OnkoLateDiagCause oldc (nolock) on mo.OnkoLateDiagCause_id=oldc.OnkoLateDiagCause_id
+			left join TumorAutopsyResultType tart (nolock) on mo.TumorAutopsyResultType_id=tart.TumorAutopsyResultType_id
+			left join TumorPrimaryTreatType tptt (nolock) on SpecTreat.TumorPrimaryTreatType_id=tptt.TumorPrimaryTreatType_id
+			left join TumorRadicalTreatIncomplType trtit (nolock) on SpecTreat.TumorRadicalTreatIncomplType_id=trtit.TumorRadicalTreatIncomplType_id
+			left join OnkoLateComplTreatType olctt (nolock) on SpecTreat.OnkoLateComplTreatType_id=olctt.OnkoLateComplTreatType_id
+			where mor.Person_id is not null
+		";
+		$result = $this->db->query($query, $params);
+		if (!is_object($result)) {
+			return array('Error_Msg' => 'Ошибка при получении диагнозов');
+		}
+		$exp_data['diag'] = $result->result('array');
+
+		//Данные состояния пациента (данные наблюдения)
+		$query = "
+			select convert(varchar(10), mobps.MorbusOnkoBasePersonState_setDT, 120) as 'obs_date', opst.OnkoPersonStateType_Name as 'obs_state',
+			/*для связи с пациентом*/ mb.Person_id as 'pid', /*для связи с данными отдельной опухоли*/ mobps.MorbusOnkoBasePersonState_id as 'id'
+			from MorbusOnkoBasePersonState mobps (nolock)
+			inner join v_MorbusOnkoBase mob (nolock) on mobps.MorbusOnkoBase_id=mob.MorbusOnkoBase_id
+			inner join v_MorbusBase mb (nolock) on mob.MorbusBase_id=mb.MorbusBase_id
+			left join OnkoPersonStateType opst (nolock) on mobps.OnkoPersonStateType_id=opst.OnkoPersonStateType_id
+			where mb.Person_id is not null
+		";
+		$result = $this->db->query($query, $params);
+		if (!is_object($result)) {
+			return array('Error_Msg' => 'Ошибка при получении данных наблюдения за пациентами');
+		}
+		$exp_data['obs'] = $result->result('array');
+
+		//Данные состояния отдельной опухоли
+		$query = "
+			select d.Diag_Code as 'ds_nodeid',otst.OnkoTumorStatusType_Name 'obs_ds_state',
+			/*для связи с данными наблюдения*/ ots.MorbusOnkoBasePersonState_id as 'pid', ots.OnkoTumorStatus_id as 'id'
+			from OnkoTumorStatus ots (nolock)
+			left join Diag d (nolock) on ots.Diag_id=d.Diag_id
+			left join OnkoTumorStatusType otst (nolock) on ots.OnkoTumorStatusType_id=otst.OnkoTumorStatusType_id
+			where ots.MorbusOnkoBasePersonState_id is not null
+		";
+		$result = $this->db->query($query, $params);
+		if (!is_object($result)) {
+			return array('Error_Msg' => 'Ошибка при получении данных отдельных опухолей');
+		}
+		$exp_data['obsds'] = $result->result('array');
+
+		//Данные госпитолизации
+		$query = "
+			select convert(varchar(10), mobp.MorbusOnkoBasePS_setDT, 120) as 'begdate',
+			convert(varchar(10), mobp.MorbusOnkoBasePS_disDT, 120) as 'enddate', oht.OnkoHospType_Name as 'primary',
+			opht.OnkoPurposeHospType_Name as 'aim', null as 'sendorg', null as 'sendorgds', mobp.LpuSection_id as 'section',
+			olt.OnkoLeaveType_Name as 'state', null as 'treatment',
+			/*для связи с пациентом*/ mb.Person_id as 'pid', mobp.MorbusOnkoBasePS_id as 'id'
+			from v_MorbusOnkoBasePS mobp (nolock)
+			inner join v_MorbusOnkoBase mob (nolock) on mobp.MorbusOnkoBase_id=mob.MorbusOnkoBase_id
+			inner join v_MorbusBase mb (nolock) on mob.MorbusBase_id=mb.MorbusBase_id
+			inner join v_Evn e (nolock) on mobp.Evn_id=e.Evn_id
+			left join OnkoHospType oht (nolock) on mobp.OnkoHospType_id=oht.OnkoHospType_id
+			left join OnkoPurposeHospType opht (nolock) on mobp.OnkoPurposeHospType_id=opht.OnkoPurposeHospType_id
+			left join OnkoLeaveType olt (nolock) on mobp.OnkoLeaveType_id=olt.OnkoLeaveType_id
+			where mb.Person_id is not null
+		";
+		$result = $this->db->query($query, $params);
+		if (!is_object($result)) {
+			return array('Error_Msg' => 'Ошибка при получении данных госпитализации');
+		}
+		$exp_data['hosp'] = $result->result('array');
+
+		//Данные хирургического лечения
+		$query = "
+			select convert(varchar(10), euos.EvnUslugaOnkoSurg_setDT, 120) as 'date', ot.OperType_Name as 'oper',
+			tct.TreatmentConditionsType_Name as 'cond', euos.Lpu_id as 'where', ati.AggType_Name as 'comp_intra', atp.AggType_Name as 'comp_after',
+			/*для связи с диагнозом*/ euos.Morbus_id as 'pid', euos.EvnUslugaOnkoSurg_id as 'id'
+			from v_EvnUslugaOnkoSurg euos (nolock)
+			left join OperType ot (nolock) on euos.OperType_id=ot.OperType_id
+			left join TreatmentConditionsType tct (nolock) on euos.TreatmentConditionsType_id=tct.TreatmentConditionsType_id
+			left join AggType ati (nolock) on euos.AggType_id=ati.AggType_id
+			left join AggType atp (nolock) on euos.AggType_sid=atp.AggType_id
+			where euos.Morbus_id is not null
+		";
+		$result = $this->db->query($query, $params);
+		if (!is_object($result)) {
+			return array('Error_Msg' => 'Ошибка при получении данных хирургического лечения');
+		}
+		$exp_data['oper'] = $result->result('array');
+
+		//Данные лучевого лечения
+		$query = "
+			select convert(varchar(10), euob.EvnUslugaOnkoBeam_setDT, 120) as 'beg_date', convert(varchar(10), euob.EvnUslugaOnkoBeam_disDT, 120) as 'end_date',
+			oubit.OnkoUslugaBeamIrradiationType_Name as 'way', oubkt.OnkoUslugaBeamKindType_Name as 'kind',
+			oubmt.OnkoUslugaBeamMethodType_Name as 'method',oubrmt.OnkoUslugaBeamRadioModifType_Name as 'radio',
+			null as 'aim', case when euob.OnkoUslugaBeamUnitType_id=1 then euob.EvnUslugaOnkoBeam_TotalDoseTumor else null end as 'ds_dose',
+			case when euob.OnkoUslugaBeamUnitType_did=1 then euob.EvnUslugaOnkoBeam_TotalDoseRegZone else null end as 'metdose',
+			tct.TreatmentConditionsType_Name as 'cond', euob.Lpu_id as 'where', at.AggType_Name as 'compl',
+			/*для связи с диагнозом*/ euob.Morbus_id as 'pid', euob.EvnUslugaOnkoBeam_id as 'id'
+			from v_EvnUslugaOnkoBeam euob (nolock)
+			left join OnkoUslugaBeamIrradiationType oubit (nolock) on euob.OnkoUslugaBeamIrradiationType_id=oubit.OnkoUslugaBeamIrradiationType_id
+			left join OnkoUslugaBeamKindType oubkt (nolock) on euob.OnkoUslugaBeamKindType_id=oubkt.OnkoUslugaBeamKindType_id
+			left join OnkoUslugaBeamMethodType oubmt (nolock) on euob.OnkoUslugaBeamMethodType_id=oubmt.OnkoUslugaBeamMethodType_id
+			left join OnkoUslugaBeamRadioModifType oubrmt (nolock) on euob.OnkoUslugaBeamRadioModifType_id=oubrmt.OnkoUslugaBeamRadioModifType_id
+			left join TreatmentConditionsType tct (nolock) on euob.TreatmentConditionsType_id=tct.TreatmentConditionsType_id
+			left join AggType at (nolock) on euob.AggType_id=at.AggType_id
+			where euob.Morbus_id is not null
+		";
+		$result = $this->db->query($query, $params);
+		if (!is_object($result)) {
+			return array('Error_Msg' => 'Ошибка при получении данных лучевого лечения');
+		}
+		$exp_data['ray'] = $result->result('array');
+
+		//Данные химиотерапевтического лечения
+		$query = "
+			select convert(varchar(10), euoc.EvnUslugaOnkoChem_setDT, 120) as 'beg_date', convert(varchar(10), euoc.EvnUslugaOnkoChem_disDT, 120) as 'end_date',
+			ouckt.OnkoUslugaChemKindType_Name as 'kind', null as 'aim', tct.TreatmentConditionsType_Name as 'cond', euoc.Lpu_id as 'where', at.AggType_Name as 'compl',
+			/*для связи с диагнозом*/ euoc.Morbus_id as 'pid', /*для связи с препаратом*/ euoc.EvnUslugaOnkoChem_id as 'id'
+			from v_EvnUslugaOnkoChem euoc (nolock)
+			left join OnkoUslugaChemKindType ouckt (nolock) on euoc.OnkoUslugaChemKindType_id=ouckt.OnkoUslugaChemKindType_id
+			left join TreatmentConditionsType tct (nolock) on euoc.TreatmentConditionsType_id=tct.TreatmentConditionsType_id
+			left join AggType at (nolock) on euoc.AggType_id=at.AggType_id
+			where euoc.Morbus_id is not null
+		";
+		$result = $this->db->query($query, $params);
+		if (!is_object($result)) {
+			return array('Error_Msg' => 'Ошибка при получении данных химиотерапевтического лечения');
+		}
+		$exp_data['chem'] = $result->result('array');
+
+		//Данные гормоноиммунотерапевтического лечения
+		$query = "
+			select convert(varchar(10), euog.EvnUslugaOnkoGormun_setDT, 120) as 'beg_date', convert(varchar(10), euog.EvnUslugaOnkoGormun_disDT, 120) as 'end_date', null as 'aim',
+			tct.TreatmentConditionsType_Name as 'cond', euog.Lpu_id as 'where', at.AggType_Name as 'compl',
+			case when euog.EvnUslugaOnkoGormun_IsBeam=2 then 'лучевая'
+			when euog.EvnUslugaOnkoGormun_Issurg=2 then 'хирургическая'
+			when euog.EvnUslugaOnkoGormun_Isdrug=2 then 'лекарственная'
+			when euog.EvnUslugaOnkoGormun_IsOther=2 then 'неизвестно' else null end as 'kind',
+			/*для связи с диагнозом*/ euog.Morbus_id as 'pid', /*для связи с препаратом*/ euog.EvnUslugaOnkoGormun_id as 'id'
+			from v_EvnUslugaOnkoGormun euog (nolock)
+			left join TreatmentConditionsType tct (nolock) on euog.TreatmentConditionsType_id=tct.TreatmentConditionsType_id
+			left join AggType at (nolock) on euog.AggType_id=at.AggType_id
+			where euog.Morbus_id is not null
+		";
+		$result = $this->db->query($query, $params);
+		if (!is_object($result)) {
+			return array('Error_Msg' => 'Ошибка при получении данных гормоноиммунотерапевтического лечения');
+		}
+		$exp_data['horm'] = $result->result('array');
+
+		//Данные препарата
+		$query = "
+			select od.OnkoDrug_Code as 'prep_cd', modr.MorbusOnkoDrug_SumDose as 'prep_dose',
+			odut.OnkoDrugUnitType_Name as 'prep_unit',
+			modr.MorbusOnkoDrug_id as 'id', /*для связи с лечением*/ modr.Evn_id as 'pid'
+			from MorbusOnkoDrug modr (nolock)
+			inner join OnkoDrug od (nolock) on modr.OnkoDrug_id=od.OnkoDrug_id
+			left join OnkoDrugUnitType odut (nolock) on modr.OnkoDrugUnitType_id=odut.OnkoDrugUnitType_id
+			where modr.Evn_id is not null
+		";
+		$result = $this->db->query($query, $params);
+		if (!is_object($result)) {
+			return array('Error_Msg' => 'Ошибка при получении данных препаратов');
+		}
+		$exp_data['prep'] = $result->result('array');
+
+		//Обрабатываем данные
+		$new_arr = array();
+		$ref_arr = array();
+		foreach($exp_data as $name => $tmp_arr) {
+			$ref_arr[$name] = array();
+			foreach($tmp_arr as $item) {
+				$id = $item['id'];
+				$pid = isset($item['pid']) ? $item['pid'] : null;
+				$ref_arr[$name][$id] = array(
+					$name.'_id' => empty($pid) ? 'extcd="'.$id.'"' : 'extnodecd="'.$id.'"',
+					$name.'_data' => createAttributesStr($item, array('id','pid'))
+				);
+				if (empty($pid)) {
+					$new_arr[$name][] = &$ref_arr[$name][$id];
+				} else {
+					$new_arr[$name][$pid][] = &$ref_arr[$name][$id];
+				}
+			}
+		}
+		unset($exp_data);
+
+		/*$schema = array(
+			'patient' => array(
+				'diag' => array(
+					'oper',
+					'ray',
+					'chem' => array('prep'),
+					'horm' => array('prep')
+				),
+				'obs' => array('obsds'),
+				'hosp',
+			)
+		);*/
+
+		foreach($ref_arr['patient'] as $id => &$item) {
+			if (isset($new_arr['diag'][$id])) {
+				$item['diag'] = $new_arr['diag'][$id];
+			} else {
+				$item['diag'] = array();
+			}
+			if (isset($new_arr['obs'][$id])) {
+				$item['obs'] = $new_arr['obs'][$id];
+			} else {
+				$item['obs'] = array();
+			}
+			if (isset($new_arr['hosp'][$id])) {
+				$item['hosp'] = $new_arr['hosp'][$id];
+			} else {
+				$item['hosp'] = array();
+			}
+		}
+		foreach($ref_arr['diag'] as $id => &$item) {
+			if (isset($new_arr['oper'][$id])) {
+				$item['oper'] = $new_arr['oper'][$id];
+			} else {
+				$item['oper'] = array();
+			}
+			if (isset($new_arr['ray'][$id])) {
+				$item['ray'] = $new_arr['ray'][$id];
+			} else {
+				$item['ray'] = array();
+			}
+			if (isset($new_arr['chem'][$id])) {
+				$item['chem'] = $new_arr['chem'][$id];
+			} else {
+				$item['chem'] = array();
+			}
+			if (isset($new_arr['horm'][$id])) {
+				$item['horm'] = $new_arr['horm'][$id];
+			} else {
+				$item['horm'] = array();
+			}
+		}
+		foreach($ref_arr['obs'] as $id => &$item) {
+			if (isset($new_arr['obsds'][$id])) {
+				$item['obsds'] = $new_arr['obsds'][$id];
+			} else {
+				$item['obsds'] = array();
+			}
+		}
+		foreach($ref_arr['chem'] as $id => &$item) {
+			if (isset($new_arr['prep'][$id])) {
+				$item['prep'] = $new_arr['prep'][$id];
+			} else {
+				$item['prep'] = array();
+			}
+		}
+		foreach($ref_arr['horm'] as $id => &$item) {
+			if (isset($new_arr['prep'][$id])) {
+				$item['prep'] = $new_arr['prep'][$id];
+			} else {
+				$item['prep'] = array();
+			}
+		}
+
+		return array('patient' => $new_arr['patient']);
+	}
+
+	/**
+	 *  Обновление методов подтверждения диагноза
+	 */
+	function updateMorbusOnkoDiagConfTypes($data)
+	{
+		if(empty($data['MorbusOnko_id'])){
+			return false;
+		}
+		$query = "
+			select
+				MorbusOnkoLink_id
+			from dbo.v_MorbusOnkoLink with (nolock)
+			where
+				MorbusOnko_id = :MorbusOnko_id
+		";
+		$result = $this->db->query($query, $data);
+		if ( is_object($result) ) {
+			$res = $result->result('array');
+			if(!empty($res[0]['MorbusOnkoLink_id'])){
+				foreach ($res as $value) {
+
+					$query = "
+						declare
+							@ErrCode int,
+							@ErrMessage varchar(4000);
+						exec dbo.p_MorbusOnkoLink_del
+							@MorbusOnkoLink_id = :MorbusOnkoLink_id,
+							@pmUser_id := :pmUser_id,
+							@Error_Code = @ErrCode output,
+							@Error_Message = @ErrMessage output;
+						select @ErrCode as Error_Code, @ErrMessage as Error_Msg;
+					";
+					$result = $this->db->query($query, array('MorbusOnkoLink_id' => $value['MorbusOnkoLink_id'], 'pmUser_id' => $data['pmUser_id']));
+				}
+			}
+			if(!empty($data['OnkoDiagConfTypes'])){
+				if(strpos($data['OnkoDiagConfTypes'], ',')>0){
+					$confTypes = explode(',', $data['OnkoDiagConfTypes']);
+				} else {
+					$confTypes = array($data['OnkoDiagConfTypes']);
+				}
+				foreach ($confTypes as $value) {
+					$query = "
+						declare
+							@MorbusOnkoLink_id bigint,
+							@ErrCode int,
+							@ErrMessage varchar(4000);
+						set @MorbusOnkoLink_id = null;
+						exec dbo.p_MorbusOnkoLink_ins
+							@MorbusOnkoLink_id = @MorbusOnkoLink_id output,
+							@OnkoDiagConfType_id = :OnkoDiagConfType_id,
+							@MorbusOnko_id = :MorbusOnko_id,
+							@pmUser_id = :pmUser_id,
+							@Error_Code = @ErrCode output,
+							@Error_Message = @ErrMessage output;
+						select @MorbusOnkoLink_id as MorbusOnkoLink_id, @ErrCode as Error_Code, @ErrMessage as Error_Msg;
+					";
+					$params = array(
+						'OnkoDiagConfType_id' => $value,
+						'MorbusOnko_id' => $data['MorbusOnko_id'],
+						'pmUser_id' => $data['pmUser_id']
+					);
+					$result = $this->db->query($query, $params);
+				}
+			}
+		} else {
+			return false;
+		}
+	}
+
+	/**
+	 * Получение данных по специфике онкологии. Метод для API.
+	 */
+	function getMorbusOnkoForAPI($data) {
+		$queryParams = array();
+		$filter = "";
+
+		if (!empty($data['Person_id'])) {
+			$filter .= " and mb.Person_id = :Person_id";
+			$queryParams['Person_id'] = $data['Person_id'];
+		}
+		if (!empty($data['Evn_pid'])) {
+			$filter .= " and mb.Evn_pid = :Evn_pid";
+			$queryParams['Evn_pid'] = $data['Evn_pid'];
+		}
+
+		if (empty($filter)) {
+			return array();
+		}
+
+		return $this->queryResult("
+			select
+				mb.Person_id,
+				mb.Evn_pid,
+				mo.MorbusOnko_id,
+				mo.Morbus_id,
+				convert(varchar(10), mo.MorbusOnko_firstSignDT, 120) as MorbusOnko_firstSignDT,
+				convert(varchar(10), mo.MorbusOnko_firstVizitDT, 120) as MorbusOnko_firstVizitDT,
+				mo.Lpu_foid,
+				m.Diag_id,
+				mo.OnkoLesionSide_id,
+				mo.MorbusOnko_MorfoDiag,
+				mo.MorbusOnko_NumHisto,
+				mo.OnkoT_id,
+				mo.OnkoN_id,
+				mo.OnkoM_id,
+				mo.TumorStage_id,
+				case when mo.MorbusOnko_IsTumorDepoUnknown = 2 then 1 else 0 end as MorbusOnko_IsTumorDepoUnknown,
+				case when mo.MorbusOnko_IsTumorDepoLympha = 2 then 1 else 0 end as MorbusOnko_IsTumorDepoLympha,
+				case when mo.MorbusOnko_IsTumorDepoBones = 2 then 1 else 0 end as MorbusOnko_IsTumorDepoBones,
+				case when mo.MorbusOnko_IsTumorDepoLiver = 2 then 1 else 0 end as MorbusOnko_IsTumorDepoLiver,
+				case when mo.MorbusOnko_IsTumorDepoLungs = 2 then 1 else 0 end as MorbusOnko_IsTumorDepoLungs,
+				case when mo.MorbusOnko_IsTumorDepoBrain = 2 then 1 else 0 end as MorbusOnko_IsTumorDepoBrain,
+				case when mo.MorbusOnko_IsTumorDepoSkin = 2 then 1 else 0 end as MorbusOnko_IsTumorDepoSkin,
+				case when mo.MorbusOnko_IsTumorDepoKidney = 2 then 1 else 0 end as MorbusOnko_IsTumorDepoKidney,
+				case when mo.MorbusOnko_IsTumorDepoOvary = 2 then 1 else 0 end as MorbusOnko_IsTumorDepoOvary,
+				case when mo.MorbusOnko_IsTumorDepoPerito = 2 then 1 else 0 end as MorbusOnko_IsTumorDepoPerito,
+				case when mo.MorbusOnko_IsTumorDepoMarrow = 2 then 1 else 0 end as MorbusOnko_IsTumorDepoMarrow,
+				case when mo.MorbusOnko_IsTumorDepoOther = 2 then 1 else 0 end as MorbusOnko_IsTumorDepoOther,
+				case when mo.MorbusOnko_IsTumorDepoMulti = 2 then 1 else 0 end as MorbusOnko_IsTumorDepoMulti,
+				mo.TumorCircumIdentType_id,
+				mo.OnkoLateDiagCause_id,
+				mo.TumorAutopsyResultType_id,
+				mo.TumorPrimaryTreatType_id,
+				mo.TumorRadicalTreatIncomplType_id,
+				convert(varchar(10), mo.MorbusOnko_specSetDT, 120) as MorbusOnko_specSetDT,
+				convert(varchar(10), mo.MorbusOnko_specDisDT, 120) as MorbusOnko_specDisDT,
+				1 as MorbusOnko_Deleted,
+				case when mo.MorbusOnko_IsMainTumor = 2 then 1 else 0 end as MorbusOnko_IsMainTumor,
+				convert(varchar(10), mo.MorbusOnko_setDiagDT, 120) as MorbusOnko_setDiagDT,
+				mo.OnkoDiag_mid,
+				mo.OnkoTumorStatusType_id,
+				mo.OnkoDiagConfType_id,
+				mo.OnkoPostType_id,
+				mo.OnkoLateComplTreatType_id,
+				mo.OnkoCombiTreatType_id,
+				mo.MorbusOnko_NumTumor
+			from
+				v_MorbusBase mb (nolock)
+				inner join v_Morbus m (nolock) on m.MorbusBase_id = mb.MorbusBase_id
+				inner join v_MorbusOnko mo (nolock) on mo.Morbus_id = m.Morbus_id
+			where
+				1=1
+				{$filter}
+		", $queryParams);
+	}
+}

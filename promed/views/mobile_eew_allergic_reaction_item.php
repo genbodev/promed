@@ -1,0 +1,1 @@
+<tr><td>{PersonAllergicReaction_setDate}</td><td>{AllergicReactionType_Name}</td><td>{PersonAllergicReaction_Kind}</td><td>{AllergicReactionLevel_Name}</td></tr>

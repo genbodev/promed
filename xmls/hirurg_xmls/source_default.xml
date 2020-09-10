@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<source>
+	<DocumentDate>{Current_Date}</DocumentDate>
+	<DocumentTime>{Current_Time}</DocumentTime>
+	<Person_FIO>{Person_FIO}</Person_FIO>
+	<MedPersonal_FIO>{MedPersonal_FIO}</MedPersonal_FIO>
+</source>

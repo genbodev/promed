@@ -1,0 +1,335 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://atria.cz/user/main" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:bi="http://atria.cz/common/base/info/build/" name="userService" targetNamespace="http://atria.cz/user/main">
+  <wsdl:types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://atria.cz/user/main" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:bi="http://atria.cz/common/base/info/build/">
+            
+  <xsd:import namespace="http://atria.cz/user/main" schemaLocation="https://rmis66.mis66.ru/users-ws/users?xsd=user.xsd"/>
+            
+  <xsd:import namespace="http://atria.cz/common/base/info/build/" schemaLocation="https://rmis66.mis66.ru/users-ws/users?xsd=http://atria.cz/common/base/buildInfo.xsd"/>
+        
+</xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="getUsersResponse">
+    <wsdl:part element="tns:getUsersResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getVersionResponse">
+    <wsdl:part element="bi:getVersionResponse" name="getVersionResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRolesRequest">
+    <wsdl:part element="tns:getRolesRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createUserResponse">
+    <wsdl:part element="tns:createUserResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getVersionRequest">
+    <wsdl:part element="bi:getVersionRequest" name="getVersionRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="removeAvailableMOResponse">
+    <wsdl:part element="tns:removeAvailableMOResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteUserResponse">
+    <wsdl:part element="tns:deleteUserResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="editUserResponse">
+    <wsdl:part element="tns:editUserResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="editUserRequest">
+    <wsdl:part element="tns:editUserRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addAvailableMORequest">
+    <wsdl:part element="tns:addAvailableMORequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="removeAvailableMORequest">
+    <wsdl:part element="tns:removeAvailableMORequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="removeRoleRequest">
+    <wsdl:part element="tns:removeRoleRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRoleByIdResponse">
+    <wsdl:part element="tns:getRoleByIdResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRoleByIdRequest">
+    <wsdl:part element="tns:getRoleByIdRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="removeRoleResponse">
+    <wsdl:part element="tns:removeRoleResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAvailableMOResponse">
+    <wsdl:part element="tns:getAvailableMOResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getUserRolesRequest">
+    <wsdl:part element="tns:getUserRolesRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getUsersRequest">
+    <wsdl:part element="tns:getUsersRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRolesResponse">
+    <wsdl:part element="tns:getRolesResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getUserRolesResponse">
+    <wsdl:part element="tns:getUserRolesResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addAvailableMOResponse">
+    <wsdl:part element="tns:addAvailableMOResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createUserRequest">
+    <wsdl:part element="tns:createUserRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="assignRoleResponse">
+    <wsdl:part element="tns:assignRoleResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteUserRequest">
+    <wsdl:part element="tns:deleteUserRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAvailableMORequest">
+    <wsdl:part element="tns:getAvailableMORequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="assignRoleRequest">
+    <wsdl:part element="tns:assignRoleRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="SOAPServicePortType">
+<wsdl:documentation>
+            SOAP Server description file
+        </wsdl:documentation>
+    <wsdl:operation name="getUsers">
+<wsdl:documentation>Получение списка пользователей</wsdl:documentation>
+      <wsdl:input message="tns:getUsersRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:getUsersResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createUser">
+<wsdl:documentation>Создание пользователя</wsdl:documentation>
+      <wsdl:input message="tns:createUserRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:createUserResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="editUser">
+<wsdl:documentation>Редактирование пользователя</wsdl:documentation>
+      <wsdl:input message="tns:editUserRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:editUserResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteUser">
+<wsdl:documentation>Удаление пользователя</wsdl:documentation>
+      <wsdl:input message="tns:deleteUserRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:deleteUserResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRoles">
+<wsdl:documentation>Получение ролей</wsdl:documentation>
+      <wsdl:input message="tns:getRolesRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:getRolesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRoleById">
+<wsdl:documentation>Получение роли по идентификатору</wsdl:documentation>
+      <wsdl:input message="tns:getRoleByIdRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:getRoleByIdResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="assignRole">
+<wsdl:documentation>Назначение роли пользователю</wsdl:documentation>
+      <wsdl:input message="tns:assignRoleRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:assignRoleResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removeRole">
+<wsdl:documentation>Удаление роли пользователя</wsdl:documentation>
+      <wsdl:input message="tns:removeRoleRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:removeRoleResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserRoles">
+<wsdl:documentation>Получение ролей пользователя</wsdl:documentation>
+      <wsdl:input message="tns:getUserRolesRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:getUserRolesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addAvailableMO">
+<wsdl:documentation>Добавление доступного пользователю МО</wsdl:documentation>
+      <wsdl:input message="tns:addAvailableMORequest">
+    </wsdl:input>
+      <wsdl:output message="tns:addAvailableMOResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removeAvailableMO">
+<wsdl:documentation>Удаление доступного пользователю МО</wsdl:documentation>
+      <wsdl:input message="tns:removeAvailableMORequest">
+    </wsdl:input>
+      <wsdl:output message="tns:removeAvailableMOResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAvailableMO">
+<wsdl:documentation>Получение доступных пользователю МО</wsdl:documentation>
+      <wsdl:input message="tns:getAvailableMORequest">
+    </wsdl:input>
+      <wsdl:output message="tns:getAvailableMOResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVersion">
+      <wsdl:input message="tns:getVersionRequest" name="getVersionRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:getVersionResponse" name="getVersionResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SOAPServiceBinding" type="tns:SOAPServicePortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getUsers">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createUser">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="editUser">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteUser">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRoles">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRoleById">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="assignRole">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removeRole">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserRoles">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addAvailableMO">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removeAvailableMO">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAvailableMO">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVersion">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="userService">
+    <wsdl:port binding="tns:SOAPServiceBinding" name="SOAPServicePort">
+      <soap:address location="https://rmis66.mis66.ru/users-ws/users"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,824 @@
+####################
+### develop
+####################
+develop_update:
+  tags:
+    - develop
+  only:
+    - dev
+  script:
+    - git log -1 > ver.txt
+    - echo 'rel_ver:'$CI_COMMIT_REF_NAME >> ver.txt
+    - echo 'commit:'$CI_COMMIT_SHA >> ver.txt
+    - echo 'date:'$(date --iso-8601=seconds) >> ver.txt
+    - sudo rsync  -rlt -z --chmod=Dugo+rwX,ugo+rwX --exclude='.git' ./ /srv/develop
+    - sudo rsync  -rlt -z --chmod=Dugo+rwX,ugo+rwX --exclude='.git' ./ /srv/smp
+    - sudo rsync  -rlt -z --chmod=Dugo+rwX,ugo+rwX --exclude='.git' ./ /srv/postgredev
+
+develop_mks_update:
+  tags:
+    - beta-msk
+  only:
+    - master_postgre
+  script:
+    - git log -1 > ver.txt
+    - echo 'rel_ver:'$CI_COMMIT_REF_NAME >> ver.txt
+    - echo 'commit:'$CI_COMMIT_SHA >> ver.txt
+    - echo 'date:'$(date --iso-8601=seconds) >> ver.txt
+    - sudo rsync -rlt -z --chmod=Dugo+rwX,ugo+rwX --exclude='.git' --exclude='.config' ./ /srv/promedbeta_pg
+    - sudo chown 33:33 /srv/promedbeta_pg -R
+
+postgre_update:
+  tags:
+    - postgre
+  only:
+    - master_postgre
+  script:
+    - git log -1 > ver.txt
+    - echo 'rel_ver:'$CI_COMMIT_REF_NAME >> ver.txt
+    - echo 'commit:'$CI_COMMIT_SHA >> ver.txt
+    - echo 'date:'$(date --iso-8601=seconds) >> ver.txt
+    - sudo rsync  -rlt -z --chmod=Dugo+rwX,ugo+rwX --exclude='.git' ./ /srv/postgre
+
+clear_update:
+  tags:
+    - clear
+  only:
+    - master_postgre
+  script:
+    - git log -1 > ver.txt
+    - echo 'rel_ver:'$CI_COMMIT_REF_NAME >> ver.txt
+    - echo 'commit:'$CI_COMMIT_SHA >> ver.txt
+    - echo 'date:'$(date --iso-8601=seconds) >> ver.txt
+    - sudo rsync  -rlt -z --chmod=Dugo+rwX,ugo+rwX --exclude='.git' ./ /srv/clear
+
+
+####################
+### release
+####################
+
+release_update:
+  tags:
+    - web-release
+  only:
+    - release
+  script:
+    - echo 'rel_ver:'$CI_COMMIT_REF_NAME > ver.txt
+    - echo 'commit:'$CI_COMMIT_SHA >> ver.txt
+    - echo 'date:'$(date --iso-8601=seconds) >> ver.txt
+    - sudo rsync -rlt -z --chmod=Dugo+rwX,ugo+rwX --exclude='.git' ./ /srv/release
+    - sudo rsync -rlt -z --chmod=Dugo+rwX,ugo+rwX --exclude='.git' ./ /srv/postgre-release
+
+release_astra_partner:
+  tags:
+    - partner_astra
+  only:
+    - release
+  script:
+    - set promedway="c:\www\hosts\promedpartner"
+    - echo rel_ver:%CI_COMMIT_REF_NAME% > ver.txt
+    - echo commit:%CI_COMMIT_SHA% >> ver.txt
+    - echo date:%date:~6,4%-%date:~3,2%-%date:~0,2%T%time:~0,2%:%time:~3,2%:%time:~6,2% >> ver.txt
+    - (robocopy %CD% %promedway% /R:10 /W:20 /Z /E /PURGE /XO /XD "%CD%\.git" "%promedway%\.git" "%CD%\ermp" "%promedway%\ermp" "%CD%\logs" "%promedway%\logs" "%CD%\promed\config" "%promedway%\promed\config" "%CD%\export" "%promedway%\export" "%CD%\uploads" "%promedway%\uploads" /XF .htaccess /UNILOG+:c:\www\logs\GitLog.txt) ^& IF %ERRORLEVEL% LSS 8 SET ERRORLEVEL = 0
+    - (robocopy %CD%\promed\config %promedway%\promed\config /R:10 /W:20 /Z /E /XO files.php files6.php menu.php rest.php routes.php /UNILOG+:c:\www\logs\GitLog.txt) ^& IF %ERRORLEVEL% LSS 8 SET ERRORLEVEL = 0
+
+crimea_81_partner:
+  tags:
+    - partner_crimea
+  only:
+    - release
+  script:
+    - set promedway="c:\www\hosts\promedpartner"
+    - echo rel_ver:%CI_COMMIT_REF_NAME% > ver.txt
+    - echo commit:%CI_COMMIT_SHA% >> ver.txt
+    - echo date:%date:~6,4%-%date:~3,2%-%date:~0,2%T%time:~0,2%:%time:~3,2%:%time:~6,2% >> ver.txt
+    - (robocopy %CD% %promedway% /R:10 /W:20 /Z /E /PURGE /XO /XD "%CD%\.git" "%promedway%\.git" "%CD%\ermp" "%promedway%\ermp" "%CD%\logs" "%promedway%\logs" "%CD%\promed\config" "%promedway%\promed\config" "%CD%\export" "%promedway%\export" "%CD%\uploads" "%promedway%\uploads" /XF .htaccess /UNILOG+:c:\www\logs\GitLog.txt) ^& IF %ERRORLEVEL% LSS 8 SET ERRORLEVEL = 0
+    - (robocopy %CD%\promed\config %promedway%\promed\config /R:10 /W:20 /Z /E /XO files.php files6.php menu.php rest.php routes.php /UNILOG+:c:\www\logs\GitLog.txt) ^& IF %ERRORLEVEL% LSS 8 SET ERRORLEVEL = 0
+
+karelia_56_partner:
+  tags:
+    - partner_karelia
+  only:
+    - release
+  script:
+    - set promedway="c:\www\hosts\promedpartner"
+    - echo rel_ver:%CI_COMMIT_REF_NAME% > ver.txt
+    - echo commit:%CI_COMMIT_SHA% >> ver.txt
+    - echo date:%date:~6,4%-%date:~3,2%-%date:~0,2%T%time:~0,2%:%time:~3,2%:%time:~6,2% >> ver.txt
+    - (robocopy %CD% %promedway% /R:10 /W:20 /Z /E /PURGE /XO /XD "%CD%\.git" "%promedway%\.git" "%CD%\ermp" "%promedway%\ermp" "%CD%\logs" "%promedway%\logs" "%CD%\promed\config" "%promedway%\promed\config" "%CD%\export" "%promedway%\export" "%CD%\uploads" "%promedway%\uploads" /XF .htaccess /UNILOG+:c:\www\logs\GitLog.txt) ^& IF %ERRORLEVEL% LSS 8 SET ERRORLEVEL = 0
+    - (robocopy %CD%\promed\config %promedway%\promed\config /R:10 /W:20 /Z /E /XO files.php files6.php menu.php rest.php routes.php /UNILOG+:c:\www\logs\GitLog.txt) ^& IF %ERRORLEVEL% LSS 8 SET ERRORLEVEL = 0
+
+kz_107_partner:
+  tags:
+    - partner_kz
+  only:
+    - release
+  script:
+    - set promedway="c:\www\hosts\promedpartner"
+    - echo rel_ver:%CI_COMMIT_REF_NAME% > ver.txt
+    - echo commit:%CI_COMMIT_SHA% >> ver.txt
+    - echo date:%date:~6,4%-%date:~3,2%-%date:~0,2%T%time:~0,2%:%time:~3,2%:%time:~6,2% >> ver.txt
+    - (robocopy %CD% %promedway% /R:10 /W:20 /Z /E /PURGE /XO /XD "%CD%\.git" "%promedway%\.git" "%CD%\ermp" "%promedway%\ermp" "%CD%\logs" "%promedway%\logs" "%CD%\promed\logs" "%promedway%\promed\logs" "%CD%\promed\config" "%promedway%\promed\config" "%CD%\export" "%promedway%\export" "%CD%\uploads" "%promedway%\uploads" /XF .htaccess /UNILOG+:c:\www\logs\GitLog.txt) ^& IF %ERRORLEVEL% LSS 8 SET ERRORLEVEL = 0
+    - (robocopy %CD%\promed\config %promedway%\promed\config /R:10 /W:20 /Z /E /XO files.php files6.php menu.php rest.php routes.php /UNILOG+:c:\www\logs\GitLog.txt) ^& IF %ERRORLEVEL% LSS 8 SET ERRORLEVEL = 0
+
+ufa_16_partner:
+  tags:
+    - ufa_16_partner
+  only:
+    - release
+  script:
+    - set promedway="c:\www\hosts\promedsmp"
+    - echo rel_ver:%CI_COMMIT_REF_NAME% > ver.txt
+    - echo commit:%CI_COMMIT_SHA% >> ver.txt
+    - echo date:%date:~6,4%-%date:~3,2%-%date:~0,2%T%time:~0,2%:%time:~3,2%:%time:~6,2% >> ver.txt
+    - (robocopy %CD% %promedway% /R:10 /W:20 /Z /E /PURGE /XO /XD "%CD%\.git" "%promedway%\.git" "%CD%\ermp" "%promedway%\ermp" "%CD%\logs" "%promedway%\logs" "%CD%\promed\logs" "%promedway%\promed\logs" "%CD%\promed\config" "%promedway%\promed\config" "%CD%\export" "%promedway%\export" "%CD%\uploads" "%promedway%\uploads" /XF .htaccess /UNILOG+:c:\www\logs\GitLog.txt) ^& IF %ERRORLEVEL% LSS 8 SET ERRORLEVEL = 0
+    - (robocopy %CD%\promed\config %promedway%\promed\config /R:10 /W:20 /Z /E /XO files.php files6.php menu.php rest.php routes.php /UNILOG+:c:\www\logs\GitLog.txt) ^& IF %ERRORLEVEL% LSS 8 SET ERRORLEVEL = 0
+
+ufa_18_partner:
+  tags:
+    - partner_ufa
+  only:
+    - release
+  script:
+    - set promedway="c:\www\hosts\promedpartner"
+    - echo rel_ver:%CI_COMMIT_REF_NAME% > ver.txt
+    - echo commit:%CI_COMMIT_SHA% >> ver.txt
+    - echo date:%date:~6,4%-%date:~3,2%-%date:~0,2%T%time:~0,2%:%time:~3,2%:%time:~6,2% >> ver.txt
+    - (robocopy %CD% %promedway% /R:10 /W:20 /Z /E /PURGE /XO /XD "%CD%\.git" "%promedway%\.git" "%CD%\ermp" "%promedway%\ermp" "%CD%\logs" "%promedway%\logs" "%CD%\promed\config" "%promedway%\promed\config" "%CD%\export" "%promedway%\export" "%CD%\uploads" "%promedway%\uploads" /XF .htaccess /UNILOG+:c:\www\logs\GitLog.txt) ^& IF %ERRORLEVEL% LSS 8 SET ERRORLEVEL = 0
+    - (robocopy %CD%\promed\config %promedway%\promed\config /R:10 /W:20 /Z /E /XO files.php files6.php menu.php rest.php routes.php /UNILOG+:c:\www\logs\GitLog.txt) ^& IF %ERRORLEVEL% LSS 8 SET ERRORLEVEL = 0
+
+release_ufa:
+  tags:
+    - web-ufa-release
+  only:
+    - release
+  script:
+    - echo 'rel_ver:'$CI_COMMIT_REF_NAME > ver.txt
+    - echo 'commit:'$CI_COMMIT_SHA >> ver.txt
+    - echo 'date:'$(date --iso-8601=seconds) >> ver.txt
+    - sudo rsync -rlt -z --delete --chmod=Dugo+rwX,ugo+rwX --exclude='.git' --exclude='export' --exclude='uploads' --exclude='ermp' --exclude='logs'  --exclude='config' --exclude='.config' ./ /srv/hosts/promedrelease
+    - sudo rsync -rlt -z --chmod=Dugo+rwX,ugo+rwX  ./promed/config /srv/hosts/promedrelease/promed
+
+
+
+####################
+### beta_servers
+####################
+beta_astra:
+  tags:
+    - beta-astra
+  only:
+    - /^prmd.*$/
+  when: manual
+  script:
+    - git log -1 > ver.txt
+    - echo 'rel_ver:'$CI_COMMIT_REF_NAME >> ver.txt
+    - echo 'commit:'$CI_COMMIT_SHA >> ver.txt
+    - echo 'date:'$(date --iso-8601=seconds) >> ver.txt
+    - sudo rsync -rlt -z --chmod=Dugo+rwX,ugo+rwX --exclude='.git' --exclude='.config' ./ /srv/hosts/promed-beta
+
+beta_buryatiya:
+  tags:
+    - buryatiya_beta_10
+  only:
+    - /^prmd.*$/
+  when: manual
+  script:
+    - set promedway="c:\www\hosts\promed_beta"
+    - git log -1 > ver.txt
+    - echo rel_ver:%CI_COMMIT_REF_NAME% >> ver.txt
+    - echo commit:%CI_COMMIT_SHA% >> ver.txt
+    - echo date:%date:~6,4%-%date:~3,2%-%date:~0,2%T%time:~0,2%:%time:~3,2%:%time:~6,2% >> ver.txt
+    - (robocopy %CD% %promedway% /R:10 /W:20 /Z /E /PURGE /XO /XD "%CD%\.git" "%promedway%\.git" "%CD%\ermp" "%promedway%\ermp" "%CD%\logs" "%promedway%\logs" "%CD%\promed\config" "%promedway%\promed\config" "%CD%\export" "%promedway%\export" "%CD%\uploads" "%promedway%\uploads" /XF .htaccess /UNILOG+:c:\www\logs\GitLog.txt) ^& IF %ERRORLEVEL% LSS 8 SET ERRORLEVEL = 0
+    - (robocopy %CD%\promed\config %promedway%\promed\config /R:10 /W:20 /Z /E /XO files.php files6.php menu.php rest.php routes.php /UNILOG+:c:\www\logs\GitLog.txt) ^& IF %ERRORLEVEL% LSS 8 SET ERRORLEVEL = 0
+
+beta_ekb:
+  tags:
+    - beta-ekb
+  only:
+    - /^prmd.*$/
+  when: manual
+  script:
+    - git log -1 > ver.txt
+    - echo 'rel_ver:'$CI_COMMIT_REF_NAME >> ver.txt
+    - echo 'commit:'$CI_COMMIT_SHA >> ver.txt
+    - echo 'date:'$(date --iso-8601=seconds) >> ver.txt
+    - sudo rsync -rlt -z --chmod=Dugo+rwX,ugo+rwX --exclude='.git' --exclude='.config' ./ /srv/hosts/promed-beta
+
+beta_karel:
+  tags:
+    - beta-kareliya
+  only:
+    - /^prmd.*$/
+  when: manual
+  script:
+    - set promedway="c:\www\hosts\promed_beta"
+    - echo rel_ver:%CI_COMMIT_REF_NAME% > ver.txt
+    - echo commit:%CI_COMMIT_SHA% >> ver.txt
+    - echo date:%date:~6,4%-%date:~3,2%-%date:~0,2%T%time:~0,2%:%time:~3,2%:%time:~6,2% >> ver.txt
+    - (robocopy %CD% %promedway% /R:10 /W:20 /Z /E /PURGE /XO /XD "%CD%\.git" "%promedway%\.git" "%CD%\ermp" "%promedway%\ermp" "%CD%\logs" "%promedway%\logs" "%CD%\promed\config" "%promedway%\promed\config" "%CD%\export" "%promedway%\export" "%CD%\uploads" "%promedway%\uploads" /XF .htaccess /UNILOG+:c:\www\logs\GitLog.txt) ^& IF %ERRORLEVEL% LSS 8 SET ERRORLEVEL = 0
+    - (robocopy %CD%\promed\config %promedway%\promed\config /R:10 /W:20 /Z /E /XO files.php files6.php menu.php rest.php routes.php /UNILOG+:c:\www\logs\GitLog.txt) ^& IF %ERRORLEVEL% LSS 8 SET ERRORLEVEL = 0
+
+beta_khak:
+  tags:
+    - beta-khak
+  only:
+    - /^prmd.*$/
+  when: manual
+  script:
+    - set promedway="c:\www\hosts\promed_beta"
+    - echo rel_ver:%CI_COMMIT_REF_NAME% > ver.txt
+    - echo commit:%CI_COMMIT_SHA% >> ver.txt
+    - echo date:%date:~6,4%-%date:~3,2%-%date:~0,2%T%time:~0,2%:%time:~3,2%:%time:~6,2% >> ver.txt
+    - (robocopy %CD% %promedway% /R:10 /W:20 /Z /E /PURGE /XO /XD "%CD%\.git" "%promedway%\.git" "%CD%\ermp" "%promedway%\ermp" "%CD%\logs" "%promedway%\logs" "%CD%\promed\config" "%promedway%\promed\config" "%CD%\export" "%promedway%\export" "%CD%\uploads" "%promedway%\uploads" /XF .htaccess /UNILOG+:c:\www\logs\GitLog.txt) ^& IF %ERRORLEVEL% LSS 8 SET ERRORLEVEL = 0
+    - (robocopy %CD%\promed\config %promedway%\promed\config /R:10 /W:20 /Z /E /XO files.php files6.php menu.php rest.php routes.php /UNILOG+:c:\www\logs\GitLog.txt) ^& IF %ERRORLEVEL% LSS 8 SET ERRORLEVEL = 0
+
+beta_kz:
+  tags:
+    - work-kz
+  only:
+    - /^prmd.*$/
+  when: manual
+  script:
+    - git log -1 > ver.txt
+    - echo rel_ver:%CI_COMMIT_REF_NAME% >> ver.txt
+    - echo commit:%CI_COMMIT_SHA% >> ver.txt
+    - echo date:%date:~6,4%-%date:~3,2%-%date:~0,2%T%time:~0,2%:%time:~3,2%:%time:~6,2% >> ver.txt
+    - set promedway="C:\www\hosts\promedbetagit"
+    - (robocopy %CD% %promedway% /R:10 /W:20 /Z /E /PURGE /XO /XD "%CD%\.git" "%promedway%\.git" "%CD%\ermp" "%promedway%\ermp" "%CD%\logs" "%promedway%\logs" "%CD%\promed\config" "%promedway%\promed\config" "%CD%\promed\logs" "%promedway%\promed\logs" "%CD%\export" "%promedway%\export" "%CD%\uploads" "%promedway%\uploads" /XF .htaccess /UNILOG+:c:\www\logs\GitLog.txt) ^& IF %ERRORLEVEL% LSS 8 SET ERRORLEVEL = 0
+    - (robocopy %CD%\promed\config %promedway%\promed\config /R:10 /W:20 /Z /E /XO files.php files6.php menu.php rest.php routes.php /UNILOG+:c:\www\logs\GitLog.txt) ^& IF %ERRORLEVEL% LSS 8 SET ERRORLEVEL = 0
+
+beta_krasnoyarsk:
+  tags:
+    - beta-krasnoyarsk
+  only:
+    - /^prmd.*$/
+  when: manual
+  script:
+    - git log -1 > ver.txt
+    - echo 'rel_ver:'$CI_COMMIT_REF_NAME >> ver.txt
+    - echo 'commit:'$CI_COMMIT_SHA >> ver.txt
+    - echo 'date:'$(date --iso-8601=seconds) >> ver.txt
+    - sudo rsync -rlt -z --chmod=Dugo+rwX,ugo+rwX --exclude='.git' --exclude='.config' ./ /srv/promedbeta
+    - sudo chown www-data:www-data /srv/promedbeta -R
+
+beta_krym:
+  tags:
+    - beta-krym
+  only:
+    - /^prmd.*$/
+  when: manual
+  script:
+    - set promedway="c:\www\hosts\promed_beta"
+    - git log -1 > ver.txt
+    - echo rel_ver:%CI_COMMIT_REF_NAME% >> ver.txt
+    - echo commit:%CI_COMMIT_SHA% >> ver.txt
+    - echo date:%date:~6,4%-%date:~3,2%-%date:~0,2%T%time:~0,2%:%time:~3,2%:%time:~6,2% >> ver.txt
+    - (robocopy %CD% %promedway% /R:10 /W:20 /Z /E /PURGE /XO /XD "%CD%\.git" "%promedway%\.git" "%CD%\ermp" "%promedway%\ermp" "%CD%\logs" "%promedway%\logs" "%CD%\promed\config" "%promedway%\promed\config" "%CD%\export" "%promedway%\export" "%CD%\uploads" "%promedway%\uploads" /XF .htaccess /UNILOG+:c:\www\logs\GitLog.txt) ^& IF %ERRORLEVEL% LSS 8 SET ERRORLEVEL = 0
+    - (robocopy %CD%\promed\config %promedway%\promed\config /R:10 /W:20 /Z /E /XO files.php files6.php menu.php rest.php routes.php /UNILOG+:c:\www\logs\GitLog.txt) ^& IF %ERRORLEVEL% LSS 8 SET ERRORLEVEL = 0
+
+beta_kz_lin:
+  tags:
+    - beta-kz-lin
+  only:
+    - /^prmd.*$/
+  when: manual
+  script:
+    - git log -1 > ver.txt
+    - echo 'rel_ver:'$CI_COMMIT_REF_NAME >> ver.txt
+    - echo 'commit:'$CI_COMMIT_SHA >> ver.txt
+    - echo 'date:'$(date --iso-8601=seconds) >> ver.txt
+    - sudo /bin/bash /srv/scripts/deploy.sh $CI_COMMIT_SHA
+
+beta_mariel:
+  tags:
+    - beta-mariel
+  only:
+    - /^prmd.*$/
+  when: manual
+  script:
+    - git log -1 > ver.txt
+    - echo 'rel_ver:'$CI_COMMIT_REF_NAME >> ver.txt
+    - echo 'commit:'$CI_COMMIT_SHA >> ver.txt
+    - echo 'date:'$(date --iso-8601=seconds) >> ver.txt
+    - sudo rsync -rlt -z --delete --chmod=Dugo+rwX,ugo+rwX --exclude='.git' --exclude='export' --exclude='uploads' --exclude='ermp' --exclude='logs'  --exclude='config' --exclude='.config' ./ /srv/hosts/promed-beta
+    - sudo rsync -rlt -z --chmod=Dugo+rwX,ugo+rwX  ./promed/config /srv/hosts/promed-beta/promed
+
+beta_msk:
+  tags:
+    - beta-msk
+  only:
+    - /^prmd.*$/
+  when: manual
+  script:
+    - git log -1 > ver.txt
+    - echo 'rel_ver:'$CI_COMMIT_REF_NAME >> ver.txt
+    - echo 'commit:'$CI_COMMIT_SHA >> ver.txt
+    - echo 'date:'$(date --iso-8601=seconds) >> ver.txt
+    - sudo rsync -rlt -z --chmod=Dugo+rwX,ugo+rwX --exclude='.git' --exclude='.config' ./ /srv/promedbeta
+    - sudo rsync -rlt -z --chmod=Dugo+rwX,ugo+rwX --exclude='.git' --exclude='.config' ./ /srv/promedbeta_pg
+    - sudo chown 33:33 /srv/promedbeta -R
+    - sudo chown 33:33 /srv/promedbeta_pg -R
+
+beta_penza:
+  tags:
+    - beta-penza
+  only:
+    - /^prmd.*$/
+  when: manual
+  script:
+    - set promedway="c:\www\hosts\promed_beta"
+    - git log -1 > ver.txt
+    - echo rel_ver:%CI_COMMIT_REF_NAME% >> ver.txt
+    - echo commit:%CI_COMMIT_SHA% >> ver.txt
+    - echo date:%date:~6,4%-%date:~3,2%-%date:~0,2%T%time:~0,2%:%time:~3,2%:%time:~6,2% >> ver.txt
+    - (robocopy %CD% %promedway% /R:10 /W:20 /Z /E /PURGE /XO /XD "%CD%\.git" "%promedway%\.git" "%CD%\ermp" "%promedway%\ermp" "%CD%\logs" "%promedway%\logs" "%CD%\promed\config" "%promedway%\promed\config" "%CD%\export" "%promedway%\export" "%CD%\uploads" "%promedway%\uploads" /XF .htaccess /UNILOG+:c:\www\logs\GitLog.txt) ^& IF %ERRORLEVEL% LSS 8 SET ERRORLEVEL = 0
+    - (robocopy %CD%\promed\config %promedway%\promed\config /R:10 /W:20 /Z /E /XO files.php files6.php menu.php rest.php routes.php /UNILOG+:c:\www\logs\GitLog.txt) ^& IF %ERRORLEVEL% LSS 8 SET ERRORLEVEL = 0
+
+beta_perm:
+  tags:
+    - beta-perm
+  only:
+    - /^prmd.*$/
+  when: manual
+  script:
+    - git log -1 > ver.txt
+    - echo 'rel_ver:'$CI_COMMIT_REF_NAME >> ver.txt
+    - echo 'commit:'$CI_COMMIT_SHA >> ver.txt
+    - echo 'date:'$(date --iso-8601=seconds) >> ver.txt
+    - sudo rsync -rlt -z --chmod=Dugo+rwX,ugo+rwX --exclude='.git' --exclude='.config' ./ /var/hosts/promedbeta
+
+beta_pskov:
+  tags:
+    - beta-pskov
+  only:
+    - /^prmd.*$/
+  when: manual
+  script:
+    - set promedway="c:\www\hosts\promed_beta"
+    - git log -1 > ver.txt
+    - echo rel_ver:%CI_COMMIT_REF_NAME% >> ver.txt
+    - echo commit:%CI_COMMIT_SHA% >> ver.txt
+    - echo date:%date:~6,4%-%date:~3,2%-%date:~0,2%T%time:~0,2%:%time:~3,2%:%time:~6,2% >> ver.txt
+    - (robocopy %CD% %promedway% /R:10 /W:20 /Z /E /PURGE /XO /XD "%CD%\.git" "%promedway%\.git" "%CD%\ermp" "%promedway%\ermp" "%CD%\logs" "%promedway%\logs" "%CD%\promed\config" "%promedway%\promed\config" "%CD%\export" "%promedway%\export" "%CD%\uploads" "%promedway%\uploads" /XF .htaccess /UNILOG+:c:\www\logs\GitLog.txt) ^& IF %ERRORLEVEL% LSS 8 SET ERRORLEVEL = 0
+    - (robocopy %CD%\promed\config %promedway%\promed\config /R:10 /W:20 /Z /E /XO files.php files6.php menu.php rest.php routes.php /UNILOG+:c:\www\logs\GitLog.txt) ^& IF %ERRORLEVEL% LSS 8 SET ERRORLEVEL = 0
+    
+beta_smp_astra:
+  tags:
+    - smp_astra_unix
+  only:
+    - /^prmd.*$/
+  when: manual    
+  script:
+    - git log -1 > ver.txt
+    - echo 'rel_ver:'$CI_COMMIT_REF_NAME >> ver.txt
+    - echo 'commit:'$CI_COMMIT_SHA >> ver.txt
+    - echo 'date:'$(date --iso-8601=seconds) >> ver.txt
+    - sudo rsync -rltog -z --chmod=Dugo+rwX,ugo+rwX --chown=www-data:www-data --exclude='.git' --exclude='export' --exclude='uploads' --exclude='ermp' --exclude='logs'  --exclude='.config' ./ /srv/smp_beta
+
+beta_smp_byr:
+  tags:
+    - buryatiya_smp_beta
+  only:
+    - /^prmd.*$/
+  when: manual
+  script:
+    - git log -1 > ver.txt
+    - echo 'rel_ver:'$CI_COMMIT_REF_NAME >> ver.txt
+    - echo 'commit:'$CI_COMMIT_SHA >> ver.txt
+    - echo 'date:'$(date --iso-8601=seconds) >> ver.txt
+    - sudo rsync -rlt -z --chmod=Dugo+rwX,ugo+rwX --exclude='export' --exclude='uploads' --exclude='.git' --exclude='.config' ./ /srv/smp-beta
+
+beta_stavropol:
+  tags:
+    - stavr_promed-beta_224
+  only:
+    - /^prmd.*$/
+  when: manual
+  script:
+    - git log -1 > ver.txt
+    - echo 'rel_ver:'$CI_COMMIT_REF_NAME >> ver.txt
+    - echo 'commit:'$CI_COMMIT_SHA >> ver.txt
+    - echo 'date:'$(date --iso-8601=seconds) >> ver.txt
+    - sudo rsync -rlt -z --chmod=Dugo+rwX,ugo+rwX --exclude='.git' --exclude='.config' ./ /srv/promed-beta
+
+beta_ufa:
+  tags:
+    - beta-ufa
+  only:
+    - /^prmd.*$/
+  when: manual
+  script:
+    - git log -1 > ver.txt
+    - echo 'rel_ver:'$CI_COMMIT_REF_NAME >> ver.txt
+    - echo 'commit:'$CI_COMMIT_SHA >> ver.txt
+    - echo 'date:'$(date --iso-8601=seconds) >> ver.txt
+    - sudo rsync -rlt -z --chmod=Dugo+rwX,ugo+rwX --exclude='.git' --exclude='.config' ./ /srv/promedbeta
+
+beta_smp_ufa:
+  tags:
+    - beta_smp_ufa
+  only:
+    - /^prmd.*$/
+  when: manual
+  script:
+    - set promedway="c:\www\hosts\Smp-promed"
+    - git log -1 > ver.txt
+    - echo rel_ver:%CI_COMMIT_REF_NAME% >> ver.txt
+    - echo commit:%CI_COMMIT_SHA% >> ver.txt
+    - echo date:%date:~6,4%-%date:~3,2%-%date:~0,2%T%time:~0,2%:%time:~3,2%:%time:~6,2% >> ver.txt
+    - (robocopy %CD% %promedway% /R:10 /W:20 /Z /E /PURGE /XO /XD "%CD%\.git" "%promedway%\.git" "%CD%\ermp" "%promedway%\ermp" "%CD%\logs" "%promedway%\logs" "%CD%\promed\config" "%promedway%\promed\config" "%CD%\export" "%promedway%\export" "%CD%\uploads" "%promedway%\uploads" /XF .htaccess /UNILOG+:c:\www\logs\GitLog.txt) ^& IF %ERRORLEVEL% LSS 8 SET ERRORLEVEL = 0
+    - (robocopy %CD%\promed\config %promedway%\promed\config /R:10 /W:20 /Z /E /XO files.php files6.php menu.php rest.php routes.php /UNILOG+:c:\www\logs\GitLog.txt) ^& IF %ERRORLEVEL% LSS 8 SET ERRORLEVEL = 0
+
+beta_vologda:
+  tags:
+    - beta-vologda
+  only:
+    - /^prmd.*$/
+  when: manual
+  script:
+    - echo 'rel_ver:'$CI_COMMIT_REF_NAME > ver.txt
+    - echo 'commit:'$CI_COMMIT_SHA >> ver.txt
+    - echo 'date:'$(date --iso-8601=seconds) >> ver.txt
+    - sudo rsync -rlt -z --chmod=Dugo+rwX,ugo+rwX --exclude='.git' --exclude='.config' ./ /srv/promedbeta
+
+beta_yaroslavl:
+  tags:
+    - beta_yaroslavl
+  only:
+    - /^prmd.*$/
+  when: manual
+  script:
+    - git log -1 > ver.txt
+    - echo 'rel_ver:'$CI_COMMIT_REF_NAME >> ver.txt
+    - echo 'commit:'$CI_COMMIT_SHA >> ver.txt
+    - echo 'date:'$(date --iso-8601=seconds) >> ver.txt
+    - sudo rsync -rlt -z --chmod=Dugo+rwX,ugo+rwX --exclude='.git' ./ /srv/hosts/promed-beta
+
+###################
+###  work_servers
+###################
+work_astra:
+  tags:
+    - work-astra
+  only:
+    - prmd.3.8.0
+  when: manual
+  script:
+    - git log -1 > ver.txt
+    - echo 'rel_ver:'$CI_COMMIT_REF_NAME >> ver.txt
+    - echo 'commit:'$CI_COMMIT_SHA >> ver.txt
+    - echo 'date:'$(date --iso-8601=seconds) >> ver.txt
+    - sudo rsync -rltog -z --chmod=Dugo+rwX,ugo+rwX --chown=www-data:www-data --exclude='.git' --exclude='export' --exclude='uploads' --exclude='ermp' --exclude='logs'  --exclude='.config' ./ /srv/promed
+#  only:
+#    - work_astra
+#  script:
+#    - git log -1 > ver.txt
+#    - echo rel_ver:%CI_COMMIT_REF_NAME% >> ver.txt
+#    - echo commit:%CI_COMMIT_SHA% >> ver.txt
+#    - echo date:%date:~6,4%-%date:~3,2%-%date:~0,2%T%time:~0,2%:%time:~3,2%:%time:~6,2% >> ver.txt
+#    - c:\bat\sync_promed.bat
+
+work_buryatiya:
+  tags:
+    - work-buryatiya
+  only:
+    - prmd.3.8.1
+  when: manual
+  script:
+    - set promedway="c:\www\hosts\promed"
+    - echo rel_ver:%CI_COMMIT_REF_NAME% > ver.txt
+    - echo commit:%CI_COMMIT_SHA% >> ver.txt
+    - echo date:%date:~6,4%-%date:~3,2%-%date:~0,2%T%time:~0,2%:%time:~3,2%:%time:~6,2% >> ver.txt
+    - git log -1 >> c:\www\logs\GitLog_%date%.txt
+    - echo rel_ver:%CI_COMMIT_REF_NAME% >> c:\www\logs\GitLog_%date%.txt
+    - (robocopy %promedway%\promed\config c:\www\ver\backup\config /R:10 /W:20 /Z /E /PURGE /UNILOG+:c:\www\logs\GitLog_%date%.txt /ndl) ^& IF %ERRORLEVEL% LSS 8 SET ERRORLEVEL = 0
+    - (robocopy %CD% %promedway% /R:10 /W:20 /Z /E /PURGE /XO /XD "%CD%\.git" "%promedway%\.git" "%CD%\ermp" "%promedway%\ermp" "%CD%\logs" "%promedway%\logs" "%CD%\promed\config" "%promedway%\promed\config" "%CD%\export" "%promedway%\export" "%CD%\uploads" "%promedway%\uploads" /XF .htaccess /UNILOG+:c:\www\logs\GitLog_%date%.txt /ndl) ^& IF %ERRORLEVEL% LSS 8 SET ERRORLEVEL = 0
+    - (robocopy %CD%\promed\config %promedway%\promed\config /R:10 /W:20 /Z /E /XO files.php files6.php menu.php rest.php routes.php /UNILOG+:c:\www\logs\GitLog_%date%.txt /ndl) ^& IF %ERRORLEVEL% LSS 8 SET ERRORLEVEL = 0
+    - (robocopy c:\www\ver\backup\config %promedway%\promed\config /R:10 /W:20 /Z /E /XO files.php files6.php menu.php rest.php routes.php /UNILOG+:c:\www\logs\GitLog_%date%.txt /ndl) ^& IF %ERRORLEVEL% LSS 8 SET ERRORLEVEL = 0
+    
+work_ekb:
+  tags:
+    - work-ekb
+  only:
+    - prmd.3.8.0
+  when: manual
+  script:
+    - set promedway="c:\www\hosts\promed"
+    - echo rel_ver:%CI_COMMIT_REF_NAME% > ver.txt
+    - echo commit:%CI_COMMIT_SHA% >> ver.txt
+    - echo date:%date:~6,4%-%date:~3,2%-%date:~0,2%T%time:~0,2%:%time:~3,2%:%time:~6,2% >> ver.txt
+    - (robocopy %CD% %promedway% /R:10 /W:20 /Z /E /PURGE /XO /XD "%CD%\.git" "%promedway%\.git" "%CD%\ermp" "%promedway%\ermp" "%CD%\logs" "%promedway%\logs" "%CD%\promed\config" "%promedway%\promed\config" "%CD%\export" "%promedway%\export" "%CD%\uploads" "%promedway%\uploads" /XF .htaccess /UNILOG+:c:\www\logs\GitLog.txt) ^& IF %ERRORLEVEL% LSS 8 SET ERRORLEVEL = 0
+    - (robocopy %CD%\promed\config %promedway%\promed\config /R:10 /W:20 /Z /E /XO files.php files6.php menu.php rest.php routes.php /UNILOG+:c:\www\logs\GitLog.txt) ^& IF %ERRORLEVEL% LSS 8 SET ERRORLEVEL = 0
+
+work_ekb_linux:
+  tags:
+    - work-ekb-linux
+  only:
+    - prmd.3.8.0
+  when: manual    
+  script:
+    - git log -1 > ver.txt
+    - echo 'rel_ver:'$CI_COMMIT_REF_NAME >> ver.txt
+    - echo 'commit:'$CI_COMMIT_SHA >> ver.txt
+    - echo 'date:'$(date --iso-8601=seconds) >> ver.txt
+    - sudo rsync -rlt -z --chmod=Dugo+rwX,ugo+rwX --exclude='.git' --exclude='.config' ./ /srv/hosts/promed
+
+
+work_kareliya:
+  tags:
+    - work-kareliya
+  only:
+    - prmd.3.8.1
+  when: manual
+  script:
+    - set promedway="c:\www\hosts\promed"
+    - echo rel_ver:%CI_COMMIT_REF_NAME% > ver.txt
+    - echo commit:%CI_COMMIT_SHA% >> ver.txt
+    - echo date:%date:~6,4%-%date:~3,2%-%date:~0,2%T%time:~0,2%:%time:~3,2%:%time:~6,2% >> ver.txt
+    - (robocopy %promedway%\promed\config c:\www\ver\backup\config /R:10 /W:20 /Z /E /PURGE /UNILOG+:c:\www\logs\GitLog.txt) ^& IF %ERRORLEVEL% LSS 8 SET ERRORLEVEL = 0
+    - (robocopy %CD% %promedway% /R:10 /W:20 /Z /E /PURGE /XO /XD "%CD%\.git" "%promedway%\.git" "%CD%\ermp" "%promedway%\ermp" "%CD%\logs" "%promedway%\logs" "%CD%\promed\config" "%promedway%\promed\config" "%CD%\export" "%promedway%\export" "%CD%\uploads" "%promedway%\uploads" /XF .htaccess /UNILOG+:c:\www\logs\GitLog.txt) ^& IF %ERRORLEVEL% LSS 8 SET ERRORLEVEL = 0
+    - (robocopy %CD%\promed\config %promedway%\promed\config /R:10 /W:20 /Z /E /XO files.php files6.php menu.php rest.php routes.php /UNILOG+:c:\www\logs\GitLog.txt) ^& IF %ERRORLEVEL% LSS 8 SET ERRORLEVEL = 0
+    - (robocopy c:\www\ver\backup\config %promedway%\promed\config /R:10 /W:20 /Z /E /XO files.php files6.php menu.php rest.php routes.php /UNILOG+:c:\www\logs\GitLog.txt) ^& IF %ERRORLEVEL% LSS 8 SET ERRORLEVEL = 0
+    - c:\bat\sync_promed.bat
+
+work_khak:
+  tags:
+    - work-hakasiya
+  only:
+    - prmd.3.8.0
+  when: manual
+  script:
+    - set promedway="c:\www\hosts\promed"
+    - git log -1 > ver.txt
+    - echo rel_ver:%CI_COMMIT_REF_NAME% >> ver.txt
+    - echo commit:%CI_COMMIT_SHA% >> ver.txt
+    - echo date:%date:~6,4%-%date:~3,2%-%date:~0,2%T%time:~0,2%:%time:~3,2%:%time:~6,2% >> ver.txt
+    - (robocopy %promedway%\promed\config c:\www\ver\backup\config /R:10 /W:20 /Z /E /PURGE /UNILOG+:c:\www\logs\GitLog.txt) ^& IF %ERRORLEVEL% LSS 8 SET ERRORLEVEL = 0
+    - (robocopy %CD% %promedway% /R:10 /W:20 /Z /E /PURGE /XO /XD "%CD%\.git" "%promedway%\.git" "%CD%\ermp" "%promedway%\ermp" "%CD%\logs" "%promedway%\logs" "%CD%\promed\config" "%promedway%\promed\config" "%CD%\export" "%promedway%\export" "%CD%\uploads" "%promedway%\uploads" /XF .htaccess /UNILOG+:c:\www\logs\GitLog.txt) ^& IF %ERRORLEVEL% LSS 8 SET ERRORLEVEL = 0
+    - (robocopy %CD%\promed\config %promedway%\promed\config /R:10 /W:20 /Z /E /XO files.php files6.php menu.php rest.php routes.php /UNILOG+:c:\www\logs\GitLog.txt) ^& IF %ERRORLEVEL% LSS 8 SET ERRORLEVEL = 0
+    - (robocopy c:\www\ver\backup\config %promedway%\promed\config /R:10 /W:20 /Z /E /XO files.php files6.php menu.php rest.php routes.php /UNILOG+:c:\www\logs\GitLog.txt) ^& IF %ERRORLEVEL% LSS 8 SET ERRORLEVEL = 0
+
+work_krasnoyarsk:
+  tags:
+    - work-krasnoyarsk
+  only:
+    - prmd.3.8.0
+  when: manual
+  script:
+    - git log -1 > ver.txt
+    - echo 'rel_ver:'$CI_COMMIT_REF_NAME >> ver.txt
+    - echo 'commit:'$CI_COMMIT_SHA >> ver.txt
+    - echo 'date:'$(date --iso-8601=seconds) >> ver.txt
+    - sudo rsync -rlt -z --chmod=Dugo+rwX,ugo+rwX --exclude='.git' --exclude='.config' ./ /srv/promed
+    - sudo chown www-data:www-data /srv/promed -R
+
+work_krym:
+  tags:
+    - work-krym
+  only:
+    - prmd.3.8.0
+  when: manual
+  script:
+    - set promedway="c:\www\hosts\promed"
+    - git log -1 > ver.txt
+    - echo rel_ver:%CI_COMMIT_REF_NAME% >> ver.txt
+    - echo commit:%CI_COMMIT_SHA% >> ver.txt
+    - echo date:%date:~6,4%-%date:~3,2%-%date:~0,2%T%time:~0,2%:%time:~3,2%:%time:~6,2% >> ver.txt
+    - (robocopy %promedway%\promed\config c:\www\ver\backup\config /R:10 /W:20 /Z /E /PURGE /UNILOG+:c:\www\logs\GitLog.txt) ^& IF %ERRORLEVEL% LSS 8 SET ERRORLEVEL = 0
+    - (robocopy %CD% %promedway% /R:10 /W:20 /Z /E /PURGE /XO /XD "%CD%\.git" "%promedway%\.git" "%CD%\ermp" "%promedway%\ermp" "%CD%\logs" "%promedway%\logs" "%CD%\promed\config" "%promedway%\promed\config" "%CD%\export" "%promedway%\export" "%CD%\uploads" "%promedway%\uploads" /XF .htaccess /UNILOG+:c:\www\logs\GitLog.txt) ^& IF %ERRORLEVEL% LSS 8 SET ERRORLEVEL = 0
+    - (robocopy %CD%\promed\config %promedway%\promed\config /R:10 /W:20 /Z /E /XO files.php files6.php menu.php rest.php routes.php /UNILOG+:c:\www\logs\GitLog.txt) ^& IF %ERRORLEVEL% LSS 8 SET ERRORLEVEL = 0
+    - (robocopy c:\www\ver\backup\config %promedway%\promed\config /R:10 /W:20 /Z /E /XO files.php files6.php menu.php rest.php routes.php /UNILOG+:c:\www\logs\GitLog.txt) ^& IF %ERRORLEVEL% LSS 8 SET ERRORLEVEL = 0
+
+work_kz:
+  tags:
+    - work-kz
+  only:
+    - prmd.3.8.0
+  when: manual
+  script:
+    - git log -1 > ver.txt
+    - echo rel_ver:%CI_COMMIT_REF_NAME% >> ver.txt
+    - echo commit:%CI_COMMIT_SHA% >> ver.txt
+    - echo date:%date:~6,4%-%date:~3,2%-%date:~0,2%T%time:~0,2%:%time:~3,2%:%time:~6,2% >> ver.txt
+    - c:\bat\sync_promed.bat
+
+work_kz_lin:
+  tags:
+    - work-kz-lin
+  only:
+    - prmd.3.8.0
+  when: manual
+  script:
+    - git log -1 > ver.txt
+    - echo 'rel_ver:'$CI_COMMIT_REF_NAME >> ver.txt
+    - echo 'commit:'$CI_COMMIT_SHA >> ver.txt
+    - echo 'date:'$(date --iso-8601=seconds) >> ver.txt
+    - sudo /bin/bash /srv/scripts/deploy.sh $CI_COMMIT_SHA
+
+work_mariel:
+  tags:
+    - work-mariel
+  only:
+    - prmd.3.6.0
+  when: manual
+  script:
+    - git log -1 > ver.txt
+    - echo 'rel_ver:'$CI_COMMIT_REF_NAME >> ver.txt
+    - echo 'commit:'$CI_COMMIT_SHA >> ver.txt
+    - echo 'date:'$(date --iso-8601=seconds) >> ver.txt
+    - sudo rsync -rlt -z --delete --chmod=Dugo+rwX,ugo+rwX --exclude='.git' --exclude='export' --exclude='uploads' --exclude='ermp' --exclude='logs'  --exclude='config' --exclude='.config' ./ /srv/promed
+    - sudo rsync -rlt -z --chmod=Dugo+rwX,ugo+rwX  ./promed/config /srv/promed/promed
+
+work_msk:
+  tags:
+    - work-msk
+  only:
+    - prmd.2.0.13.4
+  when: manual
+  script:
+    - git log -1 > ver.txt
+    - echo 'rel_ver:'$CI_COMMIT_REF_NAME >> ver.txt
+    - echo 'commit:'$CI_COMMIT_SHA >> ver.txt
+    - echo 'date:'$(date --iso-8601=seconds) >> ver.txt
+    - sudo rsync -rlt -z --chmod=Dugo+rwX,ugo+rwX --exclude='.git' --exclude='.config' ./ /srv/promed
+    - sudo rsync -rlt -z --chmod=Dugo+rwX,ugo+rwX --exclude='.git' --exclude='.config' ./ /srv/promed_pg
+    - sudo chown 33:33 /srv/promed -R
+    - sudo chown 33:33 /srv/promed_pg -R
+
+work_penza:
+  tags:
+    - work-penza
+  only:
+    - prmd.3.6.0
+  when: manual
+  script:
+    - git log -1 > ver.txt
+    - echo rel_ver:%CI_COMMIT_REF_NAME% >> ver.txt
+    - echo commit:%CI_COMMIT_SHA% >> ver.txt
+    - echo date:%date:~6,4%-%date:~3,2%-%date:~0,2%T%time:~0,2%:%time:~3,2%:%time:~6,2% >> ver.txt
+    - c:\bat\sync_promed.bat
+
+work_perm:
+  tags:
+    - work-perm
+  only:
+    - prmd.3.8.0
+  when: manual
+  script:
+    - git log -1 > ver.txt
+    - echo rel_ver:%CI_COMMIT_REF_NAME% >> ver.txt
+    - echo commit:%CI_COMMIT_SHA% >> ver.txt
+    - echo date:%date:~6,4%-%date:~3,2%-%date:~0,2%T%time:~0,2%:%time:~3,2%:%time:~6,2% >> ver.txt
+    - c:\bat\sync_promed.bat
+
+work_pskov:
+  tags:
+    - work-pskov
+  only:
+    - prmd.3.6.0
+  when: manual
+  script:
+    - git log -1 > ver.txt
+    - echo rel_ver:%CI_COMMIT_REF_NAME% >> ver.txt
+    - echo commit:%CI_COMMIT_SHA% >> ver.txt
+    - echo date:%date:~6,4%-%date:~3,2%-%date:~0,2%T%time:~0,2%:%time:~3,2%:%time:~6,2% >> ver.txt
+    - c:\bat\sync_promed.bat
+
+work_stavropol:
+  tags:
+    - work_stavropol
+  only:
+    - prmd.3.6.0
+  when: manual    
+  script:
+    - git log -1 > ver.txt
+    - echo 'rel_ver:'$CI_COMMIT_REF_NAME >> ver.txt
+    - echo 'commit:'$CI_COMMIT_SHA >> ver.txt
+    - echo 'date:'$(date --iso-8601=seconds) >> ver.txt
+    - sudo rsync  -rlt -z --chmod=Dugo+rwX,ugo+rwX --exclude='.git' ./ /srv/promed
+
+work_ufa:
+  tags:
+    - work-ufa
+  only:
+    - prmd.3.8.1
+  when: manual
+  script:
+    - echo 'rel_ver:'$CI_COMMIT_REF_NAME > ver.txt
+    - echo 'commit:'$CI_COMMIT_SHA >> ver.txt
+    - echo 'date:'$(date --iso-8601=seconds) >> ver.txt
+    - sudo rsync -rlt -z --delete --chmod=Dugo+rwX,ugo+rwX --exclude='.git' --exclude='export' --exclude='uploads' --exclude='ermp' --exclude='logs'  --exclude='config' --exclude='.config' ./ /srv/promed
+    - sudo rsync -rlt -z --chmod=Dugo+rwX,ugo+rwX  ./promed/config /srv/promed/promed
+
+work_vologda:
+  tags:
+    - work-vologda
+  only:
+    - prmd.3.7.2
+  when: manual
+  script:
+    - echo 'rel_ver:'$CI_COMMIT_REF_NAME > ver.txt
+    - echo 'commit:'$CI_COMMIT_SHA >> ver.txt
+    - echo 'date:'$(date --iso-8601=seconds) >> ver.txt
+    - sudo rsync -rlt -z  --chmod=Dugo+rwX,ugo+rwX --exclude='.git' --exclude='export' --exclude='lis' --exclude='lis_mis '--exclude='mis_lis' --exclude='uploads' --exclude='ermp' --exclude='logs'  --exclude='config' --exclude='.config' ./ /srv/promed
+    - sudo rsync -rlt -z --chmod=Dugo+rwX,ugo+rwX  ./promed/config /srv/promed/promed
+
+work_yaroslavl:
+  tags:
+    - work_yaroslavl
+  only:
+    - prmd.3.8.1
+  when: manual
+  script:
+    - git log -1 > ver.txt
+    - echo 'rel_ver:'$CI_COMMIT_REF_NAME >> ver.txt
+    - echo 'commit:'$CI_COMMIT_SHA >> ver.txt
+    - echo 'date:'$(date --iso-8601=seconds) >> ver.txt
+    - sudo rsync -rlt -z --chmod=Dugo+rwX,ugo+rwX --exclude='.git' ./ /srv/hosts/promed
+
+####################
+### SMP
+####################
+osnov_smp_astra_unix:
+  tags:
+    - smp_astra_unix
+  only:
+    - prmd.2.0.13.8
+  when: manual    
+  script:
+    - git log -1 > ver.txt
+    - echo 'rel_ver:'$CI_COMMIT_REF_NAME >> ver.txt
+    - echo 'commit:'$CI_COMMIT_SHA >> ver.txt
+    - echo 'date:'$(date --iso-8601=seconds) >> ver.txt
+    - sudo rsync -rltog -z --chmod=Dugo+rwX,ugo+rwX --chown=www-data:www-data --exclude='.git' --exclude='export' --exclude='uploads' --exclude='ermp' --exclude='logs'  --exclude='.config' ./ /srv/smp_osnov
+
+osnov_smp_khak:
+  tags:
+    - smp_khak
+  only:
+    - prmd.2.0.13
+  when: manual
+  script:
+    - git log -1 > ver.txt
+    - echo 'rel_ver:'$CI_COMMIT_REF_NAME >> ver.txt
+    - echo 'commit:'$CI_COMMIT_SHA >> ver.txt
+    - echo 'date:'$(date --iso-8601=seconds) >> ver.txt
+    - sudo rsync -rlt -z --delete --chmod=Dugo+rwX,ugo+rwX --exclude='.git' --exclude='export' --exclude='uploads' --exclude='ermp' --exclude='logs'  --exclude='config' --exclude='.config' --exclude='.htaccess' ./ /srv/promedsmposnov
+    - sudo rsync -rlt -z --chmod=Dugo+rwX,ugo+rwX  ./promed/config /srv/promedsmposnov/promed
+
+osnov_smp_ufa:
+  tags:
+    - beta_smp_ufa
+  only:
+     - prmd.3.5.4
+  when: manual
+  script:
+    - set promedway="c:\www\hosts\PromedSMPosnov"
+    - git log -1 > ver.txt
+    - echo rel_ver:%CI_COMMIT_REF_NAME% >> ver.txt
+    - echo commit:%CI_COMMIT_SHA% >> ver.txt
+    - echo date:%date:~6,4%-%date:~3,2%-%date:~0,2%T%time:~0,2%:%time:~3,2%:%time:~6,2% >> ver.txt    
+    - (robocopy %CD% %promedway% /R:10 /W:20 /Z /E /PURGE /XO /XD "%CD%\.git" "%promedway%\.git" "%CD%\ermp" "%promedway%\ermp" "%CD%\logs" "%promedway%\logs" "%CD%\promed\config" "%promedway%\promed\config" "%CD%\export" "%promedway%\export" "%CD%\uploads" "%promedway%\uploads" /XF .htaccess /UNILOG+:c:\www\logs\GitLog.txt) ^& IF %ERRORLEVEL% LSS 8 SET ERRORLEVEL = 0
+    - (robocopy %CD%\promed\config %promedway%\promed\config /R:10 /W:20 /Z /E /XO files.php files6.php menu.php rest.php routes.php /UNILOG+:c:\www\logs\GitLog.txt) ^& IF %ERRORLEVEL% LSS 8 SET ERRORLEVEL = 0
+
+osnov_smp_bur_unix:
+  tags:
+    - osn_smp_byr
+  only:
+    - prmd.2.0.9
+  when: manual
+  script:
+    - git log -1 > ver.txt
+    - echo 'rel_ver:'$CI_COMMIT_REF_NAME >> ver.txt
+    - echo 'commit:'$CI_COMMIT_SHA >> ver.txt
+    - echo 'date:'$(date --iso-8601=seconds) >> ver.txt
+    - sudo rsync -rltog -z --chmod=Dugo+rwX,ugo+rwX --chown=www-data:www-data --exclude='.git' --exclude='export' --exclude='uploads' --exclude='ermp' --exclude='logs'  --exclude='.config' ./ /srv/smp
+####################
+### other
+####################
+
+demo_update:
+  tags:
+    - demo
+  only:
+    - promed_demo
+  script:
+    - git log -1 > ver.txt
+    - echo 'rel_ver:'$CI_COMMIT_REF_NAME >> ver.txt
+    - echo 'commit:'$CI_COMMIT_SHA >> ver.txt
+    - echo 'date:'$(date --iso-8601=seconds) >> ver.txt
+    - sudo rsync -rlt -z --chmod=Dugo+rwX,ugo+rwX --exclude='.git' ./ /srv/demo
+
+trash_update:
+  tags:
+    - trash
+  only:
+    - trash
+  script:
+    - git log -1 > ver.txt
+    - echo 'rel_ver:'$CI_COMMIT_REF_NAME >> ver.txt
+    - echo 'commit:'$CI_COMMIT_SHA >> ver.txt
+    - echo 'date:'$(date --iso-8601=seconds) >> ver.txt
+    - sudo rsync  -rlt -z --chmod=Dugo+rwX,ugo+rwX --exclude='.git' ./ /srv/trash
+    - sudo rsync  -rlt -z --chmod=Dugo+rwX,ugo+rwX --exclude='files.php' --exclude='menu.php' --exclude='files6.php' --exclude='rest.php' --exclude='routes.php' /srv/develop/promed/config/ /srv/trash/promed/config

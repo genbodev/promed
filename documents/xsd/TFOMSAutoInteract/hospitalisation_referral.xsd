@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--Created with Liquid XML Studio Developer Edition 9.0.11.3078 (http://www.liquid-technologies.com)-->
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="HOSPITALISATION_REFERRAL">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="HEADER">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="OPERATIONTYPE">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:maxLength value="6" />
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="DATA" type="xs:date" />
+                            <xs:element name="CODE_MO">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:int">
+                                        <xs:pattern value="\d{0,6}" />
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="CODE_MO_TO">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:int">
+                                        <xs:pattern value="\d{0,6}" />
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="HR_ID" type="xs:long" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="BODY" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="REFERRAL_NUMBER" type="xs:int" />
+                            <xs:element name="REFERRAL_DATE" type="xs:date" />
+                            <xs:element name="HOSPITALISATION_DATE" type="xs:date" />
+                            <xs:element name="HOSPITALISATION_TYPE">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:int">
+                                        <xs:enumeration value="0" />
+                                        <xs:enumeration value="1" />
+                                        <xs:enumeration value="2" />
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="BRANCH_TO" type="xs:int" />
+                            <xs:element name="DIVISION_TO" type="xs:int" />
+                            <xs:element name="BEDPROFIL" type="xs:int" minOccurs="0" />
+                            <xs:element name="STRUCTURE_BED" type="xs:int" />
+                            <xs:element name="DLSB" type="xs:int" />
+                            <xs:element name="CARETYPE" type="xs:int" minOccurs="0" />
+                            <xs:element name="BRANCH_FROM" type="xs:string" minOccurs="0" />
+                            <xs:element name="MKB" type="xs:string" />
+                            <xs:element name="DIAGNOSIS" type="xs:string" minOccurs="0" />
+                            <xs:element name="PLANNED_DATE" type="xs:date" />
+                            <xs:element name="DOC_CODE" type="xs:integer" />
+                            <xs:element name="POLICY_TYPE" type="xs:int" />
+                            <xs:element name="POLIS_SERIAL" type="xs:integer" minOccurs="0" />
+                            <xs:element name="POLIS_NUMBER" type="xs:integer" />
+                            <xs:element name="SMO" type="xs:string" />
+                            <xs:element name="FIRST_NAME" type="xs:string" />
+                            <xs:element name="LAST_NAME" type="xs:string" />
+                            <xs:element name="FATHER_NAME" type="xs:string" minOccurs="0" />
+                            <xs:element name="SEX">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:int">
+                                        <xs:enumeration value="10301" />
+                                        <xs:enumeration value="10302" />
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="BIRTHDAY" type="xs:date" />
+                            <xs:element name="PHONE" type="xs:string" />
+                            <xs:element name="PATIENT" type="xs:long" />
+                            <xs:element name="ANOTHER_REGION">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:int">
+                                        <xs:enumeration value="0" />
+                                        <xs:enumeration value="1" />
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

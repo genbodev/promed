@@ -1,0 +1,31 @@
+<RPN>
+    {ZGLV}
+    <ZGLV>
+        <VERSION>1.0</VERSION>
+        <DATA><?php echo date('Y-m-d'); ?></DATA>
+        <FILENAME>{FILENAME}</FILENAME>
+    </ZGLV>
+    {/ZGLV}
+    {ZAP}
+    <ZAP>
+        <N_ZAP>{N_ZAP}</N_ZAP>
+        <PERS>
+            <FAM>{FAM}</FAM>
+            <IM>{IM}</IM>
+            <OT>{OT}</OT>
+            <W>{W}</W>
+            <DR>{DR}</DR>
+            <VPOLIS>{VPOLIS}</VPOLIS>
+            <SPOLIS>{SPOLIS}</SPOLIS>
+            <NPOLIS>{NPOLIS}</NPOLIS>
+            <ENP>{ENP}</ENP>
+        </PERS>
+        <REG>
+            <NUM_REG>{NUM_REG}</NUM_REG>
+            <DATA_REG>{DATA_REG}</DATA_REG>
+            <MCOD>{MCOD}</MCOD>
+            <REASON>{REASON}</REASON>
+        </REG>
+    </ZAP>
+    {/ZAP}
+</RPN>

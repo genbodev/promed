@@ -1,0 +1,179 @@
+<?php
+$isTFOMSAutoInteract = isset($isTFOMSAutoInteract)?$isTFOMSAutoInteract:false;
+$region = getRegionNick();
+?>
+
+<?php if ($isTFOMSAutoInteract && $region == 'kareliya') { ?>
+<PERS_LIST>
+		<ZGLV>
+			<VERSION>1.0</VERSION>
+		{DATA}
+		{YEAR}
+			{TYPE}
+			{CODE_MO}
+			{ID_MO}
+		{SMO}
+			{ZAP}
+		</ZGLV>
+		{PERS}
+		<PERS>
+			{ID_PAC}
+			{ID}
+			{FAM}
+			{IM}
+			{OT}
+			{W}
+			{DR}
+			{VPOLIS}
+			{SPOLIS}
+			{NPOLIS}
+		{DISP}
+			{DISP_MONTH}
+		{PHONE1}
+		{PHONE2}
+		</PERS>
+		{/PERS}
+</PERS_LIST>
+<?php } else if ($isTFOMSAutoInteract && $region == 'perm') { ?>
+<DISPPLAN>
+	<HEADER>
+		{OPERATIONTYPE}
+		{CODE_MO}
+		{YEAR}
+		{QUART}
+	</HEADER>
+	{BODY}
+	<BODY>
+		{ID_PAC}
+		{BDZ_ID}
+		{FAM}
+		{IM}
+		{OT}
+		{W}
+		{DR}
+		{MR}
+		{DOCTYPE}
+		{DOCSER}
+		{DOCNUM}
+		{DOCDATE}
+		{SNILS}
+		{TEL}
+		{KAT_LG}
+		{COMENTP}
+		{ENP}
+		{VPOLIS}
+		{SPOLIS}
+		{NPOLIS}
+		{SMOCOD}
+		{DOC_SNILS}
+		{PERSONATTACHDATE}
+		<SV_PL_MER>
+			{PERIOD}
+			{DISP}
+		</SV_PL_MER>
+	</BODY>
+	{/BODY}
+</DISPPLAN>
+<?php } else if ($isTFOMSAutoInteract && $region == 'ufa') { ?>
+<DISPPLAN>
+	<HEADER>
+		{OPERATIONTYPE}
+		{DATA}
+		{CODE_MO}
+		{ID_MO}
+		{YEAR}
+		{QUART}
+		{ZAP}
+	</HEADER>
+	{BODY}
+	<BODY>
+		{ID_PAC}
+		{BDZ_GUID}
+		{FAM}
+		{IM}
+		{OT}
+		{W}
+		{DR}
+		{MR}
+		{DOCTYPE}
+		{DOCSER}
+		{DOCNUM}
+		{DOCDATE}
+		{SNILS}
+		{TEL1}
+		{TEL2}
+		{KAT_LG}
+		{COMENTP}
+		{ENP}
+		{VPOLIS}
+		{SPOLIS}
+		{NPOLIS}
+		{SMOCOD}
+		{DOC_SNILS}
+		{PERSONATTACHDATE}
+		{PERSONATTACHMETHOD}
+		{PERSONATTACHTYPE}
+		{LPUREGION_NAME}
+		{LPUREGIONTYPE}
+		{LPUSECTION_CODETFOMS}
+		{LPUBUILDING_CODETFOMS}
+		{REJECT_DATE}
+		<?php if(empty($REJECT_DATE)){ ?><SV_PL_MER>
+			{PERIOD}
+			{DISP}
+		</SV_PL_MER><?php } ?>
+	</BODY>
+	{/BODY}
+</DISPPLAN>
+<?php } else if ($isTFOMSAutoInteract) { ?>
+<DISPPLAN>
+	<HEADER>
+		{OPERATIONTYPE}
+		{DATA}
+		{CODE_MO}
+		{ID_MO}
+		{YEAR}
+		{QUART}
+		{ZAP}
+	</HEADER>
+	{BODY}
+	<BODY>
+		{ID_PAC}
+		{BDZ_ID}
+		{FAM}
+		{IM}
+		{OT}
+		{W}
+		{DR}
+		{MR}
+		{DOCTYPE}
+		{DOCSER}
+		{DOCNUM}
+		{DOCDATE}
+		{SNILS}
+		{TEL1}
+		{TEL2}
+		{KAT_LG}
+		{COMENTP}
+		{ENP}
+		{VPOLIS}
+		{SPOLIS}
+		{NPOLIS}
+		{SMOCOD}
+		{DOC_SNILS}
+		{PERSONATTACHDATE}
+		{PERSONATTACHMETHOD}
+		{PERSONATTACHTYPE}
+		{LPUREGION_NAME}
+		{LPUREGIONTYPE}
+		{LPUSECTION_CODETFOMS}
+		{LPUBUILDING_CODETFOMS}
+		{REJECT_DATE}
+		<?php if(empty($REJECT_DATE)){ ?><SV_PL_MER>
+			{PERIOD}
+			{DISP}
+		</SV_PL_MER><?php } ?>
+	</BODY>
+	{/BODY}
+</DISPPLAN>
+<?php } ?>

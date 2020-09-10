@@ -1,0 +1,279 @@
+.mainTopToolBar .x6-toolbar {
+	background: #1976d2 !important;
+	border: 0px !important;
+}
+
+.mainTopToolBar .x6-btn {
+	background: transparent !important;
+	border: 0px !important;
+	top: 1px !important;
+}
+
+.mainTopToolBar a, .mainTopToolBar span.x6-btn-inner, .mainTopToolBar .x6-btn-wrap-default-toolbar-small.x6-btn-arrow-right::after {
+	color: #FFF !important;
+}
+
+.mainTopToolBar .x6-btn-wrap-default-toolbar-small.x6-btn-arrow-right::after {
+	content: "\f107";
+	width:18px;
+    font:16px/1 FontAwesome;
+}
+
+.mainTopToolBar .x6-btn-wrap-default-toolbar-small.x6-btn-arrow-right::after {
+	content: "\f107";
+	width:18px;
+	font:16px/1 FontAwesome;
+	opacity: 0.5;
+}
+.mainTopToolBar a:hover .x6-btn-arrow-right::after {
+	opacity: 1;
+}
+.mainTopToolBar #change_workplace_menu .x6-btn-wrap-default-toolbar-small::after, .mainTopToolBar #_user_menu .x6-btn-wrap-default-toolbar-small::after {
+	width: 18px;
+	content: "\f107";
+	font-size: 16px;
+	font-family: FontAwesome;
+	color: #FFF;
+	opacity: 0.5;
+}
+.mainTopToolBar #change_workplace_menu:hover .x6-btn-wrap-default-toolbar-small::after, .mainTopToolBar #_user_menu:hover .x6-btn-wrap-default-toolbar-small::after {
+	opacity: 1;
+}
+.mainCenterPanel.x6-menu-item-arrow-default:before {
+	content: "\f107";
+    height: 14px;
+    font-size: 12px;
+}
+
+.mainToolbarMenu {
+	background: #FFFFFF;
+	padding: 10px 10px;
+}
+
+.mainToolbarMenu.bigPadding {
+	padding: 30px 25px;
+}
+
+.mainToolbarMenu .x6-menu-item-icon-default {
+	display: none;
+}
+
+.mainToolbarMenu .x6-menu-item-text-default {
+	margin-left: 0px !important;
+	font-size: 12px !important;
+	color: #333333 !important;
+	line-height: 20px !important;
+	overflow: hidden;
+}
+.mainToolbarMenu .x6-menu-item-arrow-default {
+	position: relative;
+    display: inline-block;
+    height: 19px;
+	font-size: 12px !important;
+    top: -5px !important;
+}
+.mainToolbarMenu .x6-menu-item-arrow-default:before{
+	content: "\f107";
+}
+
+.mainToolbarMenu .x6-menu-item-text-default.x6-menu-item-indent-right-arrow {
+	margin-right: 0;
+}
+.mainToolbarMenu .x6-menu-item-link{
+	height:24px;
+}
+
+.mainToolbarMenu b {
+	font-size: 12px;
+	color: #000;
+	font-weight: bold;
+	padding-top: 1px;
+	line-height: 20px;
+}
+
+.mainToolbarMenu .x6-menu-item-default {
+	height: 19px !important;
+}
+
+.mainToolbarMenu .x6-menu-item-default:hover .x6-menu-item-text-default {
+	color: #2196F3 !important;
+}
+
+.mainToolbarMenu .x6-menu-default {
+	border: 0px !important;
+}
+
+.mainToolbarMenu .x6-menu-item:hover, .mainToolbarMenu .x6-menu-item.childActive {
+	background: transparent !important;
+}
+
+#change_workplace_menu a {
+	text-decoration: none;
+}
+
+#change_workplace_menu .x6-btn-button {
+	flex: inherit;
+}
+
+.feedback-button {
+	position: absolute;
+	top: 2px;
+	right: 12px;
+	display: block;
+	width: 195px;
+	height: 40px;
+	background: url(/img/icons/2017/feedback_norm.png);
+}
+
+.feedback-button:hover {
+	background: url(/img/icons/2017/feedback_over.png);
+}
+
+ul.emdv-wrapper {
+	width: 100%;
+	padding-left: 20px;
+}
+
+ul.emdv-wrapper li {
+	width: 100%;
+}
+
+ul.emdv-wrapper li span:first-child {
+	width: 150px;
+	text-align: right;
+	display: block;
+	float: left;
+
+}
+ul.emdv-wrapper li span:last-child {
+	margin-left: 10px;
+	float: left;
+	display: block;
+	width: calc(100% - 200px);
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	min-height: 20px;
+}
+
+.version-label i.emd-version-counter {
+	color: #1976d2;
+	font-style: normal;
+}
+
+.emd-search .x6-form-text-default {
+	padding: 2px 10px;
+}
+
+/*.emd-search .x6-form-text-default .x6-tagfield-item {*/
+	/*margin:0 4px 0 0;*/
+/*}*/
+
+.emd-search .x6-form-text-default .x6-tagfield-input-field {
+	height: 21px;
+}
+
+ul.emd-warning-list {
+	list-style: none;
+}
+
+ul.emd-warning-list span {
+	font-weight: bold;
+}
+
+ul.emd-warning-list li {
+	display: block;
+	padding-left: 20px;
+}
+.boundlist-btn-add{
+	background: url("../img/icons/2017/add16.png") no-repeat center;
+}
+.boundlist-btn-timetable{
+	background: url("../img/icons/2017/calendar16.png") no-repeat center;
+}
+.boundlist-btn-specific{
+	background: url("../img/icons/emk/evnPrescribePanel/specification.png") no-repeat center;
+}
+.boundlist-btn-add,
+.boundlist-btn-specific,
+.boundlist-btn-timetable{
+	width: 16px;
+	height: 16px;
+	float: right;
+	display: inline-block;
+	margin-right: 20px;
+	opacity: 0;
+}
+div.x6-boundlist-item:hover .boundlist-btn-timetable,
+div.x6-boundlist-item:hover .boundlist-btn-specific,
+div.x6-boundlist-item:hover .boundlist-btn-add{
+	opacity: 0.6;
+}
+div.x6-boundlist-item:hover .search-list-button-container{
+	background: #eeeeee;
+}
+div.x6-boundlist-item:hover .boundlist-btn-add:hover,
+div.x6-boundlist-item:hover .boundlist-btn-specific:hover,
+div.x6-boundlist-item:hover .boundlist-btn-timetable:hover{
+	opacity: 0.8;
+}
+.checkbox-width-border.x6-menu-item-checked .x6-menu-item-checkbox,
+.checkbox-width-border .x6-menu-item-checkbox{
+	opacity: 1 !important;
+}
+
+.checkbox-width-border.x6-menu-item-checked .x6-menu-item-checkbox:before{
+	background: url("../img/icons/input/checkbox-on.png") no-repeat center;
+	top: 5px !important;
+}
+.checkbox-width-border .x6-menu-item-checkbox:before{
+	background: url("../img/icons/input/checkbox.png") no-repeat center;
+	top: 5px !important;
+}
+.EvnPrescrUslugaInputPanel .EvnPrescrUslugaInputGrid .x6-grid-item-container .x6-grid-cell-inner{
+	padding: 7px 11px 7px !important;
+	line-height: 16px;
+	white-space: normal;
+	color: #333;
+}
+.EvnPrescrUslugaInputGrid .x6-grid-header-ct{
+	border-bottom: 2px solid #ccc !important;
+}
+.EvnPrescrUslugaInputGrid .x6-grid-body{
+	border-top: 1px solid #adadad !important;
+}
+.EvnPrescrUslugaInputGrid .x6-column-header-checkbox{
+	border-color: #D0D0D0;
+}
+.EvnPrescrUslugaInputGrid .x6-grid-cell-special{
+	border-right-width: 0 !important;
+}
+.EvnPrescrUslugaInputGrid .x6-column-header-checkbox .x6-column-header-inner{
+	padding: 7px 4px 7px 19px;
+}
+.x6-panel.x6-grid .x6-grid-header-ct .x6-column-header-inner .x6-column-header-trigger:after{
+	display: none !important;
+}
+.EvnPrescrUslugaInputGrid .x6-grid-group-title:before{
+	left: 8px;
+	width: 16px;
+}
+.EvnPrescrUslugaInputGrid .x6-grid-group-hd-collapsible .x6-grid-group-title{
+	padding: 0 0 0 32px;
+	color: #000;
+}
+.EvnPrescrUslugaInputGrid .x6-grid-item.x6-grid-item-over .x6-grid-cell-inner{
+	color: #2196f3;
+	cursor: pointer;
+}
+
+.group-by-medservice .x6-grid-view .x6-grid-item-container .x6-grid-item:first-child .x6-group-hd-container{
+border-top: none !important;
+}
+.x6-grid-item:hover{
+	cursor: pointer !important;
+}
+.lastSelectedDrugGrid .x6-grid-item:hover .contact-text,
+.DrugTemplateGrid .x6-grid-item:hover .contact-text{
+	color: #2196f3 !important;
+}

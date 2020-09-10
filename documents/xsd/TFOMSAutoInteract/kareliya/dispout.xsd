@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:simpleType name="monthnum">
+		<xs:restriction base="xs:int">
+			<xs:minInclusive value="1"/>
+			<xs:maxInclusive value="12"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:element name="DN_OUT">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ZGLV">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="VERSION">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:pattern value="\d+\.\d+" />
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="DATA" type="xs:date" />
+							<xs:element name="CODE_MO">
+								<xs:simpleType>
+									<xs:restriction base="xs:int">
+										<xs:pattern value="\d{0,6}" />
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="TYPE">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:maxLength value="6" />
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="ID" type="xs:string" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="DIRECT" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="ID_PAC" type="xs:long" />
+							<xs:element name="FAM" type="xs:string" />
+							<xs:element name="IM" type="xs:string" />
+							<xs:element name="OT" type="xs:string" minOccurs="0" />
+							<xs:element name="W" type="xs:int" />
+							<xs:element name="DR" type="xs:string" />
+							<xs:element name="VPOLIS" type="xs:int" />
+							<xs:element name="SPOLIS" type="xs:string" minOccurs="0" />
+							<xs:element name="NPOLIS" type="xs:string" />
+							<xs:element name="DATE_OUT" type="xs:date" />
+							<xs:element name="DS_DISP">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:maxLength value="10" />
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="SNILS_VR" minOccurs="0" >
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:maxLength value="14" />
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="RESULT_OUT" type="xs:int" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

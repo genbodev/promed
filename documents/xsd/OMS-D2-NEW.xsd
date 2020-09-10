@@ -1,0 +1,220 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="OMS-D2"
+            targetNamespace="OMS-D2"
+            elementFormDefault="qualified">
+
+  <xsd:element name="PERS_LIST" type="PERS_LIST"/>
+
+
+  <!-- Complex types -->
+
+  <xsd:complexType name="PERS_LIST">
+    <xsd:sequence>
+      <xsd:element name="ZGLV" type="ZGLV"/>
+      <xsd:element name="PERS" type="PERS" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="ZGLV">
+    <xsd:sequence>
+      <xsd:element name="VERSION" type="VERSION"/>
+      <xsd:element name="DATA" type="xsd:date"/>
+      <xsd:element name="FILENAME" type="T26NN"/>
+      <xsd:element name="FILENAME1" type="T26NN"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="PERS">
+    <xsd:sequence>
+      <xsd:element name="ID_PAC" type="T36NN"/>
+      <xsd:element name="FAM" type="T40NN"/>
+      <xsd:element name="IM" type="T40NN"/>
+      <xsd:element name="OT" type="T40" minOccurs="0"/>
+      <xsd:element name="W" type="W"/>
+      <xsd:element name="DR" type="xsd:date"/>
+      <xsd:element name="TEL" type="T10" minOccurs="0"/>
+      <xsd:element name="FAM_P" type="T40" minOccurs="0"/>
+      <xsd:element name="IM_P" type="T40" minOccurs="0"/>
+      <xsd:element name="OT_P" type="T40" minOccurs="0"/>
+      <xsd:element name="W_P" type="W" minOccurs="0"/>
+      <xsd:element name="DR_P" type="xsd:date" minOccurs="0"/>
+      <xsd:element name="MR" type="T100" minOccurs="0"/>
+      <xsd:element name="DOCTYPE" type="N2" minOccurs="0"/>
+      <xsd:element name="DOCSER" type="T10" minOccurs="0"/>
+      <xsd:element name="DOCNUM" type="T20" minOccurs="0"/>
+      <xsd:element name="DOCDATE" type="xsd:date" minOccurs="0" />
+      <xsd:element name="DOCORG" type="T1000" minOccurs="0"/>
+      <xsd:element name="SNILS" type="SNILS" minOccurs="0"/>
+      <xsd:element name="STATUS" type="N2"/>
+      <xsd:element name="OKSM" type="T3" minOccurs="0"/>
+      <xsd:element name="OKATOG" type="T11NN"/>
+      <xsd:element name="OKATOP" type="T11NN"/>
+      <xsd:element name="ZIP" type="N6" minOccurs="0"/>
+      <xsd:element name="AREA" type="T50" minOccurs="0"/>
+      <xsd:element name="REGION" type="T30" minOccurs="0"/>
+      <xsd:element name="REG_CITY" type="T30" minOccurs="0"/>
+      <xsd:element name="ITEM" type="T30" minOccurs="0"/>
+      <xsd:element name="TYPE_ITEM" type="N4" minOccurs="0"/>
+      <xsd:element name="TYPE_UL" type="N2" minOccurs="0"/>
+      <xsd:element name="STREET" type="T50" minOccurs="0"/>
+      <xsd:element name="HOUSE" type="N6" minOccurs="0"/>
+      <xsd:element name="LITER" type="T5" minOccurs="0"/>
+      <xsd:element name="FLAT" type="T5" minOccurs="0"/>
+      <xsd:element name="COMENTP" type="T250" minOccurs="0"/>
+      <xsd:element name="DOST" type="N1" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="DOST_P" type="N1" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <!--<xsd:complexType name="DOST">
+    <xsd:sequence>
+      <xsd:element name="CODE" type="N1"/>
+    </xsd:sequence>
+  </xsd:complexType>-->
+
+
+
+
+
+  <!-- Simple types -->
+
+  <!--    String based -->
+
+  <xsd:simpleType name="T3">
+    <xsd:restriction base ="xsd:string">
+      <xsd:maxLength value="3"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="T5">
+    <xsd:restriction base ="xsd:string">
+      <xsd:maxLength value="5"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="T10">
+    <xsd:restriction base ="xsd:string">
+      <xsd:maxLength value="10"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="T11NN">
+    <xsd:restriction base ="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="11"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="T20">
+    <xsd:restriction base ="xsd:string">
+      <xsd:maxLength value="20"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="T26NN">
+    <xsd:restriction base ="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="26"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="T30">
+    <xsd:restriction base ="xsd:string">
+      <xsd:maxLength value="30"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="T36NN">
+    <xsd:restriction base ="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="36"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="T40">
+    <xsd:restriction base ="xsd:string">
+      <xsd:maxLength value="40"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="T40NN">
+    <xsd:restriction base ="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="40"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="T50">
+    <xsd:restriction base ="xsd:string">
+      <xsd:maxLength value="50"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="T100">
+    <xsd:restriction base ="xsd:string">
+      <xsd:maxLength value="100"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="T250">
+    <xsd:restriction base ="xsd:string">
+      <xsd:maxLength value="250"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="T1000">
+    <xsd:restriction base ="xsd:string">
+      <xsd:maxLength value="1000"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="SNILS">
+    <xsd:restriction base ="xsd:string">
+      <xsd:maxLength value="14"/>
+      <xsd:pattern value="[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="VERSION">
+    <xsd:restriction base ="xsd:string">
+      <xsd:pattern value="3.[1-2]"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+
+
+
+
+  <!--    Numeric based -->
+
+  <xsd:simpleType name="N1">
+    <xsd:restriction base ="xsd:decimal">
+      <xsd:totalDigits value="1"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="W">
+    <xsd:restriction base ="N1">
+      <xsd:pattern value="[1-2]"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="N2">
+    <xsd:restriction base ="xsd:decimal">
+      <xsd:totalDigits value="2"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="N4">
+    <xsd:restriction base ="xsd:decimal">
+      <xsd:totalDigits value="4"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="N6">
+    <xsd:restriction base ="xsd:decimal">
+      <xsd:totalDigits value="6"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+</xsd:schema>

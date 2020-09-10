@@ -1,0 +1,1 @@
+<table width=&quot;100%&quot;><thead><tr><th>Группа крови</th><th>Резус-фактор</th><th>Дата определения</th></tr></thead><tbody>{items}</tbody></table>

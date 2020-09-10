@@ -1,0 +1,1 @@
+<table width=&quot;100%&quot;><thead><tr><th>Дата постановки на учет</th><th>Шифр МКБ</th><th>Диагноз</th><th>Дата снятия с учета</th><th>Причина снятия с учета</th><th>Профиль/Врач</th></tr></thead><tbody>{items}</tbody></table>

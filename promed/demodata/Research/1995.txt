@@ -1,0 +1,294 @@
+<table border="0" cellpadding="0" cellspacing="0">
+	<tbody>
+		<tr>
+			<td rowspan="2" style="width: 319px;">
+				<p align="center">
+					Министерство здравоохранения и социального развития РФ</p>
+			</td>
+			<td style="width: 319px;">
+				<p align="center">
+					<strong><em>ГКБ-4, ул. КИМ, 2</em></strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 319px;">
+				<p align="center">
+					(наименование и адрес ЛПУ)</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" style="width: 638px;">
+				<p align="center">
+					&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" style="width: 638px;">
+				<p align="center">
+					<strong>Отделение функциональной диагностики</strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" style="width: 638px;">
+				<p align="center">
+					(наименование отделения)</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p align="center">
+	<strong>ЭЛЕКТРОКАРДИОГРАФИЯ № 1995</strong></p>
+<p align="center">
+	Дата: 31.01.2011</p>
+<p align="center">
+	&nbsp;</p>
+<table border="1" cellpadding="0" cellspacing="0">
+	<tbody>
+		<tr>
+			<td style="width: 199px;">
+				<p>
+					Пациент</p>
+			</td>
+			<td style="width: 444px;">
+				<p>
+					Плесовских В.К., 06.05.1949 г.р., ИБ А882</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 199px;">
+				<p>
+					Пол</p>
+			</td>
+			<td style="width: 444px;">
+				<p>
+					Мужской</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 199px;">
+				<p>
+					Кто направил</p>
+			</td>
+			<td style="width: 444px;">
+				<p>
+					Сятчихин А.В.</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 199px;">
+				<p>
+					Палата / кабинет</p>
+			</td>
+			<td style="width: 444px;">
+				<p>
+					&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 199px;">
+				<p>
+					Диагноз</p>
+			</td>
+			<td style="width: 444px;">
+				<p>
+					I70.2 Атеросклероз артерий конечностей</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<table border="1" cellpadding="0" cellspacing="0" width="643">
+	<tbody>
+		<tr>
+			<td style="width: 139px;">
+				<p align="center">
+					<strong>Показатель</strong></p>
+			</td>
+			<td style="width: 360px;">
+				<p align="center">
+					<strong>Описание</strong></p>
+			</td>
+			<td style="width: 144px;">
+				<p align="center">
+					<strong>Границы нормы</strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 139px;">
+				<p>
+					Зубец P, сек.</p>
+			</td>
+			<td style="width: 360px;">
+				<p align="center">
+					&nbsp;</p>
+			</td>
+			<td style="width: 144px;">
+				<p align="center">
+					(0,10)</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 139px;">
+				<p>
+					Интервал PQ, сек.</p>
+			</td>
+			<td style="width: 360px;">
+				<p align="center">
+					&nbsp;</p>
+			</td>
+			<td style="width: 144px;">
+				<p align="center">
+					(0,12-0,20)</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 139px;">
+				<p>
+					Комплекс QRS, сек.</p>
+			</td>
+			<td style="width: 360px;">
+				<p align="center">
+					&nbsp;</p>
+			</td>
+			<td style="width: 144px;">
+				<p align="center">
+					(0,07-0,10)</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 139px;">
+				<p>
+					Интервал Q-T, сек.</p>
+			</td>
+			<td style="width: 360px;">
+				<p align="center">
+					&nbsp;</p>
+			</td>
+			<td style="width: 144px;">
+				<p align="center">
+					&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 139px;">
+				<p>
+					Переходная зона</p>
+			</td>
+			<td style="width: 360px;">
+				<p align="center">
+					&nbsp;</p>
+			</td>
+			<td style="width: 144px;">
+				<p align="center">
+					&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 139px;">
+				<p>
+					На вдохе</p>
+			</td>
+			<td style="width: 360px;">
+				<p align="center">
+					&nbsp;</p>
+			</td>
+			<td style="width: 144px;">
+				<p align="center">
+					&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 139px;">
+				<p>
+					Угол альфа</p>
+			</td>
+			<td style="width: 360px;">
+				<p align="center">
+					&nbsp;</p>
+			</td>
+			<td style="width: 144px;">
+				<p align="center">
+					&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 139px;">
+				<p>
+					Снижение T</p>
+			</td>
+			<td style="width: 360px;">
+				<p align="center">
+					&nbsp;</p>
+			</td>
+			<td style="width: 144px;">
+				<p align="center">
+					&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 139px;">
+				<p>
+					Ритм</p>
+			</td>
+			<td style="width: 360px;">
+				<p align="center">
+					Синусовый, правильный</p>
+			</td>
+			<td style="width: 144px;">
+				<p align="center">
+					&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 139px;">
+				<p>
+					ЧСС, уд./мин</p>
+			</td>
+			<td style="width: 360px;">
+				<p align="center">
+					85</p>
+			</td>
+			<td style="width: 144px;">
+				<p align="center">
+					60-90</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 139px;">
+				<p>
+					Электрическая ось сердца</p>
+			</td>
+			<td style="width: 360px;">
+				<p align="center">
+					&nbsp;</p>
+			</td>
+			<td style="width: 144px;">
+				<p align="center">
+					&nbsp;</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p>
+	&nbsp;</p>
+<p>
+	<strong>Заключение</strong>: Синусовая тахикардия. Поворот левого желудочка вперед. Диффузные изменения миокарда.</p>
+<p>
+	&nbsp;</p>
+<p>
+	<strong>Рекомендации</strong>:</p>
+<p align="right">
+	&nbsp;</p>
+<p>
+	<strong>Исполнители:</strong></p>
+<p>
+	м/с&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Самикулина Е.Р.</p>
+<p>
+	врач&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;Грибанова Т.М.</p>

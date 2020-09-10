@@ -1,0 +1,1025 @@
+<?php	defined('BASEPATH') or die ('No direct script access allowed');
+/**
+* EvnFuncRequest - контроллер для работы с заявками на исследование
+*
+* PromedWeb - The New Generation of Medical Statistic Software
+* http://swan.perm.ru/PromedWeb
+*
+*
+* @package			Polka
+* @access			public
+* @copyright		Copyright (c) 2009 Swan Ltd.
+* @version			апрель.2012
+ *
+ * @property EvnFuncRequest_model dbmodel
+*/
+
+class EvnFuncRequest extends swController
+{
+	/**
+	 * Конструктор
+	 */
+	function __construct()
+	{
+		parent::__construct();
+		
+		$this->load->database();
+		$this->load->model('EvnFuncRequest_model', 'dbmodel');
+		
+		$this->inputRules = array(
+			'getEvnFuncRequestUslugaComplex' => array(
+				array(
+					'field' => 'EvnFuncRequest_id',
+					'label' => 'Заявка',
+					'rules' => 'required',
+					'type' => 'id'
+				)
+			),
+			'checkUslugaComplexMedServiceTimeTable' => array(
+				array(
+					'field' => 'EvnDirection_id',
+					'label' => 'Направление',
+					'rules' => 'required',
+					'type' => 'id'
+				),
+				array(
+					'field' => 'MedService_id',
+					'label' => 'Служба',
+					'rules' => 'required',
+					'type' => 'id'
+				),
+				array(
+					'field' => 'begDate',
+					'label' => 'Начало периода',
+					'rules' => 'required',
+					'type' => 'date'
+				),
+				array(
+					'field' => 'endDate',
+					'label' => 'Окончание периода',
+					'rules' => 'required',
+					'type' => 'date'
+				)
+			),
+			'loadEvnFuncRequestViewList' => array(
+				array(
+					'field' => 'wnd_id',
+					'label' => 'Идентификатор формы',
+					'rules' => 'required',
+					'type' => 'string'
+				),
+				array(
+					'field' => 'Search_SurName',
+					'label' => 'Фамилия пациента',
+					'rules' => 'trim',
+					'type' => 'string'
+				),
+				array(
+					'field' => 'Search_FirName',
+					'label' => 'Имя пациента',
+					'rules' => 'trim',
+					'type' => 'string'
+				),
+				array(
+					'field' => 'Search_SecName',
+					'label' => 'Отчество пациента',
+					'rules' => 'trim',
+					'type' => 'string'
+				),
+				array(
+					'field' => 'Search_BirthDay',
+					'label' => 'ДР пациента',
+					'rules' => 'trim',
+					'type' => 'date'
+				),
+				array(
+					'field' => 'EvnDirection_Num',
+					'label' => 'Номер направления',
+					'rules' => 'trim',
+					'type' => 'string'
+				),
+                array(
+                    'field' => 'Person_Phone',
+                    'label' => 'Телефон',
+                    'rules' => '',
+                    'type' => 'string'
+                ),
+				array(
+					'field' => 'Search_Usluga',
+					'label' => 'Услуга',
+					'rules' => '',
+					'type' => 'id'
+				),
+				array(
+					'field' => 'EvnDirection_IsCito',
+					'label' => 'Cito',
+					'rules' => 'trim',
+					'type' => 'string'
+				),
+				array(
+					'field' => 'begDate',
+					'label' => 'Начало периода',
+					'rules' => 'required',
+					'type' => 'date'
+				),
+				array(
+					'field' => 'endDate',
+					'label' => 'Окончание периода',
+					'rules' => 'required',
+					'type' => 'date'
+				),
+				array(
+					'field' => 'UslugaComplex_id', 
+					'label' => 'Услуга', 
+					'rules' => 'trim', 
+					'type' => 'id'
+				),
+				array(
+					'field' => 'MedService_id', 
+					'label' => 'Служба', 
+					'rules' => 'required', 
+					'type' => 'id'
+				)
+			),
+			'loadEvnFuncRequestList' => array(
+				array(
+					'field' => 'wnd_id',
+					'label' => 'Идентификатор формы',
+					'rules' => 'required',
+					'type' => 'string'
+				),
+				array(
+					'field' => 'Search_SurName',
+					'label' => 'Фамилия пациента',
+					'rules' => 'trim',
+					'type' => 'string'
+				),
+				array(
+					'field' => 'Search_FirName',
+					'label' => 'Имя пациента',
+					'rules' => 'trim',
+					'type' => 'string'
+				),
+				array(
+					'field' => 'Search_SecName',
+					'label' => 'Отчество пациента',
+					'rules' => 'trim',
+					'type' => 'string'
+				),
+				array(
+					'field' => 'Search_BirthDay',
+					'label' => 'ДР пациента',
+					'rules' => 'trim',
+					'type' => 'date'
+				),
+				array(
+					'field' => 'Search_PersonInn',
+					'label' => 'Идентификатор человека',
+					'rules' => '',
+					'type' => 'string'
+				),
+				array(
+					'field' => 'Search_LpuId',
+					'label' => 'Кем направлен',
+					'rules' => '',
+					'type' => 'id'
+				),
+				array(
+					'field' => 'EvnDirection_Num',
+					'label' => 'Номер направления',
+					'rules' => 'trim',
+					'type' => 'string'
+				),
+                array(
+                    'field' => 'Person_Phone',
+                    'label' => 'Телефон',
+                    'rules' => '',
+                    'type' => 'string'
+                ),
+				array(
+					'field' => 'Search_Usluga',
+					'label' => 'Услуга',
+					'rules' => '',
+					'type' => 'id'
+				),
+				array(
+					'field' => 'EvnDirection_IsCito',
+					'label' => 'Cito',
+					'rules' => 'trim',
+					'type' => 'string'
+				),
+				array(
+					'field' => 'begDate',
+					'label' => 'Начало периода',
+					'rules' => 'required',
+					'type' => 'date'
+				),
+				array(
+					'field' => 'endDate',
+					'label' => 'Окончание периода',
+					'rules' => 'required',
+					'type' => 'date'
+				),
+				array(
+					'field' => 'UslugaComplex_id', 
+					'label' => 'Услуга', 
+					'rules' => 'trim', 
+					'type' => 'id'
+				),
+				array(
+					'field' => 'MedService_id', 
+					'label' => 'Служба', 
+					'rules' => 'required', 
+					'type' => 'id'
+				),
+				array(
+					'field' => 'start', 
+					'label' => 'Начало списка заявок', 
+					'rules' => '', 
+					'type' => 'int'
+				),
+				array(
+					'field' => 'limit', 
+					'label' => 'Конец списка заявок', 
+					'rules' => '', 
+					'type' => 'int'
+				),
+				array(
+					'field' => 'Person_id',
+					'label' => 'Ид пациента',
+					'rules' => '',
+					'type' => 'id'
+				)
+			),
+			'loadEvnFuncQueueRequestList' => array(
+				array(
+					'field' => 'wnd_id',
+					'label' => 'Идентификатор формы',
+					'rules' => 'required',
+					'type' => 'string'
+				),
+				array(
+					'field' => 'Search_SurName',
+					'label' => 'Фамилия пациента',
+					'rules' => 'trim',
+					'type' => 'string'
+				),
+				array(
+					'field' => 'Search_FirName',
+					'label' => 'Имя пациента',
+					'rules' => 'trim',
+					'type' => 'string'
+				),
+				array(
+					'field' => 'Search_SecName',
+					'label' => 'Отчество пациента',
+					'rules' => 'trim',
+					'type' => 'string'
+				),
+				array(
+					'field' => 'Search_BirthDay',
+					'label' => 'ДР пациента',
+					'rules' => 'trim',
+					'type' => 'date'
+				),
+				array(
+					'field' => 'Search_PersonInn',
+					'label' => 'Идентификатор человека',
+					'rules' => '',
+					'type' => 'string'
+				),
+				array(
+					'field' => 'Search_LpuId',
+					'label' => 'Кем направлен',
+					'rules' => '',
+					'type' => 'id'
+				),
+				array(
+					'field' => 'EvnDirection_Num',
+					'label' => 'Номер направления',
+					'rules' => 'trim',
+					'type' => 'string'
+				),
+                array(
+                    'field' => 'Person_Phone',
+                    'label' => 'Телефон',
+                    'rules' => '',
+                    'type' => 'string'
+                ),
+				array(
+					'field' => 'Search_Usluga',
+					'label' => 'Услуга',
+					'rules' => '',
+					'type' => 'id'
+				),
+				array(
+					'field' => 'EvnDirection_IsCito',
+					'label' => 'Cito',
+					'rules' => 'trim',
+					'type' => 'string'
+				),
+				array(
+					'field' => 'begDate',
+					'label' => 'Начало периода',
+					'rules' => 'required',
+					'type' => 'date'
+				),
+				array(
+					'field' => 'endDate',
+					'label' => 'Окончание периода',
+					'rules' => 'required',
+					'type' => 'date'
+				),
+				array(
+					'field' => 'UslugaComplex_id', 
+					'label' => 'Услуга', 
+					'rules' => 'trim', 
+					'type' => 'id'
+				),
+				array(
+					'field' => 'MedService_id', 
+					'label' => 'Служба', 
+					'rules' => 'required', 
+					'type' => 'id'
+				),
+				array(
+					'field' => 'start', 
+					'label' => 'Начало списка заявок', 
+					'rules' => 'required', 
+					'type' => 'int'
+				),
+				array(
+					'field' => 'limit', 
+					'label' => 'Конец списка заявок', 
+					'rules' => 'required', 
+					'type' => 'int'
+				)
+			),
+			'getEvnFuncRequest' => array(
+				array(
+					'field' => 'EvnFuncRequest_id',
+					'label' => 'ID заявки',
+					'rules' => 'trim',
+					'type' => 'int'
+				),
+				array(
+					'field' => 'EvnDirection_id',
+					'label' => 'Направление',
+					'rules' => 'required',
+					'type' => 'int'
+				)
+			),
+			'getEvnProcRequest' => array(
+				array(
+					'field' => 'EvnFuncRequest_id',
+					'label' => 'ID заявки',
+					'rules' => 'trim',
+					'type' => 'int'
+				),
+				array(
+					'field' => 'EvnDirection_id',
+					'label' => 'Направление',
+					'rules' => 'required',
+					'type' => 'int'
+				)
+			),
+			'saveEvnFuncRequest' => array(
+				array(
+					'field' => 'action',
+					'label' => 'Тип операции',
+					'rules' => '','type' =>
+					'string'
+				),
+				array(
+					'field' => 'OuterKzDirection',
+					'label' => 'Признак внешнего направления для Казахстана',
+					'rules' => '',
+					'type' => 'id'
+				),
+				array(
+					'field' => 'EvnFuncRequest_id',
+					'label' => 'ID заявки',
+					'rules' => 'trim',
+					'type' => 'int'
+				),
+				array(
+					'field' => 'EvnDirection_id',
+					'label' => 'Направление',
+					'rules' => '',
+					'type' => 'id'
+				),
+				array(
+					'field' => 'Resource_id',
+					'label' => 'Ресурс',
+					'rules' => '',
+					'type' => 'id'
+				),
+				array(
+					'field' => 'MedService_id',
+					'label' => 'Служба',
+					'rules' => 'required',
+					'type' => 'id'
+				),
+				array(
+					'field' => 'TimetableResource_id',
+					'label' => 'ID бирки',
+					'rules' => 'trim',
+					'type' => 'id'
+				),
+
+				array(
+					'field' => 'PersonEvn_id',
+					'label' => 'Идентификатор состояния человека',
+					'rules' => 'required','type' => 'id'
+				),
+				array(
+					'field' => 'Person_id',
+					'label' => 'Идентификатор человека',
+					'rules' => '',
+					'type' => 'id'
+				),
+				array(
+					'field' => 'Server_id',
+					'label' => 'Сервер',
+					'rules' => 'required',
+					'type' => 'int'
+				),
+				array(
+					'field' => 'MedService_id',
+					'label' => 'Служба',
+					'rules' => '',
+					'type' => 'id'
+				),
+				array(
+					'field' => 'EvnDirection_Num',
+					'label' => 'Номер направления',
+					'rules' => '',
+					'type' => 'string'
+				),
+				array(
+					'field' => 'EvnDirection_setDT',
+					'label' => 'Дата направления',
+					'rules' => 'required',
+					'type' => 'date'
+				),
+				array(
+					'field' => 'PrehospDirect_id',
+					'label' => 'Кем направлен',
+					'rules' => '',
+					'type' => 'id'
+				),
+				array(
+					'field' => 'Org_sid',
+					'label' => 'Направившая организация',
+					'rules' => '',
+					'type' => 'id'
+				),
+				array(
+					'field' => 'Lpu_sid',
+					'label' => 'Направившее ЛПУ',
+					'rules' => '',
+					'type' => 'id'
+				),
+				array(
+					'field' => 'LpuSection_id',
+					'label' => 'Направившее отделение ЛПУ',
+					'rules' => '',
+					'type' => 'id'
+				),
+				array(
+					'field' => 'EvnFuncRequest_Ward',
+					'label' => 'Палата',
+					'rules' => '',
+					'type' => 'string'
+				),
+				array(
+					'field' => 'MedPersonal_id',
+					'label' => 'Врач',
+					'rules' => '',
+					'type' => 'id'
+				),
+				array(
+					'field' => 'MedStaffFact_id',
+					'label' => 'Врач',
+					'rules' => '',
+					'type' => 'id'
+				),
+				array(
+					'field' => 'MedPersonal_Code',
+					'label' => 'Код врача',
+					'rules' => '',
+					'type' => 'id'
+				),
+				array(
+					'field' => 'EvnDirection_IsCito',
+					'label' => 'Cito',
+					'rules' => '',
+					'type' => 'string'
+				),
+				array(
+					'field' => 'EvnDirection_Descr',
+					'label' => 'Комментарий',
+					'rules' => '',
+					'type' => 'string'
+				),
+				array(
+					'field' => 'PayType_id',
+					'label' => 'Вид оплаты',
+					'rules' => 'required',
+					'type' => 'id'
+				),
+				array(
+					'field' => 'Diag_id',
+					'label' => 'Диагноз',
+					'rules' => '',
+					'type' => 'id'
+				),
+				array(
+					'field' => 'StudyTarget_id',
+					'label' => 'Цель исследования',
+					'rules' => '',
+					'type' => 'id'
+				),
+				array(
+					'field' => 'parentEvnClass_SysNick',
+					'label' => 'Класс события',
+					'rules' => '',
+					'type' => 'string'
+				),
+				array(
+					'field' => 'uslugaData',
+					'label' => 'Массив данных по услугам',
+					'rules' => '',
+					'type' => 'string'
+				)
+			),
+			'saveEvnProcRequest' => array(
+				array(
+					'field' => 'object',
+					'label' => 'object',
+					'rules' => 'trim',
+					'type' => 'string'
+				),
+				array(
+					'field' => 'TimetableResource_id',	
+					'label' => 'ID бирки',	
+					'rules' => 'trim',	
+					'type' => 'id'
+				),
+				array(
+					'field' => 'EvnFuncRequest_id',
+					'label' => 'ID заявки',
+					'rules' => 'trim',
+					'type' => 'int'
+				),
+				array(
+					'field' => 'EvnDirection_id',
+					'label' => 'Направление',
+					'rules' => '',
+					'type' => 'id'
+				),
+				array(
+					'field' => 'TimetableResource_id',	
+					'label' => 'ID бирки',	
+					'rules' => 'trim',	
+					'type' => 'id'
+				),
+				array(
+					'field' => 'PersonEvn_id',
+					'label' => 'Идентификатор состояния человека',
+					'rules' => 'required','type' => 'id'
+				),
+				array(
+					'field' => 'Person_id',
+					'label' => 'Идентификатор человека',
+					'rules' => '',
+					'type' => 'id'
+				),
+				array(
+					'field' => 'Server_id',
+					'label' => 'Сервер',
+					'rules' => 'required',
+					'type' => 'int'
+				),
+				array(
+					'field' => 'MedService_id',
+					'label' => 'Служба',
+					'rules' => '',
+					'type' => 'id'
+				),
+				array(
+					'field' => 'EvnDirection_Num',
+					'label' => 'Номер направления',
+					'rules' => '',
+					'type' => 'string'
+				),
+				array(
+					'field' => 'EvnDirection_setDT',
+					'label' => 'Дата направления',
+					'rules' => '',
+					'type' => 'date'
+				),
+				array(
+					'field' => 'PrehospDirect_id',
+					'label' => 'Кем направлен',
+					'rules' => '',
+					'type' => 'id'
+				),
+				array(
+					'field' => 'Org_sid',
+					'label' => 'Направившая организация',
+					'rules' => '',
+					'type' => 'id'
+				),
+				array(
+					'field' => 'Lpu_sid',
+					'label' => 'Направившее ЛПУ',
+					'rules' => '',
+					'type' => 'id'
+				),
+				array(
+					'field' => 'LpuSection_id',
+					'label' => 'Направившее отделение ЛПУ',
+					'rules' => '',
+					'type' => 'id'
+				),
+				array(
+					'field' => 'EvnLabRequest_Ward',
+					'label' => 'Палата',
+					'rules' => '',
+					'type' => 'string'
+				),
+				array(
+					'field' => 'MedPersonal_id',
+					'label' => 'Врач',
+					'rules' => '',
+					'type' => 'id'
+				),
+				array(
+					'field' => 'EvnDirection_IsCito',
+					'label' => 'Cito',
+					'rules' => '',
+					'type' => 'string'
+				),
+				array(
+					'field' => 'PayType_id',
+					'label' => 'Вид оплаты',
+					'rules' => 'required',
+					'type' => 'id'
+				),
+				array(
+					'field' => 'UslugaComplex_id',
+					'label' => 'Услуга',
+					'rules' => '',
+					'type' => 'id'
+				)
+			),
+			'loadEvnUslugaEditForm' => array(
+				array(
+					'field' => 'EvnUslugaPar_id',
+					'label' => 'ID услуги',
+					'rules' => 'trim|required',
+					'type' => 'id'
+				)
+			), 
+			'saveEvnUslugaEditForm' => array(
+				array('field' => 'Person_id', 'label' => 'ID пациента', 'rules' => 'trim|required',	'type' => 'id'),
+				array('field' => 'EvnUslugaPar_id',	'label' => 'ID услуги',	'rules' => 'trim|required',	'type' => 'id'),
+				array('field' => 'EvnDirection_id','label' => 'ID направления','rules' => 'trim','type' => 'id'),
+				array('field' => 'EvnRequest_id','label' => 'ID заявкм','rules' => 'trim','type' => 'id'),
+				array('field' => 'PrehospDirect_id','label' => 'Кем направлен','rules' => '','type' => 'id'),
+				array('field' => 'Lpu_id','label' => 'ЛПУ','rules' => 'required','type' => 'id'),
+				array('field' => 'PersonEvn_id','label' => 'Идентификатор состояния пациента','rules' => 'required','type' => 'id'),
+				array('field' => 'Server_id','label' => 'Идентификатор сервера','rules' => 'required','type' => 'int'),
+				array('field' => 'MedProductCard_id', 'label' => 'Медицинское изделие', 'rules' => '', 'type' => 'id'),
+				array('field' => 'EvnUslugaPar_setDate','label' => 'Дата оказания услуги','rules' => 'trim|required','type' => 'date'),
+				array('field' => 'EvnUslugaPar_setTime','label' => 'Время оказания услуги','rules' => 'trim','type' => 'time'),
+				array('field' => 'Org_uid','label' => 'Организация','rules' => 'required','type' => 'id'),
+				array('field' => 'LpuSection_uid','label' => 'Отделение','rules' => 'required','type' => 'id'),
+				array('field' => 'MedStaffFact_id','label' => 'Рабочее место врача','rules' => '','type' => 'id'),
+				array('field' => 'MedPersonal_uid','label' => 'Врач','rules' => '','type' => 'id'),
+				array('field' => 'MedPersonal_sid','label' => 'Cр. мед. персонал','rules' => '','type' => 'id'),
+				array('field' => 'UslugaComplex_id', 'label' => 'Услуга', 'rules' => 'trim|required', 'type' => 'id'),
+				array('field' => 'Diag_id', 'label' => 'Диагноз', 'rules' => '', 'type' => 'id'),
+				array('field' => 'TumorStage_id', 'label' => 'Стадия выявленного ЗНО', 'rules' => '', 'type' => 'id'),
+				array('field' => 'DeseaseType_id', 'label' => 'Характер', 'rules' => '', 'type' => 'id'),
+				array('field' => 'Mes_id', 'label' => 'МЭС', 'rules' => '', 'type' => 'id'),
+				array('field' => 'PayType_id','label' => 'Вид оплаты','rules' => 'required','type' => 'id'),
+				array('field' => 'AssociatedResearches','label' => 'Прикрепленные исследования','rules' => '','type' => 'string'),
+				array('field' => 'EvnUslugaPar_Regime','label' => 'Режим','rules' => '','type' => 'int'),
+				array('field' => 'EvnUslugaPar_Comment','label' => 'Комментарий','rules' => '','type' => 'string'),
+				array('field' => 'EvnUslugaPar_IndexRep','label' => 'Признак повтороной подачи','rules' => '','type' => 'int'),
+				array('field' => 'EvnUslugaPar_IndexRepInRep','label' => 'Признак вхождения в реестр повтороной подачи','rules' => '','type' => 'int'),
+				array('field' => 'EvnUslugaPar_NumUsluga','label' => 'Количество снимков','rules' => '','type' => 'int'),
+				array('field' => 'EvnUsluga_Kolvo','label' => 'Количество оказанных услуг','rules' => '','type' => 'int'),
+				array('field' => 'EvnUslugaPar_UslugaNum','label' => '№ услуги из журнала выполненных услуг','rules' => '','type' => 'int'),
+				array('field' => 'StudyResult_id','label' => 'Результат','rules' => '','type' => 'id'),
+				array('field' => 'AttributeSignValueData', 'label' => 'Список значний атрибутов', 'rules' => 'trim', 'type' => 'string'),
+				array('field' => 'EUP_MedicalCareFormType_id', 'label' => 'Форма оказания медицинской помощи', 'rules' => '', 'type' => 'id'),
+				array('field' => 'UslugaMedType_id', 'label' => 'Вид услуги', 'rules' => '', 'type' => 'id'),
+				['field' => 'FSIDI_id', 'label' => 'Инструментальная диагностика', 'rules' => '', 'type' => 'id']
+			),
+			'getEvnFuncRequestWithAssociatedResearches'=>array(
+				array('field' => 'Person_id','label' => 'Идентификатор человека','rules' => '','type' => 'id'),
+			),
+			'cancelEvnUslugaPar' => array(
+				array(
+					'field' => 'EvnUslugaPar_id',
+					'label' => 'Идентификатор услуги',
+					'rules' => 'required',
+					'type' => 'id'
+				)
+			),
+			'cancelDirection' => array(
+				array(
+					'field' => 'EvnDirection_id',
+					'label' => 'Идентификатор направления',
+					'rules' => 'required',
+					'type' => 'id'
+				),
+				array(
+					'field' => 'DirFailType_id',
+					'label' => 'Причина отмены направления',
+					'rules' => '',
+					'type' => 'id'
+				),
+				array(
+					'field' => 'EvnComment_Comment',
+					'label' => 'Комментарий',
+					'rules' => 'trim',
+					'type' => 'string'
+				)
+			),
+			'delete' => array(
+				array(
+					'field' => 'EvnFuncRequest_id',
+					'label' => 'Идентификатор заявки на функциональную диагностику',
+					'rules' => 'required',
+					'type' => 'id'
+				)
+			),
+			'sendUslugaParToRCC' => array(
+				array('field' => 'EvnUslugaPar_id','label' => 'Идентификатор параклинической услуги','rules' => 'required','type' => 'id'),
+				array('field' => 'MedService_lid','label' => 'Идентификатор службы ФД','rules' => '','type' => 'id'),
+			),
+			'loadRemoteConsultCenterResearchList' => array(
+				array('field' => 'begDate','label' => 'Дата с','rules' => 'trim|required','type' => 'date'),
+				array('field' => 'endDate','label' => 'Дата по','rules' => 'trim|required','type' => 'date'),
+				array('field' => 'MedService_id','label' => 'Идентификатор службы ЦУК','rules' => '','type' => 'id'),
+			),
+		);
+		
+	}
+	
+	/**
+	 * Отмена направления
+	 *
+	 * @return bool
+	 */
+	function cancelDirection() {
+		$data = $this->ProcessInputData('cancelDirection', true);
+		if ($data === false) { return false; }
+		
+		$response = $this->dbmodel->cancelDirection($data);
+		$this->ProcessModelSave($response, true, 'Ошибка отмены направления')->ReturnData();
+		
+		return true;
+	}
+
+	/**
+	 * Отмена выполнения услуги
+	 */
+	function cancelEvnUslugaPar() {
+		$data = $this->ProcessInputData('cancelEvnUslugaPar', true);
+		if ($data === false) { return false; }
+
+		$response = $this->dbmodel->cancelEvnUslugaPar($data);
+		$this->ProcessModelSave($response, true, 'Ошибка отмены выполнения услуги')->ReturnData();
+
+		return true;
+	}
+	
+	/**
+	 * Удаление
+	 *
+	 * @return bool
+	 */
+	function delete() {
+		$data = $this->ProcessInputData('delete', true);
+		if ($data === false) { return false; }
+
+		$response = $this->dbmodel->delete($data);
+		$this->ProcessModelSave($response, true, 'Ошибка удаления заявки')->ReturnData();
+		
+		return true;
+	}
+
+	/**
+	 * Получение данных для грида формы АРМ ФД
+	 * @return bool
+	 */
+	function loadEvnFuncRequestViewList() {
+		$data = $this->ProcessInputData('loadEvnFuncRequestList', true);
+		if ( $data === false ) { return false; }
+
+		$response = $this->dbmodel->loadEvnFuncRequestViewList($data);
+		$this->ProcessModelMultiList($response, true, true,'При запросе возникла ошибка.',NULL,true)->ReturnData();
+
+		return true;
+	}
+	/**
+	 * Получение данных для грида формы АРМ ФД
+	 * @return bool
+	 */
+	function loadEvnFuncRequestList() {
+		$data = $this->ProcessInputData('loadEvnFuncRequestList', true);
+		if ( $data === false ) { return false; }
+
+		$response = $this->dbmodel->loadEvnFuncRequestList($data);
+		$this->ProcessModelList($response, true, true)->ReturnData();
+
+		return true;
+	}
+
+	/**
+	 * Получение дополнительных данных для грида формы АРМ ФД
+	 * @return bool
+	 */
+	function loadEvnFuncQueueRequestList() {
+		$data = $this->ProcessInputData('loadEvnFuncQueueRequestList', true);
+		if ( $data === false ) { return false; }
+
+		$response = $this->dbmodel->loadEvnFuncQueueRequestList($data);
+		$this->ProcessModelList($response, true, true)->ReturnData();
+
+		return true;
+	}
+
+	/**
+	 * Проверка наличия расписания на услугу
+	 * @return bool
+	 */
+	function checkUslugaComplexMedServiceTimeTable() {
+		$data = $this->ProcessInputData('checkUslugaComplexMedServiceTimeTable', true);
+		if ( $data === false ) { return false; }
+
+		$response = $this->dbmodel->checkUslugaComplexMedServiceTimeTable($data);
+		$this->ProcessModelSave($response, true, 'Ошибка проверки наличия расписания на услугу')->ReturnData();
+
+		return true;
+	}
+
+	/**
+	 * Получение услуг по заявке
+	 * @return bool
+	 */
+	function getEvnFuncRequestUslugaComplex() {
+		$data = $this->ProcessInputData('getEvnFuncRequestUslugaComplex', true);
+		if ( $data === false ) { return false; }
+
+		$response = $this->dbmodel->getEvnFuncRequestUslugaComplex($data);
+		$this->ProcessModelList($response, true, true)->ReturnData();
+
+		return true;
+	}
+
+	/**
+	 * @return bool
+	 */
+	function getEvnProcRequest() {
+		$data = $this->ProcessInputData('getEvnProcRequest', true);
+		if ( $data === false ) { return false; }
+
+		$response = $this->dbmodel->getEvnProcRequest($data);
+		$this->ProcessModelList($response, true, true)->ReturnData();
+		
+		return true;
+	}
+
+	/**
+	 * @return bool
+	 */
+	function getEvnFuncRequest() {
+		$data = $this->ProcessInputData('getEvnFuncRequest', true);
+		if ( $data === false ) { return false; }
+
+		$response = $this->dbmodel->getEvnFuncRequest($data);
+		$this->ProcessModelList($response, true, true)->ReturnData();
+		
+		return true;
+	}
+	
+	/**
+	 * @return bool
+	 */
+	function getEvnFuncRequestWithAssociatedResearches() {
+		$data = $this->ProcessInputData('getEvnFuncRequestWithAssociatedResearches', true);
+		if ( $data === false ) { return false; }
+
+		$response = $this->dbmodel->getEvnFuncRequestWithAssociatedResearches($data);
+		$this->ProcessModelList($response, true, true)->ReturnData();
+		
+		return true;
+	}	
+
+	/**
+	 * Создание/обновление заявки с направлением
+	 * @return bool
+	 */
+	function saveEvnFuncRequest() {
+		$data = $this->ProcessInputData('saveEvnFuncRequest', true);
+		if ( $data === false ) { return false; }
+
+		$response = $this->dbmodel->saveEvnFuncRequest($data);
+		$this->ProcessModelSave($response, true)->ReturnData();
+
+		return true;
+	}
+
+	/**
+	 * Создание/обновление
+	 * @return bool
+	 */
+	function saveEvnProcRequest() {
+		$data = $this->ProcessInputData('saveEvnProcRequest', true);
+		if ( $data === false ) { return false; }
+				
+		$response = $this->dbmodel->saveEvnProcRequest($data);
+		$this->ProcessModelSave($response, true)->ReturnData();
+		
+		return true;
+	}
+
+	/**
+	 * Получение данных для формы результат выполнения услуги
+	 * @return bool
+	 */
+	function loadEvnUslugaEditForm() {
+		$data = $this->ProcessInputData('loadEvnUslugaEditForm', true);
+		if ( $data === false ) { return false; }
+
+		$response = $this->dbmodel->loadEvnUslugaEditForm($data);
+		$this->ProcessModelList($response, true, true)->ReturnData();
+		
+		return true;
+	}
+
+	/**
+	 * Сохранение данных формы "Результат выполнения услуги"
+	 * @return bool
+	 */
+	function saveEvnUslugaEditForm() {
+		$data = $this->ProcessInputData('saveEvnUslugaEditForm', true);
+		if ( $data === false ) { return false; }
+		//выполняем сохранение услуги
+		$response = $this->dbmodel->saveEvnUslugaEditForm($data);
+		$this->ProcessModelSave($response, true)->ReturnData();	
+		
+		if(empty($response[0]['Error_Msg']) and !empty($response[0]['EvnUslugaPar_id'])) {
+			$this->load->model('EvnUslugaPar_model', 'EvnUslugaPar_model');
+			//$uslData = $this->EvnUslugaPar_model->getUslugaParDataForNotice(array('EvnUslugaPar_id'=> $response[0]['EvnUslugaPar_id']));
+			
+			//рассылка уведомлений врачам о выполнении параклинической услуги 
+			//в соответствии с настройками у каждого врача
+
+			/*$this->load->helper('PersonNotice');
+			$PersonNotice = new PersonNoticeEvn($data['Person_id'], 'EvnUslugaParPolka', $response[0]['EvnUslugaPar_id'], true);
+			$PersonNotice->loadPersonInfo();
+			$PersonNotice->processStatusChange();//рассылаем*/
+		}
+		
+		return true;
+	}
+	
+	/**
+	 * Отправка исследования в центр удаленной консультации
+	 */
+	function sendUslugaParToRCC() {
+		
+	
+		$data = $this->ProcessInputData('sendUslugaParToRCC', true);
+		if ( $data === false ) { return false; }
+		$response = $this->dbmodel->sendUslugaParToRCC($data);
+		
+		$this->ProcessModelSave($response, true)->ReturnData();
+		
+		return true;
+	}
+	
+	/**
+	 * 
+	 * Загрузка грида в АРМ Центра удалённой конслуьтации
+	 */
+	function loadRemoteConsultCenterResearchList() {
+		$data = $this->ProcessInputData('loadRemoteConsultCenterResearchList', true);
+		if ( $data === false ) { return false; }
+		$response = $this->dbmodel->loadRemoteConsultCenterResearchList($data);
+		$this->ProcessModelList($response, true, true)->ReturnData();
+		
+		return true;
+	}
+	
+	
+}
+
+?>

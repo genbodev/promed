@@ -1,0 +1,27 @@
+<ZL_LIST>
+	<ZGLV>
+		{VERSION}
+		{DATA}
+		{FILENAME}
+		{SD_Z}
+	</ZGLV>
+	<SCHET>
+		{CODE}
+		{CODE_MO}
+		{YEAR}
+		{MONTH}
+		{NSCHET}
+		{DSCHET}
+		{PLAT}
+		{SUMMAV}
+		{COMENTS}
+		{AMB_SUMMV}
+		{AMB_SUMMP}
+		{SMP_SUMMV}
+		{SMP_SUMMP}
+		{SUMMAP}
+		{SANK_MEK}
+		{SANK_MEE}
+		{SANK_EKMP}
+		{DISP}
+	</SCHET>

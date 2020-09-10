@@ -1,0 +1,1 @@
+<tr><td>{PersonHeight_setDate}</td><td>{HeightMeasureType_Name}</td><td>{PersonHeight_Height}</td><td>{HeightAbnormType_Name}</td></tr>

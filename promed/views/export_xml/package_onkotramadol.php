@@ -1,0 +1,15 @@
+<ONKOTRAMADOL>
+	<HEADER>
+		{OPERATIONTYPE}
+		{DATA}
+		{REG_ID}
+	</HEADER>
+	<?php if($OPERATIONTYPE!='Delete'){ ?><BODY>
+		{ID_PAC}
+		{BDZ_ID}
+		{DS}
+		{KV}
+		{YEAR}
+		{RECEPTCOMMENT}
+	</BODY><?php } ?>
+</ONKOTRAMADOL>

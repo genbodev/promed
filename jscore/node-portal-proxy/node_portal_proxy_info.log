@@ -1,0 +1,20 @@
+[2019-05-15T15:47:26.239] [INFO] NODE SERVER (HTTPS) HAS STARTED ON PORT: 7070
+
+[2019-05-15T15:47:26.488] [INFO] SOCKET SERVER HAS STARTED
+
+[2019-05-15T15:47:26.521] [INFO] socket connected: { tvType: 'electronicqueue',
+  clientType: 'Scoreboard',
+  queueList: '81,146,93',
+  ElectronicScoreboard_id: '11',
+  EIO: '3',
+  transport: 'polling',
+  t: '1557917246073-52' }
+
+[2019-05-15T15:47:26.525] [INFO] client join to ElectronicScoreboard group: 11
+
+[2019-05-15T15:47:26.525] [INFO] client join to ElectronicQueue group: 81
+
+[2019-05-15T15:47:26.526] [INFO] client join to ElectronicQueue group: 146
+
+[2019-05-15T15:47:26.526] [INFO] client join to ElectronicQueue group: 93
+

@@ -1,0 +1,45 @@
+<html>
+<head>
+	<title>Тестируем апплеты</title>
+</head>
+<body>
+
+
+
+<applet name="swMedLab" archive="swMedLab.jar?i=162" code="swan/MedLab/swMedLabApplet.class">
+	No Java!
+</applet>
+<!--applet name="card" archive="swSmartCard_2ids.jar" code="swan/SmartCard/swSmartCard.class" width=400 height=100>No Java!</applet-->
+</script>
+<form name="frm">
+<!--INPUT name="port" TYPE="text" VALUE="COM1"-->
+
+<!--INPUT TYPE="button" VALUE="setPortName"
+onClick="alert(frm.port.value);document.swMedLab.setPortName(frm.port.value);alert('setPortName');"-->
+
+<!--INPUT TYPE="button" VALUE="getReaders"
+onClick="document.card.getReaders();"-->
+
+<!--INPUT TYPE="button" VALUE="connect"
+onClick="document.swMedLab.connect();alert('connect');">
+
+<INPUT TYPE="button" VALUE="getPortsAvailable"
+onClick="frm.result.value = document.swMedLab.getPortsAvailable();alert('getPortsAvailable');"-->
+
+<INPUT TYPE="button" VALUE="fillResPack"
+onClick="frm.result.value = document.swMedLab.fillResPack();alert('fillResPack');">
+
+<INPUT TYPE="button" VALUE="getResult"
+onClick="frm.result.value = document.swMedLab.getResult();alert('getResult');">
+
+<INPUT TYPE="button" VALUE="Complete?"
+onClick="if (document.swMedLab.isComplete()===true) alert('Yep!') else alert('Хуй!');">
+
+
+<textarea name="result"></textarea>
+</form>
+</body>
+
+
+
+</html>

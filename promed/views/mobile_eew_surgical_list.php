@@ -1,0 +1,1 @@
+<table width=&quot;100%&quot;><thead><tr><th>Дата</th><th>ЛПУ</th><th>Код услуги</th><th>Услуга</th></tr></thead><tbody>{items}</tbody></table>

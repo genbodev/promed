@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--Created with Liquid XML Studio Developer Edition 9.0.11.3078 (http://www.liquid-technologies.com)-->
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="PERSONATTACH">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="HEADER">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="OPERATIONTYPE">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:maxLength value="6" />
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="CODE_MO">
+								<xs:simpleType>
+									<xs:restriction base="xs:int">
+										<xs:pattern value="\d{0,6}" />
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="PERSONATTACHID" type="xs:long" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="BODY" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="BDZID" type="xs:long" minOccurs="0" />
+							<xs:element name="LPUREGION_ID" type="xs:long" />
+							<xs:element name="LPUREGIONFAP_ID" type="xs:long" minOccurs="0" />
+							<xs:element name="PERSONATTACHDATE" type="xs:date" />
+							<xs:element name="PERSONATTACHENDT" type="xs:date" minOccurs="0" />
+							<xs:element name="PERSONATTACHUSL" type="xs:int" minOccurs="0" />
+							<xs:element name="CARDCLSECAUSE" type="xs:int" minOccurs="0" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

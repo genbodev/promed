@@ -1,0 +1,23 @@
+{
+  "require": {
+    "php-amqplib/php-amqplib": ">=2.6.1",
+    "mpdf/mpdf": "^8.0",
+    "zircote/swagger-php": "^3.0",
+    "bigfish/pdf417": "^0.3.0",
+    "kenjis/ci-phpunit-test": "^0.17.0",
+    "phpunit/phpunit": "<7.5",
+    "ext-json": "*",
+    "ext-curl": "*",
+    "ext-sqlsrv": "*",
+    "ext-iconv": "*",
+    "ext-openssl": "*",
+    "ext-ldap": "*",
+    "ext-zip": "*",
+    "ext-mbstring": "*",
+    "ext-mongodb": "*",
+    "ext-xmlwriter": "*",
+    "ext-simplexml": "*",
+    "ext-xmlreader": "*",
+    "phpoffice/phpspreadsheet": "^1.13"
+  }
+}

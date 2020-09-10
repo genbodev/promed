@@ -1,0 +1,1268 @@
+/*
+
+Styles for icon classes
+
+*/
+
+/* Menu items */
+/* Паспорт ЛПУ */
+.uparrow {background-image: url("/img/icons/up.png") !important;}
+.downarrow {background-image: url("/img/icons/down.png") !important;}
+
+.upuparrow {background-image: url("/img/icons/arrow-upup.png") !important;}
+.downdownarrow {background-image: url("/img/icons/arrow-downdown.png") !important;}
+.button-in-the-cell {
+	text-decoration: none;
+    text-align: center;
+    padding: 1px 5px;
+    border: solid 1px #004F72;
+    border-radius: 6px;
+    font: 9px Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: #15173a;
+    background-color: #99bbe8;
+    display: block;
+    float: right;
+    cursor: pointer;
+}
+
+.lpu16 {background-image: url("/img/icons/lpu16.png") !important;}
+.lpu-struc16 {background-image: url("/img/icons/lpu-struc16.png") !important;}
+.lpu-passport16 {background-image: url("/img/icons/lpu16.png") !important;}
+.staff16 {background-image: url("/img/icons/staff16.png") !important;}
+.lpu-services-lpu16 {background-image: url("/img/icons/services-lpu16.png") !important;}
+.lpu-services-gost16 {background-image: url("/img/icons/services-gost16.png") !important;}
+.sprav16 {background-image: url("/img/icons/sprav16.png") !important;}
+.spr-mkb16 {background-image: url("/img/icons/spr-mkb16.png") !important;}
+.spr-mes16 {background-image: url("/img/icons/spr-mes16.png") !important;}
+.spr-org16 {background-image: url("/img/icons/spr-org16.png") !important;}
+.spr-org-lpu16 {background-image: url("/img/icons/org-lpu16.png") !important;}
+.spr-org-gos16 {background-image: url("/img/icons/org-gos16.png") !important;}
+.spr-org-strah16 {background-image: url("/img/icons/org-strah16.png") !important;}
+.spr-org-bank16 {background-image: url("/img/icons/org-bank16.png") !important;}
+.spr-org-manuf16 {background-image: url("/img/icons/org-manuf16.png") !important;}
+.org-pharm16 {background-image: url("/img/icons/org-pharm16.png") !important;}
+.org-whs16 {background-image: url("/img/icons/org-whs16.png") !important;}
+.org-denied16 {background-image: url("/img/icons/org-denied16.png") !important;}
+.spr-terr16 {background-image: url("/img/icons/terr16.png") !important;}
+.spr-terr-oms16 {background-image: url("/img/icons/terr-oms16.png") !important;}
+.spr-terr-addr16 {background-image: url("/img/icons/terr-addr16.png") !important;}
+.spr-promed16 {background-image: url("/img/icons/spr-promed16.png") !important;}
+.spr-lpu16 {background-image: url("/img/icons/spr-lpu16.png") !important;}
+.spr-oms16 {background-image: url("/img/icons/spr-oms16.png") !important;}
+.spr-dlo16 {background-image: url("/img/icons/spr-dlo16.png") !important;}
+.otd-profile16 {background-image: url("/img/icons/otd-profile16.png") !important;}
+.uchet-fact16 {background-image: url("/img/icons/uchet-fact16.png") !important;}
+.drug-traffic16 {background-image: url("/img/icons/drug-traffic16.png") !important;}
+.services-complex16 {background-image: url("/img/icons/services-complex16.png") !important;}
+/* ДЛО */
+.dlo16 {background-image: url("/img/icons/dlo16.png") !important;}
+.lgot-tree16 {background-image: url("/img/icons/accessibility16.png") !important;}
+.lgot-search16 {background-image: url("/img/icons/lgot-search16.png") !important;}
+.udost-list16 {background-image: url("/img/icons/udost-list16.png") !important;}
+.receipt-search16 {background-image: url("/img/icons/receipt-search16.png") !important;}
+.receipt-stream16 {background-image: url("/img/icons/receipt-stream16.png") !important;}
+.receipt-otov16 {background-image: url("/img/icons/receipt-otov16.png") !important;}
+.drug-farm16 {background-image: url("/img/icons/drug-farm16.png") !important;}
+.drug-name16 {background-image: url("/img/icons/drug-name16.png") !important;}
+.drug-sklad16 {background-image: url("/img/icons/drug-sklad16.png") !important;}
+.drug-request16 {background-image: url("/img/icons/drug-request16.png") !important;}
+.receipt-incorrect16 {background-image: url("/img/icons/receipt-incorrect16.png") !important;}
+.receipt-incorrect32 {background-image: url("/img/icons/receipt-incorrect32.png") !important;}
+.drug-viewmnn16 {background-image: url("/img/icons/drug-viewmnn16.png") !important;}
+.drug-viewtorg16 {background-image: url("/img/icons/drug-viewtorg16.png") !important;}
+.farmview16 {background-image: url("/img/icons/farmview16.png") !important;}
+/* Поликлиника */
+.polyclinic16 {background-image: url("/img/icons/polyclinic16.png") !important;}
+.patient16 {background-image: url("/img/icons/patient16.png") !important;}
+.pol-eplstream16 {background-image: url("/img/icons/pol-eplstream16.png") !important;}
+.pol-eplsearch16 {background-image: url("/img/icons/pol-eplsearch16.png") !important;}
+.card-search16 {background-image: url("/img/icons/card-search16.png") !important;}
+.card-view16 {background-image: url("/img/icons/reg16.png") !important;}
+.card-state16 {background-image: url("/img/icons/log16.png") !important;}
+.workplace-mp16 {background-image: url("/img/icons/workplace-mp16.png") !important;}
+.pol-directions16 {background-image: url("/img/icons/directions16.png") !important;}
+.pol-dopdisp16 {background-image: url("/img/icons/dopdisp16.png") !important;}
+.dopdisp-search16 {background-image: url("/img/icons/dopdisp-search16.png") !important;}
+.dopdisp-stream16 {background-image: url("/img/icons/dopdisp-stream16.png") !important;}
+.dopdisp-teens16, .dopdisp-teens-search16, .dopdisp-teens-stream16 { background-image: url("/img/icons/dopdisp-teens-sprite16.png") !important; }
+.dopdisp-teens16 { background-position: 0 0 !important; }
+.dopdisp-teens-search16 { background-position: -16px 0 !important; }
+.dopdisp-teens-stream16 { background-position: -32px 0 !important; }
+.pol-orphandisp16 {background-image: url("/img/icons/orphandisp16.png") !important;}
+.orphdisp-stream16 {background-image: url("/img/icons/orphdisp-stream16.png") !important;}
+.orphdisp-search16 {background-image: url("/img/icons/orphdisp-search16.png") !important;}
+.orphdisp-epl-stream16 {background-image: url("/img/icons/orphdisp-epl-stream16.png") !important;}
+.orphdisp-epl-search16 {background-image: url("/img/icons/orphdisp-epl-search16.png") !important;}
+.pol-disp16 {background-image: url("/img/icons/polyclinic16.png") !important;}
+.disp16 {background-image: url("/img/icons/polyclinic16.png") !important;}
+.disp-search16 {background-image: url("/img/icons/disp-search16.png") !important;}
+.disp-view16 {background-image: url("/img/icons/polyclinic16.png") !important;}
+.dopdisp-epl-search16 {background-image: url("/img/icons/dopdisp-epl-search16.png") !important;}
+.dopdisp-epl-stream16 {background-image: url("/img/icons/dopdisp-epl-stream16.png") !important;}
+.pol-preg16 {background-image: url("/img/icons/pol-preg16.png") !important;}
+.pol-pregsearch16 {background-image: url("/img/icons/pol-pregsearch16.png") !important;}
+.pol-dtp16 {background-image: url("/img/icons/stac-accident-injured16.png") !important;}
+.pol-immuno16 {background-image: url("/img/icons/pol-immuno16.png") !important;}
+.inj-stream16 {background-image: url("/img/icons/inj-stream16.png") !important;}
+.inj-search16 {background-image: url("/img/icons/inj-search16.png") !important;}
+.mreject-stream16 {background-image: url("/img/icons/mreject-stream16.png") !important;}
+.mreject-search16 {background-image: url("/img/icons/mreject-search16.png") !important;}
+.imm-ser-stream16 {background-image: url("/img/icons/imm-ser-stream16.png") !important;}
+.imm-ser-search16 {background-image: url("/img/icons/imm-ser-search16.png") !important;}
+.imm-bakabs16 {background-image: url("/img/icons/imm-bakabs16.png") !important;}
+.vac-plan16 {background-image: url("/img/icons/vac-plan16.png") !important;}
+.query-log {background-image: url("/img/icons/2017/query_log.png") !important;}
+.immunoprophylaxis {background-image: url("/img/icons/2017/immunoprophylaxis.png") !important;}
+/* Лис */
+.lis-edit24 {background-image: url("/img/icons/lis-edit.png") !important;}
+.lis-new24 {background-image: url("/img/icons/lis-new.png") !important;}
+.lis-delete24 {background-image: url("/img/icons/lis-delete.png") !important;}
+.lis-print24 {background-image: url("/img/icons/lis-print.png") !important;}
+.lis-proba24 {background-image: url("/img/icons/lis-.png") !important;}
+.lis-analiz24 {background-image: url("/img/icons/lis-.png") !important;}
+.lis-Ok24 {background-image: url("/img/icons/lis-Ok.png") !important;}
+.prob-needmore24 {background-image: url("/img/icons/lis-prob-needmore.png") !important;}
+.prob-needone24 {background-image: url("/img/icons/lis-prob-needone.png") !important;}
+.prob-notall24 {background-image: url("/img/icons/lis-prob-notall.png") !important;}
+.prob-new24 {background-image: url("/img/icons/lis-prob-new.png") !important;}
+.prob-toanaliz24 {background-image: url("/img/icons/lis-prob-toanaliz.png") !important;}
+.prob-exec24 {background-image: url("/img/icons/lis-prob-exec.png") !important;}
+.prob-someOk24 {background-image: url("/img/icons/lis-prob-someOk.png") !important;}
+.prob-Ok24 {background-image: url("/img/icons/lis-prob-Ok.png") !important;}
+.prob-bad24 {background-image: url("/img/icons/lis-prob-bad.png") !important;}
+.drug16-2017 {background-image: url("/img/icons/2017/drug16.png") !important;}
+.protocol16-2017 {background-image: url("/img/icons/2017/protocol16.png") !important;}
+/* Стационар */
+.stac16 {background-image: url("/img/icons/stac16.png") !important;}
+.stac-psstream16 {background-image: url("/img/icons/ps-stream16.png") !important;}
+.stac-pssearch16 {background-image: url("/img/icons/ps-search16.png") !important;}
+.suicide-edit16 {background-image: url("/img/icons/suicide-edit16.png") !important;}
+.suicide-search16 {background-image: url("/img/icons/suicide-search16.png") !important;}
+.stac-accident-injured16 {background-image: url("/img/icons/stac-accident-injured16.png") !important;}
+.stac-accident-dead16 {background-image: url("/img/icons/stac-accident-dead16.png") !important;}
+/* Патоморфология */
+.pathomorph16 {background-image: url("/img/icons/pathomorph16.png") !important;}
+.pathohist16 {background-image: url("/img/icons/pathohist16.png") !important;}
+.cytologica16 {background-image: url("/img/icons/cytologica.png") !important;}
+.pathohistproto16 {background-image: url("/img/icons/pathohistproto16.png") !important;}
+/* Параклиника */
+.parka16 {background-image: url("/img/icons/parka16.png") !important;}
+.par-serv-stream16 {background-image: url("/img/icons/par-serv-stream16.png") !important;}
+.par-serv-search16 {background-image: url("/img/icons/par-serv-search16.png") !important;}
+/* Стоматология */
+.stomat16 {background-image: url("/img/icons/stomat16.png") !important;}
+.stom-stream16 {background-image: url("/img/icons/stom-stream16.png") !important;}
+.stom-search16 {background-image: url("/img/icons/stom-search16.png") !important;}
+.stom-uslugi16 {background-image: url("/img/icons/stom-uslugi16.png") !important;}
+/* Медсвидетельства */
+.medsvid16 {background-image: url("/img/icons/medsvid16.png") !important;}
+.medsvid32 {background-image: url("/img/icons/medsvid32.png") !important;}
+.svid-birth16 {background-image: url("/img/icons/svid-birth16.png") !important;}
+.svid-death16 {background-image: url("/img/icons/svid-death16.png") !important;}
+.svid-pdeath16 {background-image: url("/img/icons/svid-pdeath16.png") !important;}
+.svid-blank16 {background-image: url("/img/icons/svid-blank16.png") !important;}
+.regdead16 {background-image: url("/img/icons/regdead16.png") !important;}
+/* Скорая помощь */
+.ambulance16 {background-image: url("/img/icons/ambulance16.png") !important;}
+.ambulance32 {background-image: url("/img/icons/ambulance32.png") !important;}
+.ambulance_add16 {background-image: url("/img/icons/ambulance_add16.png") !important;}
+.ambulance_search16 {background-image: url("/img/icons/ambulance_search16.png") !important;}
+.ambulance-car32 {background-image: url("/img/icons/ambulance-car32.png") !important;}
+/* Аптека */
+.farmacy16 {background-image: url("/img/icons/farmview16.png") !important;}
+.farm-drugs16 {background-image: url("/img/icons/farm-drugs16.png") !important;}
+.farm-partners16 {background-image: url("/img/icons/partners16.png") !important;}
+.doc-nak16 {background-image: url("/img/icons/doc-nak16.png") !important;}
+.doc-uch16 {background-image: url("/img/icons/doc-uch16.png") !important;}
+.doc-spis16 {background-image: url("/img/icons/doc-spis16.png") !important;}
+.doc-ost16 {background-image: url("/img/icons/doc-ost16.png") !important;}
+.farm-inv16 {background-image: url("/img/icons/farm-inv16.png") !important;}
+.farm-ostat16 {background-image: url("/img/icons/farm-ostat16.png") !important;}
+.receipt-process16 {background-image: url("/img/icons/receipt-process16.png") !important;}
+.receipt-streamps16 {background-image: url("/img/icons/receipt-streamps16.png") !important;}
+.receipt-delay16 {background-image: url("/img/icons/receipt-delay16.png") !important;}
+/* Сервис */
+.service16 {background-image: url("/img/icons/settings16.png") !important;}
+.users16 {background-image: url("/img/icons/users16.png") !important;}
+.settings16 {background-image: url("/img/icons/settings16.png") !important;}
+.tags16 {background-image: url("/img/icons/tags16.png") !important;}
+.settings-global16 {background-image: url("/img/icons/settings-global16.png") !important;}
+.lpu-select16 {background-image: url("/img/icons/lpu-select16.png") !important;}
+.spr-anamnez16 {background-image: url("/img/icons/spr-anamnez16.png") !important;}
+.patient-search16 {background-image: url("/img/icons/patient-search16.png") !important;}
+.patient-search32 {background-image: url("/img/icons/patient-search32.png") !important;}
+.adddrugs-icon16 {background-image: url("/img/icons/addDrugs-icon16.png") !important;}
+.service-reestrs16 {background-image: url("/img/icons/service-reestrs16.png") !important;}
+.doubles16 {background-image: url("/img/icons/doubles16.png") !important;}
+.doubles-mod16 {background-image: url("/img/icons/doubles-mod16.png") !important;}
+.doubles-history16 {background-image: url("/img/icons/doubles-history16.png") !important;}
+.doubles-history32 {background-image: url("/img/icons/doubles-history32.png") !important;}
+.sql16 {background-image: url("/img/icons/sql16.png") !important;}
+.petition16 {background-image: url("/img/icons/petition16.png") !important;}
+.petition-stream16 {background-image: url("/img/icons/petition-stream16.png") !important;}
+.petition-search16 {background-image: url("/img/icons/petition-search16.png") !important;}
+.petition-report16 {background-image: url("/img/icons/petition-report16.png") !important;}
+.attach-demand16 {background-image: url("/img/icons/attach-demand16.png") !important;}
+.glossary16 {background-image: url("/img/icons/glossary16.png") !important;}
+/* Права доступа */
+.group16 {background-image: url("/img/icons/users16.png") !important;}
+.group-role16 {background-image: url("/img/icons/group-role16.png") !important;}
+.user-role16 {background-image: url("/img/icons/user-role16.png") !important;}
+.window-folder16 {background-image: url("/img/icons/window-folder16.png") !important;}
+.window16 {background-image: url("/img/icons/window16.png") !important;}
+/* Отчеты */
+.reports16 {background-image: url("/img/icons/reports16.png") !important;}
+.rep-f14oms-per16 {background-image: url("/img/icons/f14oms-per16.png") !important;}
+.rep-f14oms16 {background-image: url("/img/icons/f14oms16.png") !important;}
+.rep-f14oms-fin16 {background-image: url("/img/icons/f14oms-fin16.png") !important;}
+.rpt-repo16 {background-image: url("/img/icons/rpt-repo16.png") !important;}
+.rpt-server {background-image: url("/img/icons/rpt/server.png") !important;}
+.rpt-reports {background-image: url("/img/icons/rpt/reports.png") !important;}
+.rpt-report {background-image: url("/img/icons/rpt/report.png") !important;}
+.rpt-folder {background-image: url("/img/icons/rpt/folder.png") !important;}
+.rpt-table {background-image: url("/img/icons/rpt/table.png") !important;}
+.rpt-param {background-image: url("/img/icons/rpt/param.png") !important;}
+.rpt-test {background-image: url("/img/icons/rpt/test.png") !important;}
+.rpt-clear {background-image: url("/img/icons/rpt/clear.png") !important;}
+.rpt-save {background-image: url("/img/icons/rpt/save.png") !important;}
+.rpt-templ {background-image: url("/img/icons/rpt/templ.png") !important;}
+.rpt-parse {background-image: url("/img/icons/rpt/parse.png") !important;}
+.rpt-pdf {background-image: url("/img/icons/rpt/pdf-icon.png") !important;}
+.rpt-html {background-image: url("/img/icons/rpt/html-icon.png") !important;}
+.rpt-xls {background-image: url("/img/icons/rpt/xls-icon.png") !important;}
+.rpt-copy {background-image: url("/img/icons/copy16.png") !important;}
+/* Окна */
+.windows16 {background-image: url("/img/icons/windows16.png") !important;}
+/* Помощь */
+.help16 {background-image: url("/img/icons/help16.png") !important;}
+.support16 {background-image: url("/img/icons/support16.png") !important;}
+.promed16 {background-image: url("/img/icons/promed16.png") !important;}
+/* Пользователь */
+.user16 {background-image: url("/img/icons/user16.png") !important;}
+/* Выход */
+.exit16 {background-image: url("/img/icons/exit16.png") !important;}
+/* Задания SQL-сервера */
+.sqljobs-cancelled {background: url("/img/icons/msjobs_cancelled.png") no-repeat center !important}
+.sqljobs-error {background: url("/img/icons/msjobs_error.png") no-repeat center  !important;}
+.sqljobs-ok {background: url("/img/icons/msjobs_ok.png")  no-repeat center !important;}
+.sqljobs-repeat {background: url("/img/icons/msjobs_repeat.png")  no-repeat center  !important;}
+.sqljobs-running {background: url("/img/icons/msjobs_running.png")  no-repeat center !important;}
+.sqljobs-unknown {background: url("/img/icons/msjobs_unknown.png")  no-repeat center  !important;}
+/* разное */
+.swan16 {background-image: url("/img/icons/swan16.png") !important;}
+.reg16 {background-image: url("/img/icons/reg16.png") !important;}
+.progress16 {background-image: url("/img/icons/progress16.gif") !important;}
+.info16 {background-image: url("/img/icons/info16.png") !important;}
+.test16 {background-image: url("/img/icons/bug16.png") !important;}
+.log16 {background-image: url("/img/icons/log16.png") !important;}
+.accessibility16 {background-image: url("/img/icons/accessibility16.png") !important;}
+.reginvalid16 {background-image: url("/img/icons/invalide16.png") !important;}
+.reset16 {background-image: url("/img/icons/reset16.png") !important;}
+.start16 {background-image: url("/img/icons/start16.png") !important;}
+.stop16 {background-image: url("/img/icons/stop16.png") !important;}
+.stop_red16 {background-image: url("/img/icons/stop_red16.png") !important;}
+.undo16 {background-image: url("/img/icons/undo16.png") !important;}
+.count16 {background-image: url("/img/icons/count16.png") !important;}
+.partners16 {background-image: url("/img/icons/partners16.png") !important;}
+.document16 {background-image: url("/img/icons/document16.png") !important;}
+.documents16 {background-image: url("/img/icons/documents16.png") !important;}
+.workplaceOfTheEmployee32 {background-image: url("/img/icons/workplaceOfTheEmployee.png") !important;}
+.male16 {background-image: url("/img/icons/male16.png") !important;}
+.female16 {background-image: url("/img/icons/female16.png") !important;}
+.miac16 {background-image: url("/img/icons/miac16.png") !important;}
+.digital-sign16 {background-image: url("/img/icons/digital-sign16.png") !important;}
+.database-export16 {background-image: url("/img/icons/database-export16.png") !important;}
+.folder16 { background-image: url("/img/icons/folder16.png") !important; }
+.folder-locked16 { background-image: url("/img/icons/folder-locked16.png") !important; }
+.lock16 {background-image: url("/img/icons/lock16.png") !important;}
+.card112_16 {background-image: url("/img/icons/card112_16.png") !important;}
+.lock-unlock16 {background-image: url("/img/icons/lock-unlock16.png") !important;}
+.journal16 {background-image: url("/img/icons/journal16.png") !important;}
+.journal32 {background-image: url("/img/icons/journal16.png") !important;}
+.registry16 {background-image: url("/img/icons/cabinet16.png") !important;}
+.doc-reg16 {background-image: url("/img/icons/doc-reg16.png") !important;}
+/* Toolbar/Buttons actions */
+.add16 {background-image: url("/img/icons/add16.png") !important;}
+.edit16 {background-image: url("/img/icons/edit16.png") !important;}
+.view16 {background-image: url("/img/icons/view16.png") !important;}
+.delete16 {background-image: url("/img/icons/delete16.png") !important;}
+.x4-delete16 {background-image: url("/img/icons/close_cross9.png") !important; background-position: 6px 4px !important;}
+.actions16 {background-image: url("/img/icons/actions16.png") !important;}
+.refresh16 {background-image: url("/img/icons/refresh16.png") !important;}
+.print16 {background-image: url("/img/icons/print16.png") !important;}
+.ok16 {background-image: url("/img/icons/ok16.png") !important;}
+.checked16 {background-image: url("/img/icons/checked16.png") !important;}
+.checked-gray16 {background-image: url("/img/icons/checked-gray16.gif") !important;}
+.cancel16 {background-image: url("/img/icons/close16.png") !important;}
+.close16 {background-image: url("/img/icons/close16.png") !important;}
+.search16 {background-image: url("/img/icons/search16.png") !important;}
+.resetsearch16 {background-image: url("/img/icons/resetsearch16.png") !important;}
+.save16 {background-image: url("/img/icons/save16.png") !important;}
+.copy16 {background-image: url("/img/icons/copy16.png") !important;}
+.open16 {background-image: url("/img/icons/open16.png") !important;}
+.sort16 {background-image: url("/img/icons/sort16.png") !important;}
+.archive16 {background-image: url("/img/icons/archive16.png") !important;}
+.diag-hist16 {background-image: url("/img/icons/diag-hist16.png") !important;}
+/* LPU Structure */
+.lpu-building16 {background-image: url("/img/icons/lpu-building16.png") !important;}
+.lpu-building-closed16 {background-image: url("/img/icons/lpu-building-closed16.png") !important;}
+.lpu-unit16 {background-image: url("/img/icons/lpu-unit16.png") !important;}
+.lpu-unit-closed16 {background-image: url("/img/icons/lpu-unit-closed16.png") !important;}
+.lpu-section16 {background-image: url("/img/icons/lpu-section16.png") !important;}
+.lpu-section-closed16 {background-image: url("/img/icons/lpu-section-closed16.png") !important;}
+.lpu-subsection16 {background-image: url("/img/icons/lpu-subsection16.png") !important;}
+.lpu-subsection-closed16 {background-image: url("/img/icons/lpu-subsection-closed16.png") !important;}
+.lpu-regiontitle16 {background-image: url("/img/icons/terr-addr16.png") !important;}
+.lpu-unittype16 {background-image: url("/img/icons/lpu-unittype16.png") !important;}
+.lpu-unittype-closed16 {background-image: url("/img/icons/lpu-unittype-closed16.png") !important;}
+.lpu-regiontype16 {background-image: url("/img/icons/lpu-regiontype16.png") !important;}
+.lpu-region16 {background-image: url("/img/icons/lpu-region16.png") !important;}
+.lpu-usluga16 {background-image: url("/img/icons/lpu-usluga16.png") !important;}
+.lpu-tariff16 {background-image: url("/img/icons/lpu-tariff16.png") !important;}
+.lpu-finans16 {background-image: url("/img/icons/lpu-finans16.png") !important;}
+.lpu-shift16 {background-image: url("/img/icons/lpu-shift16.png") !important;}
+.lpu-licence16 {background-image: url("/img/icons/lpu-licence16.png") !important;}
+.medservice16 {background-image: url("/img/icons/medservice16.png") !important;}
+.medservice-closed16 {background-image: url("/img/icons/medservice-closed16.png") !important;}
+.dicom {background-image: url("/img/icons/dicom.png") !important;}
+.union16 {background-image: url("/img/icons/union16.png") !important;}
+/* Person Information Panel */
+.pers-card16 {background-image: url("/img/icons/pers-card16.png") !important;}
+.pers-curehist16 {background-image: url("/img/icons/curehistory16.png") !important;}
+.pers-priv16 {background-image: url("/img/icons/accessibility16.png") !important;}
+.pers-disp16 {background-image: url("/img/icons/pers-disp16.png") !important;}
+/* ЭПЗ */
+.eph16 {background-image: url("/img/icons/eph16.png") !important;}
+.epl-new16 {background-image: url("/img/icons/epl-new16.png") !important;}
+.epl-ddisp-new16 {background-image: url("/img/icons/epl-ddisp-new16.png") !important;}
+.priv-new16 {background-image: url("/img/icons/priv-new16.png") !important;}
+.pcard-new16 {background-image: url("/img/icons/pcard-new16.png") !important;}
+.evnpar-new16 {background-image: url("/img/icons/evnpar-new16.png") !important;}
+.para-service16 {background-image: url("/img/icons/evnpar-new16.png") !important;}
+.para-service-open16 {background-image: url("/img/icons/parka16.png") !important;}
+.para-service-complex16 {background-image: url("/img/icons/para-service-complex16.png") !important;}
+.evn-open16 {background-image: url("/img/icons/edit16.png") !important;}
+.visit-new16 {background-image: url("/img/icons/visit-new16.png") !important;}
+.epl-visit16 {background-image: url("/img/icons/visit-new16.png") !important;}
+.usluga-new16 {background-image: url("/img/icons/usluga-new16.png") !important;}
+.lvn-new16 {background-image: url("/img/icons/lvn-new16.png") !important;}
+.lvn-search16 {background-image: url("/img/icons/lvn-search16.png") !important;}
+.visit-open16 {background-image: url("/img/icons/edit16.png") !important;}
+.persdisp-new16 {background-image: url("/img/icons/persdisp-new16.png") !important;}
+.receipt-new16 {background-image: url("/img/icons/receipt-new16.png") !important;}
+.direction-new16 {background-image: url("/img/icons/direction-new16.png") !important;}
+.receipt-open16 {background-image: url("/img/icons/edit16.png") !important;}
+.direction-open16 {background-image: url("/img/icons/edit16.png") !important;}
+.usluga-open16 {background-image: url("/img/icons/edit16.png") !important;}
+.disp-open16 {background-image: url("/img/icons/edit16.png") !important;}
+.lvn-open16 {background-image: url("/img/icons/edit16.png") !important;}
+.evn-ddisp-open16 {background-image: url("/img/icons/edit16.png") !important;}
+.evnvisit-ddisp-open16 {background-image: url("/img/icons/edit16.png") !important;}
+.ddisp-usluga-open16 {background-image: url("/img/icons/edit16.png") !important;}
+.priv-open16 {background-image: url("/img/icons/edit16.png") !important;}
+.pcard-open16 {background-image: url("/img/icons/edit16.png") !important;}
+.eph-record16 {background-image: url("/img/icons/eph-record16.png") !important;}
+.eph-record32 {background-image: url("/img/icons/eph-record32.png") !important;}
+.eph-timetable-top16 {background-image: url("/img/icons/eph-timetable-top16.png") !important;}
+.eph-timetable-top32 {background-image: url("/img/icons/eph-timetable-top32.png") !important;}
+.eph-death16 {background-image: url("/img/icons/eph-death16.png") !important;}
+.eph-death32 {background-image: url("/img/icons/eph-death32.png") !important;}
+.idcard16 {background-image: url("/img/icons/idcard16.png") !important;}
+.idcard32 {background-image: url("/img/icons/idcard32.png") !important;}
+.eph-tooth16 {background-image: url("/img/icons/eph-tooth16.png") !important;}
+.eph-tooth32 {background-image: url("/img/icons/eph-tooth32.png") !important;}
+.pathomorph-16 {background-image: url("/img/icons/pathomorph-ic16.png") !important;}
+.foreigner16 {background-image: url("/img/icons/foreigner16.png") !important;}
+.driver16 {background-image: url("/img/icons/driver16.png") !important;}
+/* 32x32 */
+.visit32 {background-image: url("/img/icons/visit32.png") !important;}
+.personquarantine32 {background-image: url("/img/icons/personquarantine32.png") !important;}
+.epl-visit32 {background-image: url("/img/icons/epl-visit32.png") !important;}
+.para-service32 {background-image: url("/img/icons/evnpar-new32.png") !important;}
+.para-service-list32 {background-image: url("/img/icons/para-service-list32.png") !important;}
+.para-service-open32 {background-image: url("/img/icons/para-service-open32.png") !important;}
+.para-service-complex32 {background-image: url("/img/icons/para-service-complex32.png") !important;}
+.epl-new32 {background-image: url("/img/icons/epl-new32.png") !important;}
+.epl-ddisp-new32 {background-image: url("/img/icons/epl-ddisp-new32.png") !important;}
+.priv-new32 {background-image: url("/img/icons/priv-new32.png") !important;}
+.pcard-new32 {background-image: url("/img/icons/pcard-new32.png") !important;}
+.evnpar-new32 {background-image: url("/img/icons/evnpar-new32.png") !important;}
+.persdisp-new32 {background-image: url("/img/icons/persdisp-new32.png") !important;}
+.receipt-new32 {background-image: url("/img/icons/receipt-new32.png") !important;}
+.record-new32 {background-image: url("/img/icons/record-new32.png") !important;}
+.record-search32 {background-image: url("/img/icons/record-search32.png") !important;}
+.pathomorph-32 {background-image: url("/img/icons/pathomorph-ic32.png") !important;}
+.foreigner32 {background-image: url("/img/icons/foreigner32.png") !important;}
+.driver32 {background-image: url("/img/icons/driver32.png") !important;}
+.barcode_printing32 {background-image: url("/img/icons/barcode_printing32.png") !important;}
+.newborn32 {background-image: url("/img/icons/newborn32.png") !important;}
+/* Аптека */
+.receipt-ondelay16 {background-image: url("/img/icons/receipt-ondelay16.png") !important;}
+.receipt-reserve16 {background-image: url("/img/icons/receipt-reserve16.png") !important;}
+.farm-otdel16 {background-image: url("/img/icons/farm-otdel16.png") !important;}
+/* АРМ */
+.mes32 {background-image: url("/img/icons/mes32.png") !important;}
+.vac-plan32 {background-image: url("/img/icons/vac-plan32.png") !important;}
+.registry32 {background-image: url("/img/icons/cabinet32.png") !important;}
+.registry_k32 {background-image: url("/img/icons/cabinet_k32.png") !important;}
+.structure32 {background-image: url("/img/icons/structure32.png") !important;}
+.structure-vert32 {background-image: url("/img/icons/structure-vert32.png") !important;}
+.dlo32 {background-image: url("/img/icons/medicine32.png") !important;}
+.accessibility32 {background-image: url("/img/icons/accessibility32.png") !important;}
+.lgot32 {background-image: url("/img/icons/accessibility32.png") !important;}
+.recept-search32 {background-image: url("/img/icons/recept-search32.png") !important;}
+.mse-journal32 {background-image: url("/img/icons/lgot-journal32.png") !important;}
+.mse-direction32 {background-image: url("/img/icons/lgot-direction32.png") !important;}
+.staff32 {background-image: url("/img/icons/staff32.png") !important;}
+.pl-stream32 {background-image: url("/img/icons/pl-stream32.png") !important;}
+.ps-stream32 {background-image: url("/img/icons/ps-stream32.png") !important;}
+.lpu-passport32 {background-image: url("/img/icons/hospital32.png") !important;}
+.card-state32 {background-image: url("/img/icons/log32.png") !important;}
+.pers-cards32 {background-image: url("/img/icons/catalog32.png") !important;}
+.card-search32 {background-image: url("/img/icons/card-search32.png") !important;}
+.card-view32 {background-image: url("/img/icons/card-view32.png") !important;}
+.personcard-attach32 {background-image: url("/img/icons/personcard-attach32.png") !important;}
+.tfoms-query32 {background-image: url("/img/icons/personcard-attach32.png") !important;}
+.web-record32 {background-image: url("/img/icons/web-record32.png") !important;}
+.services-complex32 {background-image: url("/img/icons/services-complex32.png") !important;}
+.user32 {background-image: url("/img/icons/user32.png") !important;}
+.database-export32 {background-image: url("/img/icons/database-export32.png") !important;}
+.onco-reg32 {background-image: url("/img/icons/onco-reg32.png") !important;}
+.onco-journal32 {background-image: url("/img/icons/onco-journal32.png") !important;}
+.doc-notify32 {background-image: url("/img/icons/doc-notify32.png") !important;}
+.immunoprof16 {background-image: url("/img/icons/immunoprof32.png") !important; background-size: contain;}
+.immunoprof32 {background-image: url("/img/icons/immunoprof32.png") !important;}
+/* АРМ Администратора */
+.admin16 {background-image: url("/img/icons/admin16.png") !important;}
+.org32 {background-image: url("/img/icons/org32.png") !important;}
+.document32 {background-image: url("/img/icons/document32.png") !important;}
+.users32 {background-image: url("/img/icons/users32.png") !important;}
+.settings32 {background-image: url("/img/icons/settings32.png") !important;}
+.database32 {background-image: url("/img/icons/database32.png") !important;}
+.book32 {background-image: url("/img/icons/book32.png") !important;}
+.doubles32 {background-image: url("/img/icons/doubles32.png") !important;}
+.report32 {background-image: url("/img/icons/report32.png") !important;}
+.analyzer32 {background-image: url("/img/icons/analyzer32.png") !important;}
+.storage-place32 {background-image: url("/img/icons/storage-place32.png") !important;}
+.remd32 {background-image: url("/img/icons/remd32.png") !important;}
+.remd-egisz32 {background-image: url("/img/icons/remd-egisz32.png") !important;}
+.vip-client {background-image: url("/img/icons/vip16.png") !important;}
+/* АРМ Врача */
+.datepicker16 {background-image: url("/img/icons/datepicker16.png") !important;}
+.arrow-previous16 {background-image: url("/img/icons/arrow-previous16.png") !important;}
+.arrow-next16 {background-image: url("/img/icons/arrow-next16.png") !important;}
+.skip16 {background-image: url("/img/icons/go-jump16.png") !important;}
+.datepicker-day16 {background-image: url("/img/icons/datepicker-day16.png") !important;}
+.datepicker-week16 {background-image: url("/img/icons/datepicker-week16.png") !important;}
+.datepicker-month16 {background-image: url("/img/icons/datepicker-month16.png") !important;}
+/*.file-upload16 {background-image: url("/img/icons/add.png") !important;}  Ну надо чтото более подходящее*/
+.template16 {background-image: url("/img/icons/template16.png") !important;}
+.template-fav32 {background-image: url("/img/icons/template-fav32.png") !important;}
+.home16 {background-image: url("/img/icons/home16.png") !important;}
+.back16 {background-image: url("/img/icons/arrow-previous16.png") !important;}
+.forward16 {background-image: url("/img/icons/arrow-next16.png") !important;}
+.cal-back16 {background-image: url("/img/icons/cal-arrow-previous16.png") !important;}
+.cal-forward16 {background-image: url("/img/icons/cal-arrow-next16.png") !important;}
+/* АРМ Врача 32x32 */
+.mp-queue32 {background-image: url("/img/icons/mp-queue32.png") !important;}
+.mp-timetable32 {background-image: url("/img/icons/mp-timetable32.png") !important;}
+.mp-calendar32 {background-image: url("/img/icons/mp-calendar32.png") !important;}
+.svid-death32 {background-image: url("/img/icons/svid-death32.png") !important;}
+.mp-region32 {background-image: url("/img/icons/mp-region32.png") !important;}
+.mp-disp32 {background-image: url("/img/icons/mp-disp32.png") !important;}
+.mp-drugrequest32 {background-image: url("/img/icons/mp-drugrequest32.png") !important;}
+.mp-lgot32 {background-image: url("/img/icons/mp-lgot32.png") !important;}
+.mp-immun32 {background-image: url("/img/icons/mp-immun32.png") !important;}
+.mp-x-ray32 {background-image: url("/img/icons/mp-x-ray32.png") !important;}
+.mp-hospital-list32 {background-image: url("/img/icons/mp-hospital-list32.png") !important;}
+.mp-directions32 {background-image: url("/img/icons/mp-directions32.png") !important;}
+.vk-journal32 {background-image: url("/img/icons/vkjournal32.png") !important;}
+.vkqueryjournal32 {background-image: url("/img/icons/vkqueryjournal32.png") !important;}
+.vk-prescr32 {background-image: url("/img/icons/vk-prescr32.png") !important;}
+.dist-monitoring32 {background-image: url("/img/icons/quota32.png") !important;}
+/* Врач стационара */
+.reception32 {background-image: url("/img/icons/reception32.png") !important;}
+.consult32 {background-image: url("/img/icons/consult32.png") !important;}
+.surgery32 {background-image: url("/img/icons/surgery32.png") !important;}
+.notice32 {background-image: url("/img/icons/mail32.png") !important;}
+.update-ward16 { background-image: url("/img/icons/stac-update-ward16.png") !important;}
+.update-section16 { background-image: url("/img/icons/stac-update-section16.png") !important;}
+.update-doctor16 { background-image: url("/img/icons/stac-update-doctor16.png") !important;}
+.leave16 { background-image: url("/img/icons/stac-leave16.png") !important;}
+.tree-rooms-common24 { background-image: url("/img/icons/tree-rooms-common.png") !important; }
+.tree-rooms-female24 { background-image: url("/img/icons/tree-rooms-female.png") !important; }
+.tree-rooms-male24 { background-image: url("/img/icons/tree-rooms-male.png") !important; }
+.tree-rooms-none24 { background-image: url("/img/icons/tree-rooms-none.png") !important; }
+.tree-rooms-common16 { background-image: url("/img/icons/tree-rooms-common16.png") !important; }
+.tree-rooms-female16 { background-image: url("/img/icons/tree-rooms-female16.png") !important; }
+.tree-rooms-male16 { background-image: url("/img/icons/tree-rooms-male16.png") !important; }
+.tree-rooms-none16 { background-image: url("/img/icons/tree-rooms-none16.png") !important; }
+/* АРМ Лаборанта */
+.lab-assist16 { background-image: url("/img/icons/lab-assist16.png") !important; }
+.lab-journal32 { background-image: url("/img/icons/lab-journal32.png") !important; }
+.lab32 { background-image: url("/img/icons/lab32.png") !important; }
+.worksheets32 { background-image: url("/img/icons/worksheets32.png") !important; }
+
+.lab-service32 { background-image: url("/img/icons/lab-service32.png") !important; }
+.lis-settings32 { background-image: url("/img/icons/lis-settings32.png") !important; }
+.methodsifa16 { background-image: url("/img/lis/methodsifa16.png") !important; }
+.testtubes32 {background-image: url("/img/icons/testtubes32.png") !important;}
+.schedule32 {background-image: url("/img/icons/mp-timetable32.png") !important;}
+.trash32 { background-image: url("/img/icons/trash32.png") !important; }
+/* Назначения */
+.signature16 { background-image: url("/img/icons/signature16.png") !important; }
+.morning16 { background-image: url("/img/icons/morning16.png") !important; }
+.noon16 { background-image: url("/img/icons/noon16.png") !important; }
+.night16 { background-image: url("/img/icons/night16.png") !important; }
+/* Врач приемного отделения */
+.patient32 {background-image: url("/img/icons/patient32.png") !important;}
+.mail32 {background-image: url("/img/icons/mail32.png") !important;}
+.reception-self16 {background-image: url("/img/icons/patient16.png") !important;}
+.reception-self32 {background-image: url("/img/icons/patient32.png") !important;}
+.reception-edit16 {background-image: url("/img/icons/edit16.png") !important;}
+.reception-accept16 {background-image: url("/img/icons/ok16.png") !important;}
+.reception-cancel16 {background-image: url("/img/icons/undo16.png") !important;}
+.chair16 {
+	background-size: 12px 12px !important;
+	background-image: url("/img/icons/electronicQueue/chair_stop.png") !important;
+	background-position: 4px center !important;
+}
+.redirect16 {
+	background-size: 12px 12px !important;
+	background-image: url("/img/icons/electronicQueue/redirect_gray.png") !important;
+	background-position: 4px center !important;
+}
+.hospitalization16 {background-image: url("/img/icons/bed16.png") !important;}
+.bed16 {background-image: url("/img/icons/bed16.png") !important;}
+.hospitalization-cancel16 {background-image: url("/img/icons/hospitalization-cancel16.png") !important;}
+.hospitalization-refuse16 {background-image: url("/img/icons/hospitalization-refuse16.png") !important;}
+.hospitalization-refuse-cancel16 {background-image: url("/img/icons/hospitalization-refuse-cancel16.png") !important;}
+.active-call16 {background-image: url("/img/icons/active-call16.png") !important;}
+.transmit-ambulance16 {background-image: url("/img/icons/transmit-ambulance16.png") !important;}
+/* ЭМК 32x32 */
+.document-template32 {background-image: url("/img/icons/document-template32.png") !important;}
+.emc-evnps32 {background-image: url("/img/icons/emc-evnps32.png") !important;}
+.sections-move32 {background-image: url("/img/icons/sections-move32.png") !important;}
+.therapy-plan32 {background-image: url("/img/icons/therapy-plan32.png") !important;}
+.form32 {background-image: url("/img/icons/form32.png") !important;}
+.med-commission32 {background-image: url("/img/icons/med-commission32.png") !important;}
+.med-commission16 {background-image: url("/img/icons/med-commission16.png") !important;}
+.appointments32 {background-image: url("/img/icons/appointments32.png") !important;}
+.lvn-open32 {background-image: url("/img/icons/lvn-open32.png") !important;}
+.monitoring32 {background-image: url("/img/icons/monitoring32.png") !important;}
+.diary-entry32 {background-image: url("/img/icons/diary-entry32.png") !important;}
+.epicrisis32 {background-image: url("/img/icons/epicrisis32.png") !important;}
+.emergency-list32 {background-image: url("/img/icons/emergency-list32.png") !important;}
+.ers32 {background-image: url("/img/icons/ers32.png") !important;}
+.reports32 {background-image: url("/img/icons/reports32.png") !important;}
+/* Дерево */
+.lgot16 {background-image: url("/img/icons/accessibility16.png") !important;}
+.lgot-enabled16 {background-image: url("/img/icons/accessibility16.png") !important;}
+.lgot-disabled16 {background-image: url("/img/icons/lgot-disabled16.png") !important;}
+.lgot-federal16 {background-image: url("/img/icons/lgot-federal16.png") !important;}
+.lgot-region16 {background-image: url("/img/icons/lgot-regional16.png") !important;}
+.lgot-local16 {background-image: url("/img/icons/lgot-local16.png") !important;}
+.pay-oms16 {background-image: url("/img/icons/strah-oms16.png") !important;}
+.pay-dms16 {background-image: url("/img/icons/strah-dms16.png") !important;}
+.pay-bud16 {background-image: url("/img/icons/pay-budget16.png") !important;}
+.pay-dopdisp16 {background-image: url("/img/icons/pay-dopdisp16.png") !important;}
+.pay-fbud16 {background-image: url("/img/icons/pay-federal16.png") !important;}
+.pay-orpdisp16 {background-image: url("/img/icons/pay-orph16.png") !important;}
+.pay-money16 {background-image: url("/img/icons/pay-services16.png") !important;}
+.pay-other16 {background-image: url("/img/icons/coins16.png") !important;}
+.usluga-ok16 {background-image: url("/img/icons/tick16.png") !important;}
+.usluga-notok16 {background-image: url("/img/icons/exclamation16.png") !important;}
+.folder-info-open16 {background-image: url("/img/icons/folder-info-open16.png") !important;}
+.folder-info16 {background-image: url("/img/icons/folder-info16.png") !important;}
+.folder-notok-open16 {background-image: url("/img/icons/folder-notok-open16.png") !important;}
+.folder-notok16 {background-image: url("/img/icons/folder-notok16.png") !important;}
+.folder-ok-open16 {background-image: url("/img/icons/folder-ok-open16.png") !important;}
+.folder-ok16 {background-image: url("/img/icons/folder-ok16.png") !important;}
+.warning16 {background-image: url("/img/icons/warning16.png") !important;}
+
+/* Случаи АПЛ и госпитализации в дереве ЭМК */
+.emk-tree-child16, .emk-tree-polka16, .emk-tree-women16, .emk-tree-stomat16, .emk-tree-hospital16,
+.emk-tree-child-locked16, .emk-tree-polka-locked16, .emk-tree-women-locked16, .emk-tree-stomat-locked16, .emk-tree-hospital-locked16,
+.emk-tree-child-unclosed16, .emk-tree-polka-unclosed16, .emk-tree-women-unclosed16, .emk-tree-stomat-unclosed16, .emk-tree-hospital-unclosed16,
+.emk-tree-child-unclosed-locked16, .emk-tree-polka-unclosed-locked16, .emk-tree-women-unclosed-locked16, .emk-tree-stomat-unclosed-locked16, .emk-tree-hospital-unclosed-locked16 {
+	background-image: url("/img/icons/emk-tree-sprite16.png") !important;
+}
+.emk-tree-child16 { background-position: 0 -36px !important;}
+.emk-tree-polka16 { background-position: -16px -36px !important;}
+.emk-tree-women16 { background-position: -32px -36px !important;}
+.emk-tree-stomat16 { background-position: -48px -36px !important;}
+.emk-tree-hospital16 { background-position: -64px -36px !important;}
+
+.emk-tree-child-locked16 { background-position: 0 -54px !important;}
+.emk-tree-polka-locked16 { background-position: -16px -54px !important;}
+.emk-tree-women-locked16 { background-position: -32px -54px !important;}
+.emk-tree-stomat-locked16 { background-position: -48px -54px !important;}
+.emk-tree-hospital-locked16 { background-position: -64px -54px !important;}
+
+.emk-tree-child-unclosed16 { background-position: 0 0 !important;}
+.emk-tree-polka-unclosed16 { background-position: -16px 0 !important;}
+.emk-tree-women-unclosed16 { background-position: -32px 0 !important;}
+.emk-tree-stomat-unclosed16 { background-position: -48px 0 !important;}
+.emk-tree-hospital-unclosed16 { background-position: -64px 0 !important;}
+
+.emk-tree-child-unclosed-locked16 { background-position: 0 -18px !important;}
+.emk-tree-polka-unclosed-locked16 { background-position: -16px -18px !important;}
+.emk-tree-women-unclosed-locked16 { background-position: -32px -18px !important;}
+.emk-tree-stomat-unclosed-locked16 { background-position: -48px -18px !important;}
+.emk-tree-hospital-unclosed-locked16 { background-position: -64px -18px !important;}
+
+.emk-tree-child24, .emk-tree-polka24, .emk-tree-women24, .emk-tree-stomat24, .emk-tree-hospital24, .emk-tree-migrant24, .emk-tree-driver24,
+.emk-tree-child-locked24, .emk-tree-polka-locked24, .emk-tree-women-locked24, .emk-tree-stomat-locked24, .emk-tree-hospital-locked24, .emk-tree-migrant-locked24, .emk-tree-driver-locked24,
+.emk-tree-child-unclosed24, .emk-tree-polka-unclosed24, .emk-tree-women-unclosed24, .emk-tree-stomat-unclosed24, .emk-tree-hospital-unclosed24, .emk-tree-migrant-unclosed24 , .emk-tree-driver-unclosed24 ,
+.emk-tree-child-unclosed-locked24, .emk-tree-polka-unclosed-locked24, .emk-tree-women-unclosed-locked24, .emk-tree-stomat-unclosed-locked24, .emk-tree-hospital-unclosed-locked24, .emk-tree-migrant-unclosed-locked24, .emk-tree-driver-unclosed-locked24  {
+	background-image: url("/img/icons/emk-tree-sprite24.png") !important;
+}
+.emk-tree-child24 { background-position: 0 -48px !important;}
+.emk-tree-polka24 { background-position: -24px -48px !important;}
+.emk-tree-women24 { background-position: -48px -48px !important;}
+.emk-tree-stomat24 { background-position: -72px -48px !important;}
+.emk-tree-hospital24 { background-position: -96px -48px !important;}
+.emk-tree-migrant24 { background-position: -120px -48px !important;}
+.emk-tree-driver24 { background-position: -144px -48px !important;}
+
+.emk-tree-child-locked24 { background-position: 0 -72px !important;}
+.emk-tree-polka-locked24 { background-position: -24px -72px !important;}
+.emk-tree-women-locked24 { background-position: -48px -72px !important;}
+.emk-tree-stomat-locked24 { background-position: -72px -72px !important;}
+.emk-tree-hospital-locked24 { background-position: -96px -72px !important;}
+.emk-tree-migrant-locked24 { background-position: -120px -72px !important;}
+.emk-tree-driver-locked24 { background-position: -144px -72px !important;}
+
+.emk-tree-child-unclosed24 { background-position: 0 0 !important;}
+.emk-tree-polka-unclosed24 { background-position: -24px 0 !important;}
+.emk-tree-women-unclosed24 { background-position: -48px 0 !important;}
+.emk-tree-stomat-unclosed24 { background-position: -72px 0 !important;}
+.emk-tree-hospital-unclosed24 { background-position: -96px 0 !important;}
+.emk-tree-migrant-unclosed24 { background-position: -120px 0 !important;}
+.emk-tree-driver-unclosed24 { background-position: -144px 0 !important;}
+
+.emk-tree-child-unclosed-locked24 { background-position: 0 -24px !important;}
+.emk-tree-polka-unclosed-locked24 { background-position: -24px -24px !important;}
+.emk-tree-women-unclosed-locked24 { background-position: -48px -24px !important;}
+.emk-tree-stomat-unclosed-locked24 { background-position: -72px -24px !important;}
+.emk-tree-hospital-unclosed-locked24 { background-position: -96px -24px !important;}
+.emk-tree-migrant-unclosed-locked24 { background-position: -120px -24px !important;}
+.emk-tree-driver-unclosed-locked24 { background-position: -144px -24px !important;}
+
+/* Для дерева ЭМК 24x24 */
+.folder24 {background-image: url("/img/icons/folder24.png") !important;}
+.document24 {background-image: url("/img/icons/document24.png") !important;}
+.document-parka24 {background-image: url("/img/icons/document-parka24.png") !important;}
+.folder-info24 {background-image: url("/img/icons/folder-info24.png") !important;}
+
+/* Места хранения */
+.storage-tree-child16, .storage-tree-parent16, .storage-tree-child16-cold,
+.storage-tree-child16-pku, .storage-tree-child16-mobile, .storage-tree-child16-pku-mobile,
+.storage-tree-child16-mobile-smp {
+	background-image: url("/img/icons/storage-tree-sprite18.png") !important;
+}
+.storage-tree-parent16 { background-position: -16px 0 !important;}
+.storage-tree-child16 { background-position: -32px 0 !important;}
+.storage-tree-child16-cold { background-position: -48px 0 !important;}
+.storage-tree-child16-pku { background-position: 0 -18px !important;}
+.storage-tree-child16-mobile { background-position: -16px -18px !important;}
+
+.storage-tree-child16-cold-pku,
+.storage-tree-child16-cold-mobile,
+.storage-tree-child16-cold-mobile-man,
+.storage-tree-child16-cold-mobile-smp,
+.storage-tree-child16-cold-pku-mobile,
+.storage-tree-child16-cold-pku-mobile-man,
+.storage-tree-child16-cold-pku-mobile-smp,
+.storage-tree-child16-pku-mobile,
+.storage-tree-child16-pku-mobile-man,
+.storage-tree-child16-pku-mobile-smp,
+.storage-tree-child16-mobile-man,
+.storage-tree-child16-mobile-smp {
+	background-image: url("/img/icons/storagezone-sprite16.png") !important;
+}
+.storage-tree-child16-cold-pku { background-position: 0 0 !important;}
+.storage-tree-child16-cold-mobile { background-position: 0 -18px !important;}
+.storage-tree-child16-cold-mobile-man { background-position: 0 -36px !important;}
+.storage-tree-child16-cold-mobile-smp { background-position: 0 -54px !important;}
+.storage-tree-child16-cold-pku-mobile { background-position: 0 -72px !important;}
+.storage-tree-child16-cold-pku-mobile-man { background-position: 0 -90px !important;}
+.storage-tree-child16-cold-pku-mobile-smp { background-position: 0 -108px !important;}
+.storage-tree-child16-pku-mobile { background-position: 0 -126px !important;}
+.storage-tree-child16-pku-mobile-man { background-position: 0 -144px !important;}
+.storage-tree-child16-pku-mobile-smp { background-position: 0 -162px !important;}
+.storage-tree-child16-mobile-man { background-position: -17px -36px !important;}
+.storage-tree-child16-mobile-smp { background-position: -17px -54px !important;}
+
+.x-tree-node-collapsed .x-tree-node-icon.storage-tree-child16-pku-mobile,
+.x-tree-node-expanded .x-tree-node-icon.storage-tree-child16-pku-mobile,
+.x-tree-node-leaf .x-tree-node-icon.storage-tree-child16-pku-mobile,
+.x-tree-node-collapsed .x-tree-node-icon.storage-tree-child16-cold-mobile,
+.x-tree-node-expanded .x-tree-node-icon.storage-tree-child16-cold-mobile,
+.x-tree-node-leaf .x-tree-node-icon.storage-tree-child16-cold-mobile,
+.x-tree-node-collapsed .x-tree-node-icon.storage-tree-child16-cold-pku,
+.x-tree-node-expanded .x-tree-node-icon.storage-tree-child16-cold-pku,
+.x-tree-node-leaf .x-tree-node-icon.storage-tree-child16-cold-pku,
+.x-tree-node-collapsed .x-tree-node-icon.storage-tree-child16-mobile-smp,
+.x-tree-node-expanded .x-tree-node-icon.storage-tree-child16-mobile-smp,
+.x-tree-node-leaf .x-tree-node-icon.storage-tree-child16-mobile-smp,
+.x-tree-node-collapsed .x-tree-node-icon.storage-tree-child16-mobile-man,
+.x-tree-node-expanded .x-tree-node-icon.storage-tree-child16-mobile-man,
+.x-tree-node-leaf .x-tree-node-icon.storage-tree-child16-mobile-man
+{
+	width:33px;
+}
+
+.x-tree-node-collapsed .x-tree-node-icon.storage-tree-child16-pku-mobile-smp,
+.x-tree-node-expanded .x-tree-node-icon.storage-tree-child16-pku-mobile-smp,
+.x-tree-node-leaf .x-tree-node-icon.storage-tree-child16-pku-mobile-smp,
+.x-tree-node-collapsed .x-tree-node-icon.storage-tree-child16-cold-mobile-smp,
+.x-tree-node-expanded .x-tree-node-icon.storage-tree-child16-cold-mobile-smp,
+.x-tree-node-leaf .x-tree-node-icon.storage-tree-child16-cold-mobile-smp,
+.x-tree-node-collapsed .x-tree-node-icon.storage-tree-child16-cold-pku-mobile,
+.x-tree-node-expanded .x-tree-node-icon.storage-tree-child16-cold-pku-mobile,
+.x-tree-node-leaf .x-tree-node-icon.storage-tree-child16-cold-pku-mobile
+{
+	width:50px;
+}
+
+.x-tree-node-collapsed .x-tree-node-icon.storage-tree-child16-cold-pku-mobile-smp,
+.x-tree-node-expanded .x-tree-node-icon.storage-tree-child16-cold-pku-mobile-smp,
+.x-tree-node-leaf .x-tree-node-icon.storage-tree-child16-cold-pku-mobile-smp,
+.x-tree-node-collapsed .x-tree-node-icon.storage-tree-child16-cold-pku-mobile-man,
+.x-tree-node-expanded .x-tree-node-icon.storage-tree-child16-cold-pku-mobile-man,
+.x-tree-node-leaf .x-tree-node-icon.storage-tree-child16-cold-pku-mobile-man
+{
+	width:67px;
+}
+
+/* Шаблоны */
+.template-data-tag {background-image: url("/img/icons/template-data-tag.png") !important;}
+.template-data-tag-remove {background-image: url("/img/icons/template-data-tag-remove.png") !important;}
+.template-input-area {background-image: url("/img/icons/template-input-area.png") !important;}
+.template-input-area-edit {background-image: url("/img/icons/template-input-area-edit.png") !important;}
+.template-input-area-remove {background-image: url("/img/icons/template-input-area-remove.png") !important;}
+.template-note {background-image: url("/img/icons/template-note.png") !important;}
+.template-print-area {background-image: url("/img/icons/template-print-area.png") !important;}
+.template-print-area-remove {background-image: url("/img/icons/template-print-area-remove.png") !important;}
+.good {background-image: url("/img/icons/ok-transparent16.png") !important;}
+.no-entry {background-image: url("/img/icons/noentry-transparent16.png") !important;}
+/* РЛС */
+.rls16 {background-image: url("/img/icons/rls16.png") !important;}
+.rls32 {background-image: url("/img/icons/rls32.png") !important;}
+.search32 {background-image: url("/img/icons/search32.png") !important;}
+.rls-torg32 {background-image: url("/img/icons/pills32.png") !important;}
+.rls-subst32 {background-image: url("/img/icons/molecule32.png") !important;}
+.manufacturer32 {background-image: url("/img/icons/factory32.png") !important;}
+.rls-pharm32 {background-image: url("/img/icons/rls-pharm32.png") !important;}
+.rls-nos32 {background-image: url("/img/icons/doc-chief32.png") !important;}
+.rls-ath32 {background-image: url("/img/icons/med-heart32.png") !important;}
+.pill16 {background-image: url("/img/icons/pill16.png") !important;}
+.product16 {background-image: url("/img/icons/product16.png") !important;}
+.product-closed16 {background-image: url("/img/icons/product-closed16.png") !important;}
+
+.plan32 {background-image: url("/img/icons/plan32.png") !important;}
+.invent32 {background-image: url("/img/icons/invent32.png") !important;}
+.plan16 {background-image: url("/img/icons/plan16.png") !important;}
+.invent16 {background-image: url("/img/icons/invent16.png") !important;}
+/* Реестр */
+.flag-ok16 {background-image: url("/img/icons/tick16.png") !important;}
+.flag-off16 {background-image: url("/img/icons/cross-off16.png") !important;}
+.flag-warn16 {background-image: url("/img/icons/exclamation16.png") !important;}
+/* Сообщения */
+.messages16 {background-image: url("/img/icons/mail16.png") !important;}
+.messages48 {background-image: url("/img/icons/mail48.png") !important;}
+.mail48 {background-image: url("/img/icons/mail48.png") !important;}
+.mail48unread {background-image: url("/img/icons/mail48unread.png") !important;}
+.message16 {background-image: url("/img/icons/mail16.png") !important;}
+.message-auto16 {background-image: url("/img/icons/mail-auto16.png") !important;}
+.message-unread16 {background-image: url("/img/icons/mail-unread16.png") !important;}
+.message-auto-unread16 {background-image: url("/img/icons/mail-auto-unread16.png") !important;}
+.inbox16 {background-image: url("/img/icons/inbox16.png") !important;}
+.sent16 {background-image: url("/img/icons/mail-send16.png") !important;}
+.draft16 {background-image: url("/img/icons/mail-draft16.png") !important;}
+.address-book16 {background-image: url("/img/icons/address-book16.png") !important;}
+.message-new16 {background-image: url("/img/icons/mail16.png") !important;}
+.message-open16 {background-image: url("/img/icons/mail-open16.png") !important;}
+.message-send16 {background-image: url("/img/icons/mail-send16.png") !important;}
+.star16 {background-image: url("/img/icons/star16.png") !important;}
+.star-empty16 {background-image: url("/img/icons/star-empty16.png") !important;}
+
+.group-global16 {background-image: url("/img/icons/group-global16.png") !important;}
+.group-local16 {background-image: url("/img/icons/group-local16.png") !important;}
+.group-private16 {background-image: url("/img/icons/group-private16.png") !important;}
+
+/* Расписание */
+.create-schedule16 {background-image: url("/img/icons/history16.png") !important;}
+.clear16 {background-image: url("/img/icons/clear16.png") !important;}
+.exec16 {background-image: url("/img/icons/tick16.png") !important;}
+.quota32 {background-image: url("/img/icons/quota32.png") !important;}
+
+/* Опер блок */
+.emk_blue16 {background-image: url("/img/icons/emk_blue16.png")}
+.schedule_blue16 {background-image: url("/img/icons/schedule_blue16.png")}
+.urgent_blue16 {background-image: url("/img/icons/urgent_blue16.png") !important;}
+.checklist_blue16 {background-image: url("/img/icons/checklist_blue16.png")}
+.cancel_blue16 {background-image: url("/img/icons/cancel_blue16.png")}
+.print_blue16 {background-image: url("/img/icons/print_blue16.png")}
+.settings_blue16 {background-image: url("/img/icons/settings_blue16.png")}
+.messages_blue16 {background-image: url("/img/icons/messages_blue16.png")}
+.refresh_blue16 {background-image: url("/img/icons/refresh_blue16.png")}
+a.x4-disabled > span > span > .emk_blue16 {background-image: url("/img/icons/emk_blue16_dis.png") !important;}
+a.x4-disabled > span > span > .schedule_blue16 {background-image: url("/img/icons/schedule_blue16_dis.png") !important;}
+a.x4-disabled > span > span > .urgent_blue16 {background-image: url("/img/icons/urgent_blue16_dis.png") !important;}
+a.x4-disabled > span > span > .checklist_blue16 {background-image: url("/img/icons/checklist_blue16_dis.png") !important;}
+a.x4-disabled > span > span > .cancel_blue16 {background-image: url("/img/icons/cancel_blue16_dis.png") !important;}
+a.x4-disabled > span > span > .print_blue16 {background-image: url("/img/icons/print_blue16_dis.png") !important;}
+a.x4-disabled > span > span > .settings_blue16 {background-image: url("/img/icons/settings_blue16_dis.png") !important;}
+a.x4-disabled > span > span > .messages_blue16 {background-image: url("/img/icons/messages_blue16_dis.png") !important;}
+a.x4-disabled > span > span > .refresh_blue16 {background-image: url("/img/icons/refresh_blue16_dis.png") !important;}
+
+/* Dicom Viewer */
+.dicom-play {background: url("/img/dicomViewer/media_play_pause_inv.png") no-repeat 0 top !important; width: 32px !important; height: 32px !important;}
+.dicom-pause {background: url("/img/dicomViewer/media_play_pause_inv.png") no-repeat 0 bottom !important; width: 32px !important; height: 32px !important;}
+
+.dicom-toppanel-actions {background: url("/img/dicomViewer/small-sprite-sheet.png") no-repeat 0 top !important; width: 25px !important; height: 25px !important; margin: 0 1px;}
+.dicom-movebtn {background-position: -250px 0 !important;}
+.dicom-movebtn:hover, .x-btn-pressed .dicom-movebtn {background-position: -250px -104px !important;}
+.dicom-zoombtn {background-position: -175px 0 !important;}
+.dicom-zoombtn:hover, .x-btn-pressed .dicom-zoombtn {background-position: -175px -104px !important;}
+.dicom-magnifybtn{background-position: -75px -79px !important;}
+.dicom-magnifybtn:hover, .x-btn-pressed .dicom-magnifybtn {background-position: -125px -79px !important;}
+.dicom-brightnessbtn{background-position: -100px -27px !important;}
+.dicom-brightnessbtn:hover, .x-btn-pressed .dicom-brightnessbtn {background-position: -100px -130px !important;}
+.dicom-rotate-cwbtn{background-position: -200px 0px !important;}
+.dicom-rotate-cwbtn:hover, .x-btn-pressed .dicom-rotate-cwbtn {background-position: -200px -104px !important;}
+.dicom-rotate-ccwbtn{background-position: -25px -79px !important;}
+.dicom-rotate-ccwbtn:hover, .x-btn-pressed .dicom-rotate-ccwbtn {background-position: -25px -183px !important;}
+.dicom-rotatecustombtn{background-position: -250px -26px !important;}
+.dicom-rotatecustombtn:hover, .x-btn-pressed .dicom-rotatecustombtn {background-position: -250px -130px !important;}
+.dicom-fliphbtn{background-position: 0px -52px !important;}
+.dicom-fliphbtn:hover, .x-btn-pressed .dicom-fliphbtn {background-position: 0px -156px !important;}
+.dicom-flipvbtn{background-position: 0px 0px !important;}
+.dicom-flipvbtn:hover , .x-btn-pressed .dicom-flipvbtn{background-position: 0px -104px !important;}
+.dicom-fitbtn{background-position: -150px -52px !important;}
+.dicom-fitbtn:hover, .x-btn-pressed .dicom-fitbtn {background-position: -150px -156px !important;}
+.dicom-origfitbtn{background-position: -50px -52px !important;}
+.dicom-origfitbtn:hover, .x-btn-pressed .dicom-origfitbtn {background-position: -50px -156px !important;}
+.dicom-seriesbtn{background-position: -250px -52px !important;}
+.dicom-seriesbtn:hover, .x-btn-pressed .dicom-seriesbtn {background-position: -250px -157px !important;}
+.dicom-videobtn{background-position: -225px -52px !important;}
+.dicom-videobtn:hover, .x-btn-pressed .dicom-videobtn {background-position: -225px -156px !important;}
+.dicom-instansesbtn{background-position: -250px -78px !important;}
+.dicom-instansesbtn:hover, .x-btn-pressed .dicom-instansesbtn {background-position: -250px -182px !important;}
+
+.dicom-svgline{background-position: -275px 0px !important;}
+.dicom-svgline:hover, .x-btn-pressed .dicom-svgline {background-position: -275px -104px !important;}
+.dicom-svgrect{background-position: -175px -52px !important;}
+.dicom-svgrect:hover, .x-btn-pressed .dicom-svgrect {background-position: -175px -156px !important;}
+.dicom-svgellipse{background-position: -50px 0px !important;}
+.dicom-svgellipse:hover, .x-btn-pressed .dicom-svgellipse {background-position: -50px -104px !important;}
+.dicom-svgpoliline{background-position: -275px -26px !important;}
+.dicom-svgpoliline:hover, .x-btn-pressed .dicom-svgpoliline {background-position: -275px -130px !important;}
+.dicom-svgpoligon{background-position: -275px -52px !important;}
+.dicom-svgpoligon:hover, .x-btn-pressed .dicom-svgpoligon {background-position: -275px -156px !important;}
+.dicom-svgcurve{background-position: -275px -78px !important;}
+.dicom-svgcurve:hover, .x-btn-pressed .dicom-svgcurve {background-position: -275px -182px !important;}
+.dicom-svgclosedcurve{background-position: -300px 0px !important;}
+.dicom-svgclosedcurve:hover, .x-btn-pressed .dicom-svgclosedcurve {background-position: -300px -104px !important;}
+.dicom-svgfreehand{background-position: -300px -26px !important;}
+.dicom-svgfreehand:hover, .x-btn-pressed .dicom-svgfreehand {background-position: -300px -130px !important;}
+.dicom-svgtext{background-position: -75px -26px !important;}
+.dicom-svgtext:hover, .x-btn-pressed .dicom-svgtext {background-position: -75px -130px !important;}
+.dicom-svgruler{background-position: -150px -78px !important;}
+.dicom-svgruler:hover, .x-btn-pressed .dicom-svgruler {background-position: -175px -78px !important;}
+.dicom-svgangleruler{background-position: -75px -52px !important;}
+.dicom-svgangleruler:hover, .x-btn-pressed .dicom-svgangleruler {background-position: -75px -156px !important;}
+.dicom-svgelements{background-position: -200px -52px !important;}
+.dicom-svgelements:hover, .x-btn-pressed .dicom-svgelements {background-position: -200px -156px !important;}
+.dicom-svgelementsarrow{background-position: -325px 0px !important;}
+.dicom-svgelementsarrow:hover, .x-btn-pressed .dicom-svgelementsarrow {background-position: -325px -104px !important;}
+.dicom-svgelementsstar{background-position: -325px -26px !important;}
+.dicom-svgelementsstar:hover, .x-btn-pressed .dicom-svgelementsstar {background-position: -325px -130px !important;}
+.dicom-svgelementscross{background-position: -325px -52px !important;}
+.dicom-svgelementscross:hover, .x-btn-pressedc .dicom-svgelementscross {background-position: -325px -156px !important;}
+.dicom-svgelementscheck{background-position: -325px -78px !important;}
+.dicom-svgelementscheck:hover, .x-btn-pressed .dicom-svgelementscheck {background-position: -325px -183px !important;}
+.dicom-svgelementsattention{background-position: -350px 0px !important;}
+.dicom-svgelementsattention:hover, .x-btn-pressed .dicom-svgelementsattention {background-position: -350px -104px !important;}
+.dicom-svgelementsruler{background-position: -350px -26px !important;}
+.dicom-svgelementsruler:hover, .x-btn-pressed .dicom-svgelementsruler {background-position: -350px -130px !important;}
+.dicom-svgelementscalendar{background-position: -350px -52px !important;}
+.dicom-svgelementscalendar:hover, .x-btn-pressed .dicom-svgelementscalendar {background-position: -350px -156px !important;}
+.dicom-svgannotation{background-position: -300px -78px !important;}
+.dicom-svgannotation:hover, .x-btn-pressed .dicom-svgannotation {background-position: -300px -183px !important;}
+.dicom-svgclearall{background-position: -50px -78px !important;}
+.dicom-svgclearall:hover, .x-btn-pressed .dicom-svgclearall {background-position: -100px -78px !important;}
+.dicom-svgsave{background-position: -225px 0px !important;}
+.dicom-svgsave:hover, .x-btn-pressed .dicom-svgsave {background-position: -225px -78px !important;}
+.dicom-svgload{background-position: -225px -26px !important;}
+.dicom-svgload:hover, .x-btn-pressed .dicom-svgload {background-position: -200px -78px !important;}
+.dicom-svgoptions{background-position: -25px -26px !important;}
+.dicom-svgoptions:hover, .x-btn-pressed .dicom-svgoptions {background-position: -25px -130px !important;}
+
+.btn-splitter .x-btn-icon .x-btn-center .x-btn-text{
+	background-position: center center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    height: 32px;
+    padding: 0;
+    white-space: nowrap;
+    width: 6px;
+}
+
+.btn-splitter .x-btn-icon .x-btn-center{
+	background: rgba(0, 0, 0, 0) url("/css/themes/blue/images/button/btn-sprite-large-new.png") repeat-x scroll 0 -76px;
+    cursor: pointer;
+    padding: 0;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    width: 8px;
+}
+
+.btn-splitter .x-btn-left {
+    background: rgba(0, 0, 0, 0) url("/css/themes/blue/images/button/btn-sprite-large-new.png") no-repeat scroll 0 0;
+    height: 38px;
+    width: 3px;
+}
+
+.btn-splitter .x-btn-right {
+    background: rgba(0, 0, 0, 0) url("/css/themes/blue/images/button/btn-sprite-large-new.png") no-repeat scroll 0 -38px;
+    height: 38px;
+    width: 3px;
+}
+
+/*кнопки арма центра мед катастроф*/
+.btn-splitter.x-btn-focus .x-btn-left{background-position: 0 0;}
+.btn-splitter.x-btn-focus .x-btn-right{background-position: 0 -38px;}
+.btn-splitter.x-btn-over .x-btn-left { background-position: 0 -114px;}
+.btn-splitter.x-btn-over .x-btn-right {background-position: 0 -152px;}
+.btn-left-splitter{background-image: url("/css/themes/blue/images/layout/mini-left.gif") !important;}
+.btn-right-splitter{background-image: url("/img/form/mini-right.gif") !important;}
+
+.expand-all-btn{background: url("/css/themes/blue/images/grid/group-expand-sprite.gif") 3px 3px no-repeat !important;}
+.expand-all-btn.opened {background-position: 3px -47px !important;}
+
+.cmk-group-header, .cmk-group-header div{padding: 0;}
+.cmk-group-header>div{margin: 4px 0 0; padding: 2px 4px 4px 17px;}
+.cmkimg{display: inline-block; height: 15px;width: 15px; background: url("/img/form/cmk-sprite.png") no-repeat; vertical-align: sub; margin: 0 4px;}
+.cmkimg.showBuildingOnMap{background-position: 0 0; cursor: pointer;}
+.cmkimg.teamStatusFree{background-position: -15px -30px;}
+.cmkimg.teamStatusDuty{background-position: -15px -15px;}
+.cmkimg.teamStatusUnaccepted{background-position: -15px 0;}
+.cmkimg.callsAccepted{background-position: -32px -48px;}
+.cmkimg.callsNoAccepted{background-position: -33px 0px;}
+.cmkimg.countDocs{background-position: 0px -32px;}
+
+.mapTools .x-toolbar td label {display: flex;align-items: center;}
+.mapTools .x-panel-tbar .mapObj{background: url("/img/form/cmk-sprite.png") no-repeat;height: 15px;width: 15px;display: inline-block;margin: 0 2px 0 2px;}
+.mapTools .x-panel-tbar .mapObj.mapLpuStations { margin-left: 20px; background-position: -49px -16px;}
+.mapTools .x-panel-tbar .mapObj.mapFreeEmergencyTeam {margin-left: 5px; background-position: -16px -32px;}
+.mapTools .x-panel-tbar .mapObj.mapDutyEmergencyTeam { margin-left: 20px; background-position: -17px -16px;}
+.mapTools .x-panel-tbar .mapObj.mapUnacceptedEmergencyTeam {margin-left: 20px; background-position: -16px 0px;}
+.mapTools .x-panel-tbar .mapObj.mapAcceptedCalls { margin-left: 5px; background-position: -33px -48px;}
+.mapTools .x-panel-tbar .mapObj.mapNoAcceptedCalls { margin-left: 20px; background-position: -33px 0px;}
+
+.patient-data32 {background-image: url("/img/icons/ps-data32.png") !important;}
+.sched-16 {background-image: url("/img/icons/sched-16.png") !important;}
+.docs_templ-16 {background-image: url("/img/icons/docs_templ-16.png") !important;}
+
+.ic_ivite16 {background-image: url("/img/icons/ic_ivite.png") !important;}
+.ic_ivite_cancel16 {background-image: url("/img/icons/ic_ivite_cancel.png") !important;}
+.ic_ivite_stop16 {background-image: url("/img/icons/ic_ivite_stop.png") !important;}
+.ic_take16 {background-image: url("/img/icons/ic_take.png") !important;}
+.pol-directions16 {background-image: url("/img/icons/directions16.png") !important;}
+.pol-directions16 {background-image: url("/img/icons/directions16.png") !important;}
+
+.x-html-editor-tb .x-edit-insertdoc .x-btn-text {
+	background-position: -1px 0;
+	background-image: url(/img/icons/paste-doc18.png);
+}
+.x-html-editor-tb .x-edit-expand .x-btn-text {
+	background-position: -1px 0;
+	background-image: url(/img/icons/image-plus18.png);
+}
+.et-online {background-image: url("/img/icons/on.png") !important; width: 16px; height: 12px; float: right; position: absolute; right: 20px; top: 10px;}
+
+.hd-et-online {background-image: url("/img/icons/on.png") !important; width: 16px; height: 12px; margin: auto;}
+
+.eq-call, .eq-finishAndNext {
+	background-image: url("/img/icons/electronicQueue/call.png") !important;
+	background-repeat: no-repeat !important;
+	background-position: 20px 16px !important;
+}
+
+.eq-cancelCall {
+	background-image: url("/img/icons/electronicQueue/call_stop-1.png") !important;
+	background-repeat: no-repeat !important;
+	background-position: 20px 16px !important;
+}
+
+.eq-chair {
+	background-image: url("/img/icons/electronicQueue/chair-1.png") !important;
+	background-repeat: no-repeat !important;
+	background-position: 21px 16px !important;
+
+}
+
+.eq-chair-full-name {
+	background-image: url("/img/icons/electronicQueue/chair-1.png") !important;
+	background-repeat: no-repeat !important;
+	background-position: 21px 16px !important;
+}
+
+.eq-finishReceive {
+	background-image: url("/img/icons/electronicQueue/chair_stop-1.png") !important;
+	background-repeat: no-repeat !important;
+	background-position: 21px 16px !important;
+}
+
+.eq-redirect {
+	background-image: url("/img/icons/electronicQueue/redirect.png") !important;
+	background-repeat: no-repeat !important;
+	background-position: 21px 16px !important;
+}
+
+.eq-redirect6 {
+    background-position: 0px 0px !important;
+}
+
+.eq-no-pos { background-position: unset !important; padding-right: 23px }
+
+.eq32 {background-image: url("/img/icons/electronicQueue/eq32.png") !important;}
+
+.cabinet32 {background-image: url("/img/icons/cabinet32.png") !important;}
+
+.access16-2017 {background-image: url("/img/icons/2017/access16.png") !important;}
+.direction16-2017 {background-image: url("/img/icons/2017/direction16.png") !important;}
+.disp16-2017 {background-image: url("/img/icons/2017/disp16.png") !important;}
+.dtp16-2017 {background-image: url("/img/icons/2017/dtp16.png") !important;}
+.vkqueryjournal16-2017 {background-image: url("/img/icons/2017/vkqueryjournal16.png") !important;}
+.pregnancy-icon {background-image: url("/img/icons/emk/pregancy_icon.png") !important;}
+.evnpl16-2017 {background-image: url("/img/icons/2017/evnpl16.png") !important;}
+.fundholding16-2017 {background-image: url("/img/icons/2017/fundholding16.png") !important;}
+.homevisit16-2017 {background-image: url("/img/icons/2017/homevisit16.png") !important;}
+.hosp16-2017 {background-image: url("/img/icons/2017/hosp16.png") !important;}
+.llo16-2017 {background-image: url("/img/icons/2017/llo16.png") !important;}
+.messages16-2017 {background-image: url("/img/icons/2017/messages16.png") !important;}
+.mphome16-2017 {background-image: url("/img/icons/2017/mphome16.png") !important;}
+.mse16-2017 {background-image: url("/img/icons/2017/mse16.png") !important;}
+.notice16-2017 {background-image: url("/img/icons/2017/notice16.png") !important;}
+.notify16-2017 {background-image: url("/img/icons/2017/notify16.png") !important;}
+.notify16-2017-panel {background-image: url("/img/icons/2017/notify16.png") !important; opacity: 0.6}
+.pathomorph16-2017 {background-image: url("/img/icons/2017/pathomorph16.png") !important;}
+.personcard16-2017 {background-image: url("/img/icons/2017/personcard16.png") !important;}
+.persondisp16-2017 {background-image: url("/img/icons/2017/persondisp16.png") !important;}
+.prof16-2017 {background-image: url("/img/icons/2017/prof16.png") !important;}
+.regions16-2017 {background-image: url("/img/icons/2017/regions16.png") !important;}
+.registers16-2017 {background-image: url("/img/icons/2017/registers16.png") !important;}
+.reports16-2017 {background-image: url("/img/icons/2017/reports16.png") !important;}
+.smp16-2017 {background-image: url("/img/icons/2017/smp16.png") !important;}
+.smpjournal16-2017 {background-image: url("/img/icons/2017/smpjournal16.png") !important;}
+.spr16-2017 {background-image: url("/img/icons/2017/spr16.png") !important;}
+.signalinfo16-2017 {background-image: url("/img/icons/2017/signalInfo16.png") !important;}
+.medsvid16-2017 {background-image: url("/img/icons/2017/medsvid16.png") !important;}
+.templates16-2017 {background-image: url("/img/icons/2017/templates16.png") !important;}
+.timetable16-2017 {background-image: url("/img/icons/2017/timetable16.png") !important;}
+.lpupassport16-2017 {background-image: url("/img/icons/2017/lpupassport16.png") !important;}
+.structure16-2017 {background-image: url("/img/icons/2017/structure16.png") !important;}
+.pcard16-2017 {background-image: url("/img/icons/2017/pcard16.png") !important;}
+.workgraph16-2017 {background-image: url("/img/icons/2017/workgraph16.png") !important;}
+.org16-2017 {background-image: url("/img/icons/2017/org16.png") !important;}
+.product16-2017 {background-image: url("/img/icons/2017/product16.png") !important;}
+.tools16-2017 {background-image: url("/img/icons/2017/tools16.png") !important;}
+.contragent16-2017 {background-image: url("/img/icons/2017/contragent16.png") !important;}
+.numerator16-2017 {background-image: url("/img/icons/2017/numerator16.png") !important;}
+.doubleshistory16-2017 {background-image: url("/img/icons/2017/doubleshistory16.png") !important;}
+.storage16-2017 {background-image: url("/img/icons/2017/storage16.png") !important;}
+.eq16-2017 {background-image: url("/img/icons/2017/eq16.png") !important;}
+.replacement16-2017 {background-image: url("/img/icons/2017/replacement16.png") !important;}
+.cabinet16-2017 {background-image: url("/img/icons/2017/cabinet16.png") !important;}
+.remd16-2017 {background-image: url("/img/icons/2017/remd16.png") !important;}
+.remd-egisz16-2017 {background-image: url("/img/icons/2017/remd-egisz16.png") !important;}
+.stick16-2017 {background-image: url("/img/icons/2017/stick16.png") !important;}
+.cardstorage16-2017 {background-image: url("/img/icons/2017/cardstorage16.png") !important;}
+.find16-2017 {background-image: url("/img/icons/2017/find16.png") !important;}
+.moderrec16-2017 {background-image: url("/img/icons/2017/moderrec16.png") !important;}
+.moderuser16-2017 {background-image: url("/img/icons/2017/moderuser16.png") !important;}
+.quote16-2017 {background-image: url("/img/icons/2017/quote16.png") !important;}
+.emk-view {background-image: url("/img/icons/2017/emk_view.png") !important;}
+.registration-complaints {background-image: url("/img/icons/2017/registration_complaints.png") !important;}
+.emk16-2017 {background-image: url("/img/icons/emk/panelicons/person-tab-icon-white.png") !important;}
+.arrow-next16-2017 {background-image: url("/img/icons/2017/arrow-next16.png") !important; opacity: 0.6}
+.arrow-previous16-2017 {background-image: url("/img/icons/2017/arrow-previous16.png") !important; opacity: 0.6}
+.more-icon16 {background-image: url("/img/icons/emk/panelicons/panelicon10_16.png") !important;}
+
+.select-icon {background-image: url("/img/icons/emk/evnPrescribePanel/typePrescr.png")}
+.action_ok {background-image: url("/img/icons/2017/action_ok.png")}
+.action_cancel {background-image: url("/img/icons/2017/action_cancel.png")}
+.action_openemk {background-image: url("/img/icons/2017/action_openemk.png")}
+.action_openevnps {background-image: url("/img/icons/action_openevnps.svg")}
+.action_print {background-image: url("/img/icons/2017/action_print.png")}
+.action_settings {background-image: url("/img/icons/2017/action_settings.png")}
+.action_decline {background-image: url("/img/icons/2017/action_decline.png")}
+.action_result {background-image: url("/img/icons/2017/action_result.png")}
+.action_urgent {background-image: url("/img/icons/2017/action_urgent.png")}
+.action_schedule {background-image: url("/img/icons/2017/action_schedule.png")}
+.action_messages {background-image: url("/img/icons/2017/action_messages.png")}
+.action_patomorf {background-image: url("/img/icons/2017/action_patomorf.png")}
+.action_readcard {background-image: url("/img/icons/2017/action_readcard.png")}
+.action_find {background-image: url("/img/icons/2017/search16.png")}
+.action_find_white {background-image: url("/img/icons/2017/search16white.png")}
+.action_clear {background-image: url("/img/icons/emk/panelicons/clearTriger.png")}
+.action_record {background-image: url("/img/icons/2017/action_record.png")}
+.action_recordfromqueue {background-image: url("/img/icons/2017/action_recordfromqueue.png")}
+.action_refresh {background-image: url("/img/icons/2017/action_refresh.png")}
+.action_properties {background-image: url("/img/icons/emk/panelicons/panelicon07_16.png")}
+.action_rewrite {background-image: url("/img/icons/2017/action_rewrite.png")}
+.action_toqueue {background-image: url("/img/icons/2017/action_toqueue.png")}
+.action_withoutrecord {background-image: url("/img/icons/2017/action_withoutrecord.png")}
+.action_copy {background-image: url("/img/icons/2017/copy16.png")}
+.action_add {background-image: url("/img/icons/2017/add16.png")}
+.action_edit {background-image: url("/img/icons/2017/edit16.png")}
+.action_view {background-image: url("/img/icons/emk/panelicons/panelicon04_16.png")}
+.action_delete {background-image: url("/img/icons/2017/action_cancel.png")}
+.action_take_sample {background-image: url("/img/icons/2017/uslugapar16.png")}
+.action_cancel_sample {background-image: url("/img/icons/2017/uslugapar16.png")}
+.action_outsourcing_create {background-image: url("/img/icons/2017/uslugapar16.png")}
+
+.cert-disabled {background-image: url("/img/icons/emd/cert_disabled.png")}
+.cert-expired {background-image: url("/img/icons/emd/cert_expired.png")}
+.cert-ok {background-image: url("/img/icons/emd/cert_ok.png")}
+.doc-sign {background-image: url("/img/icons/emd/doc_sign.png"); height: 17px !important;}
+.doc-signed {background-image: url("/img/icons/emd/doc_signed.png")}
+.doc-notactual {background-image: url("/img/icons/emd/doc_notactual.png")}
+.doc-signed-blank {background-image: url("/img/icons/emd/doc_signed_blank.png");}
+.doc-unsigned {background-image: url("/img/icons/emd/doc_notsigned.png");}
+.doc-sign-tiny {background-image: url("/img/icons/emd/doc_sign_tiny.png"); background-position: top !important;}
+.doc-signed-tiny {background-image: url("/img/icons/emd/doc_signed_tiny.png"); background-position: top !important;}
+.doc-notactual-tiny {background-image: url("/img/icons/emd/doc_notactual_tiny.png");  background-position: top !important;}
+.emd-registry {background-image: url("/img/icons/emd/emd_registry.png")}
+
+.menu_help16 {
+	background: url("/img/icons/2017/menu_help.png") center no-repeat;
+	opacity: 0.6;
+}
+.menu_help16:hover{
+	opacity: 0.8;
+}
+
+.menu_vision_off {
+    background: url("/img/icons/visually_impaired/off.png") center no-repeat;
+    width: 24px !important;
+    opacity: 0.6;
+}
+
+.menu_vision_on {
+    background: url("/img/icons/visually_impaired/on.png") center no-repeat;
+    width: 24px !important;
+    opacity: 0.6;
+}
+
+.menu_3dot16 {
+	background: url("/img/icons/2017/menu_3dot.png") center no-repeat;
+	opacity: 0.6;
+}
+.menu_3dot16:hover{
+	opacity: 0.8;
+}
+.menu_dispadd {background-image: url("/img/icons/2017/add16.png") !important;}
+.menu_dispedit {background-image: url("/img/icons/2017/edit16.png") !important;}
+.menu_dispdel {background-image: url("/img/icons/2017/delete16.png") !important;}
+
+.action_revive {background-image: url("/img/icons/2017/revive16.png") !important;}
+.action_doubles {background-image: url("/img/icons/2017/doubles16.png") !important;}
+.action_direction {background-image: url("/img/icons/2017/direction16.png") !important;}
+.action_incomingdir {background-image: url("/img/icons/2017/incomingdir16.png") !important;}
+.action_emergencydir {background-image: url("/img/icons/2017/emergencydir16.png") !important;}
+.action_personcard {background-image: url("/img/icons/2017/pcardsec16.png") !important;}
+.action_homevisit {background-image: url("/img/icons/2017/homevisitsec16.png") !important;}
+.action_history {background-image: url("/img/icons/2017/history-black16.png") !important;}
+
+.person-photo { background: url("/img/icons/emk/person.png") no-repeat center !important; }
+
+.menu-lvn-edit {background-image: url("/img/icons/emk/panelicons/panelicon03_16.png") !important;}
+.menu-lvn-duplicate {background-image: url("/img/icons/emk/panelicons/duplicate16.png") !important;}
+.menu-lvn-view {background-image: url("/img/icons/emk/panelicons/panelicon04_16.png") !important;}
+.menu-lvn-del {background-image: url("/img/icons/emk/panelicons/deleteItem.png") !important;}
+.action_invite{background-image: url("../img/icons/emk/panelicons/invite-icon.png") !important;}
+.action_invite{background-image: url("../img/icons/emk/panelicons/invite-icon.png") !important;}
+.action_addDate{background-image: url("../img/icons/2017/calendar16.png") !important;}
+.action_addinprogram{background-image: url("../img/icons/emk/panelicons/panelicon12_16.png") !important;}
+.action_sendmessage{background-image: url("../img/icons/emk/panelicons/send-message-icon.png") !important;}
+.action_deleteinprogram{background-image: url("../img/icons/2017/action_cancel.png") !important;}
+.distance-monitoring{background-image: url("../img/icons/2017/distanse-monitoring-icon.png") !important;}
+.egisso16 {background-image: url("/img/icons/egisso16.png") !important;}
+.egisso32 {background-image: url("/img/icons/egisso32.png") !important;}
+.grouping_by {background-image: url(/img/icons/emk/arrow-expand.png)}
+.replace16 {background-image: url("/img/icons/replace16.png") !important;}
+.private-clinic-process-request {
+    background-image: url("/img/icons/privateClinic/process.png");
+}
+.private-clinic-edit-request {
+    background-image: url("/img/icons/privateClinic/edit16.png");
+}
+.private-clinic-decline-request {
+    background-image: url("/img/icons/privateClinic/action_cancel.png");
+}
+.regpol-private-clinic-icon {
+    background-size: 16px 16px;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 9px;
+	opacity: 0.6;
+}
+
+.regpol-income-process-request {
+    background-image: url("/img/icons/privateClinic/process.png");
+}
+.regpol-income-new-request {
+    background-image: url("/img/icons/privateClinic/sign.png");
+}
+.regpol-income-warning {
+	background-image: url("/img/icons/privateClinic/warning.png");
+}
+
+.regpol-processed-accepted {
+    background-image: url("/img/icons/privateClinic/accepted.png");
+
+}
+.regpol-processed-canceled-client {
+    background-image: url("/img/icons/privateClinic/sign_red.png");
+}
+
+.regpol-processed-canceled-clinic {
+    background-image: url("/img/icons/privateClinic/canceled_clinic.png");
+}
+
+.regpol-tools {
+	background-repeat: no-repeat;
+	background-size: 16px 16px;
+	opacity: 0.6;
+	margin-top: 2px;
+	width: 18px;
+	height: 18px;
+	position: relative;
+	background-position: 9px 7px;
+	border-radius: 5px;
+}
+
+.regpol-tools:not(.disable-hover):hover {
+	background-color: #DDDDDD;
+	opacity: 0.8;
+}
+
+.regpol-tools.disabled {
+	opacity: 0.3 !important;
+	background-color: unset;
+}
+
+.regpol-tools-patient_approve {background-image: url("/img/icons/privateClinic/patient_approve.png");}
+.regpol-tools-patient_unapprove {background-image: url("/img/icons/privateClinic/patient_unapprove.png");}
+.regpol-tools-edit {background-image: url("/img/icons/privateClinic/edit16.png");}
+.regpol-tools-decline {background-image: url("/img/icons/privateClinic/action_cancel.png");}

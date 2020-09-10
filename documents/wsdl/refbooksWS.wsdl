@@ -1,0 +1,435 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:typens="http://atria.cz/nsi/types" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:bi="http://atria.cz/common/base/info/build/" name="refbookService" targetNamespace="http://atria.cz/nsi/types">
+  <wsdl:types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:typens="http://atria.cz/nsi/types" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:bi="http://atria.cz/common/base/info/build/">
+            
+  <xsd:import namespace="http://atria.cz/common/base/info/build/" schemaLocation="https://rmis66.mis66.ru/refbooks-ws/refbooksWS?xsd=http://atria.cz/common/base/buildInfo.xsd"/>
+        
+</xsd:schema>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:typens="http://atria.cz/nsi/types" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:bi="http://atria.cz/common/base/info/build/" elementFormDefault="qualified" targetNamespace="http://atria.cz/nsi/types">
+            
+  <xsd:complexType name="getRefbookRequest">
+                
+    <xsd:sequence>
+                    
+      <xsd:element name="refbookCode" type="xsd:string"/>
+                    
+      <xsd:element name="version" type="xsd:string"/>
+                
+    </xsd:sequence>
+            
+  </xsd:complexType>
+
+            
+  <xsd:complexType name="getRefbookResponse">
+                
+    <xsd:sequence>
+                    
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="row" type="typens:rowType"/>
+                
+    </xsd:sequence>
+            
+  </xsd:complexType>
+
+            
+  <xsd:complexType name="getRefbookListResponse">
+                
+    <xsd:sequence>
+                    
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="refbook" type="typens:rowType"/>
+                
+    </xsd:sequence>
+            
+  </xsd:complexType>
+
+            
+  <xsd:complexType name="getRefbookPartialRequest">
+                
+    <xsd:sequence>
+                    
+      <xsd:element name="refbookCode" type="xsd:string"/>
+                    
+      <xsd:element name="version" type="xsd:string"/>
+                    
+      <xsd:element name="partNumber" type="xsd:integer"/>
+                
+    </xsd:sequence>
+            
+  </xsd:complexType>
+
+            
+  <xsd:complexType name="getRefbookPartialResponse">
+                
+    <xsd:sequence>
+                    
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="row" type="typens:rowType"/>
+                
+    </xsd:sequence>
+            
+  </xsd:complexType>
+
+            
+  <xsd:complexType name="getRefbookPartsRequest">
+                
+    <xsd:sequence>
+                    
+      <xsd:element name="refbookCode" type="xsd:string"/>
+                    
+      <xsd:element name="version" type="xsd:string"/>
+                
+    </xsd:sequence>
+            
+  </xsd:complexType>
+
+            
+  <xsd:complexType name="getRefbookPartsResponse">
+                
+    <xsd:sequence>
+                    
+      <xsd:element name="count" type="xsd:integer"/>
+                
+    </xsd:sequence>
+            
+  </xsd:complexType>
+
+            
+  <xsd:complexType name="getRefbookRowDataRequest">
+                
+    <xsd:sequence>
+                    
+      <xsd:element name="refbookCode" type="xsd:string"/>
+                    
+      <xsd:element name="version" type="xsd:string"/>
+                    
+      <xsd:element maxOccurs="1" minOccurs="1" name="column" type="typens:columnType"/>
+                
+    </xsd:sequence>
+            
+  </xsd:complexType>
+
+            
+  <xsd:complexType name="getRefbookRowDataResponse">
+                
+    <xsd:sequence>
+                    
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="row" type="typens:rowType"/>
+                
+    </xsd:sequence>
+            
+  </xsd:complexType>
+
+            
+  <xsd:complexType name="getServerTimeRequest">
+                
+    <xsd:sequence/>
+            
+  </xsd:complexType>
+
+            
+  <xsd:complexType name="getServerTimeResponse">
+                
+    <xsd:sequence>
+                    
+      <xsd:element name="timestamp" type="xsd:dateTime"/>
+                
+    </xsd:sequence>
+            
+  </xsd:complexType>
+
+            
+  <xsd:complexType name="getVersionListRequest">
+                
+    <xsd:sequence>
+                    
+      <xsd:element name="refbookCode" type="xsd:string"/>
+                
+    </xsd:sequence>
+            
+  </xsd:complexType>
+
+            
+  <xsd:complexType name="getVersionListResponse">
+                
+    <xsd:sequence>
+                    
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="version" type="typens:rowType"/>
+                
+    </xsd:sequence>
+            
+  </xsd:complexType>
+
+            
+  <xsd:complexType name="rowType">
+                
+    <xsd:sequence>
+                    
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="column" type="typens:columnType"/>
+                
+    </xsd:sequence>
+            
+  </xsd:complexType>
+
+            
+  <xsd:complexType name="columnType">
+                
+    <xsd:sequence>
+                    
+      <xsd:element name="name" type="xsd:string"/>
+                    
+      <xsd:element name="data" nillable="true" type="xsd:string"/>
+                
+    </xsd:sequence>
+            
+  </xsd:complexType>
+
+            
+  <xsd:element name="getRefbookRequest" type="typens:getRefbookRequest"/>
+            
+  <xsd:element name="getRefbookResponse" type="typens:getRefbookResponse"/>
+
+            
+  <xsd:element name="getRefbookListResponse" type="typens:getRefbookListResponse"/>
+
+            
+  <xsd:element name="getRefbookPartialRequest" type="typens:getRefbookPartialRequest"/>
+            
+  <xsd:element name="getRefbookPartialResponse" type="typens:getRefbookPartialResponse"/>
+
+            
+  <xsd:element name="getRefbookPartsRequest" type="typens:getRefbookPartsRequest"/>
+            
+  <xsd:element name="getRefbookPartsResponse" type="typens:getRefbookPartsResponse"/>
+
+            
+  <xsd:element name="getRefbookRowDataRequest" type="typens:getRefbookRowDataRequest"/>
+            
+  <xsd:element name="getRefbookRowDataResponse" type="typens:getRefbookRowDataResponse"/>
+
+            
+  <xsd:element name="getServerTimeRequest" type="typens:getServerTimeRequest"/>
+            
+  <xsd:element name="getServerTimeResponse" type="typens:getServerTimeResponse"/>
+
+            
+  <xsd:element name="getVersionListRequest" type="typens:getVersionListRequest"/>
+            
+  <xsd:element name="getVersionListResponse" type="typens:getVersionListResponse"/>
+        
+</xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="getRefbookRowDataResponse">
+    <wsdl:part element="typens:getRefbookRowDataResponse" name="getRefbookRowDataReturn">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRefbookResponse">
+    <wsdl:part element="typens:getRefbookResponse" name="getRefbookReturn">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRefbookPartial">
+    <wsdl:part element="typens:getRefbookPartialRequest" name="getRefbookPartialRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getVersionRequest">
+    <wsdl:part element="bi:getVersionRequest" name="getVersionRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRefbookList">
+  </wsdl:message>
+  <wsdl:message name="getServerTimeResponse">
+    <wsdl:part element="typens:getServerTimeResponse" name="getServerTimeResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRefbook">
+    <wsdl:part element="typens:getRefbookRequest" name="getRefbookRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRefbookParts">
+    <wsdl:part element="typens:getRefbookPartsRequest" name="getRefbookPartsRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRefbookListResponse">
+    <wsdl:part element="typens:getRefbookListResponse" name="getRefbookListReturn">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getVersionResponse">
+    <wsdl:part element="bi:getVersionResponse" name="getVersionResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getServerTime">
+    <wsdl:part element="typens:getServerTimeRequest" name="getServerTimeRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getVersionListResponse">
+    <wsdl:part element="typens:getVersionListResponse" name="getVersionListResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRefbookPartialResponse">
+    <wsdl:part element="typens:getRefbookPartialResponse" name="getRefbookPartialReturn">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRefbookRowData">
+    <wsdl:part element="typens:getRefbookRowDataRequest" name="getRefbookRowDataRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRefbookPartsResponse">
+    <wsdl:part element="typens:getRefbookPartsResponse" name="getRefbookPartsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getVersionList">
+    <wsdl:part element="typens:getVersionListRequest" name="getVersionListRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="SOAPServPortType">
+<wsdl:documentation>
+            SOAP Server description file
+        </wsdl:documentation>
+    <wsdl:operation name="getRefbook">
+<wsdl:documentation>
+                Gets a specified version of a reference book
+            </wsdl:documentation>
+      <wsdl:input message="typens:getRefbook">
+    </wsdl:input>
+      <wsdl:output message="typens:getRefbookResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRefbookList">
+<wsdl:documentation>
+                Gets a list of reference books user is subscribed to
+            </wsdl:documentation>
+      <wsdl:input message="typens:getRefbookList">
+    </wsdl:input>
+      <wsdl:output message="typens:getRefbookListResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRefbookPartial">
+<wsdl:documentation>
+                Gets a part of a specified version of a reference book
+            </wsdl:documentation>
+      <wsdl:input message="typens:getRefbookPartial">
+    </wsdl:input>
+      <wsdl:output message="typens:getRefbookPartialResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRefbookParts">
+<wsdl:documentation>
+                Gets an amount of parts of a specified version of a reference book
+            </wsdl:documentation>
+      <wsdl:input message="typens:getRefbookParts">
+    </wsdl:input>
+      <wsdl:output message="typens:getRefbookPartsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRefbookRowData">
+<wsdl:documentation>
+                Gets a row data of a specified version of a reference book
+            </wsdl:documentation>
+      <wsdl:input message="typens:getRefbookRowData">
+    </wsdl:input>
+      <wsdl:output message="typens:getRefbookRowDataResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getServerTime">
+<wsdl:documentation>
+                Returns current server time
+            </wsdl:documentation>
+      <wsdl:input message="typens:getServerTime">
+    </wsdl:input>
+      <wsdl:output message="typens:getServerTimeResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVersionList">
+<wsdl:documentation>
+                Gets a list of versions of a specified reference book
+            </wsdl:documentation>
+      <wsdl:input message="typens:getVersionList">
+    </wsdl:input>
+      <wsdl:output message="typens:getVersionListResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVersion">
+      <wsdl:input message="typens:getVersionRequest" name="getVersionRequest">
+    </wsdl:input>
+      <wsdl:output message="typens:getVersionResponse" name="getVersionResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SOAPServBinding" type="typens:SOAPServPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getRefbook">
+      <soap:operation soapAction="urn:SOAPServAction"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRefbookList">
+      <soap:operation soapAction="urn:SOAPServAction"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRefbookPartial">
+      <soap:operation soapAction="urn:SOAPServAction"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRefbookParts">
+      <soap:operation soapAction="urn:SOAPServAction"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRefbookRowData">
+      <soap:operation soapAction="urn:SOAPServAction"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getServerTime">
+      <soap:operation soapAction="urn:SOAPServAction"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVersionList">
+      <soap:operation soapAction="urn:SOAPServAction"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVersion">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="refbookService">
+    <wsdl:port binding="typens:SOAPServBinding" name="SOAPServPort">
+      <soap:address location="https://rmis66.mis66.ru/refbooks-ws/refbooksWS"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,1 @@
+<table width=&quot;100%&quot;><thead><tr><th>Тип свидетельства</th><th>Серия</th><th>Номер</th><th>Дата выдачи</th></tr></thead><tbody>{items}</tbody></table>

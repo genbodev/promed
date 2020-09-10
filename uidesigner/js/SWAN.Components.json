@@ -1,0 +1,21 @@
+[{
+  text: "Дополнительные компоненты",
+  cls: "folder",
+  childeren: [{
+      text: "Ввод времени",
+      qtip: "Поле для ввода времени в формате ЧЧ:ММ",
+      cls: "file",
+      config: {
+        xtype: "swtempltimefield",
+        fieldLabel : "Время"
+      }
+  },
+  {
+      text: "Выбор даты",
+      qtip: "Поле для выбора даты в формате ДД.ММ.ГГГГ",      
+      config: {
+        xtype: "swtemplditefield"
+      },
+      cls: "file"
+    }]
+}]

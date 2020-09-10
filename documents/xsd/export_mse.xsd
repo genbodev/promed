@@ -1,0 +1,888 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Форма 088у. 2018 год -->
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://rosmintrud.ru/mse/eaviias/form88/180906" targetNamespace="http://rosmintrud.ru/mse/eaviias/form88/180906" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<complexType name="DicRecordType">
+		<annotation>
+			<documentation>Значение справочника</documentation>
+		</annotation>
+		<sequence>
+			<element name="Id" type="int">
+				<annotation>
+					<documentation>Идентификатор записи</documentation>
+				</annotation>
+			</element>
+			<element name="Value" type="string" nillable="true">
+				<annotation>
+					<documentation>Значение записи</documentation>
+				</annotation>
+			</element>
+		</sequence>
+	</complexType>
+	<complexType name="AddressType">
+		<annotation>
+			<documentation>Адрес</documentation>
+		</annotation>
+		<sequence>
+			<element name="ZipCode" nillable="true">
+				<annotation>
+					<documentation>Почтовый индекс</documentation>
+				</annotation>
+				<simpleType>
+					<restriction base="string">
+						<length value="6"/>
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="TerritorySubject" type="tns:DicRecordType" nillable="true">
+				<annotation>
+					<documentation>Субъект РФ</documentation>
+				</annotation>
+			</element>
+			<element name="TerritorySubjectOther" type="string" minOccurs="0">
+				<annotation>
+					<documentation>Субъект в случае непопадания в справочник</documentation>
+				</annotation>
+			</element>
+			<element name="District" type="string" nillable="true">
+				<annotation>
+					<documentation>Район</documentation>
+				</annotation>
+			</element>
+			<element name="Place" type="string">
+				<annotation>
+					<documentation>Населенный пункт</documentation>
+				</annotation>
+			</element>
+			<element name="Street" type="string">
+				<annotation>
+					<documentation>Улица</documentation>
+				</annotation>
+			</element>
+			<element name="Building" type="string" nillable="true">
+				<annotation>
+					<documentation>Дом, корпус, строение</documentation>
+				</annotation>
+			</element>
+			<element name="Flat" type="string" nillable="true">
+				<annotation>
+					<documentation>Квартира</documentation>
+				</annotation>
+			</element>
+		</sequence>
+	</complexType>
+	<simpleType name="OgrnType">
+		<restriction base="string">
+			<pattern value="[0-9]{13}"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="SnilsType">
+		<annotation>
+			<documentation>СНИЛС</documentation>
+		</annotation>
+		<restriction base="string">
+			<pattern value="[0-9]{3}-[0-9]{3}-[0-9]{3}\s[0-9]{2}"/>
+		</restriction>
+	</simpleType>
+	<complexType name="IssuedDocType">
+		<annotation>
+			<documentation>Сведения об удостоверяющем документе</documentation>
+		</annotation>
+		<sequence>
+			<element name="IdentityCardTypeId" type="tns:DicRecordType">
+				<annotation>
+					<documentation>Тип документа</documentation>
+				</annotation>
+			</element>
+			<element name="Series" type="string">
+				<annotation>
+					<documentation>Серия</documentation>
+				</annotation>
+			</element>
+			<element name="Number" type="string">
+				<annotation>
+					<documentation>Номер</documentation>
+				</annotation>
+			</element>
+			<element name="IssueOrgName" type="string">
+				<annotation>
+					<documentation>Кем выдан</documentation>
+				</annotation>
+			</element>
+			<element name="IssueDate" type="date">
+				<annotation>
+					<documentation>Дата выдачи</documentation>
+				</annotation>
+			</element>
+		</sequence>
+	</complexType>
+	<complexType name="TempWorkDisabilityType">
+		<annotation>
+			<documentation>Сведения о периоде временной нетрудоспособности</documentation>
+		</annotation>
+		<sequence>
+			<element name="StartDate" type="date">
+				<annotation>
+					<documentation>Дата начала временной нетрудоспособности</documentation>
+				</annotation>
+			</element>
+			<element name="EndDate" type="date">
+				<annotation>
+					<documentation>Дата окончания временной нетрудоспособности</documentation>
+				</annotation>
+			</element>
+			<element name="DaysCount" type="string">
+				<annotation>
+					<documentation>Число дней (месяцев и дней) временной нетрудоспособности</documentation>
+				</annotation>
+			</element>
+			<element name="Diagnosis" type="string">
+				<annotation>
+					<documentation>Диагноз</documentation>
+				</annotation>
+			</element>
+		</sequence>
+	</complexType>
+	<complexType name="AttachmentItemType">
+		<annotation>
+			<documentation>Сведения о приложенном к направлению файле</documentation>
+		</annotation>
+		<sequence>
+			<element name="Name" type="string">
+				<annotation>
+					<documentation>Название</documentation>
+				</annotation>
+			</element>
+			<element name="Type" type="string">
+				<annotation>
+					<documentation>Тип вложения</documentation>
+				</annotation>
+			</element>
+			<element name="Size" type="long">
+				<annotation>
+					<documentation>Размер в байтах</documentation>
+				</annotation>
+			</element>
+			<element name="Checksum" minOccurs="0">
+				<annotation>
+					<documentation>Сведения о контрольной сумме файла</documentation>
+				</annotation>
+				<complexType>
+					<sequence>
+						<element name="Value" type="string">
+							<annotation>
+								<documentation>Контрольная сумма файла</documentation>
+							</annotation>
+						</element>
+						<element name="Alg" type="string">
+							<annotation>
+								<documentation>Алгоритм рассчёта контрольной суммы</documentation>
+							</annotation>
+						</element>
+					</sequence>
+				</complexType>
+			</element>
+			<element name="SignatureFileName" minOccurs="0">
+				<annotation>
+					<documentation>Имя файла отсоединённой ЭП данного файла (при наличии)</documentation>
+				</annotation>
+			</element>
+		</sequence>
+	</complexType>
+	<complexType name="Form88Type">
+		<sequence>
+			<element name="MedOrgName" type="string">
+				<annotation>
+					<documentation>Наименование медицинской организации</documentation>
+				</annotation>
+			</element>
+			<element name="MedOrgAddress" type="string">
+				<annotation>
+					<documentation>Адрес медицинской организации</documentation>
+				</annotation>
+			</element>
+			<element name="MedOrgTerritorySubject" type="tns:DicRecordType">
+				<annotation>
+					<documentation>Регион организации, выдавшей направление (ранее RefferalOrgNREG)</documentation>
+				</annotation>
+			</element>
+			<element name="MedOrgOgrn" type="tns:OgrnType">
+				<annotation>
+					<documentation>ОГРН организации, выдавшей направление</documentation>
+				</annotation>
+			</element>
+			<element name="ProtocolNum" type="string">
+				<annotation>
+					<documentation>Номер протокола  врачебной комиссии</documentation>
+				</annotation>
+			</element>
+			<element name="ProtocolDate" type="date">
+				<annotation>
+					<documentation>Дата протокола  врачебной комиссии</documentation>
+				</annotation>
+			</element>
+			<element name="MseMustBeAtHome" type="boolean">
+				<annotation>
+					<documentation>Гражданин по состоянию здоровья не может явиться в бюро (главное бюро, Федеральное бюро) медико-социальной экспертизы: медико-социальную экспертизу необходимо проводить на дому</documentation>
+				</annotation>
+			</element>
+			<element name="PalliativeHelpNeeded" type="boolean">
+				<annotation>
+					<documentation>Гражданин нуждается в оказании паллиативной медицинской помощи</documentation>
+				</annotation>
+			</element>
+			<element name="IssueDate" type="date">
+				<annotation>
+					<documentation>Дата выдачи гражданину направления на медико-социальную экспертизу медицинской организацией</documentation>
+				</annotation>
+			</element>
+			<element name="ExaminationPurposes">
+				<annotation>
+					<documentation>Цель направления гражданина на  медико-социальную  экспертизу</documentation>
+				</annotation>
+				<complexType>
+					<sequence>
+						<element name="Purpose" type="tns:DicRecordType" minOccurs="1" maxOccurs="unbounded"/>
+					</sequence>
+				</complexType>
+			</element>
+			<element name="ExaminationPurposesComment" type="string" nillable="true">
+				<annotation>
+					<documentation>Иные цели, установленные законодательством Российской Федерации (не из справочника)</documentation>
+				</annotation>
+			</element>
+			<element name="LastName" type="string">
+				<annotation>
+					<documentation>Фамилия гражданина</documentation>
+				</annotation>
+			</element>
+			<element name="FirstName" type="string">
+				<annotation>
+					<documentation>Имя гражданина</documentation>
+				</annotation>
+			</element>
+			<element name="SecondName" type="string" nillable="true">
+				<annotation>
+					<documentation>Отчество гражданина</documentation>
+				</annotation>
+			</element>
+			<element name="BirthDate" type="date">
+				<annotation>
+					<documentation>Дата рождения гражданина</documentation>
+				</annotation>
+			</element>
+			<element name="Age">
+				<annotation>
+					<documentation>Возраст гражданина</documentation>
+				</annotation>
+				<complexType>
+					<sequence>
+						<element name="Years" type="int">
+							<annotation>
+								<documentation>Кол-во полных лет (от 0 и выше)</documentation>
+							</annotation>
+						</element>
+						<element name="Months" type="int" nillable="true">
+							<annotation>
+								<documentation>Кол-во полных месяцев (для детей в возрасте до 1 года)</documentation>
+							</annotation>
+						</element>
+					</sequence>
+				</complexType>
+			</element>
+			<element name="Gender">
+				<annotation>
+					<documentation>
+									Пол:
+									1 - мужской
+									2 - женский
+								</documentation>
+				</annotation>
+				<simpleType>
+					<restriction base="integer">
+						<enumeration value="1"/>
+						<enumeration value="2"/>
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="Citizenship" type="tns:DicRecordType">
+				<annotation>
+					<documentation>Гражданство</documentation>
+				</annotation>
+			</element>
+			<element name="MilitaryDuty" type="tns:DicRecordType">
+				<annotation>
+					<documentation>Отношение к воинской обязанности</documentation>
+				</annotation>
+			</element>
+			<element name="AddressType" type="tns:DicRecordType" nillable="true">
+				<annotation>
+					<documentation>Тип адреса (адрес места жительства (при отсутствии места жительства указывается адрес пребывания, фактического проживания на территории Российской Федерации, место нахождения пенсионного дела инвалида, выехавшего на постоянное жительство за пределы территории Российской Федерации))</documentation>
+				</annotation>
+			</element>
+			<element name="Address" type="tns:AddressType" nillable="true">
+				<annotation>
+					<documentation>Адрес места жительства (при отсутствии места жительства указывается адрес пребывания, фактического проживания на территории Российской Федерации, место нахождения пенсионного дела инвалида, выехавшего на постоянное жительство за пределы территории Российской Федерации)</documentation>
+				</annotation>
+			</element>
+			<element name="HasNoLivingAddress" type="boolean">
+				<annotation>
+					<documentation>Лицо без определенного места жительства (в случае если гражданин не имеет определенного места жительства)</documentation>
+				</annotation>
+			</element>
+			<element name="PersonPlace">
+				<annotation>
+					<documentation>Гражданин находится</documentation>
+				</annotation>
+				<complexType>
+					<sequence>
+						<element name="PlaceType" type="tns:DicRecordType">
+							<annotation>
+								<documentation>Тип (мед. организация, организация соц. обслуживания и т.п.) или по месту жительства</documentation>
+							</annotation>
+						</element>
+						<element name="PlaceAddress" type="tns:AddressType" nillable="true">
+							<annotation>
+								<documentation>Адрес организации, в которой находится гражданин</documentation>
+							</annotation>
+						</element>
+						<element name="PlaceOgrn" type="tns:OgrnType" nillable="true">
+							<annotation>
+								<documentation>ОГРН организации, в которой находится гражданин</documentation>
+							</annotation>
+						</element>
+					</sequence>
+				</complexType>
+			</element>
+			<element name="Phone" type="string" nillable="true">
+				<annotation>
+					<documentation>Номера телефонов</documentation>
+				</annotation>
+			</element>
+			<element name="Email" type="string" nillable="true">
+				<annotation>
+					<documentation>Адрес электронной почты</documentation>
+				</annotation>
+			</element>
+			<element name="Snils" type="tns:SnilsType" nillable="true">
+				<annotation>
+					<documentation>Страховой номер индивидуального лицевого счета (СНИЛС)</documentation>
+				</annotation>
+			</element>
+			<element name="IdentityDoc" type="tns:IssuedDocType">
+				<annotation>
+					<documentation>Документ, удостоверяющий личность</documentation>
+				</annotation>
+			</element>
+			<element name="Representer" nillable="true">
+				<annotation>
+					<documentation>Сведения о законном (уполномоченном) представителе гражданина, направляемого на медико-социальную экспертизу</documentation>
+				</annotation>
+				<complexType>
+					<sequence>
+						<element name="LastName" type="string">
+							<annotation>
+								<documentation>Фамилия гражданина</documentation>
+							</annotation>
+						</element>
+						<element name="FirstName" type="string">
+							<annotation>
+								<documentation>Имя гражданина</documentation>
+							</annotation>
+						</element>
+						<element name="SecondName" type="string" nillable="true">
+							<annotation>
+								<documentation>Отчество гражданина</documentation>
+							</annotation>
+						</element>
+						<element name="AuthorityDoc" type="tns:IssuedDocType">
+							<annotation>
+								<documentation>Документ, удостоверяющий полномочия законного (уполномоченного) представителя</documentation>
+							</annotation>
+						</element>
+						<element name="IdentityDoc" type="tns:IssuedDocType">
+							<annotation>
+								<documentation>Документ, удостоверяющий личность</documentation>
+							</annotation>
+						</element>
+						<element name="Phone" type="string" nillable="true">
+							<annotation>
+								<documentation>Номера телефонов</documentation>
+							</annotation>
+						</element>
+						<element name="Email" type="string" nillable="true">
+							<annotation>
+								<documentation>Адрес электронной почты</documentation>
+							</annotation>
+						</element>
+						<element name="Snils" type="tns:SnilsType" nillable="true">
+							<annotation>
+								<documentation>Страховой номер индивидуального лицевого счета (СНИЛС)</documentation>
+							</annotation>
+						</element>
+					</sequence>
+				</complexType>
+			</element>
+			<element name="RepresentativeOrg" nillable="true">
+				<annotation>
+					<documentation>Cведения об организации в случае возложения опеки (попечительства) на юридическое лицо</documentation>
+				</annotation>
+				<complexType>
+					<sequence>
+						<element name="Name" type="string">
+							<annotation>
+								<documentation>Наименование</documentation>
+							</annotation>
+						</element>
+						<element name="Address" type="tns:AddressType">
+							<annotation>
+								<documentation>Адрес</documentation>
+							</annotation>
+						</element>
+						<element name="Ogrn" type="tns:OgrnType">
+							<annotation>
+								<documentation>ОГРН</documentation>
+							</annotation>
+						</element>
+					</sequence>
+				</complexType>
+			</element>
+			<element name="RepetitionKind" type="tns:DicRecordType">
+				<annotation>
+					<documentation>Гражданин направляется на медико-социальную экспертизу впервые или повторно</documentation>
+				</annotation>
+			</element>
+			<element name="PrevExamInfo" nillable="true">
+				<annotation>
+					<documentation>Сведения о результатах предыдущей медико-социальной экспертизы (в случае направления на медико-социальную экспертизу повторно)</documentation>
+				</annotation>
+				<complexType>
+					<sequence>
+						<element name="DisabilityGroup" type="tns:DicRecordType" nillable="true">
+							<annotation>
+								<documentation>Наличие инвалидности на момент направления на медико-социальную экспертизу</documentation>
+							</annotation>
+						</element>
+						<element name="DisabilityEndDate" type="date" nillable="true">
+							<annotation>
+								<documentation>Дата, до которой установлена инвалидность</documentation>
+							</annotation>
+						</element>
+						<element name="DisabilityPeriod" type="tns:DicRecordType" nillable="true">
+							<annotation>
+								<documentation>Период, в течение которого гражданин находился на инвалидности на момент направления на медико-социальную экспертизу</documentation>
+							</annotation>
+						</element>
+						<element name="DisabilityReason" type="tns:DicRecordType" nillable="true">
+							<annotation>
+								<documentation>Причина инвалидности, имеющаяся на момент направления на медико-социальную экспертизу</documentation>
+							</annotation>
+						</element>
+						<element name="DisabilityReasonOther" type="string" nillable="true">
+							<annotation>
+								<documentation>Иные причины, установленные законодательством Российской Федерации (не из справочника)</documentation>
+							</annotation>
+						</element>
+						<element name="DisabilityReasonOutdated" type="string" nillable="true">
+							<annotation>
+								<documentation>формулировки причин инвалидности, установленные в соответствии с законодательством, действовавшим на момент установления инвалидности</documentation>
+							</annotation>
+						</element>
+						<element name="ProfLossDegree" nillable="true">
+							<annotation>
+								<documentation>Степень утраты профессиональной трудоспособности в процентах на момент направления гражданина на медико-социальную экспертизу</documentation>
+							</annotation>
+							<simpleType>
+								<restriction base="int">
+									<minInclusive value="0"/>
+									<maxInclusive value="100"/>
+								</restriction>
+							</simpleType>
+						</element>
+						<element name="ProfLossPeriod" type="tns:DicRecordType" nillable="true">
+							<annotation>
+								<documentation>Срок, на который установлена степень утраты профессиональной трудоспособности в процентах</documentation>
+							</annotation>
+						</element>
+						<element name="ProfLossEndDate" type="date" nillable="true">
+							<annotation>
+								<documentation>Дата, до которой установлена степень утраты профессиональной трудоспособности в процентах</documentation>
+							</annotation>
+						</element>
+						<element name="ProfLossPreviousCases" type="string" nillable="true">
+							<annotation>
+								<documentation>Степени утраты профессиональной трудоспособности (в процентах), установленные по повторным несчастным случаям на производстве и профессиональным заболеваниям, и даты, до которых они установлены</documentation>
+							</annotation>
+						</element>
+					</sequence>
+				</complexType>
+			</element>
+			<element name="EducationInfo" nillable="true">
+				<annotation>
+					<documentation>Сведения о получении образования (при получении образования)</documentation>
+				</annotation>
+				<complexType>
+					<sequence>
+						<element name="OrgName" type="string">
+							<annotation>
+								<documentation>Наименование образовательной организации, в которой гражданин получает образование</documentation>
+							</annotation>
+						</element>
+						<element name="OrgAddress" type="tns:AddressType">
+							<annotation>
+								<documentation>Адрес образовательной организации, в которой гражданин получает образование</documentation>
+							</annotation>
+						</element>
+						<element name="LevelType" type="tns:DicRecordType">
+							<annotation>
+								<documentation>Курс, класс, возрастная группа детского дошкольного учреждения</documentation>
+							</annotation>
+						</element>
+						<element name="LevelValue" type="string">
+							<annotation>
+								<documentation>Курс, класс, возрастная группа детского дошкольного учреждения (значение)</documentation>
+							</annotation>
+						</element>
+						<element name="Profession" type="string" nillable="true">
+							<annotation>
+								<documentation>Профессия (специальность), для получения которой проводится обучение</documentation>
+							</annotation>
+						</element>
+					</sequence>
+				</complexType>
+			</element>
+			<element name="ProfInfo" nillable="true">
+				<annotation>
+					<documentation>Сведения о трудовой деятельности (при осуществлении трудовой деятельности)</documentation>
+				</annotation>
+				<complexType>
+					<sequence>
+						<element name="MainProfession" type="string">
+							<annotation>
+								<documentation>Основная профессия (специальность, должность)</documentation>
+							</annotation>
+						</element>
+						<element name="Qualification" type="string">
+							<annotation>
+								<documentation>Квалификация (класс, разряд, категория, звание)</documentation>
+							</annotation>
+						</element>
+						<element name="JobExperience" type="string">
+							<annotation>
+								<documentation>Стаж работы</documentation>
+							</annotation>
+						</element>
+						<element name="CurrentJob" nillable="true">
+							<annotation>
+								<documentation>Выполняемая работа на момент направления на медико-социальную экспертизу</documentation>
+							</annotation>
+							<complexType>
+								<sequence>
+									<element name="Profession" type="string">
+										<annotation>
+											<documentation>Профессия</documentation>
+										</annotation>
+									</element>
+									<element name="Speciality" type="string">
+										<annotation>
+											<documentation>Специальность</documentation>
+										</annotation>
+									</element>
+									<element name="Position" type="string">
+										<annotation>
+											<documentation>Должность</documentation>
+										</annotation>
+									</element>
+								</sequence>
+							</complexType>
+						</element>
+						<element name="LaborConditions" type="string">
+							<annotation>
+								<documentation>Условия и характер выполняемого труда</documentation>
+							</annotation>
+						</element>
+						<element name="JobPlace" type="string">
+							<annotation>
+								<documentation>Место работы</documentation>
+							</annotation>
+						</element>
+						<element name="JobAddress" type="tns:AddressType" nillable="true">
+							<annotation>
+								<documentation>Адрес места работы</documentation>
+							</annotation>
+						</element>
+					</sequence>
+				</complexType>
+			</element>
+			<element name="MedOrgSupervisionStartYear" type="int">
+				<annotation>
+					<documentation>Год, с которого наблюдается в медицинской организации</documentation>
+				</annotation>
+			</element>
+			<element name="DeseaseAnamnesis" type="string">
+				<annotation>
+					<documentation>Анамнез заболевания</documentation>
+				</annotation>
+			</element>
+			<element name="LifeAnamnesis" type="string">
+				<annotation>
+					<documentation>Анамнез жизни</documentation>
+				</annotation>
+			</element>
+			<element name="TempWorkDisabilityItems" nillable="true">
+				<annotation>
+					<documentation>Частота и длительность временной нетрудоспособности (сведения за последние 12 месяцев)</documentation>
+				</annotation>
+				<complexType>
+					<sequence>
+						<element name="Item" type="tns:TempWorkDisabilityType" minOccurs="0" maxOccurs="unbounded"/>
+					</sequence>
+				</complexType>
+			</element>
+			<element name="HasEln" type="boolean">
+				<annotation>
+					<documentation>Наличие листка нетрудоспособности в форме электронного документа (ЭЛН)</documentation>
+				</annotation>
+			</element>
+			<element name="ElnNum" type="string" nillable="true">
+				<annotation>
+					<documentation>Номер ЭЛН</documentation>
+				</annotation>
+			</element>
+			<element name="RehabEventsResult" nillable="true">
+				<annotation>
+					<documentation>Результаты и эффективность проведенных мероприятий медицинской реабилитации, рекомендованных индивидуальной программой реабилитации или абилитации инвалида (ребенка-инвалида) (ИПРА)</documentation>
+				</annotation>
+				<complexType>
+					<sequence>
+						<element name="IpraNum" type="string">
+							<annotation>
+								<documentation>Номер ИПРА</documentation>
+							</annotation>
+						</element>
+						<element name="ProtocolNum" type="string">
+							<annotation>
+								<documentation>Номер протокола проведения медико-социальной экспертизы</documentation>
+							</annotation>
+						</element>
+						<element name="ProtocolDate" type="date">
+							<annotation>
+								<documentation>Дата протокола проведения медико-социальной экспертизы</documentation>
+							</annotation>
+						</element>
+						<element name="ImpairedFunctionsRecovery" type="tns:DicRecordType" nillable="true">
+							<annotation>
+								<documentation>Востановление нарушенных функций</documentation>
+							</annotation>
+						</element>
+						<element name="LostFunctionsCompensation" type="tns:DicRecordType" nillable="true">
+							<annotation>
+								<documentation>Достижение компенсации утраченных либо отсутствующих функций</documentation>
+							</annotation>
+						</element>
+						<element name="Comment" type="string">
+							<annotation>
+								<documentation>Результаты и эффективность проведенных мероприятий медицинской реабилитации, рекомендованных индивидуальной программой реабилитации или абилитации инвалида (ребенка-инвалида) (ИПРА) (текстовое описание)</documentation>
+							</annotation>
+						</element>
+					</sequence>
+				</complexType>
+			</element>
+			<element name="AnthropometricData">
+				<annotation>
+					<documentation>Антропометрические данные и физиологические параметры</documentation>
+				</annotation>
+				<complexType>
+					<sequence>
+						<element name="Height" type="double" nillable="true">
+							<annotation>
+								<documentation>Рост (м)</documentation>
+							</annotation>
+						</element>
+						<element name="Weight" type="double" nillable="true">
+							<annotation>
+								<documentation>Вес (кг)</documentation>
+							</annotation>
+						</element>
+						<element name="BMI" type="double" nillable="true">
+							<annotation>
+								<documentation>Индекс массы тела</documentation>
+							</annotation>
+						</element>
+						<element name="Constitution" type="string" nillable="true">
+							<annotation>
+								<documentation>Телосложение</documentation>
+							</annotation>
+						</element>
+						<element name="PhysiologicalFunctionsDailyAmmount" type="int" nillable="true">
+							<annotation>
+								<documentation>Суточный объем физиологических отправлений (мл) (при наличии медицинских показаний в обеспечении абсорбирующим бельем)</documentation>
+							</annotation>
+						</element>
+						<element name="WaistSize" type="int" nillable="true">
+							<annotation>
+								<documentation>Объем талии (см) (при наличии медицинских показаний в обеспечении абсорбирующим бельем)</documentation>
+							</annotation>
+						</element>
+						<element name="HipsVolume" type="int" nillable="true">
+							<annotation>
+								<documentation>Объем бедер (см) (при наличии медицинских показаний в обеспечении абсорбирующим бельем)</documentation>
+							</annotation>
+						</element>
+						<element name="BirthWeight" type="double" nillable="true">
+							<annotation>
+								<documentation>Масса тела (кг) при рождении (в отношении детей в возрасте до 3 лет)</documentation>
+							</annotation>
+						</element>
+						<element name="PhysicalDevelopment" type="string" nillable="true">
+							<annotation>
+								<documentation>Физическое развитие (в отношении детей в возрасте до 3 лет)</documentation>
+							</annotation>
+						</element>
+					</sequence>
+				</complexType>
+			</element>
+			<element name="HealthCondition" type="string">
+				<annotation>
+					<documentation>Состояние здоровья гражданина при направлении на медико-социальную экспертизу</documentation>
+				</annotation>
+			</element>
+			<element name="RequiredMedExams" type="string">
+				<annotation>
+					<documentation>Сведения о медицинских обследованиях, необходимых для получения клинико-функциональных данных в зависимости от заболевания при проведении медико-социальной экспертизы</documentation>
+				</annotation>
+			</element>
+			<element name="Diagnosis">
+				<annotation>
+					<documentation>Диагноз при направлении на медико-социальную экспертизу</documentation>
+				</annotation>
+				<complexType>
+					<sequence>
+						<element name="MainDesease" type="string">
+							<annotation>
+								<documentation>Основное заболевание</documentation>
+							</annotation>
+						</element>
+						<element name="MainDeseaseCode" type="string">
+							<annotation>
+								<documentation>Код основного заболевания по МКБ</documentation>
+							</annotation>
+						</element>
+						<element name="MainDeseaseComplications" type="string">
+							<annotation>
+								<documentation>Осложнения основного заболевания</documentation>
+							</annotation>
+						</element>
+						<element name="AccompanyingDiseases" type="string">
+							<annotation>
+								<documentation>Сопутствующие заболевания</documentation>
+							</annotation>
+						</element>
+						<element name="AccompanyingDiseasesCodes" nillable="true">
+							<annotation>
+								<documentation>Коды сопутствующих заболеваний по МКБ</documentation>
+							</annotation>
+							<complexType>
+								<sequence>
+									<element name="Code" type="string" minOccurs="0" maxOccurs="unbounded"/>
+								</sequence>
+							</complexType>
+						</element>
+						<element name="AccompanyingDiseasesComplications" type="string">
+							<annotation>
+								<documentation>Осложнения сопутствующих заболеваний</documentation>
+							</annotation>
+						</element>
+					</sequence>
+				</complexType>
+			</element>
+			<element name="ClinicalPrognosis" type="tns:DicRecordType" nillable="true">
+				<annotation>
+					<documentation>Клинический прогноз</documentation>
+				</annotation>
+			</element>
+			<element name="RehabPotential" type="tns:DicRecordType" nillable="true">
+				<annotation>
+					<documentation>Реабилитационный потенциал</documentation>
+				</annotation>
+			</element>
+			<element name="RehabPrognosis" type="tns:DicRecordType" nillable="true">
+				<annotation>
+					<documentation>Реабилитационный прогноз</documentation>
+				</annotation>
+			</element>
+			<element name="RecommendedMedEvents" type="string">
+				<annotation>
+					<documentation>Рекомендуемые мероприятия по медицинской реабилитации</documentation>
+				</annotation>
+			</element>
+			<element name="RecommendedReconstructiveSurgeryEvents" type="string">
+				<annotation>
+					<documentation>Рекомендуемые мероприятия по реконструктивной хирургии</documentation>
+				</annotation>
+			</element>
+			<element name="RecommendedProstheticsEvents" type="string">
+				<annotation>
+					<documentation>Рекомендуемые мероприятия по протезированию и ортезированию</documentation>
+				</annotation>
+			</element>
+			<element name="SpaTreatment" type="string">
+				<annotation>
+					<documentation>Санаторно-курортное лечение</documentation>
+				</annotation>
+			</element>
+			<element name="MedCommissionChairman" type="string">
+				<annotation>
+					<documentation>Председатель врачебной комиссии</documentation>
+				</annotation>
+			</element>
+			<element name="MedCommissionMembers">
+				<annotation>
+					<documentation>Члены врачебной комиссии</documentation>
+				</annotation>
+				<complexType>
+					<sequence>
+						<element name="Person" type="string" minOccurs="0" maxOccurs="unbounded">
+							<annotation>
+								<documentation>Сведения о члене врачебной комиссии</documentation>
+							</annotation>
+						</element>
+					</sequence>
+				</complexType>
+			</element>
+		</sequence>
+		<attribute name="id" type="string">
+			<annotation>
+				<documentation>Идентификатор формы</documentation>
+			</annotation>
+		</attribute>
+	</complexType>
+	<element name="Document">
+		<complexType>
+			<sequence>
+				<element name="G_Code" type="string">
+					<annotation>
+						<documentation>Индентификатор направления</documentation>
+					</annotation>
+				</element>
+				<element name="TargetMseOrg" type="tns:DicRecordType">
+					<annotation>
+						<documentation>Идентификатор учреждения МСЭ, в которое подается направление</documentation>
+					</annotation>
+				</element>
+				<element name="Form" type="tns:Form88Type"/>
+				<element name="Attachments" minOccurs="0">
+					<annotation>
+						<documentation>Приложенные к форме файлы</documentation>
+					</annotation>
+					<complexType>
+						<sequence>
+							<element name="Item" type="tns:AttachmentItemType" minOccurs="0" maxOccurs="unbounded"/>
+						</sequence>
+					</complexType>
+				</element>
+			</sequence>
+			<attribute name="id" type="string"/>
+			<attribute name="version" type="string" use="required" fixed="2.0.1"/>
+		</complexType>
+	</element>
+</schema>

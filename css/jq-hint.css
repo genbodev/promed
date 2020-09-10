@@ -1,0 +1,8 @@
+.jq-hint {
+
+    background: #C5D4E8;
+    padding: 5px;
+    position: fixed;
+    z-index: 10000;
+    max-width: 350px;
+}

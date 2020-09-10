@@ -1,0 +1,27 @@
+<ZL_LIST>
+	<ZGLV>
+		<VERSION>{VERSION}</VERSION>
+		<DATA><?php echo date('Y-m-d'); ?></DATA>
+		{FILENAME}
+		{SD_Z}
+	</ZGLV>
+	<SCHET>
+		{CODE}
+		{CODE_MO}
+		{YEAR}
+		{MONTH}
+		{NSCHET}
+		{DSCHET}
+		{PLAT}
+		{SUMMAV}
+		{COMENTS}
+		{SUMMAP}
+		{SANK_MEK}
+		{SANK_MEE}
+		{SANK_EKMP}
+		{SMO_SUMMAP}
+		{SMO_SANK_MEK}
+		{SMO_SANK_MEE}
+		{SMO_SANK_EKMP}
+		{DISP}
+	</SCHET>

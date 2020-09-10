@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" elementFormDefault="qualified">
+	<xs:element type="lpu" name="LPU"/>
+	<xs:element type="lnCodeRejectRequest" name="lnCodeRejectRequest"/>
+	<xs:element type="lnCodeRequest" name="lnCodeRequest"/>
+	<xs:element type="lnDataRequest" name="lnDataRequest"/>
+	<xs:element type="lpuLn" name="lpuLn"/>
+	<xs:complexType name="lpu">
+		<xs:sequence>
+			<xs:element type="operation" name="OPERATION"/>
+			<xs:element type="lpuRowset" name="ROWSET"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="lpuRowset">
+		<xs:sequence>
+			<xs:element type="lpuRow" name="ROW" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute type="xs:string" name="LPU_OGRN" use="required"/>
+		<xs:attribute type="xs:string" name="email" use="required"/>
+		<xs:attribute type="xs:string" name="phone" use="required"/>
+		<xs:attribute type="xs:string" name="author" use="required"/>
+		<xs:attribute type="xs:string" name="version_software" use="required"/>
+		<xs:attribute type="xs:string" name="software" use="required"/>
+		<xs:attribute type="xs:string" name="version" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="lpuRow">
+		<xs:choice>
+			<xs:element type="lpuLn" name="LpuLn"/>
+			<xs:element type="xs:string" name="LpuLnRequest"/>
+			<xs:element type="lnCodeRequest" name="LnCodeRequest"/>
+			<xs:element type="lnCodeRejectRequest" name="LnCodeRejectRequest"/>
+			<xs:element type="lnDataRequest" name="LnDataRequest"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="lpuLn">
+		<xs:sequence>
+			<xs:element type="xs:string" name="SNILS" />
+			<xs:element type="xs:string" name="SURNAME"/>
+			<xs:element type="xs:string" name="NAME"/>
+			<xs:element type="xs:string" name="PATRONIMIC" minOccurs="0"/>
+			<xs:element type="xs:string" name="EMPLOYER" minOccurs="0"/>
+			<xs:element type="EmployeeFlag" name="EMPL_FLAG"/>
+			<xs:element type="xs:string" name="LN_CODE"/>
+			<xs:element type="xs:string" name="PREV_LN_CODE" minOccurs="0"/>
+			<xs:element type="xs:string" name="PRIMARY_FLAG" minOccurs="0" nillable="true"/>
+			<xs:element type="xs:string" name="DUPLICATE_FLAG"/>
+			<xs:element type="xs:date" name="LN_DATE"/>
+			<xs:element type="xs:string" name="LPU_NAME"/>
+			<xs:element type="xs:string" name="LPU_ADDRESS" minOccurs="0"/>
+			<xs:element type="xs:string" name="LPU_OGRN"/>
+			<xs:element type="xs:date" name="BIRTHDAY"/>
+			<xs:element type="GenderCode" name="GENDER" />
+			<xs:element type="ReasonCode" name="REASON1"/>
+			<xs:element type="AReasonCode" name="REASON2" minOccurs="0"/>
+			<xs:element type="ReasonCode" name="REASON3" minOccurs="0"/>
+			<xs:element type="xs:string" name="DIAGNOS" minOccurs="0"/>
+			<xs:element type="xs:string" name="PARENT_CODE" minOccurs="0"/>
+			<xs:element type="xs:date" name="DATE1" minOccurs="0"/>
+			<xs:element type="xs:date" name="DATE2" minOccurs="0"/>
+			<xs:element type="xs:string" name="VOUCHER_NO" minOccurs="0"/>
+			<xs:element type="xs:string" name="VOUCHER_OGRN" minOccurs="0"/>
+			<xs:element type="xs:string" name="SERV1_AGE" minOccurs="0" nillable="true"/>
+			<xs:element type="xs:string" name="SERV1_MM" minOccurs="0" nillable="true"/>
+			<xs:element type="RelCode" name="SERV1_RELATION_CODE" minOccurs="0"/>
+			<xs:element type="xs:string" name="SERV1_FIO" minOccurs="0"/>
+			<xs:element type="xs:string" name="SERV2_AGE" minOccurs="0" nillable="true"/>
+			<xs:element type="xs:string" name="SERV2_MM" minOccurs="0" nillable="true"/>
+			<xs:element type="RelCode" name="SERV2_RELATION_CODE" minOccurs="0"/>
+			<xs:element type="xs:string" name="SERV2_FIO" minOccurs="0"/>
+			<xs:element type="xs:string" name="PREGN12W_FLAG" minOccurs="0" nillable="true"/>
+			<xs:element type="xs:date" name="HOSPITAL_DT1" minOccurs="0"/>
+			<xs:element type="xs:date" name="HOSPITAL_DT2" minOccurs="0"/>
+			<xs:element type="BreachCode" name="HOSPITAL_BREACH_CODE" minOccurs="0"/>
+			<xs:element type="xs:date" name="HOSPITAL_BREACH_DT" minOccurs="0"/>
+			<xs:element type="xs:date" name="MSE_DT1" minOccurs="0"/>
+			<xs:element type="xs:date" name="MSE_DT2" minOccurs="0"/>
+			<xs:element type="xs:date" name="MSE_DT3" minOccurs="0"/>
+			<xs:element type="InvalidGroupCode" name="MSE_INVALID_GROUP" minOccurs="0"/>
+			<xs:element type="MseRes" name="MSE_RESULT" minOccurs="0"/>
+			<xs:element type="xs:date" name="TREAT1_DT1"/>
+			<xs:element type="xs:date" name="TREAT1_DT2"/>
+			<xs:element type="xs:string" name="TREAT1_DOCTOR_ROLE"/>
+			<xs:element type="xs:string" name="TREAT1_DOCTOR"/>
+			<xs:element type="xs:string" name="TREAT1_DOC_ID" minOccurs="0"/>
+			<xs:element type="xs:string" name="TREAT1_DOCTOR2_ROLE" minOccurs="0"/>
+			<xs:element type="xs:string" name="TREAT1_CHAIRMAN_VK" minOccurs="0"/>
+			<xs:element type="xs:string" name="TREAT1_DOC2_ID" minOccurs="0"/>
+			<xs:element type="xs:date" name="TREAT2_DT1" minOccurs="0"/>
+			<xs:element type="xs:date" name="TREAT2_DT2" minOccurs="0"/>
+			<xs:element type="xs:string" name="TREAT2_DOCTOR_ROLE" minOccurs="0"/>
+			<xs:element type="xs:string" name="TREAT2_DOCTOR" minOccurs="0"/>
+			<xs:element type="xs:string" name="TREAT2_DOC_ID" minOccurs="0"/>
+			<xs:element type="xs:string" name="TREAT2_DOCTOR2_ROLE" minOccurs="0"/>
+			<xs:element type="xs:string" name="TREAT2_CHAIRMAN_VK" minOccurs="0"/>
+			<xs:element type="xs:string" name="TREAT2_DOC2_ID" minOccurs="0"/>
+			<xs:element type="xs:date" name="TREAT3_DT1" minOccurs="0"/>
+			<xs:element type="xs:date" name="TREAT3_DT2" minOccurs="0"/>
+			<xs:element type="xs:string" name="TREAT3_DOCTOR_ROLE" minOccurs="0"/>
+			<xs:element type="xs:string" name="TREAT3_DOCTOR" minOccurs="0"/>
+			<xs:element type="xs:string" name="TREAT3_DOC_ID" minOccurs="0"/>
+			<xs:element type="xs:string" name="TREAT3_DOCTOR2_ROLE" minOccurs="0"/>
+			<xs:element type="xs:string" name="TREAT3_CHAIRMAN_VK" minOccurs="0"/>
+			<xs:element type="xs:string" name="TREAT3_DOC2_ID" minOccurs="0"/>
+			<xs:element type="xs:date" name="OTHER_STATE_DT" minOccurs="0"/>
+			<xs:element type="xs:date" name="RETURN_DATE_LPU" minOccurs="0"/>
+			<xs:element type="xs:string" name="NEXT_LN_CODE" minOccurs="0"/>
+			<xs:element type="xs:int" name="LN_VERSION"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="lnCodeRequest">
+		<xs:sequence>
+			<xs:element type="xs:string" name="LPU_OGRN"/>
+			<xs:element type="xs:int" name="COUNT" default="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="lnCodeRejectRequest">
+		<xs:sequence>
+			<xs:element type="xs:string" name="LPU_OGRN"/>
+			<xs:choice minOccurs="0">
+				<xs:element type="LNS" name="LNS"/>
+				<xs:element type="LN_STACK" name="LN_STACK"/>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="LNS">
+		<xs:sequence>
+			<xs:element type="xs:string" name="LN_CODE" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="LN_STACK">
+		<xs:sequence>
+			<xs:element type="xs:string" name="START_LN_CODE"/>
+			<xs:element type="xs:string" name="COUNT"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="lnDataRequest">
+		<xs:sequence>
+			<xs:element type="xs:string" name="LN_CODE"/>
+			<xs:element type="xs:string" name="SNILS"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="operation">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="OPEN"/>
+			<xs:enumeration value="UPDATE"/>
+			<xs:enumeration value="CLOSE"/>
+			<xs:enumeration value="GET_LN_CODE"/>
+			<xs:enumeration value="REJECT_LN_CODE"/>
+			<xs:enumeration value="GET"/>
+			<xs:enumeration value="SET"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="IssuerCode">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value=""/>
+			<xs:enumeration value="01"/>
+			<xs:enumeration value="02"/>
+			<xs:enumeration value="03"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="MseRes">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value=""/>
+			<xs:enumeration value="31"/>
+			<xs:enumeration value="32"/>
+			<xs:enumeration value="33"/>
+			<xs:enumeration value="34"/>
+			<xs:enumeration value="35"/>
+			<xs:enumeration value="36"/>
+			<xs:enumeration value="37"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="InvalidGroupCode">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value=""/>
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="BreachCode">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value=""/>
+			<xs:enumeration value="23"/>
+			<xs:enumeration value="24"/>
+			<xs:enumeration value="25"/>
+			<xs:enumeration value="26"/>
+			<xs:enumeration value="27"/>
+			<xs:enumeration value="28"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="RelCode">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value=""/>
+			<xs:enumeration value="38"/>
+			<xs:enumeration value="39"/>
+			<xs:enumeration value="40"/>
+			<xs:enumeration value="41"/>
+			<xs:enumeration value="42"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ReasonCode">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value=""/>
+			<xs:enumeration value="01"/>
+			<xs:enumeration value="02"/>
+			<xs:enumeration value="03"/>
+			<xs:enumeration value="04"/>
+			<xs:enumeration value="05"/>
+			<xs:enumeration value="06"/>
+			<xs:enumeration value="07"/>
+			<xs:enumeration value="08"/>
+			<xs:enumeration value="09"/>
+			<xs:enumeration value="10"/>
+			<xs:enumeration value="11"/>
+			<xs:enumeration value="12"/>
+			<xs:enumeration value="13"/>
+			<xs:enumeration value="14"/>
+			<xs:enumeration value="15"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AReasonCode">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value=""/>
+			<xs:enumeration value="017"/>
+			<xs:enumeration value="018"/>
+			<xs:enumeration value="019"/>
+			<xs:enumeration value="020"/>
+			<xs:enumeration value="021"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="GenderCode">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="0"/>
+			<xs:enumeration value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="EmployeeFlag">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

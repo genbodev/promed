@@ -1,0 +1,216 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.2-b608 (trunk-7979; 2015-01-21T12:50:19+0000) JAXWS-RI/2.2.11-b150120.1832 JAXWS-API/2.2.12 JAXB-RI/2.2.12-b141219.1637 JAXB-API/2.2.13-b141020.1521 svn-revision#unknown. -->
+<xs:schema xmlns:tns="http://endpoints.rmis.web.git.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://endpoints.rmis.web.git.com/">
+
+	<xs:element name="SearchRequestServicesWrap" type="tns:searchRequestServicesWrap"/>
+
+	<xs:element name="SearchResponseWrap" type="tns:searchResponseWrap"/>
+
+	<xs:element name="getDebugInfo" type="tns:getDebugInfo"/>
+
+	<xs:element name="getDebugInfoResponse" type="tns:getDebugInfoResponse"/>
+
+	<xs:element name="searchPersonServices" type="tns:searchPersonServices"/>
+
+	<xs:element name="searchPersonServicesResponse" type="tns:searchPersonServicesResponse"/>
+
+	<xs:element name="searchedResponseServicesWrap" type="tns:searchResponseServicesWrap"/>
+
+	<xs:complexType name="getDebugInfo">
+		<xs:sequence/>
+	</xs:complexType>
+
+	<xs:complexType name="getDebugInfoResponse">
+		<xs:sequence>
+			<xs:element name="return" type="tns:debugInfo" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="debugInfo">
+		<xs:sequence>
+			<xs:element name="contextHashCode" type="xs:int"/>
+			<xs:element name="dbConnectionString" type="xs:string" minOccurs="0"/>
+			<xs:element name="dbUserName" type="xs:string" minOccurs="0"/>
+			<xs:element name="dbUserPass" type="xs:string" minOccurs="0"/>
+			<xs:element name="info" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="searchPersonServices">
+		<xs:sequence>
+			<xs:element name="searchRequestServicesWrap" type="tns:searchRequestServicesWrap" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="searchRequestServicesWrap">
+		<xs:sequence>
+			<xs:element name="targetServices" type="tns:targetService" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="requestName" type="xs:string" minOccurs="0"/>
+			<xs:element name="patientSearchParams" type="tns:personData" minOccurs="0"/>
+			<xs:element name="requestTime" type="xs:date" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="targetService">
+		<xs:sequence>
+			<xs:element name="name" type="xs:string" minOccurs="0"/>
+			<xs:element name="url" type="xs:string" minOccurs="0"/>
+			<xs:element name="authType" type="xs:string" minOccurs="0"/>
+			<xs:element name="login" type="xs:string" minOccurs="0"/>
+			<xs:element name="password" type="xs:string" minOccurs="0"/>
+			<xs:element name="requestName" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="personData">
+		<xs:sequence>
+			<xs:element name="id" type="xs:string" minOccurs="0"/>
+			<xs:element name="searchString" type="xs:string" minOccurs="0"/>
+			<xs:element name="surname" type="xs:string" minOccurs="0"/>
+			<xs:element name="name" type="xs:string" minOccurs="0"/>
+			<xs:element name="patronymic" type="xs:string" minOccurs="0"/>
+			<xs:element name="gender" type="xs:integer" minOccurs="0"/>
+			<xs:element name="birthday" type="xs:date" minOccurs="0"/>
+			<xs:element name="personIdentifiers" type="tns:personIdentifiers" minOccurs="0"/>
+			<xs:element name="additionalInfo" type="tns:additionalInfo" minOccurs="0"/>
+			<xs:element name="addresses" type="tns:addresses" minOccurs="0"/>
+			<xs:element name="registeredDocuments" type="tns:registeredDocument" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="personIdentifiers">
+		<xs:sequence>
+			<xs:element name="personUniqID" type="xs:string" minOccurs="0"/>
+			<xs:element name="documents" type="tns:document" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="insuranceDocument" type="tns:document" minOccurs="0"/>
+			<xs:element name="snilsDocument" type="tns:document" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="document">
+		<xs:sequence>
+			<xs:element name="type" type="xs:integer" minOccurs="0"/>
+			<xs:element name="serial" type="xs:string" minOccurs="0"/>
+			<xs:element name="number" type="xs:string" minOccurs="0"/>
+			<xs:element name="serial_form" type="xs:string" minOccurs="0"/>
+			<xs:element name="number_form" type="xs:string" minOccurs="0"/>
+			<xs:element name="additionalCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="dateBegin" type="xs:date" minOccurs="0"/>
+			<xs:element name="dateEnd" type="xs:date" minOccurs="0"/>
+			<xs:element name="isActive" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="organization" type="tns:organization" minOccurs="0"/>
+			<xs:element name="citizenship" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="organization">
+		<xs:sequence>
+			<xs:element name="dictionaryValue" type="tns:dictionaryValue" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="dictionaryValue">
+		<xs:sequence>
+			<xs:element name="systemID" type="xs:long" minOccurs="0"/>
+			<xs:element name="externalCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="externalID" type="xs:string" minOccurs="0"/>
+			<xs:element name="nsiCode" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="additionalInfo">
+		<xs:sequence>
+			<xs:element name="htmlText" type="xs:string" minOccurs="0"/>
+			<xs:element name="additionalInfoObject" type="tns:additionalInfoItem" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="additionalInfoItem">
+		<xs:sequence>
+			<xs:element name="title" type="xs:string" minOccurs="0"/>
+			<xs:element name="textLines" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="addresses">
+		<xs:sequence>
+			<xs:element name="registrationAddress" type="tns:address" minOccurs="0"/>
+			<xs:element name="residentialAddress" type="tns:address" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="address">
+		<xs:sequence>
+			<xs:element name="region" type="xs:string" minOccurs="0"/>
+			<xs:element name="regionKladr" type="tns:kladr" minOccurs="0"/>
+			<xs:element name="locality" type="xs:string" minOccurs="0"/>
+			<xs:element name="localityKladr" type="tns:kladr" minOccurs="0"/>
+			<xs:element name="country" type="xs:string" minOccurs="0"/>
+			<xs:element name="countryKladr" type="tns:kladr" minOccurs="0"/>
+			<xs:element name="street" type="xs:string" minOccurs="0"/>
+			<xs:element name="streetKladr" type="tns:kladr" minOccurs="0"/>
+			<xs:element name="geofull" type="xs:string" minOccurs="0"/>
+			<xs:element name="house" type="xs:string" minOccurs="0"/>
+			<xs:element name="houseLit" type="xs:string" minOccurs="0"/>
+			<xs:element name="houseBlock" type="xs:string" minOccurs="0"/>
+			<xs:element name="apartment" type="xs:string" minOccurs="0"/>
+			<xs:element name="apartmentLit" type="xs:string" minOccurs="0"/>
+			<xs:element name="postIndex" type="xs:string" minOccurs="0"/>
+			<xs:element name="registrationDate" type="xs:date" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="kladr">
+		<xs:sequence>
+			<xs:element name="codeKladr" type="xs:string" minOccurs="0"/>
+			<xs:element name="codeKladrLvl" type="xs:string" minOccurs="0"/>
+			<xs:element name="systemId" type="xs:long" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="registeredDocument">
+		<xs:sequence>
+			<xs:element name="id" type="xs:string" minOccurs="0"/>
+			<xs:element name="name" type="xs:string" minOccurs="0"/>
+			<xs:element name="description" type="xs:string" minOccurs="0"/>
+			<xs:element name="searchBeginDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="searchEndDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="documentDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="registeredDocumentContent" type="tns:registeredDocumentContent" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="registeredDocumentContent">
+		<xs:sequence>
+			<xs:element name="additionalInfo" type="tns:additionalInfo" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="searchPersonServicesResponse">
+		<xs:sequence>
+			<xs:element name="searchedResponseServicesWrap" type="tns:searchResponseServicesWrap" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="searchResponseServicesWrap">
+		<xs:sequence>
+			<xs:element name="searchResponseWrap" type="tns:searchResponseWrap" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="searchResponseWrap">
+		<xs:sequence>
+			<xs:element name="providerName" type="xs:string" minOccurs="0"/>
+			<xs:element name="responseType" type="xs:string" minOccurs="0"/>
+			<xs:element name="personsData" type="tns:personData" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="rmisError" type="tns:rmisError" minOccurs="0"/>
+			<xs:element name="comments" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="rmisError">
+		<xs:sequence>
+			<xs:element name="displayText" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

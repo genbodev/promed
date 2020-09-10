@@ -1,0 +1,13 @@
+<PERS_LIST>
+<ZGLV>
+	<VERSION>1.0</VERSION>
+	{DATA}
+	{FILENAME}
+	{YEAR}
+	{MONTH}
+	{CODE_MO}
+	{SMO}
+	{Q_ZAP}
+</ZGLV>
+<DIRECT>
+	<EMP>{EMP}</EMP>

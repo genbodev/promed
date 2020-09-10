@@ -1,0 +1,483 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="OMS-D1"
+            targetNamespace="OMS-D1"
+            elementFormDefault ="qualified">
+  
+  <!-- Root element -->
+  
+  <xsd:element name="ZL_LIST" type="ZL_LIST"/>
+
+
+  <!-- Complex types -->
+
+  <xsd:complexType name="ZL_LIST">
+    <xsd:sequence>
+      <xsd:element name="ZGLV" type="ZGLV"/>
+      <xsd:element name="SCHET" type="SCHET"/>
+      <xsd:element name="ZAP" type="ZAP" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="ZGLV">
+    <xsd:sequence>
+      <xsd:element name="VERSION" type="VERSION"/>
+      <xsd:element name="DATA" type="xsd:date"/>
+      <xsd:element name="FILENAME" type="T26NN"/>
+      <xsd:element name="SD_Z" type="N9"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="SCHET">
+    <xsd:sequence>
+      <xsd:element name="CODE" type="N8"/>
+      <xsd:element name="CODE_MO" type="T6NN"/>
+      <xsd:element name="PODR" type="N8"/>
+      <xsd:element name="YEAR" type="YEAR"/>
+      <xsd:element name="MONTH" type="MONTH"/>
+      <xsd:element name="NSCHET" type="T15" />
+      <xsd:element name="DSCHET" type="xsd:date" />
+      <xsd:element name="PLAT" type="T5"/>
+      <xsd:element name="SUMMAV" type="N15.2"/>
+      <xsd:element name="COMENTS" type="T250" minOccurs="0"/>
+      <xsd:element name="SUMMAP" type="N15.2" minOccurs="0"/>
+      <xsd:element name="SANK_MEK" type="N15.2" minOccurs="0"/>
+      <xsd:element name="SANK_MEE" type="N15.2" minOccurs="0"/>
+      <xsd:element name="SANK_EKMP" type="N15.2" minOccurs="0"/>
+	  <xsd:element name="DISP" type="T3" minOccurs="0" /> 		<!--  WARNING!! -->
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="ZAP">
+    <xsd:sequence>
+      <xsd:element name="N_ZAP" type="N8"/>
+      <xsd:element name="PR_NOV" type="PR_NOV"/>
+      <xsd:element name="PACIENT" type="PACIENT"/>
+      <xsd:element name="Z_SL" type="Z_SL" />  	<!--	WARNING!!!!!!		-->
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="PACIENT">
+    <xsd:sequence>
+      <xsd:element name="ID_PAC" type="T36NN"/>
+      <xsd:element name="VPOLIS" type="N1"/>
+      <xsd:element name="SPOLIS" type="T10" minOccurs="0"/>
+      <xsd:element name="NPOLIS" type="T20NN"/>
+      <xsd:element name="ST_OKATO" type="T5" minOccurs="0"/>
+      <xsd:element name="SMO" type="T5" minOccurs="0"/>
+      <xsd:element name="SMO_OGRN" type="T15" minOccurs="0"/>
+      <xsd:element name="SMO_OK" type="T5" minOccurs="0"/>
+      <xsd:element name="SMO_NAM" type="T100" minOccurs="0"/>
+      <xsd:element name="NOVOR" type="NOVOR" />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="Z_SL">
+	<xsd:sequence>
+		<xsd:element name="IDCASE" type="N11"/>	<!-- 	WARNING!!!-->
+		<xsd:element name="USL_OK" type="N2"/>
+		<xsd:element name="VIDPOM" type="N4"/>
+		<xsd:element name="FOR_POM" type="N1"/>
+		<xsd:element name="P_DISP2" type="N1" minOccurs="0" />
+		<xsd:element name="LPU" type="T6NN"/>
+		<xsd:element name="VBR" type="N1"/>
+		<xsd:element name="DATE_Z_1" type="xsd:date"/>
+		<xsd:element name="DATE_Z_2" type="xsd:date"/>
+		<xsd:element name="P_OTK" type="N1" />
+		<xsd:element name="RSLT_D" type="N3"/>		
+		<xsd:element name="ISHOD" type="N3"/>
+		<xsd:element name="OS_SLUCH" type="N1" minOccurs="0" maxOccurs="unbounded"/>	
+		<xsd:element name="IDSP" type="N2"/>
+		<xsd:element name="SUMV" type="N15.2"/>
+		<xsd:element name="OPLATA" type="OPLATA" minOccurs="0"/>
+		<xsd:element name="SUMP" type="N15.2" minOccurs="0"/>
+		<xsd:element name="SANK_IT" type="N15.2" minOccurs="0"/>	
+		<xsd:element name="SL" type="SL" /> 
+		<xsd:element name="SANK" type="SANK" minOccurs="0" maxOccurs="unbounded" />
+	</xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="SL">
+    <xsd:sequence>
+      <xsd:element name="SL_ID" type="T36NN"/>
+	  <xsd:element name="LPU_1" type="T8NN"/>
+	  <xsd:element name="NHISTORY" type="T50NN"/>
+      <xsd:element name="DATE_1" type="xsd:date"/>
+      <xsd:element name="DATE_2" type="xsd:date"/>
+      <xsd:element name="DS1" type="MKB"/>
+      <xsd:element name="DS1_PR" type="N1" minOccurs="0" />		<!-- WARNING!-->
+	  <xsd:element name="DS_ONK" type="N1" />		<!-- WARNING!-->
+	  <xsd:element name="PR_D_N" type="N1" />		<!-- WARNING!-->
+	  <xsd:element name="VISIT" type="T16" />	
+      <xsd:element name="PRVS_R" type="N9"/>
+      <xsd:element name="PRVS" type="N4"/>
+	  <xsd:element name="VERS_SPEC" type="T4"/> 
+      <xsd:element name="IDDOKT" type="T16NN"/>
+      <xsd:element name="ED_COL" type="N5.2" minOccurs="0"/>
+      <xsd:element name="TARIF" type="N15.2"/>
+      <xsd:element name="SUM_M" type="N15.2"/>
+      <xsd:element name="COMENTSL" type="T250" minOccurs="0"/>
+	  <xsd:element name="DS2_N" type="DS2_N" minOccurs="0" maxOccurs="unbounded"/>
+	  <xsd:element name="NAZ" type="NAZ" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="USL" type="USL" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  
+   <xsd:complexType name="DS2_N">
+	<xsd:sequence>
+		<xsd:element name= "DS2"  type="T10NN"/>
+		<xsd:element name= "DS2_PR"  type="N1" minOccurs="0" />
+		<xsd:element name= "PR_DS2_N"  type="N1" />
+	</xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="NAZ">
+	<xsd:sequence>
+		<xsd:element name= "NAZ_N"  type="N2"/>
+		<xsd:element name= "NAZ_R"  type="N2"/>
+		<xsd:element name= "NAZ_SP"  type="N4" minOccurs="0" />
+		<xsd:element name= "NAZ_V"  type="N1" minOccurs="0" />
+		<xsd:element name="NAZ_USL" type="T15" minOccurs="0" />
+		<xsd:element name="NAPR_DATE" type="xsd:date" minOccurs="0" />
+		<xsd:element name="NAPR_MO" type="T6" minOccurs="0" maxOccurs="unbounded" />
+		<xsd:element name= "NAZ_PMP"  type="N3" minOccurs="0" />
+		<xsd:element name= "NAZ_PK"  type="N3" minOccurs="0" />
+	</xsd:sequence>
+  </xsd:complexType>
+  
+
+
+  <!--<xsd:complexType name="VNOV_M">
+    <xsd:sequence>
+      <xsd:element name="WEIGHT" type="N4"/>
+    </xsd:sequence>
+  </xsd:complexType>-->
+
+
+
+  <!--<xsd:complexType name="OS_SLUCH">
+    <xsd:sequence>
+      <xsd:element name ="CODE" type="N1"/>
+    </xsd:sequence>
+  </xsd:complexType>-->
+
+  <xsd:complexType name="USL">
+    <xsd:sequence>
+      <xsd:element name="IDSERV" type="T36NN"/>
+      <xsd:element name="LPU" type="T6NN" />
+      <xsd:element name="LPU_1" type="N8" minOccurs="0"/>
+      <xsd:element name="DATE_IN" type="xsd:date"/>
+      <xsd:element name="DATE_OUT" type="xsd:date"/>
+      <xsd:element name="P_OTK" type="N1"/>
+      <xsd:element name="CODE_USL" type="T20NN"/>
+      <xsd:element name="TARIF" type="N15.2" minOccurs="0"/>
+      <xsd:element name="SUMV_USL" type="N15.2" />
+      <xsd:element name="PRVS" type="N4" /> 
+      <xsd:element name="CODE_MD" type="T16" />
+      <xsd:element name="COMENTU" type="T250" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+    <xsd:complexType name="SANK">
+    <xsd:sequence>
+      <xsd:element name="S_CODE" type="T36NN"/>
+      <xsd:element name="S_SUM" type="N15.2"/>
+      <xsd:element name="S_TIP" type="N2"/>		<!-- WARNING!! -->
+      <xsd:element name="SL_ID" type="T36NN" minOccurs="0" maxOccurs="unbounded" />       <!-- 19,01,2019-->
+      <xsd:element name="S_OSN" type="N3" minOccurs="0"/>
+	  <xsd:element name="DATE_ACT" type="xsd:date"/>
+	  <xsd:element name="NUM_ACT" type="T30NN" />
+	  <xsd:element name="CODE_EXP" type="T8" minOccurs="0" maxOccurs="unbounded" />
+      <xsd:element name="S_COM" type="T250" minOccurs="0"/>
+      <xsd:element name="S_IST" type="N1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <!-- Simpe types -->
+
+  <!-- ===String based -->
+  
+   <xsd:simpleType name="T3">
+    <xsd:restriction base ="xsd:string">
+      <xsd:maxLength value="3"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+    <xsd:simpleType name="T4">
+    <xsd:restriction base ="xsd:string">
+      <xsd:maxLength value="4"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  
+  <xsd:simpleType name="T5">
+    <xsd:restriction base ="xsd:string">
+      <xsd:maxLength value="5"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="T6">
+    <xsd:restriction base ="xsd:string">
+      <xsd:maxLength value="6"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="T6NN">
+    <xsd:restriction base ="xsd:string">
+      <xsd:minLength value ="1"/>
+      <xsd:maxLength value="6"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="T8">
+    <xsd:restriction base ="xsd:string">
+      <xsd:maxLength value="8"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="T8NN">
+    <xsd:restriction base ="xsd:string">
+      <xsd:minLength value ="1"/>
+      <xsd:maxLength value="8"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="T9NN">
+    <xsd:restriction base ="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="9"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="NOVOR">
+    <xsd:restriction base="T9NN">
+      <xsd:pattern value="[1-2](((([0][1-9])|([1-2][0-9])|([3][0-1]))(([0][1,3-9])|([1][0-2]))(\d{2}))|((([0][1-9])|([1-2][0-9]))(02)(\d{2})))[1-9][0-9]{0,1}"/>
+      <xsd:pattern value="0"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="T10">
+    <xsd:restriction base ="xsd:string">
+      <xsd:maxLength value="10"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="T10NN">
+    <xsd:restriction base ="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="10"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="T15">
+    <xsd:restriction base ="xsd:string">
+      <xsd:maxLength value="15"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="T16">
+    <xsd:restriction base ="xsd:string">
+      <xsd:maxLength value="16"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="T16NN">
+    <xsd:restriction base ="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="16"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="T20">
+    <xsd:restriction base ="xsd:string">
+      <xsd:maxLength value="20"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="T20NN">
+    <xsd:restriction base ="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="20"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="T26NN">
+    <xsd:restriction base ="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="26"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  
+  <xsd:simpleType name="T30NN">
+    <xsd:restriction base ="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="30"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="T36NN">
+    <xsd:restriction base ="xsd:string">
+      <xsd:minLength value ="1"/>
+      <xsd:maxLength value="36"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="T50NN">
+    <xsd:restriction base ="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="50"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="T100">
+    <xsd:restriction base ="xsd:string">
+      <xsd:maxLength value="100"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="T250">
+    <xsd:restriction base ="xsd:string">
+      <xsd:maxLength value="250"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="MKB">
+    <xsd:restriction base ="xsd:string">
+      <xsd:maxLength value="10"/>
+      <xsd:pattern value="[A-Z]\d\d(\.\d\d{0,1}){0,1}"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="VERSION">
+    <xsd:restriction base ="xsd:string">
+      <xsd:pattern value="3.[0-1]"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+
+
+  <!-- ===Numeric based -->
+
+  <xsd:simpleType name="N1">
+    <xsd:restriction base ="xsd:decimal">
+      <xsd:totalDigits value="1"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="PR_NOV">
+    <xsd:restriction base ="N1">
+      <xsd:pattern value="[0-1]"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="DET">
+    <xsd:restriction base ="N1">
+      <xsd:pattern value="[0-1]"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="OPLATA">
+    <xsd:restriction base ="N1">
+      <xsd:pattern value="[0-3]"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="SANK_TYPE">
+    <xsd:restriction base ="N1">
+      <xsd:pattern value="[1-3]"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="N2">
+    <xsd:restriction base ="xsd:decimal">
+      <xsd:totalDigits value="2"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="MONTH">
+    <xsd:restriction base ="N2">
+      <xsd:minInclusive value="1"/>
+      <xsd:maxInclusive value="12"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="ORDER">
+    <xsd:restriction base ="N2">
+      <xsd:pattern value="[1-2]"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="N3">
+    <xsd:restriction base ="xsd:decimal">
+      <xsd:totalDigits value="3"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  
+   <xsd:simpleType name="N3.2"> <!-- 	NEW-->
+    <xsd:restriction base ="xsd:decimal">
+      <xsd:totalDigits value="3"/>
+      <xsd:fractionDigits value="2"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="N4">
+    <xsd:restriction base ="xsd:decimal">
+      <xsd:totalDigits value="4"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="YEAR">
+    <xsd:restriction base ="N4">
+      <xsd:minInclusive value="2011"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="N5">
+    <xsd:restriction base ="xsd:decimal">
+      <xsd:totalDigits value="5"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="N5.2">
+    <xsd:restriction base ="xsd:decimal">
+      <xsd:totalDigits value="5"/>
+      <xsd:fractionDigits value="2"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="N6.2">
+    <xsd:restriction base ="xsd:decimal">
+      <xsd:totalDigits value="6"/>
+      <xsd:fractionDigits value="2"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="N8">
+    <xsd:restriction base ="xsd:decimal">
+      <xsd:totalDigits value="8"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="N9">
+    <xsd:restriction base ="xsd:decimal">
+      <xsd:totalDigits value="9"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="N11">    <!-- 	NEW-->
+    <xsd:restriction base ="xsd:decimal">
+      <xsd:totalDigits value="11"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  
+    <xsd:simpleType name="N12">				<!-- 	NEW-->
+    <xsd:restriction base ="xsd:decimal">
+      <xsd:totalDigits value="12"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="N15.2">
+    <xsd:restriction base ="xsd:decimal">
+      <xsd:totalDigits value="15"/>
+      <xsd:fractionDigits value="2"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+</xsd:schema>

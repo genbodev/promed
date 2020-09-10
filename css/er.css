@@ -1,0 +1,201 @@
+table{ 
+	font-family: Tahoma, Geneva, Arial, Helvetica, sans-serif; 
+	font-size: 12px; 
+}
+.erlink a:hover{
+	color: blue;
+}
+.erlink a:link{
+	color: blue;
+}
+.erlink a:active{
+	color: blue;
+}
+.erlink a:visited{
+	color: blue;
+}
+.smallfont{ 
+	font-family: Tahoma, Geneva, Arial, Helvetica, sans-serif; 
+	font-size: 9px; 
+	text-align: right;
+}
+
+/* -------------- time table -------------- */
+#timeTable{
+	border: 1px solid #ccc;
+	border-collapse: collapse;
+	background-color: white;
+	width: 100%;
+}
+#timeTable td{
+	border: 1px solid #ccc;
+	text-align: center;
+	font-size: 10px;
+	padding: 2px 0px;
+}
+#timeTable td a{
+	text-decoration: none;
+}
+#timeTable tr.head td.relax{
+	background-color: #ffdddd;
+}
+#timeTable tr.head td.work{
+	background-color: #ddffdd;	
+}
+#timeTable tr.head td.comments{
+	background-color: #dddddd;	
+	text-align:left;
+}
+#timeTable tr.time td.active{
+	cursor: pointer;
+}
+#timeTable tr.head td{
+	padding-left: 5px;;
+	padding-right: 5px;;
+}
+#timeTable tr.time td{
+	padding-left: 10px;;
+	padding-right: 10px;;
+}
+#timeTable tr.time td.free{
+	background-color: #ddffdd;
+}
+#timeTable tr.time td.common{
+	background-color: #ddffdd;
+}
+#timeTable tr.time td.locked{
+	background-color: #dddddd !important;
+	cursor: default;
+}
+#timeTable tr.time td.person{
+	background-color: #ffdddd;
+	cursor: default;
+}
+
+#timeTable tr.time td.personindir{
+	background-color: #42aaff;
+}
+
+
+#timeTable tr.time td.manbed{
+	/*color: #0000ff;*/
+	background-color: #ddffdd;
+}
+#timeTable tr.time td.manbedPerson{
+/*	color: #0000ff;*/
+	background-color: #ffdddd;
+}
+#timeTable tr.time td.womanbed{
+/*	color: #ff0000;*/
+	background-color: #ddffdd;
+}
+#timeTable tr.time td.womanbedPerson{
+/*	color: #ff0000;*/
+	background-color: #ffdddd;
+}
+#timeTable tr.time td.commonbed{
+	background-color: #ddffdd;
+}
+#timeTable tr.time td.commonbedPerson{
+	background-color: #ffdddd;
+}
+#timeTable tr.time td.reservedPerson{
+	background-color: orange;
+}
+#timeTable tr.time td.dop{
+	opacity: 0.6;
+	font-style: italic;
+	border: 1px dashed gray;
+}
+#timeTable tr.time td.dopPerson{
+	background-color: #ddaadd;
+}
+#timeTable tr.time td.pay{
+	background-color: #ff99ff;
+}
+#timeTable tr.time td.paycz{
+	background-color: #ff99ff;
+	cursor: default;
+}
+#timeTable tr.time td.payPerson{
+	background-color: #ff9999;
+}
+#timeTable tr.time td.vet{
+	background-color: #66cccc;
+}
+#timeTable tr.time td.vetPerson{
+	background-color: #227777;
+}
+#timeTable tr.time td.dir{
+	background-color: #eebb88;
+}
+
+#timeTable tr.time td.dirPerson{
+	background-color: #aa9966;
+}
+
+#timeTable tr.time td.extr{
+	background-color: #66ff00;
+}
+#timeTable tr.time td.extrPerson{
+	background-color: orange;
+}
+#timeTable tr.time td.reservedcz{
+	background-color: yellow;
+	cursor: default;
+}
+#timeTable tr.time td.reserved{
+	background-color: yellow;
+}
+#timeTable tr.time td.queue{
+	text-decoration: underline;
+}
+#timeTable tr.time td.commented:after  { 
+	content: "";
+	display: block;
+	background: url(../img/icons/icon_info.png) no-repeat;
+	width: 13px;
+	height: 13px;
+	position: relative;
+	float: right;
+	top: 2px;
+	right: -10px;
+	margin: 0 0 -100% -100%;
+}
+#timeTable tr.time td.commented-active:before  {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 16px;
+    padding: 0 10px;
+	box-shadow: inset 0 0 0 1px rgba(1,87,155,1);
+	float: left;
+    position: relative;
+    left: -10px;
+    top: -2px;
+    margin-bottom: -16px;
+}
+.ttcomments{
+	border-top: 1px dashed gray;
+}
+
+.ttcomments i {
+	margin-top: 5px;
+	text-align: right;
+	font-size: 8px;
+}
+
+#timeTable tr.time td.selected{
+	background-color: #7777ff !important
+}
+#timeTable tr.foot td{
+	vertical-align: top;
+	padding: 3px;
+}
+.x6-panel.evn-detail-record-panel #timeTable:hover tr.time td.commented-active {
+	box-shadow: inset 0 0 0 1px rgba(1,87,155,1);
+}
+
+.x6-panel.evn-detail-record-panel #timeTable tr.time td.commented-active:before {
+	display: none;
+}

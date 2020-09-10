@@ -1,0 +1,14 @@
+<ZL_LIST>
+	{FILENAME}
+	{CODE_ORG}
+	{YEAR}
+	{QUART}
+	{NRECORDS}
+	{ZAP}
+	<ZAP>
+		{N_ZAP}
+		{ID}
+		{PLAN_Q}
+	</ZAP>
+	{/ZAP}
+</ZL_LIST>

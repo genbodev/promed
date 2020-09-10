@@ -1,0 +1,1 @@
+<tr><td><b>{EvnSectionNarrowBed_setDate} {EvnSectionNarrowBed_setTime}-{EvnSectionNarrowBed_disDate} {EvnSectionNarrowBed_disTime}</b> Профиль: <b>{LpuSectionProfile_Name}</b></td></tr>

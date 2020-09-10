@@ -1,0 +1,273 @@
+/* /home/teamcity/buildAgent/work/8cc7421dd8da164c/staging/modern/theme-triton/sass/etc/all.scss:4 */
+@font-face {
+    font-family: 'Open Sans';
+    src: url('/extjs6/classic/theme-triton-sandbox/resources/fonts/OpenSans-Light.ttf');
+    font-weight: 300;
+    font-style: normal;
+}
+/* /home/teamcity/buildAgent/work/8cc7421dd8da164c/staging/modern/theme-triton/sass/etc/all.scss:11 */
+@font-face {
+    font-family: 'Open Sans';
+    src: url('/extjs6/classic/theme-triton-sandbox/resources/fonts/OpenSans-LightItalic.ttf');
+    font-weight: 300;
+    font-style: italic;
+}
+/* /home/teamcity/buildAgent/work/8cc7421dd8da164c/staging/modern/theme-triton/sass/etc/all.scss:18 */
+@font-face {
+    font-family: 'Open Sans';
+    src: url('/extjs6/classic/theme-triton-sandbox/resources/fonts/OpenSans-Regular.ttf');
+    font-weight: 400;
+    font-style: normal;
+}
+/* /home/teamcity/buildAgent/work/8cc7421dd8da164c/staging/modern/theme-triton/sass/etc/all.scss:25 */
+@font-face {
+    font-family: 'Open Sans';
+    src: url('/extjs6/classic/theme-triton-sandbox/resources/fonts/OpenSans-Italic.ttf');
+    font-weight: 400;
+    font-style: italic;
+}
+/* /home/teamcity/buildAgent/work/8cc7421dd8da164c/staging/modern/theme-triton/sass/etc/all.scss:32 */
+@font-face {
+    font-family: 'Open Sans';
+    src: url('/extjs6/classic/theme-triton-sandbox/resources/fonts/OpenSans-Semibold.ttf');
+    font-weight: 600;
+    font-style: normal;
+}
+/* /home/teamcity/buildAgent/work/8cc7421dd8da164c/staging/modern/theme-triton/sass/etc/all.scss:39 */
+@font-face {
+    font-family: 'Open Sans';
+    src: url('/extjs6/classic/theme-triton-sandbox/resources/fonts/OpenSans-SemiboldItalic.ttf');
+    font-weight: 600;
+    font-style: italic;
+}
+/* /home/teamcity/buildAgent/work/8cc7421dd8da164c/staging/modern/theme-triton/sass/etc/all.scss:46 */
+@font-face {
+    font-family: 'Open Sans';
+    src: url('/extjs6/classic/theme-triton-sandbox/resources/fonts/OpenSans-Bold.ttf');
+    font-weight: 700;
+    font-style: normal;
+}
+/* /home/teamcity/buildAgent/work/8cc7421dd8da164c/staging/modern/theme-triton/sass/etc/all.scss:53 */
+@font-face {
+    font-family: 'Open Sans';
+    src: url('/extjs6/classic/theme-triton-sandbox/resources/fonts/OpenSans-BoldItalic.ttf');
+    font-weight: 700;
+    font-style: italic;
+}
+/* /home/teamcity/buildAgent/work/8cc7421dd8da164c/staging/modern/theme-triton/sass/etc/all.scss:60 */
+@font-face {
+    font-family: 'Open Sans';
+    src: url('/extjs6/classic/theme-triton-sandbox/resources/fonts/OpenSans-ExtraBold.ttf');
+    font-weight: 800;
+    font-style: normal;
+}
+/* /home/teamcity/buildAgent/work/8cc7421dd8da164c/staging/modern/theme-triton/sass/etc/all.scss:67 */
+@font-face {
+    font-family: 'Open Sans';
+    src: url('/extjs6/classic/theme-triton-sandbox/resources/fonts/OpenSans-ExtraBoldItalic.ttf');
+    font-weight: 800;
+    font-style: italic;
+}
+/* /home/teamcity/buildAgent/work/8cc7421dd8da164c/staging/packages/charts/sass/src/draw/Surface.scss:2 */
+.x6-surface,
+.x6-surface-canvas {
+    position: absolute;
+}
+/* /home/teamcity/buildAgent/work/8cc7421dd8da164c/staging/packages/charts/sass/src/draw/Container.scss:1 */
+.x6-draw-container {
+    position: relative;
+    cursor: default;
+}
+/* /home/teamcity/buildAgent/work/8cc7421dd8da164c/staging/packages/charts/sass/src/chart/legend/Legend.scss:1 */
+.x6-legend {
+    background: #fff;
+    outline: none;
+}
+/* /home/teamcity/buildAgent/work/8cc7421dd8da164c/staging/packages/charts/sass/src/chart/legend/Legend.scss:6 */
+.x6-legend-horizontal {
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+/* /home/teamcity/buildAgent/work/8cc7421dd8da164c/staging/packages/charts/sass/src/chart/legend/Legend.scss:12 */
+.x6-legend-horizontal .x6-legend-item {
+    display: inline-block;
+    border-right: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+/* /home/teamcity/buildAgent/work/8cc7421dd8da164c/staging/packages/charts/sass/src/chart/legend/Legend.scss:19 */
+.x6-legend-horizontal .x6-legend-item:first-child {
+    border-left: 1px solid #ccc;
+}
+/* /home/teamcity/buildAgent/work/8cc7421dd8da164c/staging/packages/charts/sass/src/chart/legend/Legend.scss:31 */
+.x6-legend-horizontal.x6-rtl .x6-legend-item:first-child {
+    border-right: 1px solid #ccc;
+}
+/* /home/teamcity/buildAgent/work/8cc7421dd8da164c/staging/packages/charts/sass/src/chart/legend/Legend.scss:36 */
+.x6-legend-horizontal.x6-rtl .x6-legend-item:last-child {
+    border-right: none;
+}
+/* /home/teamcity/buildAgent/work/8cc7421dd8da164c/staging/packages/charts/sass/src/chart/legend/Legend.scss:44 */
+.x6-legend-vertical {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+/* /home/teamcity/buildAgent/work/8cc7421dd8da164c/staging/packages/charts/sass/src/chart/legend/Legend.scss:49 */
+.x6-legend-vertical .x6-legend-item {
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+/* /home/teamcity/buildAgent/work/8cc7421dd8da164c/staging/packages/charts/sass/src/chart/legend/Legend.scss:54 */
+.x6-legend-vertical .x6-legend-item:first-child {
+    border-top: 1px solid #ccc;
+}
+/* /home/teamcity/buildAgent/work/8cc7421dd8da164c/staging/packages/charts/sass/src/chart/legend/Legend.scss:67 */
+.x6-legend-item-inactive {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+    opacity: 0.3;
+}
+/* /home/teamcity/buildAgent/work/8cc7421dd8da164c/staging/packages/charts/sass/src/chart/legend/Legend.scss:71 */
+.x6-legend-item {
+    padding: 0.8em 0.6em 0.8em 1.8em;
+    color: #333;
+    background: rgba(255, 255, 255, 0);
+    max-width: 16em;
+    min-width: 0;
+    font-size: 13px;
+    font-family: 'Open Sans', 'Helvetica Neue', helvetica, arial, sans-serif;
+    line-height: 13px;
+    font-weight: normal;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position: relative;
+}
+/* /home/teamcity/buildAgent/work/8cc7421dd8da164c/staging/packages/charts/sass/src/chart/legend/Legend.scss:87 */
+.x6-rtl > * > .x6-legend-item {
+    padding: 0.8em 1.8em 0.8em 1em;
+}
+/* /home/teamcity/buildAgent/work/8cc7421dd8da164c/staging/packages/charts/sass/src/chart/legend/Legend.scss:91 */
+.x6-legend-item-marker {
+    position: absolute;
+    width: 0.8em;
+    height: 0.8em;
+    -webkit-box-shadow: rgba(255, 255, 255, 0.3) 0 1px 0, rgba(0, 0, 0, 0.4) 0 1px 0 inset;
+    -moz-box-shadow: rgba(255, 255, 255, 0.3) 0 1px 0, rgba(0, 0, 0, 0.4) 0 1px 0 inset;
+    box-shadow: rgba(255, 255, 255, 0.3) 0 1px 0, rgba(0, 0, 0, 0.4) 0 1px 0 inset;
+    left: 0.7em;
+    top: 0.85em;
+}
+/* /home/teamcity/buildAgent/work/8cc7421dd8da164c/staging/packages/charts/sass/src/chart/legend/Legend.scss:103 */
+.x6-rtl > * > * > .x6-legend-item-marker {
+    right: 0.7em;
+}
+/* /home/teamcity/buildAgent/work/8cc7421dd8da164c/staging/packages/charts/modern/sass/src/draw/Container.scss:1 */
+.x6-chart-preview > img {
+    width: 100% !important;
+    height: auto !important;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+/* /home/teamcity/buildAgent/work/8cc7421dd8da164c/staging/packages/charts/modern/sass/src/chart/legend/Legend.scss:13 */
+.x6-legend .x6-legend-body-el {
+    /*
+ * The DOM looks like this:
+ *
+ *     ext-legend
+ *         x6-legend-body-el x6-legend-horizontal/vertical
+ *             x6-legend-item
+ *             x6-legend-item
+ *
+ * The `x6-legend-body-el` is what is being scrolled.
+ */
+    display: inline-block;
+    margin: auto;
+    white-space: nowrap !important;
+    line-height: 0;
+    background: #fff;
+    -webkit-box-shadow: rgba(255, 255, 255, 0.6) 0 1px 1px;
+    -moz-box-shadow: rgba(255, 255, 255, 0.6) 0 1px 1px;
+    box-shadow: rgba(255, 255, 255, 0.6) 0 1px 1px;
+}
+/* /home/teamcity/buildAgent/work/8cc7421dd8da164c/staging/packages/charts/modern/sass/src/chart/legend/Legend.scss:29 */
+.x6-legend-horizontal .x6-legend-body-el {
+    display: table;
+    margin: 0 auto;
+}
+/* /home/teamcity/buildAgent/work/8cc7421dd8da164c/staging/packages/charts/modern/sass/src/chart/legend/Legend.scss:35 */
+.x6-legend-item {
+    font-size: 13px;
+    line-height: 13px;
+}
+/* /home/teamcity/buildAgent/work/8cc7421dd8da164c/staging/packages/charts/modern/sass/src/chart/legend/Legend.scss:40 */
+.x6-legend-item-marker {
+    top: 0.95em;
+}
+/* /home/teamcity/buildAgent/work/8cc7421dd8da164c/staging/packages/charts/modern/sass/src/chart/legend/Legend.scss:44 */
+.x6-legend-body-el {
+    white-space: nowrap;
+    padding: 10px;
+}
+/* /home/teamcity/buildAgent/work/8cc7421dd8da164c/staging/packages/charts/modern/sass/src/chart/legend/Legend.scss:49 */
+.x6-legend-horizontal {
+    overflow-x: auto;
+}
+/* /home/teamcity/buildAgent/work/8cc7421dd8da164c/staging/packages/charts/modern/sass/src/chart/legend/Legend.scss:53 */
+.x6-legend-vertical .x6-legend-body-el {
+    overflow-y: auto;
+    flex: none;
+}
+/* /home/teamcity/buildAgent/work/8cc7421dd8da164c/staging/packages/charts/modern/sass/src/chart/AbstractChart.scss:1 */
+.x6-chart-toolbar {
+    position: absolute;
+    z-index: 9;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-box;
+    display: box;
+    padding: 0.6em;
+}
+/* /home/teamcity/buildAgent/work/8cc7421dd8da164c/staging/packages/charts/modern/sass/src/chart/AbstractChart.scss:7 */
+.x6-chart-toolbar .x6-button {
+    margin: 0.2em;
+}
+/* /home/teamcity/buildAgent/work/8cc7421dd8da164c/staging/packages/charts/modern/sass/src/chart/AbstractChart.scss:11 */
+.x6-chart-toolbar[data-side=left],
+.x6-chart-toolbar[data-side=right] {
+    top: 0;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    -ms-box-orient: vertical;
+    box-orient: vertical;
+}
+/* /home/teamcity/buildAgent/work/8cc7421dd8da164c/staging/packages/charts/modern/sass/src/chart/AbstractChart.scss:16 */
+.x6-chart-toolbar[data-side=left] {
+    left: 0;
+}
+/* /home/teamcity/buildAgent/work/8cc7421dd8da164c/staging/packages/charts/modern/sass/src/chart/AbstractChart.scss:20 */
+.x6-chart-toolbar[data-side=right] {
+    right: 0;
+}
+/* /home/teamcity/buildAgent/work/8cc7421dd8da164c/staging/packages/charts/modern/sass/src/chart/AbstractChart.scss:24 */
+.x6-chart-toolbar[data-side=top],
+.x6-chart-toolbar[data-side=bottom] {
+    -webkit-box-orient: horizontal;
+    -moz-box-orient: horizontal;
+    -ms-box-orient: horizontal;
+    box-orient: horizontal;
+    right: 0;
+}
+/* /home/teamcity/buildAgent/work/8cc7421dd8da164c/staging/packages/charts/modern/sass/src/chart/AbstractChart.scss:29 */
+.x6-chart-toolbar[data-side=top] {
+    top: 0;
+}
+/* /home/teamcity/buildAgent/work/8cc7421dd8da164c/staging/packages/charts/modern/sass/src/chart/AbstractChart.scss:33 */
+.x6-chart-toolbar[data-side=bottom] {
+    bottom: 0;
+    -webkit-box-orient: horizontal;
+    -moz-box-orient: horizontal;
+    -ms-box-orient: horizontal;
+    box-orient: horizontal;
+}

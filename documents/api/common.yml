@@ -1,0 +1,1288 @@
+openapi: 3.0.0
+info:
+  title: SwServiceCommon
+  version: '1.0'
+paths:
+  /api/EMD/DocumentListByEvn:
+    get:
+      tags:
+        - EMD
+      summary: 'Определяем есть ли в базе РЭМД определенные события\документы РМИС'
+      operationId: 'EMD::DocumentListByEvn_get'
+      parameters:
+        -
+          name: EvnClass_SysNick
+          in: query
+          description: 'Системное имя события'
+          schema:
+            type: string
+        -
+          name: Evn_id
+          in: query
+          description: 'Идентификатор события'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'JSON response'
+          content:
+            application/json:
+              schema: {  }
+  /api/ElectronicTalon/cancelByEvnDirection:
+    get:
+      tags:
+        - ElectronicTalon
+      summary: 'Отмена электронного талона по направлению'
+      operationId: 'ElectronicTalon::cancelByEvnDirection_post'
+      parameters:
+        -
+          name: EvnDirection_id
+          in: query
+          description: 'Идентификатор направления'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'JSON response'
+          content:
+            application/json:
+              schema: {  }
+  /api/ElectronicTalon/sendMessage:
+    get:
+      tags:
+        - ElectronicTalon
+      summary: 'Отправка сообщения'
+      operationId: 'ElectronicTalon::sendMessage_post'
+      parameters:
+        -
+          name: Person_id
+          in: query
+          description: 'Идентификатор человека'
+          required: true
+          schema:
+            type: integer
+            format: int64
+        -
+          name: EvnDirection_TalonCode
+          in: query
+          description: 'Код бронирования'
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'JSON response'
+          content:
+            application/json:
+              schema: {  }
+  /api/EvnDirection/EvnFromPersonEvn:
+    get:
+      tags:
+        - EvnDirection
+      summary: 'Получение Evn_id из PersonEvn'
+      operationId: 'EvnDirection::EvnFromPersonEvn_get'
+      parameters:
+        -
+          name: EvnDirection_pid
+          in: query
+          description: 'Идентификатор родительского события'
+          required: true
+          schema:
+            type: integer
+            format: int64
+        -
+          name: PersonEvn_id
+          in: query
+          description: 'Идентификатор состояния пациента'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'JSON response'
+          content:
+            application/json:
+              schema: {  }
+  /api/EvnDirection/RecMethodType:
+    get:
+      tags:
+        - EvnDirection
+      summary: 'Получение способа записи для направления по ARMType_id'
+      operationId: 'EvnDirection::RecMethodType_get'
+      parameters:
+        -
+          name: ARMType_id
+          in: query
+          description: 'Идентификатор типа АРМа'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'JSON response'
+          content:
+            application/json:
+              schema: {  }
+  /api/EvnDirection/beforeRedirectLis:
+    post:
+      tags:
+        - EvnDirection
+      summary: 'Действия перед перенаправлением в ЛИС'
+      operationId: 'EvnDirection::beforeRedirectLis_post'
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              required:
+                - EvnDirection_id
+                - redirectEvnDirection
+              properties:
+                EvnDirection_id:
+                  description: 'Идентификатор направления'
+                  type: integer
+                oldTimetableMedService_id:
+                  description: 'Идентификатор бирки'
+                  type: integer
+                newTimetableMedService_id:
+                  description: 'Идентификатор бирки'
+                  type: integer
+                redirectEvnDirection:
+                  description: 'Код перенаправления'
+                  type: integer
+              type: object
+      responses:
+        '200':
+          description: 'JSON response'
+          content:
+            application/json:
+              schema: {  }
+  /api/EvnMediaData:
+    post:
+      tags:
+        - EvnMediaData
+      summary: Создание
+      operationId: 'EvnMediaData::index_post'
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              required:
+                - Evn_id
+                - EvnMediaData_FileName
+                - File
+              properties:
+                Evn_id:
+                  description: 'Идентификатор события'
+                  type: integer
+                EvnMediaData_FileName:
+                  description: 'Название файла'
+                  type: string
+                File:
+                  description: 'Файл в base64'
+                  type: string
+                  format: base64
+              type: object
+      responses:
+        '200':
+          description: 'JSON response'
+          content:
+            application/json:
+              schema: {  }
+  /api/EvnMediaData/byEvn:
+    get:
+      tags:
+        - EvnMediaData
+      summary: 'Получение идентификаторов файлов события'
+      operationId: 'EvnMediaData::byEvn_get'
+      parameters:
+        -
+          name: Evn_id
+          in: query
+          description: 'Идентификатор события'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'JSON response'
+          content:
+            application/json:
+              schema: {  }
+  /api/EvnPrescr/EvnDirectionIds:
+    get:
+      tags:
+        - EvnPrescr
+      summary: 'Получение идентификаторов направлений, связанных с назначением'
+      operationId: 'EvnPrescr::EvnDirectionIds_get'
+      parameters:
+        -
+          name: EvnPrescr_id
+          in: query
+          description: 'Идентификатор назначения'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'JSON response'
+          content:
+            application/json:
+              schema: {  }
+  /api/EvnPrescr/childEvnPrescrId:
+    get:
+      tags:
+        - EvnPrescr
+      summary: 'Получение идентификатора дочернего назначения'
+      operationId: 'EvnPrescr::childEvnPrescrId_get'
+      parameters:
+        -
+          name: EvnPrescr_id
+          in: query
+          description: 'Идентификатор назначения'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'JSON response'
+          content:
+            application/json:
+              schema: {  }
+  /api/EvnPrescr/checkAndDirectEvnPrescr:
+    post:
+      tags:
+        - EvnPrescr
+      summary: 'Проверка наличия направления по назначению, создание связи, если её нет'
+      operationId: 'EvnPrescr::checkAndDirectEvnPrescr_post'
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              required:
+                - EvnPrescr_id
+                - EvnDirection_id
+              properties:
+                EvnPrescr_id:
+                  description: 'Идентификатор назначения'
+                  type: integer
+                EvnDirection_id:
+                  description: 'Идентификатор направления'
+                  type: integer
+              type: object
+      responses:
+        '200':
+          description: 'JSON response'
+          content:
+            application/json:
+              schema: {  }
+  /api/EvnPrescr/checkEvnPrescr:
+    get:
+      tags:
+        - EvnPrescr
+      summary: 'Проверка наличия направления по назначению'
+      operationId: 'EvnPrescr::checkEvnPrescr_get'
+      parameters:
+        -
+          name: EvnPrescr_id
+          in: query
+          description: 'Идентификатор назначения'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'JSON response'
+          content:
+            application/json:
+              schema: {  }
+  /api/EvnPrescr/EvnPrescrInsDate:
+    get:
+      tags:
+        - EvnPrescr
+      summary: 'Получение даты назначения'
+      operationId: 'EvnPrescr::EvnPrescrInsDate_get'
+      parameters:
+        -
+          name: EvnDirection_id
+          in: query
+          description: 'Идентификатор направления'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'JSON response'
+          content:
+            application/json:
+              schema: {  }
+  /api/EvnPrescr/defineUslugaParams:
+    get:
+      tags:
+        - EvnPrescr
+      summary: 'Определение назначения и случая к которому будет привязана услуга'
+      operationId: 'EvnPrescr::defineUslugaParams_get'
+      parameters:
+        -
+          name: EvnPrescr_id
+          in: query
+          description: 'Идентификатор назначения'
+          schema:
+            type: integer
+            format: int64
+        -
+          name: EvnDirection_id
+          in: query
+          description: 'Идентификатор направления'
+          required: true
+          schema:
+            type: integer
+            format: int64
+        -
+          name: UslugaComplex_id
+          in: query
+          description: 'Идентификатор услуги'
+          required: true
+          schema:
+            type: integer
+            format: int64
+        -
+          name: EvnUslugaPar_pid
+          in: query
+          description: 'Идентификатор родительского события'
+          schema:
+            type: integer
+            format: int64
+        -
+          name: EvnUslugaPar_setDT
+          in: query
+          description: 'Дата оказания услуги'
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'JSON response'
+          content:
+            application/json:
+              schema: {  }
+  /api/EvnPrescr/setDateByUslugaPar:
+    get:
+      tags:
+        - EvnPrescr
+      summary: 'Определение даты назначения по услуге'
+      operationId: 'EvnPrescr::setDateByUslugaPar_get'
+      parameters:
+        -
+          name: EvnDirection_id
+          in: query
+          description: 'Идентификатор направления'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'JSON response'
+          content:
+            application/json:
+              schema: {  }
+  /api/EvnPrescr/PrescrByDirection:
+    get:
+      tags:
+        - EvnPrescr
+      summary: 'Определение назначения по направлению'
+      operationId: 'EvnPrescr::PrescrByDirection_get'
+      parameters:
+        -
+          name: EvnDirection_id
+          in: query
+          description: 'Идентификатор направления'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'JSON response'
+          content:
+            application/json:
+              schema: {  }
+  /api/EvnPrescr/EvnPrescrLabDiagDescr:
+    get:
+      tags:
+        - EvnPrescr
+      summary: 'Получение комментария к назначению'
+      operationId: 'EvnPrescr::EvnPrescrLabDiagDescr_get'
+      parameters:
+        -
+          name: EvnDirection_id
+          in: query
+          description: 'Идентификатор направления'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'JSON response'
+          content:
+            application/json:
+              schema: {  }
+  /api/EvnPrescr/PayTypeFromEvn:
+    get:
+      tags:
+        - EvnPrescr
+      summary: 'Получение вида оплаты из движения/посещения, в котором происходит назначение'
+      operationId: 'EvnPrescr::PayTypeFromEvn_get'
+      parameters:
+        -
+          name: EvnPrescr_id
+          in: query
+          description: 'Идентификатор назначения'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'JSON response'
+          content:
+            application/json:
+              schema: {  }
+  /api/EvnPrescr/exec:
+    post:
+      tags:
+        - EvnPrescr
+      summary: 'Выполнение назначения'
+      operationId: 'EvnPrescr::exec_post'
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              required:
+                - EvnPrescr_id
+              properties:
+                EvnPrescr_id:
+                  description: 'Идентификатор назначения'
+                  type: integer
+              type: object
+      responses:
+        '200':
+          description: 'JSON response'
+          content:
+            application/json:
+              schema: {  }
+  /api/EvnPrescr/rollback:
+    put:
+      tags:
+        - EvnPrescr
+      summary: 'Отмена выполнения назначения'
+      operationId: 'EvnPrescr::rollback_put'
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              required:
+                - EvnPrescr_id
+              properties:
+                EvnPrescr_id:
+                  description: 'Идентификатор назначения'
+                  type: integer
+              type: object
+      responses:
+        '200':
+          description: 'JSON response'
+          content:
+            application/json:
+              schema: {  }
+  /api/EvnSection/recalcKSGKPGKOEF:
+    post:
+      tags:
+        - EvnSection
+      summary: 'Пересчёт КСГ/КПГ/Коэф в движении после сохранения КВС, услуг, удаления услуг'
+      operationId: 'EvnSection::recalcKSGKPGKOEF_post'
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              required:
+                - EvnSection_id
+              properties:
+                EvnSection_id:
+                  description: 'Идентификатор движения'
+                  type: integer
+              type: object
+      responses:
+        '200':
+          description: 'JSON response'
+          content:
+            application/json:
+              schema: {  }
+  /api/EvnUsluga/ParSimpleEditFormAdditData:
+    get:
+      tags:
+        - EvnUsluga
+      summary: 'Получение дополнительных данных для формы редактирования'
+      operationId: 'EvnUsluga::ParSimpleEditFormAdditData_get'
+      parameters:
+        -
+          name: EvnUslugaPar_pid
+          in: query
+          description: 'Идентификатор родителского события услуги'
+          required: true
+          schema:
+            type: integer
+            format: int64
+        -
+          name: EvnDirection_pid
+          in: query
+          description: 'Идентификатор родителского события направления'
+          required: true
+          schema:
+            type: integer
+            format: int64
+        -
+          name: Lpu_oid
+          in: query
+          description: 'Идентификатор МО'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'JSON response'
+          content:
+            application/json:
+              schema: {  }
+  /api/EvnUsluga/ParBeforeEdit:
+    post:
+      tags:
+        - EvnUsluga
+      summary: 'Обработка данных перед изменением параклинической услуги'
+      operationId: 'EvnUsluga::ParBeforeEdit_post'
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              required:
+                - EvnUslugaPar_id
+                - EvnUslugaPar_pid
+                - savedData
+              properties:
+                EvnUslugaPar_id:
+                  description: 'Идентификатор услуги'
+                  type: integer
+                EvnUslugaPar_pid:
+                  description: 'Идентификатор родителского события услуги'
+                  type: integer
+                EvnUslugaPar_setDT:
+                  description: 'Дата услуги'
+                  type: string
+                  format: date-time
+                savedData:
+                  description: 'Сохраненные данные'
+                  type: string
+                  format: json
+              type: object
+      responses:
+        '200':
+          description: 'JSON response'
+          content:
+            application/json:
+              schema: {  }
+  /api/EvnXml/list:
+    get:
+      tags:
+        - EvnXml
+      summary: 'Получение списка документов'
+      operationId: 'EvnXml::list_get'
+      parameters:
+        -
+          name: Evn_id
+          in: query
+          description: 'Идентификатор события'
+          schema:
+            type: integer
+            format: int64
+        -
+          name: Evn_ids
+          in: query
+          description: 'Список идентификаторов событий'
+          schema:
+            type: string
+            format: json
+      responses:
+        '200':
+          description: 'JSON response'
+          content:
+            application/json:
+              schema: {  }
+  /api/EvnXml/EvnLabRequest:
+    post:
+      tags:
+        - EvnXml
+      summary: 'Сохранение документа с типом ''Протокол лабораторной услуги'''
+      operationId: 'EvnXml::EvnLabRequest_post'
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                EvnUslugaPar_oid:
+                  description: 'Идентификатор заказа выполнения услуг'
+                  type: integer
+                EvnLabRequest_Comment:
+                  description: 'Коментарий заявки'
+                  type: string
+                LabSampleResultList:
+                  description: 'Список результатов проб'
+                  type: string
+                  format: json
+              type: object
+      responses:
+        '200':
+          description: 'JSON response'
+          content:
+            application/json:
+              schema: {  }
+  /api/EvnXml/byEvn:
+    delete:
+      tags:
+        - EvnXml
+      summary: 'Удаление документов события'
+      operationId: 'EvnXml::byEvn_delete'
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              required:
+                - Evn_id
+              properties:
+                Evn_id:
+                  description: 'Идентификатор события'
+                  type: integer
+              type: object
+      responses:
+        '200':
+          description: 'JSON response'
+          content:
+            application/json:
+              schema: {  }
+  '/api/EvnXml/ PrintData':
+    get:
+      tags:
+        - EvnXml
+      summary: 'Получение данных протоколов для печати'
+      operationId: 'EvnXml::PrintData_get'
+      parameters:
+        -
+          name: EvnXml_id
+          in: query
+          description: 'Идентификатор протокола'
+          required: true
+          schema:
+            type: integer
+            format: int64
+        -
+          name: Evn_id
+          in: query
+          description: 'Идентификатор события'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'JSON response'
+          content:
+            application/json:
+              schema: {  }
+  /api/InnovaSysService/AISTargetCode:
+    get:
+      tags:
+        - InnovaSysService
+      summary: 'Определение кода заказанного исследования и проверки наличия услуг'
+      operationId: 'InnovaSysService::AISTargetCode_get'
+      parameters:
+        -
+          name: Code
+          in: query
+          description: 'Идентификатор услуги'
+          required: true
+          schema:
+            type: integer
+            format: int64
+        -
+          name: Lpu_id
+          in: query
+          description: 'Идентификатор МО'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'JSON response'
+          content:
+            application/json:
+              schema: {  }
+  /api/InnovaSysService/Tests:
+    get:
+      tags:
+        - InnovaSysService
+      summary: 'Получение тестов по пробе'
+      operationId: 'InnovaSysService::Tests_get'
+      parameters:
+        -
+          name: Code
+          in: query
+          description: 'Идентификатор услуги'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'JSON response'
+          content:
+            application/json:
+              schema: {  }
+  /api/MedPersonal/Fio:
+    get:
+      tags:
+        - MedPersonal
+      summary: 'Получение ФИО врача'
+      operationId: 'MedPersonal::Fio_get'
+      parameters:
+        -
+          name: MedPersonal_id
+          in: query
+          description: 'Идентификатор врача'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'JSON response'
+          content:
+            application/json:
+              schema: {  }
+  /api/MedStaffFact:
+    get:
+      tags:
+        - MedStaffFact
+      summary: 'Получение данных места работы врача'
+      operationId: 'MedStaffFact::index_get'
+      parameters:
+        -
+          name: MedStaffFact_id
+          in: query
+          description: 'Идентификатор места работы врача'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'JSON response'
+          content:
+            application/json:
+              schema: {  }
+  /api/MedStaffFact/msfData:
+    get:
+      tags:
+        - MedStaffFact
+      summary: 'Определение открытого рабочего места врача'
+      operationId: 'MedStaffFact::msfData_get'
+      parameters:
+        -
+          name: MedPersonal_id
+          in: query
+          description: 'Идентификатор врача'
+          required: true
+          schema:
+            type: integer
+            format: int64
+        -
+          name: LpuSection_id
+          in: query
+          description: 'Идентификатор отделения МО'
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'JSON response'
+          content:
+            application/json:
+              schema: {  }
+  /api/MedStaffFact/Id:
+    get:
+      tags:
+        - MedStaffFact
+      summary: 'Получение идентификатора рабочего места'
+      operationId: 'MedStaffFact::Id_get'
+      parameters:
+        -
+          name: MedPersonal_id
+          in: query
+          description: 'Идентификатор врача'
+          required: true
+          schema:
+            type: integer
+            format: int64
+        -
+          name: LpuSection_id
+          in: query
+          description: 'Идентификатор отделения МО'
+          schema:
+            type: integer
+            format: int64
+        -
+          name: Post_id
+          in: query
+          description: 'Идентификатор должности'
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'JSON response'
+          content:
+            application/json:
+              schema: {  }
+  /api/Messages/auto:
+    post:
+      tags:
+        - Messages
+      summary: 'Cоздание и запись в бд автоматического сообщения'
+      operationId: 'Messages::auto_post'
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              required:
+                - title
+                - text
+                - type
+              properties:
+                title:
+                  description: Заголовок
+                  type: string
+                text:
+                  description: Текст
+                  type: string
+                type:
+                  description: 'Тип сообщения'
+                  type: int
+                autotype:
+                  description: 'Тип события'
+                  type: int
+                User_rid:
+                  description: Получатель
+                  type: int
+              type: object
+      responses:
+        '200':
+          description: 'JSON response'
+          content:
+            application/json:
+              schema: {  }
+  /api/Options/DataStorageValues:
+    get:
+      tags:
+        - Options
+      summary: 'Получение настроек'
+      operationId: 'Options::DataStorageValues_get'
+      parameters:
+        -
+          name: DataStorageGroup_SysNick
+          in: query
+          description: Объект
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'JSON response'
+          content:
+            application/json:
+              schema: {  }
+  /api/Person/IdByPersonEvn:
+    get:
+      tags:
+        - Person
+      summary: 'Получение идентификатора человека по периодике'
+      operationId: 'Person::IdByPersonEvn_get'
+      parameters:
+        -
+          name: PersonEvn_id
+          in: query
+          description: 'Идентификатор периодики человека'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'JSON response'
+          content:
+            application/json:
+              schema: {  }
+  /api/Person/serverByPersonEvn:
+    get:
+      tags:
+        - Person
+      summary: 'Определение сервера по периодие человека'
+      operationId: 'Person::serverByPersonEvn_get'
+      parameters:
+        -
+          name: PersonEvn_id
+          in: query
+          description: 'Идентификатор периодики человека'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'JSON response'
+          content:
+            application/json:
+              schema: {  }
+  /api/Person/PersonDataForRefValues:
+    get:
+      tags:
+        - Person
+      summary: 'Получение параметров человека для определения референсных значений'
+      operationId: 'Person::PersonDataForRefValues_get'
+      parameters:
+        -
+          name: Person_id
+          in: query
+          description: 'Идентификатор человека'
+          required: true
+          schema:
+            type: integer
+            format: int64
+        -
+          name: EvnPrescr_id
+          in: query
+          description: 'Идентификатор периодики человека'
+          schema:
+            type: integer
+            format: int64
+        -
+          name: EvnLabSample_setDT
+          in: query
+          description: Дата
+          schema:
+            type: string
+            format: date
+      responses:
+        '200':
+          description: 'JSON response'
+          content:
+            application/json:
+              schema: {  }
+  /api/Person/PersonForInnova:
+    get:
+      tags:
+        - Person
+      summary: 'Получение данных о человеке для сервиса ''Иннова'''
+      operationId: 'Person::PersonForInnova_get'
+      parameters:
+        -
+          name: Person_id
+          in: query
+          description: 'Идентификатор человека'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'JSON response'
+          content:
+            application/json:
+              schema: {  }
+  /api/TimetableMedService:
+    get:
+      tags:
+        - TimetableMedService
+      summary: 'Получение данных бирки'
+      operationId: 'TimetableMedService::index_get'
+      parameters:
+        -
+          name: TimetableMedService_id
+          in: query
+          description: 'Идентификатор бирки'
+          schema:
+            type: integer
+            format: int64
+        -
+          name: EvnDirection_id
+          in: query
+          description: 'Идентификатор направления'
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'JSON response'
+          content:
+            application/json:
+              schema: {  }
+    delete:
+      tags:
+        - TimetableMedService
+      summary: 'Освобождение бирки'
+      operationId: 'TimetableMedService::index_delete'
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              required:
+                - TimetableMedService_id
+              properties:
+                cancelType:
+                  description: 'Тип отмены направления'
+                  type: string
+                TimetableMedService_id:
+                  description: 'Идентификатор бирки'
+                  type: integer
+                DirFailType_id:
+                  description: 'Идентификатор причины отмены направления'
+                  type: integer
+                EvnStatusCause_id:
+                  description: 'Идентификатор причины смены статуса'
+                  type: integer
+                EvnComment_Comment:
+                  description: Комментарий
+                  type: integer
+              type: object
+      responses:
+        '200':
+          description: 'JSON response'
+          content:
+            application/json:
+              schema: {  }
+  /api/TimetableMedService/Dop:
+    post:
+      tags:
+        - TimetableMedService
+      summary: 'Создание дополнительной бирки'
+      operationId: 'TimetableMedService::Dop_post'
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              required:
+                - MedService_id
+              properties:
+                MedService_id:
+                  description: 'Идентификатор службы'
+                  type: integer
+                Day:
+                  description: День
+                  type: integer
+                StartTime:
+                  description: 'Время начала'
+                  type: string
+                TimetableExtend_Descr:
+                  description: Описание
+                  type: string
+                withoutRecord:
+                  description: 'Признак ''Без записи'''
+                  type: integer
+              type: object
+      responses:
+        '200':
+          description: 'JSON response'
+          content:
+            application/json:
+              schema: {  }
+  /api/TimetableMedService/recordEvnDirection:
+    post:
+      tags:
+        - TimetableMedService
+      summary: 'Запись направления на бирку'
+      operationId: 'TimetableMedService::recordEvnDirection_post'
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              required:
+                - TimeTableMedService_id
+                - Person_id
+                - pmUser_id
+              properties:
+                TimeTableMedService_id:
+                  description: 'Идентификатор бирки'
+                  type: integer
+                Person_id:
+                  description: 'Идентификатор пациента'
+                  type: integer
+                Evn_id:
+                  description: 'Идентификатор род. события направления'
+                  type: integer
+                RecClass_id:
+                  description: 'Тип записи на прием'
+                  type: integer
+                EvnDirection_id:
+                  description: 'Идентификатор направления'
+                  type: integer
+                EvnDirection_IsAuto:
+                  description: 'Автоматическое направление'
+                  type: integer
+                pmUser_id:
+                  description: 'Идентификатор пользователя'
+                  type: integer
+              type: object
+      responses:
+        '200':
+          description: 'JSON response'
+          content:
+            application/json:
+              schema: {  }
+  /api/UnitSpr/UnitConv:
+    get:
+      tags:
+        - UnitSpr
+      summary: 'Получение коэффициента для конвертации единиц измерения'
+      operationId: 'UnitSpr::UnitConv_get'
+      parameters:
+        -
+          name: Unit_id
+          in: query
+          description: 'Идентификатор единицы измерения'
+          required: true
+          schema:
+            type: integer
+            format: int64
+        -
+          name: baseUnit_id
+          in: query
+          description: 'Идентификатор базовой единицы измерения'
+          required: true
+          schema:
+            type: integer
+            format: int64
+        -
+          name: UnitType_id
+          in: query
+          description: 'Идентификатор справочника единиц измерения'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'JSON response'
+          content:
+            application/json:
+              schema: {  }
+  /api/User/authByToken:
+    post:
+      tags:
+        - User
+      summary: 'Авторизация по токену'
+      operationId: 'User::authByToken_post'
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              required:
+                - swtoken
+              properties:
+                swtoken:
+                  description: Токен
+                  type: string
+              type: object
+      responses:
+        '200':
+          description: 'JSON response'
+          content:
+            application/json:
+              schema: {  }
+  /api/UslugaComplex/AttributeByUslugaComplex:
+    post:
+      tags:
+        - UslugaComplex
+      summary: 'Добавление атрибута услуги'
+      operationId: 'UslugaComplex::Attribute_post'
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              required:
+                - UslugaComplex_id
+                - UslugaComplexAttributeType_SysNick
+              properties:
+                UslugaComplex_id:
+                  description: 'Идентификатор услуги'
+                  type: integer
+                UslugaComplexAttributeType_SysNick:
+                  description: 'Системное наименование типа атрибута услуги'
+                  type: string
+              type: object
+      responses:
+        '200':
+          description: 'JSON response'
+          content:
+            application/json:
+              schema: {  }
+  /api/UslugaComplex/checkUslugaComplexMedServiceIsUsed:
+    get:
+      tags:
+        - UslugaComplex
+      summary: 'Проверка использования услуги на службе'
+      operationId: 'UslugaComplex::checkUslugaComplexMedServiceIsUsed_get'
+      parameters:
+        -
+          name: UslugaComplexMedService_id
+          in: query
+          description: 'Идентификатор связи услуги и службы'
+          required: true
+          schema:
+            type: integer
+            format: int64
+        -
+          name: tablesToPass
+          in: query
+          description: 'Список таблиц для проверки'
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'JSON response'
+          content:
+            application/json:
+              schema: {  }

@@ -1,0 +1,25 @@
+<PERS_LIST>
+  {ZGLV}
+  <ZGLV>
+    <VERSION>1.0</VERSION>
+    <DATA><?php echo date('Y-m-d'); ?></DATA>
+	<FILENAME>{FILENAME}</FILENAME>
+    <CODE_MO>{CODE_MO}</CODE_MO>
+    <SMO>{SMO}</SMO>
+    <ZAP>{ZAP}</ZAP>
+  </ZGLV>
+  {/ZGLV}
+  {PERS}
+  <PERS>
+    <ID_PAC>{ID_PAC}</ID_PAC>
+    <FAM>{FAM}</FAM>
+    <IM>{IM}</IM>
+    <OT>{OT}</OT>
+    <W>{W}</W>
+    <DR>{DR}</DR>
+    <VPOLIS>{VPOLIS}</VPOLIS>
+    <SPOLIS>{SPOLIS}</SPOLIS>
+    <NPOLIS>{NPOLIS}</NPOLIS>
+  </PERS>
+  {/PERS}
+</PERS_LIST>

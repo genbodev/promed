@@ -1,0 +1,33 @@
+<ZL_LIST>
+	{ZGLV}
+	<ZGLV>
+		<VERSION>1.0</VERSION>
+		<DATA><?php echo date('Y-m-d'); ?></DATA>
+		{FILENAME}
+	</ZGLV>
+	{/ZGLV}
+	{NPR}
+	<NPR>
+		{IDCASE}
+		{PERIOD}
+		{TIP_DATA}
+		{FAM}
+		{IM}
+		{OT}
+		{W}
+		{DR}
+		{SNILS}
+		{DOCTYPE}
+		{DOCSER}
+		{DOCNUM}
+		{DOCDATE}
+		{ENP}
+		{VPOLIS}
+		{SPOLIS}
+		{NPOLIS}
+		{SMO}
+		{IDDOKT}
+		{CODE_MO}
+	</NPR>
+	{/NPR}
+</ZL_LIST>

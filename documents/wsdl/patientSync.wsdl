@@ -1,0 +1,849 @@
+<?xml version='1.0' encoding='UTF-8'?><definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://cz.atria/patient/interchange/api/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:patsync="http://cz.atria/patient/interchange/sync" xmlns:pat="http://cz.atria/patient/interchange/" xmlns:bi="http://atria.cz/common/base/info/build/" xmlns="http://schemas.xmlsoap.org/wsdl/" name="PatientInterchangeSyncEndPointService" targetNamespace="http://cz.atria/patient/interchange/api/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://cz.atria/patient/interchange/api/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:patsync="http://cz.atria/patient/interchange/sync" xmlns:pat="http://cz.atria/patient/interchange/" xmlns:bi="http://atria.cz/common/base/info/build/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+            
+  <xsd:import namespace="http://cz.atria/patient/interchange/sync" schemaLocation="../xsd/patients-sync.xsd"/>
+            
+  <xsd:import namespace="http://atria.cz/common/base/info/build/" schemaLocation="https://rmis66.mis66.ru/patients-ws/patientSync?xsd=http://atria.cz/common/base/buildInfo.xsd"/>
+        
+</xsd:schema>
+  </types>
+  <message name="getChangedPatientResponse">
+    <part element="patsync:getChangedPatientResponse" name="result">
+    </part>
+  </message>
+  <message name="getDeletedDrugIntoleranceResponse">
+    <part element="patsync:getDeletedDrugIntoleranceResponse" name="result">
+    </part>
+  </message>
+  <message name="getPatientRegResponse">
+    <part element="patsync:getPatientRegResponse" name="response">
+    </part>
+  </message>
+  <message name="createOrUpdatePatientResponse">
+    <part element="patsync:createOrUpdatePatientResponse" name="response">
+    </part>
+  </message>
+  <message name="getDeletedPatientRequest">
+    <part element="patsync:getDeletedPatientRequest" name="request">
+    </part>
+  </message>
+  <message name="getChangedPatientBenefitResponse">
+    <part element="patsync:getChangedPatientBenefitResponse" name="result">
+    </part>
+  </message>
+  <message name="createOrUpdatePatientBenefitResponse">
+    <part element="patsync:createOrUpdatePatientBenefitResponse" name="response">
+    </part>
+  </message>
+  <message name="getChangedPatientBenefitRequest">
+    <part element="patsync:getChangedPatientBenefitRequest" name="request">
+    </part>
+  </message>
+  <message name="getChangedPatientRegResponse">
+    <part element="patsync:getChangedPatientRegResponse" name="result">
+    </part>
+  </message>
+  <message name="getPatientBenefitsResponse">
+    <part element="patsync:getPatientBenefitsResponse" name="response">
+    </part>
+  </message>
+  <message name="deleteDrugIntoleranceRequest">
+    <part element="patsync:deleteDrugIntoleranceRequest" name="request">
+    </part>
+  </message>
+  <message name="getDeletedPatientBenefitResponse">
+    <part element="patsync:getDeletedPatientBenefitResponse" name="result">
+    </part>
+  </message>
+  <message name="searchPatientBenefitRequest">
+    <part element="patsync:searchPatientBenefitRequest" name="request">
+    </part>
+  </message>
+  <message name="deletePatientRegResponse">
+    <part element="patsync:deletePatientRegResponse" name="response">
+    </part>
+  </message>
+  <message name="getPatientPartCasesResponse">
+    <part element="patsync:getPatientPartCasesResponse" name="response">
+    </part>
+  </message>
+  <message name="getPartCaseResponse">
+    <part element="patsync:getPartCaseResponse" name="response">
+    </part>
+  </message>
+  <message name="getChangedPartCaseRequest">
+    <part element="patsync:getChangedPartCaseRequest" name="request">
+    </part>
+  </message>
+  <message name="getPatientByIndividualEuidRequest">
+    <part element="patsync:getPatientByIndividualEuidRequest" name="request">
+    </part>
+  </message>
+  <message name="getPatientRegsResponse">
+    <part element="patsync:getPatientRegsResponse" name="response">
+    </part>
+  </message>
+  <message name="getPatientBenefitResponse">
+    <part element="patsync:getPatientBenefitResponse" name="response">
+    </part>
+  </message>
+  <message name="getDeletedPartCaseResponse">
+    <part element="patsync:getDeletedPartCaseResponse" name="result">
+    </part>
+  </message>
+  <message name="getDeletedPatientRegResponse">
+    <part element="patsync:getDeletedPatientRegResponse" name="result">
+    </part>
+  </message>
+  <message name="searchDrugIntoleranceResponse">
+    <part element="patsync:searchDrugIntoleranceResponse" name="response">
+    </part>
+  </message>
+  <message name="getChangedDrugIntoleranceRequest">
+    <part element="patsync:getChangedDrugIntoleranceRequest" name="request">
+    </part>
+  </message>
+  <message name="getChangedPatientRequest">
+    <part element="patsync:getChangedPatientRequest" name="request">
+    </part>
+  </message>
+  <message name="searchPartCaseResponse">
+    <part element="patsync:searchPartCaseResponse" name="response">
+    </part>
+  </message>
+  <message name="createOrUpdatePartCaseRequest">
+    <part element="patsync:createOrUpdatePartCaseRequest" name="request">
+    </part>
+  </message>
+  <message name="createOrUpdateDrugIntoleranceResponse">
+    <part element="patsync:createOrUpdateDrugIntoleranceResponse" name="response">
+    </part>
+  </message>
+  <message name="createOrUpdatePartCaseResponse">
+    <part element="patsync:createOrUpdatePartCaseResponse" name="response">
+    </part>
+  </message>
+  <message name="getDeletedPatientResponse">
+    <part element="patsync:getDeletedPatientResponse" name="result">
+    </part>
+  </message>
+  <message name="deletePartCaseRequest">
+    <part element="patsync:deletePartCaseRequest" name="request">
+    </part>
+  </message>
+  <message name="getDrugIntoleranceResponse">
+    <part element="patsync:getDrugIntoleranceResponse" name="response">
+    </part>
+  </message>
+  <message name="getPartCaseRequest">
+    <part element="patsync:getPartCaseRequest" name="request">
+    </part>
+  </message>
+  <message name="getPatientRequest">
+    <part element="patsync:getPatientRequest" name="request">
+    </part>
+  </message>
+  <message name="getVersionRequest">
+    <part element="bi:getVersionRequest" name="getVersionRequest">
+    </part>
+  </message>
+  <message name="getDeletedPartCaseRequest">
+    <part element="patsync:getDeletedPartCaseRequest" name="request">
+    </part>
+  </message>
+  <message name="searchPartCaseRequest">
+    <part element="patsync:searchPartCaseRequest" name="request">
+    </part>
+  </message>
+  <message name="createOrUpdatePatientRequest">
+    <part element="patsync:createOrUpdatePatientRequest" name="request">
+    </part>
+  </message>
+  <message name="getVersionResponse">
+    <part element="bi:getVersionResponse" name="getVersionResponse">
+    </part>
+  </message>
+  <message name="searchPatientResponse">
+    <part element="patsync:searchPatientResponse" name="response">
+    </part>
+  </message>
+  <message name="getDeletedPatientBenefitRequest">
+    <part element="patsync:getDeletedPatientBenefitRequest" name="request">
+    </part>
+  </message>
+  <message name="getChangedPatientRegRequest">
+    <part element="patsync:getChangedPatientRegRequest" name="request">
+    </part>
+  </message>
+  <message name="deletePartCaseResponse">
+    <part element="patsync:deletePartCaseResponse" name="response">
+    </part>
+  </message>
+  <message name="getChangedPartCaseResponse">
+    <part element="patsync:getChangedPartCaseResponse" name="result">
+    </part>
+  </message>
+  <message name="createOrUpdateDrugIntoleranceRequest">
+    <part element="patsync:createOrUpdateDrugIntoleranceRequest" name="request">
+    </part>
+  </message>
+  <message name="createOrUpdatePatientRegResponse">
+    <part element="patsync:createOrUpdatePatientRegResponse" name="response">
+    </part>
+  </message>
+  <message name="getDrugIntolerancesResponse">
+    <part element="patsync:getDrugIntolerancesResponse" name="response">
+    </part>
+  </message>
+  <message name="deletePatientBenefitResponse">
+    <part element="patsync:deletePatientBenefitResponse" name="response">
+    </part>
+  </message>
+  <message name="getDeletedDrugIntoleranceRequest">
+    <part element="patsync:getDeletedDrugIntoleranceRequest" name="request">
+    </part>
+  </message>
+  <message name="getPatientBenefitsRequest">
+    <part element="patsync:getPatientBenefitsRequest" name="request">
+    </part>
+  </message>
+  <message name="createOrUpdatePatientBenefitRequest">
+    <part element="patsync:createOrUpdatePatientBenefitRequest" name="request">
+    </part>
+  </message>
+  <message name="searchPatientBenefitResponse">
+    <part element="patsync:searchPatientBenefitResponse" name="result">
+    </part>
+  </message>
+  <message name="getDrugIntoleranceRequest">
+    <part element="patsync:getDrugIntoleranceRequest" name="request">
+    </part>
+  </message>
+  <message name="getDrugIntolerancesRequest">
+    <part element="patsync:getDrugIntolerancesRequest" name="request">
+    </part>
+  </message>
+  <message name="getPatientRegsRequest">
+    <part element="patsync:getPatientRegsRequest" name="request">
+    </part>
+  </message>
+  <message name="searchPatientRegRequest">
+    <part element="patsync:searchPatientRegRequest" name="request">
+    </part>
+  </message>
+  <message name="searchDrugIntoleranceRequest">
+    <part element="patsync:searchDrugIntoleranceRequest" name="request">
+    </part>
+  </message>
+  <message name="deleteDrugIntoleranceResponse">
+    <part element="patsync:deleteDrugIntoleranceResponse" name="response">
+    </part>
+  </message>
+  <message name="getPatientBenefitRequest">
+    <part element="patsync:getPatientBenefitRequest" name="request">
+    </part>
+  </message>
+  <message name="searchPatientRequest">
+    <part element="patsync:searchPatientRequest" name="request">
+    </part>
+  </message>
+  <message name="getPatientResponse">
+    <part element="patsync:getPatientResponse" name="response">
+    </part>
+  </message>
+  <message name="getPatientPartCasesRequest">
+    <part element="patsync:getPatientPartCasesRequest" name="request">
+    </part>
+  </message>
+  <message name="deletePatientResponse">
+    <part element="patsync:deletePatientResponse" name="response">
+    </part>
+  </message>
+  <message name="deletePatientBenefitRequest">
+    <part element="patsync:deletePatientBenefitRequest" name="request">
+    </part>
+  </message>
+  <message name="searchPatientRegResponse">
+    <part element="patsync:searchPatientRegResponse" name="response">
+    </part>
+  </message>
+  <message name="createOrUpdatePatientRegRequest">
+    <part element="patsync:createOrUpdatePatientRegRequest" name="request">
+    </part>
+  </message>
+  <message name="getChangedDrugIntoleranceResponse">
+    <part element="patsync:getChangedDrugIntoleranceResponse" name="result">
+    </part>
+  </message>
+  <message name="deletePatientRequest">
+    <part element="patsync:deletePatientRequest" name="request">
+    </part>
+  </message>
+  <message name="deletePatientRegRequest">
+    <part element="patsync:deletePatientRegRequest" name="request">
+    </part>
+  </message>
+  <message name="getPatientByIndividualEuidResponse">
+    <part element="patsync:getPatientByIndividualEuidResponse" name="response">
+    </part>
+  </message>
+  <message name="getPatientRegRequest">
+    <part element="patsync:getPatientRegRequest" name="request">
+    </part>
+  </message>
+  <message name="getDeletedPatientRegRequest">
+    <part element="patsync:getDeletedPatientRegRequest" name="request">
+    </part>
+  </message>
+  <portType name="PatientInterchangeSyncEndPoint">
+    <operation name="createOrUpdatePatient">
+      <input message="tns:createOrUpdatePatientRequest" name="createOrUpdatePatientRequest">
+    </input>
+      <output message="tns:createOrUpdatePatientResponse" name="createOrUpdatePatientResponse">
+    </output>
+    </operation>
+    <operation name="deletePatient">
+      <input message="tns:deletePatientRequest" name="deletePatientRequest">
+    </input>
+      <output message="tns:deletePatientResponse" name="deletePatientResponse">
+    </output>
+    </operation>
+    <operation name="getPatient">
+      <input message="tns:getPatientRequest" name="getPatientRequest">
+    </input>
+      <output message="tns:getPatientResponse" name="getPatientResponse">
+    </output>
+    </operation>
+    <operation name="getPatientByIndividualEuid">
+      <input message="tns:getPatientByIndividualEuidRequest" name="getPatientByIndividualEuidRequest">
+    </input>
+      <output message="tns:getPatientByIndividualEuidResponse" name="getPatientByIndividualEuidResponse">
+    </output>
+    </operation>
+    <operation name="searchPatient">
+      <input message="tns:searchPatientRequest" name="searchPatientRequest">
+    </input>
+      <output message="tns:searchPatientResponse" name="searchPatientResponse">
+    </output>
+    </operation>
+    <operation name="getChangedPatient">
+      <input message="tns:getChangedPatientRequest" name="getChangedPatientRequest">
+    </input>
+      <output message="tns:getChangedPatientResponse" name="getChangedPatientResponse">
+    </output>
+    </operation>
+    <operation name="getDeletedPatient">
+      <input message="tns:getDeletedPatientRequest" name="getDeletedPatientRequest">
+    </input>
+      <output message="tns:getDeletedPatientResponse" name="getDeletedPatientResponse">
+    </output>
+    </operation>
+    <operation name="getPatientPartCases">
+      <input message="tns:getPatientPartCasesRequest" name="getPatientPartCasesRequest">
+    </input>
+      <output message="tns:getPatientPartCasesResponse" name="getPatientPartCasesResponse">
+    </output>
+    </operation>
+    <operation name="getPartCase">
+      <input message="tns:getPartCaseRequest" name="getPartCaseRequest">
+    </input>
+      <output message="tns:getPartCaseResponse" name="getPartCaseResponse">
+    </output>
+    </operation>
+    <operation name="searchPartCase">
+      <input message="tns:searchPartCaseRequest" name="searchPartCaseRequest">
+    </input>
+      <output message="tns:searchPartCaseResponse" name="searchPartCaseResponse">
+    </output>
+    </operation>
+    <operation name="createOrUpdatePartCase">
+      <input message="tns:createOrUpdatePartCaseRequest" name="createOrUpdatePartCaseRequest">
+    </input>
+      <output message="tns:createOrUpdatePartCaseResponse" name="createOrUpdatePartCaseResponse">
+    </output>
+    </operation>
+    <operation name="deletePartCase">
+      <input message="tns:deletePartCaseRequest" name="deletePartCaseRequest">
+    </input>
+      <output message="tns:deletePartCaseResponse" name="deletePartCaseResponse">
+    </output>
+    </operation>
+    <operation name="getChangedPartCase">
+      <input message="tns:getChangedPartCaseRequest" name="getChangedPartCaseRequest">
+    </input>
+      <output message="tns:getChangedPartCaseResponse" name="getChangedPartCaseResponse">
+    </output>
+    </operation>
+    <operation name="getDeletedPartCase">
+      <input message="tns:getDeletedPartCaseRequest" name="getDeletedPartCaseRequest">
+    </input>
+      <output message="tns:getDeletedPartCaseResponse" name="getDeletedPartCaseResponse">
+    </output>
+    </operation>
+    <operation name="getPatientRegs">
+      <input message="tns:getPatientRegsRequest" name="getPatientRegsRequest">
+    </input>
+      <output message="tns:getPatientRegsResponse" name="getPatientRegsResponse">
+    </output>
+    </operation>
+    <operation name="searchPatientReg">
+      <input message="tns:searchPatientRegRequest" name="searchPatientRegRequest">
+    </input>
+      <output message="tns:searchPatientRegResponse" name="searchPatientRegResponse">
+    </output>
+    </operation>
+    <operation name="getPatientReg">
+      <input message="tns:getPatientRegRequest" name="getPatientRegRequest">
+    </input>
+      <output message="tns:getPatientRegResponse" name="getPatientRegResponse">
+    </output>
+    </operation>
+    <operation name="createOrUpdatePatientReg">
+      <input message="tns:createOrUpdatePatientRegRequest" name="createOrUpdatePatientRegRequest">
+    </input>
+      <output message="tns:createOrUpdatePatientRegResponse" name="createOrUpdatePatientRegResponse">
+    </output>
+    </operation>
+    <operation name="deletePatientReg">
+      <input message="tns:deletePatientRegRequest" name="deletePatientRegRequest">
+    </input>
+      <output message="tns:deletePatientRegResponse" name="deletePatientRegResponse">
+    </output>
+    </operation>
+    <operation name="getChangedPatientReg">
+      <input message="tns:getChangedPatientRegRequest" name="getChangedPatientRegRequest">
+    </input>
+      <output message="tns:getChangedPatientRegResponse" name="getChangedPatientRegResponse">
+    </output>
+    </operation>
+    <operation name="getDeletedPatientReg">
+      <input message="tns:getDeletedPatientRegRequest" name="getDeletedPatientRegRequest">
+    </input>
+      <output message="tns:getDeletedPatientRegResponse" name="getDeletedPatientRegResponse">
+    </output>
+    </operation>
+    <operation name="getPatientBenefits">
+      <input message="tns:getPatientBenefitsRequest" name="getPatientBenefitsRequest">
+    </input>
+      <output message="tns:getPatientBenefitsResponse" name="getPatientBenefitsResponse">
+    </output>
+    </operation>
+    <operation name="getPatientBenefit">
+      <input message="tns:getPatientBenefitRequest" name="getPatientBenefitRequest">
+    </input>
+      <output message="tns:getPatientBenefitResponse" name="getPatientBenefitResponse">
+    </output>
+    </operation>
+    <operation name="createOrUpdatePatientBenefit">
+      <input message="tns:createOrUpdatePatientBenefitRequest" name="createOrUpdatePatientBenefitRequest">
+    </input>
+      <output message="tns:createOrUpdatePatientBenefitResponse" name="createOrUpdatePatientBenefitResponse">
+    </output>
+    </operation>
+    <operation name="deletePatientBenefit">
+      <input message="tns:deletePatientBenefitRequest" name="deletePatientBenefitRequest">
+    </input>
+      <output message="tns:deletePatientBenefitResponse" name="deletePatientBenefitResponse">
+    </output>
+    </operation>
+    <operation name="searchPatientBenefit">
+      <input message="tns:searchPatientBenefitRequest" name="searchPatientBenefitRequest">
+    </input>
+      <output message="tns:searchPatientBenefitResponse" name="searchPatientBenefitResponse">
+    </output>
+    </operation>
+    <operation name="getChangedPatientBenefit">
+      <input message="tns:getChangedPatientBenefitRequest" name="getChangedPatientBenefitRequest">
+    </input>
+      <output message="tns:getChangedPatientBenefitResponse" name="getChangedPatientBenefitResponse">
+    </output>
+    </operation>
+    <operation name="getDeletedPatientBenefit">
+      <input message="tns:getDeletedPatientBenefitRequest" name="getDeletedPatientBenefitRequest">
+    </input>
+      <output message="tns:getDeletedPatientBenefitResponse" name="getDeletedPatientBenefitResponse">
+    </output>
+    </operation>
+    <operation name="getDrugIntolerances">
+      <input message="tns:getDrugIntolerancesRequest" name="getDrugIntolerancesRequest">
+    </input>
+      <output message="tns:getDrugIntolerancesResponse" name="getDrugIntolerancesResponse">
+    </output>
+    </operation>
+    <operation name="searchDrugIntolerance">
+      <input message="tns:searchDrugIntoleranceRequest" name="searchDrugIntoleranceRequest">
+    </input>
+      <output message="tns:searchDrugIntoleranceResponse" name="searchDrugIntoleranceResponse">
+    </output>
+    </operation>
+    <operation name="getDrugIntolerance">
+      <input message="tns:getDrugIntoleranceRequest" name="getDrugIntoleranceRequest">
+    </input>
+      <output message="tns:getDrugIntoleranceResponse" name="getDrugIntoleranceResponse">
+    </output>
+    </operation>
+    <operation name="createOrUpdateDrugIntolerance">
+      <input message="tns:createOrUpdateDrugIntoleranceRequest" name="createOrUpdateDrugIntoleranceRequest">
+    </input>
+      <output message="tns:createOrUpdateDrugIntoleranceResponse" name="createOrUpdateDrugIntoleranceResponse">
+    </output>
+    </operation>
+    <operation name="deleteDrugIntolerance">
+      <input message="tns:deleteDrugIntoleranceRequest" name="deleteDrugIntoleranceRequest">
+    </input>
+      <output message="tns:deleteDrugIntoleranceResponse" name="deleteDrugIntoleranceResponse">
+    </output>
+    </operation>
+    <operation name="getChangedDrugIntolerance">
+      <input message="tns:getChangedDrugIntoleranceRequest" name="getChangedDrugIntoleranceRequest">
+    </input>
+      <output message="tns:getChangedDrugIntoleranceResponse" name="getChangedDrugIntoleranceResponse">
+    </output>
+    </operation>
+    <operation name="getDeletedDrugIntolerance">
+      <input message="tns:getDeletedDrugIntoleranceRequest" name="getDeletedDrugIntoleranceRequest">
+    </input>
+      <output message="tns:getDeletedDrugIntoleranceResponse" name="getDeletedDrugIntoleranceResponse">
+    </output>
+    </operation>
+    <operation name="getVersion">
+      <input message="tns:getVersionRequest" name="getVersionRequest">
+    </input>
+      <output message="tns:getVersionResponse" name="getVersionResponse">
+    </output>
+    </operation>
+  </portType>
+  <binding name="PatientInterchangeSyncEndPointBinding" type="tns:PatientInterchangeSyncEndPoint">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="createOrUpdatePatient">
+      <soap:operation soapAction=""/>
+      <input name="createOrUpdatePatientRequest">
+        <soap:body use="literal"/>
+      </input>
+      <output name="createOrUpdatePatientResponse">
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="deletePatient">
+      <soap:operation soapAction=""/>
+      <input name="deletePatientRequest">
+        <soap:body use="literal"/>
+      </input>
+      <output name="deletePatientResponse">
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getPatient">
+      <soap:operation soapAction=""/>
+      <input name="getPatientRequest">
+        <soap:body use="literal"/>
+      </input>
+      <output name="getPatientResponse">
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getPatientByIndividualEuid">
+      <soap:operation soapAction=""/>
+      <input name="getPatientByIndividualEuidRequest">
+        <soap:body use="literal"/>
+      </input>
+      <output name="getPatientByIndividualEuidResponse">
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="searchPatient">
+      <soap:operation soapAction=""/>
+      <input name="searchPatientRequest">
+        <soap:body use="literal"/>
+      </input>
+      <output name="searchPatientResponse">
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getChangedPatient">
+      <soap:operation soapAction=""/>
+      <input name="getChangedPatientRequest">
+        <soap:body use="literal"/>
+      </input>
+      <output name="getChangedPatientResponse">
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getDeletedPatient">
+      <soap:operation soapAction=""/>
+      <input name="getDeletedPatientRequest">
+        <soap:body use="literal"/>
+      </input>
+      <output name="getDeletedPatientResponse">
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getPatientPartCases">
+      <soap:operation soapAction=""/>
+      <input name="getPatientPartCasesRequest">
+        <soap:body use="literal"/>
+      </input>
+      <output name="getPatientPartCasesResponse">
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getPartCase">
+      <soap:operation soapAction=""/>
+      <input name="getPartCaseRequest">
+        <soap:body use="literal"/>
+      </input>
+      <output name="getPartCaseResponse">
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="searchPartCase">
+      <soap:operation soapAction=""/>
+      <input name="searchPartCaseRequest">
+        <soap:body use="literal"/>
+      </input>
+      <output name="searchPartCaseResponse">
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="createOrUpdatePartCase">
+      <soap:operation soapAction=""/>
+      <input name="createOrUpdatePartCaseRequest">
+        <soap:body use="literal"/>
+      </input>
+      <output name="createOrUpdatePartCaseResponse">
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="deletePartCase">
+      <soap:operation soapAction=""/>
+      <input name="deletePartCaseRequest">
+        <soap:body use="literal"/>
+      </input>
+      <output name="deletePartCaseResponse">
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getChangedPartCase">
+      <soap:operation soapAction=""/>
+      <input name="getChangedPartCaseRequest">
+        <soap:body use="literal"/>
+      </input>
+      <output name="getChangedPartCaseResponse">
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getDeletedPartCase">
+      <soap:operation soapAction=""/>
+      <input name="getDeletedPartCaseRequest">
+        <soap:body use="literal"/>
+      </input>
+      <output name="getDeletedPartCaseResponse">
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getPatientRegs">
+      <soap:operation soapAction=""/>
+      <input name="getPatientRegsRequest">
+        <soap:body use="literal"/>
+      </input>
+      <output name="getPatientRegsResponse">
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="searchPatientReg">
+      <soap:operation soapAction=""/>
+      <input name="searchPatientRegRequest">
+        <soap:body use="literal"/>
+      </input>
+      <output name="searchPatientRegResponse">
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getPatientReg">
+      <soap:operation soapAction=""/>
+      <input name="getPatientRegRequest">
+        <soap:body use="literal"/>
+      </input>
+      <output name="getPatientRegResponse">
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="createOrUpdatePatientReg">
+      <soap:operation soapAction=""/>
+      <input name="createOrUpdatePatientRegRequest">
+        <soap:body use="literal"/>
+      </input>
+      <output name="createOrUpdatePatientRegResponse">
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="deletePatientReg">
+      <soap:operation soapAction=""/>
+      <input name="deletePatientRegRequest">
+        <soap:body use="literal"/>
+      </input>
+      <output name="deletePatientRegResponse">
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getChangedPatientReg">
+      <soap:operation soapAction=""/>
+      <input name="getChangedPatientRegRequest">
+        <soap:body use="literal"/>
+      </input>
+      <output name="getChangedPatientRegResponse">
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getDeletedPatientReg">
+      <soap:operation soapAction=""/>
+      <input name="getDeletedPatientRegRequest">
+        <soap:body use="literal"/>
+      </input>
+      <output name="getDeletedPatientRegResponse">
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getPatientBenefits">
+      <soap:operation soapAction=""/>
+      <input name="getPatientBenefitsRequest">
+        <soap:body use="literal"/>
+      </input>
+      <output name="getPatientBenefitsResponse">
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getPatientBenefit">
+      <soap:operation soapAction=""/>
+      <input name="getPatientBenefitRequest">
+        <soap:body use="literal"/>
+      </input>
+      <output name="getPatientBenefitResponse">
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="searchPatientBenefit">
+      <soap:operation soapAction=""/>
+      <input name="searchPatientBenefitRequest">
+        <soap:body use="literal"/>
+      </input>
+      <output name="searchPatientBenefitResponse">
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="createOrUpdatePatientBenefit">
+      <soap:operation soapAction=""/>
+      <input name="createOrUpdatePatientBenefitRequest">
+        <soap:body use="literal"/>
+      </input>
+      <output name="createOrUpdatePatientBenefitResponse">
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="deletePatientBenefit">
+      <soap:operation soapAction=""/>
+      <input name="deletePatientBenefitRequest">
+        <soap:body use="literal"/>
+      </input>
+      <output name="deletePatientBenefitResponse">
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getChangedPatientBenefit">
+      <soap:operation soapAction=""/>
+      <input name="getChangedPatientBenefitRequest">
+        <soap:body use="literal"/>
+      </input>
+      <output name="getChangedPatientBenefitResponse">
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getDeletedPatientBenefit">
+      <soap:operation soapAction=""/>
+      <input name="getDeletedPatientBenefitRequest">
+        <soap:body use="literal"/>
+      </input>
+      <output name="getDeletedPatientBenefitResponse">
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getDrugIntolerances">
+      <soap:operation soapAction=""/>
+      <input name="getDrugIntolerancesRequest">
+        <soap:body use="literal"/>
+      </input>
+      <output name="getDrugIntolerancesResponse">
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="searchDrugIntolerance">
+      <soap:operation soapAction=""/>
+      <input name="searchDrugIntoleranceRequest">
+        <soap:body use="literal"/>
+      </input>
+      <output name="searchDrugIntoleranceResponse">
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getDrugIntolerance">
+      <soap:operation soapAction=""/>
+      <input name="getDrugIntoleranceRequest">
+        <soap:body use="literal"/>
+      </input>
+      <output name="getDrugIntoleranceResponse">
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="createOrUpdateDrugIntolerance">
+      <soap:operation soapAction=""/>
+      <input name="createOrUpdateDrugIntoleranceRequest">
+        <soap:body use="literal"/>
+      </input>
+      <output name="createOrUpdateDrugIntoleranceResponse">
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="deleteDrugIntolerance">
+      <soap:operation soapAction=""/>
+      <input name="deleteDrugIntoleranceRequest">
+        <soap:body use="literal"/>
+      </input>
+      <output name="deleteDrugIntoleranceResponse">
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getChangedDrugIntolerance">
+      <soap:operation soapAction=""/>
+      <input name="getChangedDrugIntoleranceRequest">
+        <soap:body use="literal"/>
+      </input>
+      <output name="getChangedDrugIntoleranceResponse">
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getDeletedDrugIntolerance">
+      <soap:operation soapAction=""/>
+      <input name="getDeletedDrugIntoleranceRequest">
+        <soap:body use="literal"/>
+      </input>
+      <output name="getDeletedDrugIntoleranceResponse">
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getVersion">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="PatientInterchangeSyncEndPointService">
+    <port binding="tns:PatientInterchangeSyncEndPointBinding" name="PatientInterchangeSyncEndPointPort">
+      <soap:address location="https://rmis66.mis66.ru/patients-ws/patientSync"/>
+    </port>
+  </service>
+</definitions>

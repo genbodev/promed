@@ -1,0 +1,2 @@
+	</DIRECT>
+</PERS_LIST>

@@ -1,0 +1,10 @@
+/*
+    Document   : tempcss
+    Created on : 06.06.2013, 9:55:53
+    Author     : stokarev
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+#ext-quicktips-tip-outerCt, #ext-quicktips-tip-body, #ext-quicktips-tip, .x-layer {display: block; visibility: visible;}
+

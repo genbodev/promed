@@ -1,0 +1,1 @@
+<a href="javascript:void(0)" class="<?php if ($first) echo 'active'?>"><img src="{src_minified}" alt="" onclick="sw.Promed.DicomViewer.sidebarClick({id:'{id}',sidebar_postfix:'{sidebar_postfix}',src:'{src_original}',imgObj:this,numberOfFrames:'{numberOfFrames}'});" /></a>

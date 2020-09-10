@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="PERS_LIST">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="ZGLV">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="VERSION">
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:pattern value="\d+\.\d+" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+							<xs:element name="DATA" type="xs:date" />
+							<xs:element name="YEAR">
+								<xs:simpleType>
+									<xs:restriction base="xs:int">
+										<xs:pattern value="\d{4}" />
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+										<xs:element name="TYPE">
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="6" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="CODE_MO">
+											<xs:simpleType>
+												<xs:restriction base="xs:int">
+													<xs:pattern value="\d{0,6}" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="ID_MO" type="xs:string" />
+							<xs:element name="SMO" type="xs:string" />
+										<xs:element name="ZAP" type="xs:int" />
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="PERS" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="ID_PAC" type="xs:int" />
+										<xs:element name="ID" type="xs:string" />
+										<xs:element name="FAM" type="xs:string" />
+										<xs:element name="IM" type="xs:string" />
+										<xs:element name="OT" type="xs:string" minOccurs="0" />
+										<xs:element name="W" type="xs:int" />
+										<xs:element name="DR" type="xs:date" />
+										<xs:element name="VPOLIS" type="xs:int" />
+										<xs:element name="SPOLIS" type="xs:string" minOccurs="0" />
+										<xs:element name="NPOLIS" type="xs:string" />
+										<xs:element name="DISP">
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="3" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+							<xs:element name="DISP_MONTH" type="xs:int" />
+							<xs:element name="PHONE1" type="xs:string" minOccurs="0" />
+							<xs:element name="PHONE2" type="xs:string" minOccurs="0" />
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+</xs:schema>

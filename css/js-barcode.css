@@ -1,0 +1,9 @@
+@media screen {
+    .x-js-barcode {display:none;}
+}
+
+@media print {
+	.x-viewport, .x-viewport body{height:unset;width:unset;overflow:visible;}
+	.x-no-print-body > * {display: none;}
+	.x-no-print-body >.x-js-barcode {display: block; background-image: none; page-break-before: always;}
+}

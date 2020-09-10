@@ -1,0 +1,1 @@
+<a href="javascript:void(0)" class='<?php if ($first) echo 'active'?>'><img src="{src}" alt="" onclick="sw.Promed.DicomViewer.headerClick({'id':'{id}','seriesNum':'{seriesNum}','study_uid':'{study_uid}','LpuEquipmentPacs_id':'{LpuEquipmentPacs_id}','EMK':'{EMK}','imgObj':this})"/></a>

@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--Created with Liquid XML Studio Developer Edition 9.0.11.3078 (http://www.liquid-technologies.com)-->
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="AREA_DATA">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="ZGLV">
+                    <xs:complexType>
+                        <xs:sequence>
+							<xs:element name="VERSION">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:pattern value="\d+\.\d+" />
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+                            <xs:element name="DATE" type="xs:date" />
+                            <xs:element name="CODE_MO">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:int">
+                                        <xs:pattern value="\d{0,6}" />
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+							<xs:element name="ID_MO" type="xs:string" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="AREA" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="ID_AREA" type="xs:long" />
+                            <xs:element name="OPER_TYPE" type="xs:int" />
+                            <xs:element name="DOC_DATE" type="xs:date" />
+                            <xs:element name="NUM_UCH">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:maxLength value="6" />
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="TIP_UCH">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:int">
+                                        <xs:pattern value="\d{0,2}" />
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="SNILS_VR" minOccurs="0">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:maxLength value="14" />
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

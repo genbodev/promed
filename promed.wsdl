@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='utf-8'?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+	xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+	xmlns:tns="http://swan.perm.ru/webservices/"
+	xmlns:ns="http://swan.perm.ru/webservices/types/"
+	targetNamespace="http://swan.perm.ru/webservices/">
+
+	<types>
+		<xs:schema targetNamespace="http://swan.perm.ru/webservices/types/" xmlns="http://swan.perm.ru/webservices/types/"
+			elementFormDefault="unqualified" attributeFormDefault="unqualified">
+			<xs:element name="putPersonRequest">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="1" maxOccurs="1" name="bdzID" type="xs:int" />
+						<xs:element minOccurs="1" maxOccurs="1" name="surName" type="xs:string" />
+						<xs:element minOccurs="1" maxOccurs="1" name="firName" type="xs:string" />
+						<xs:element minOccurs="0" maxOccurs="1" name="secName" type="xs:string" />
+						<xs:element minOccurs="1" maxOccurs="1" name="birthDay" type="xs:string" />
+						<xs:element minOccurs="1" maxOccurs="1" name="edNum" type="xs:string" />
+						<xs:element minOccurs="1" maxOccurs="1" name="uaddressKladr" type="xs:string" />
+						<xs:element minOccurs="1" maxOccurs="1" name="uaddressHome" type="xs:string" />
+						<xs:element minOccurs="1" maxOccurs="1" name="uaddressFlat" type="xs:string" />
+						<xs:element minOccurs="1" maxOccurs="1" name="regNomC" type="xs:int" />
+						<xs:element minOccurs="1" maxOccurs="1" name="regNomN" type="xs:int" />
+						<xs:element minOccurs="1" maxOccurs="1" name="polisSer" type="xs:string" />
+						<xs:element minOccurs="1" maxOccurs="1" name="polisNum" type="xs:decimal" />
+						<xs:element minOccurs="1" maxOccurs="1" name="polisBegDate" type="xs:string" />
+						<xs:element minOccurs="1" maxOccurs="1" name="sex" type="xs:int" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="putPersonResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="1" maxOccurs="1" name="bdzID" type="xs:int" />
+						<xs:element minOccurs="1" maxOccurs="1" name="status" type="xs:int" />
+						<xs:element minOccurs="1" maxOccurs="1" name="errorCode" type="xs:int" />
+						<xs:element minOccurs="0" maxOccurs="1" name="errorMessage" type="xs:string" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="putPersonCardStateRequest">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="1" maxOccurs="1" name="transactCode" type="xs:int" />
+						<xs:element minOccurs="1" maxOccurs="1" name="status" type="xs:int" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="putPersonCardStateResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="1" maxOccurs="1" name="status" type="xs:int" />
+						<xs:element minOccurs="1" maxOccurs="1" name="errorCode" type="xs:int" />
+						<xs:element minOccurs="0" maxOccurs="1" name="errorMessage" type="xs:string" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:schema>
+	</types>
+
+	<message name="putPersonSoapIn">
+		<part name="parameters" element="ns:putPersonRequest" />
+	</message>
+	<message name="putPersonSoapOut">
+		<part name="parameters" element="ns:putPersonResponse" />
+	</message>
+	<message name="putPersonCardStateSoapIn">
+		<part name="parameters" element="ns:putPersonCardStateRequest" />
+	</message>
+	<message name="putPersonCardStateSoapOut">
+		<part name="parameters" element="ns:putPersonCardStateResponse" />
+	</message>
+
+	<portType name="PersonServiceSoapPortType">
+		<operation name="putPerson">
+			<input message="tns:putPersonSoapIn"/>
+			<output message="tns:putPersonSoapOut"/>
+		</operation>
+		<operation name="putPersonCardState">
+			<input message="tns:putPersonCardStateSoapIn"/>
+			<output message="tns:putPersonCardStateSoapOut"/>
+		</operation>
+	</portType>
+
+	<binding name="PersonServiceSoapBinding" type="tns:PersonServiceSoapPortType">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="putPerson">
+			<soap:operation soapAction="http://swan.perm.ru/webservices/#putPerson" />
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="putPersonCardState">
+			<soap:operation soapAction="http://swan.perm.ru/webservices/#putPersonCardState" />
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+	</binding>
+
+	<service name="PersonService">
+		<port name="PersonServiceSoapPort" binding="tns:PersonServiceSoapBinding">
+			<!--soap:address location="http://172.19.61.18:90/?c=PersonService"/-->
+			<soap:address location="http://172.22.99.4/?c=PersonService"/>
+		</port>
+	</service>
+</definitions>

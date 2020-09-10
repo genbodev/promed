@@ -1,0 +1,37 @@
+<PROF_LIST>
+	{ZGLV}
+	<ZGLV>
+		<VERSION>1.0</VERSION>
+		<DATA><?php echo date('Y-m-d'); ?></DATA>
+		{FILENAME}
+		{MCOD}
+		{SMO}
+	</ZGLV>
+	{/ZGLV}
+	{ZL}
+	<ZL>
+		{ID_PAC}
+		{FAM}
+		{IM}
+		{OT}
+		{DR}
+		{ENP}
+		{VPOLIS}
+		{SPOLIS}
+		{NPOLIS}
+		{SNILS}
+		{CONTACTS}
+		<CONTACTS>
+			{CONTACT}
+			{TYPE}
+		</CONTACTS>
+		{/CONTACTS}
+		<PROF>
+			{YEAR}
+			{MONTH}
+			{TYPE}
+			{IDDT}
+		</PROF>
+	</ZL>
+	{/ZL}
+</PROF_LIST>

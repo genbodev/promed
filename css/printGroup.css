@@ -1,0 +1,53 @@
+
+body { margin: 0px; padding: 0px; }
+span, div, td { font-family: tahoma, verdana; font-size: 9px; }
+td { vertical-align: middle; border: 0px solid #ccc; }
+.style1 {font-size: 9px}
+.style2 {font-size: 9px}
+table { border-collapse: collapse; }
+body { margin: 0px; padding: 0px; }
+span, div, td { font-family: tahoma, verdana; font-size: 8px; }
+td { vertical-align: bottom; }
+
+.item1{width: 50%; text-align: center; vertical-align: top;}
+.item2{border-bottom: 1px solid #000; text-align: center;}
+.item3{border-bottom: 1px solid #000; text-align: left;}
+.item4{width: 50%; text-align: right; vertical-align: top; font-size:10px;}
+.item5{border-bottom: 1px solid #000;font-size: 10px;}
+.item6{width: 300; text-align: left; vertical-align: top;}
+.item7{border-bottom: 1px solid #000;}
+.item8{text-align: right; vertical-align: top;}
+.item9{width: 330; text-align: right; vertical-align: top;}
+.item10{border-bottom: 1px solid #000;}
+.item11{text-align: right; vertical-align: top;}
+.item12{width: 120; text-align: right; vertical-align: top;}
+.item13{border-bottom: 1px solid #000;}
+.item14{width: 300;text-align: left; vertical-align: top;}
+.item15{border-bottom: 1px solid #000;}
+.item16{text-align: right; vertical-align: top;}
+.item17{text-align: left; vertical-align: top;}
+.item18{text-align: right; vertical-align: top;}
+.item19{width: 300; text-align: right; vertical-align: top;}
+.item20{width: 200; text-align: left; vertical-align: top;}
+.item21{width: 200; text-align: left; vertical-align: top;}
+.item22{border-bottom: 1px solid #000;}
+.item23{text-align: right; vertical-align: top;}
+.item24{width: 300; text-align: left; vertical-align: top;}
+.item25{border-bottom: 1px solid #000;}
+.item26{width: 120; text-align: left; vertical-align: top;}
+.item27{width: 200; text-align: left; vertical-align: top;}
+.item28{text-align: right; vertical-align: top;}
+.item29{width: 10%; text-align: right; vertical-align: top;}
+.item30{border-bottom: 1px solid #000;}
+.item31{width: 86%; text-align: left; vertical-align: top;}
+.item32{width: 500; text-align: left; vertical-align: top;}
+.item33{text-align: right; vertical-align: top;}
+.item34{width: 200; text-align: right; vertical-align: top}
+.item35{width: 78%; text-align: left; vertical-align: top;}
+.item36{width: 84%; text-align: left; vertical-align: top;}
+.item37{width: 140; text-align: left; vertical-align: top;}
+.item38{width: 80; text-align: left; vertical-align: top;}
+.item39{width: 400; text-align: left; vertical-align: top;}
+.item40{border-bottom: 1px solid #000;font-size:10px; text-align: left;}
+.item41{border-bottom: 1px solid #000;font-size:10px; text-align: left;}
+.item42{border: none; border-top:1px dashed gray;}

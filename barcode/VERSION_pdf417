@@ -1,0 +1,4 @@
+v2.01		15 jul	2008		Fix \r\n not being able to render
+					Fix numbers not correctly rendered when more than 5 were in a row
+					Fix numbers not corrently rendered when aside a - or a .
+v2.00		23 apr	2008		New version including PDF417 and Aztec.

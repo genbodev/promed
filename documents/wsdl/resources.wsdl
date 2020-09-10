@@ -1,0 +1,167 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://atria.cz/location/main" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:bi="http://atria.cz/common/base/info/build/" name="locationService" targetNamespace="http://atria.cz/location/main">
+  <wsdl:types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://atria.cz/location/main" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:bi="http://atria.cz/common/base/info/build/">
+            
+  <xsd:import namespace="http://atria.cz/location/main" schemaLocation="https://rmis66.mis66.ru/locations-ws/resources?xsd=location.xsd"/>
+            
+  <xsd:import namespace="http://atria.cz/common/base/info/build/" schemaLocation="https://rmis66.mis66.ru/locations-ws/resources?xsd=http://atria.cz/common/base/buildInfo.xsd"/>
+        
+</xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="getVersionResponse">
+    <wsdl:part element="bi:getVersionResponse" name="getVersionResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getLocationsRequest">
+    <wsdl:part element="tns:getLocationsRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="editLocationResponse">
+    <wsdl:part element="tns:editLocationResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getLocationResponse">
+    <wsdl:part element="tns:getLocationResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getLocationRequest">
+    <wsdl:part element="tns:getLocationRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteLocationResponse">
+    <wsdl:part element="tns:deleteLocationResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getVersionRequest">
+    <wsdl:part element="bi:getVersionRequest" name="getVersionRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createLocationResponse">
+    <wsdl:part element="tns:createLocationResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteLocationRequest">
+    <wsdl:part element="tns:deleteLocationRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="editLocationRequest">
+    <wsdl:part element="tns:editLocationRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createLocationRequest">
+    <wsdl:part element="tns:createLocationRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getLocationsResponse">
+    <wsdl:part element="tns:getLocationsResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="SOAPServicePortType">
+<wsdl:documentation>
+            SOAP Server description file
+        </wsdl:documentation>
+    <wsdl:operation name="getLocations">
+<wsdl:documentation>Получение списка групп ресурсов медицинской организации</wsdl:documentation>
+      <wsdl:input message="tns:getLocationsRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:getLocationsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLocation">
+<wsdl:documentation>Получение информации о группе ресурсов</wsdl:documentation>
+      <wsdl:input message="tns:getLocationRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:getLocationResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createLocation">
+<wsdl:documentation>Создание группы ресурсов</wsdl:documentation>
+      <wsdl:input message="tns:createLocationRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:createLocationResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="editLocation">
+<wsdl:documentation>Редактирование группы ресурсов</wsdl:documentation>
+      <wsdl:input message="tns:editLocationRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:editLocationResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteLocation">
+<wsdl:documentation>Удаление информации о группе ресурсов</wsdl:documentation>
+      <wsdl:input message="tns:deleteLocationRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:deleteLocationResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVersion">
+      <wsdl:input message="tns:getVersionRequest" name="getVersionRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:getVersionResponse" name="getVersionResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SOAPServiceBinding" type="tns:SOAPServicePortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getLocations">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLocation">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createLocation">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="editLocation">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteLocation">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVersion">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="locationService">
+    <wsdl:port binding="tns:SOAPServiceBinding" name="SOAPServicePort">
+      <soap:address location="https://rmis66.mis66.ru/locations-ws/resources"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

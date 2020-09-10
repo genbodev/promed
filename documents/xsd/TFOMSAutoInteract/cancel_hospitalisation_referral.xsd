@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--Created with Liquid XML Studio Developer Edition 9.0.11.3078 (http://www.liquid-technologies.com)-->
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="CANCEL_HOSPITALISATION_REFERRAL">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="HEADER">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="OPERATIONTYPE">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:maxLength value="6" />
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="DATA" type="xs:date" />
+                            <xs:element name="CODE_MO">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:int">
+                                        <xs:pattern value="\d{0,6}" />
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="CODE_MO_TO">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:int">
+                                        <xs:pattern value="\d{0,6}" />
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="CHR_ID" type="xs:long" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="BODY" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="REFERRAL_NUMBER" type="xs:int" />
+                            <xs:element name="DATE" type="xs:date" />
+                            <xs:element name="REFERRAL_LPU" type="xs:int" />
+                            <xs:element name="BRANCH" type="xs:int" />
+                            <xs:element name="REASON">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:int">
+                                        <xs:enumeration value="0" />
+                                        <xs:enumeration value="1" />
+                                        <xs:enumeration value="2" />
+                                        <xs:enumeration value="3" />
+                                        <xs:enumeration value="4" />
+                                        <xs:enumeration value="5" />
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="CANCEL_SOURSE">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:int">
+                                        <xs:enumeration value="0" />
+                                        <xs:enumeration value="1" />
+                                        <xs:enumeration value="2" />
+                                        <xs:enumeration value="3" />
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="CANCEL_CODE">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:int">
+                                        <xs:pattern value="\d{0,6}" />
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="DATE_CANCEL" type="xs:date" />
+                            <xs:element name="CANCEL_TYPE" type="xs:int" />
+                            <xs:element name="CANCEL_DESCRIPTION" type="xs:string" minOccurs="0" />
+                            <xs:element name="PATIENT" type="xs:long" minOccurs="0" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

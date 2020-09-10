@@ -1,0 +1,177 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:typens="http://atria.cz/medical-cases/interchange" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:bi="http://atria.cz/common/base/info/build/" name="medicalCasesService" targetNamespace="http://atria.cz/medical-cases/interchange">
+  <wsdl:types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:typens="http://atria.cz/medical-cases/interchange" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:bi="http://atria.cz/common/base/info/build/">
+            
+  <xsd:import namespace="http://atria.cz/medical-cases/interchange" schemaLocation="https://rmis66.mis66.ru/cases-ws/cases?xsd=cases.xsd"/>
+            
+  <xsd:import namespace="http://atria.cz/common/base/info/build/" schemaLocation="https://rmis66.mis66.ru/cases-ws/cases?xsd=http://atria.cz/common/base/buildInfo.xsd"/>
+        
+</xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="deleteCaseRequest">
+    <wsdl:part element="typens:deleteCaseRequest" name="deleteCaseRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="medicalCaseCriteria">
+    <wsdl:part element="typens:medicalCaseCriteria" name="medicalCaseCriteria">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCaseCDAResponse">
+    <wsdl:part element="typens:medicalCaseCDA" name="medicalCaseCDA">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCaseByIdRequest">
+    <wsdl:part element="typens:getCaseByIdRequest" name="getCaseByIdRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteCaseResponse">
+    <wsdl:part element="typens:deleteCaseResponse" name="deleteCaseResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="sendCaseResponse">
+    <wsdl:part element="typens:sendCaseResponse" name="sendCaseResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCaseByIdResponse">
+    <wsdl:part element="typens:getCaseByIdResponse" name="medicalCase">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getVersionResponse">
+    <wsdl:part element="bi:getVersionResponse" name="getVersionResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCaseCDARequest">
+    <wsdl:part element="typens:getCaseCDARequest" name="getCaseCDARequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="sendCaseRequest">
+    <wsdl:part element="typens:sendCaseRequest" name="medicalCase">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="medicalCaseIds">
+    <wsdl:part element="typens:medicalCaseIds" name="medicalCaseIds">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getVersionRequest">
+    <wsdl:part element="bi:getVersionRequest" name="getVersionRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="MedicalCasesPortType">
+<wsdl:documentation>
+            SOAP Server description file
+        </wsdl:documentation>
+    <wsdl:operation name="sendCase">
+<wsdl:documentation>
+                Передача в Систему данных объекта учёта "Случай обслуживания" и получение его уникального идентификатора
+            </wsdl:documentation>
+      <wsdl:input message="typens:sendCaseRequest">
+    </wsdl:input>
+      <wsdl:output message="typens:sendCaseResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCaseById">
+<wsdl:documentation>
+                Получение данных объекта учёта "Случай обслуживания" по его уникальному идентификатору
+            </wsdl:documentation>
+      <wsdl:input message="typens:getCaseByIdRequest">
+    </wsdl:input>
+      <wsdl:output message="typens:getCaseByIdResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="searchCase">
+<wsdl:documentation>
+                Поиск объектов учёта "Случай обслуживания" по набору параметров
+            </wsdl:documentation>
+      <wsdl:input message="typens:medicalCaseCriteria">
+    </wsdl:input>
+      <wsdl:output message="typens:medicalCaseIds">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCaseCDA">
+<wsdl:documentation>
+                Получение CDA-документа объекта учета "Случай обслуживания"
+            </wsdl:documentation>
+      <wsdl:input message="typens:getCaseCDARequest">
+    </wsdl:input>
+      <wsdl:output message="typens:getCaseCDAResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteCase">
+<wsdl:documentation>
+                Удаление объектов учёта "Случай обслуживания" по набору параметров
+            </wsdl:documentation>
+      <wsdl:input message="typens:deleteCaseRequest">
+    </wsdl:input>
+      <wsdl:output message="typens:deleteCaseResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVersion">
+      <wsdl:input message="typens:getVersionRequest" name="getVersionRequest">
+    </wsdl:input>
+      <wsdl:output message="typens:getVersionResponse" name="getVersionResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MedicalCasesBinding" type="typens:MedicalCasesPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="sendCase">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCaseById">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="searchCase">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCaseCDA">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteCase">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVersion">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MedicalCasesService">
+    <wsdl:port binding="typens:MedicalCasesBinding" name="MedicalCasesPort">
+      <soap:address location="https://rmis66.mis66.ru/cases-ws/cases"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

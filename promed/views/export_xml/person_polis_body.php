@@ -1,0 +1,21 @@
+{zl}
+<zl>
+	<person_id>{person_id}</person_id>
+	<snils>{snils}</snils>
+	<fam>{fam}</fam>
+	<im>{im}</im>
+	<ot>{ot}</ot>
+	<dr>{dr}</dr>
+	<w>{w}</w>
+	<address_r>{address_r}</address_r>
+	<index>{index}</index>
+	<address_reg>{address_reg}</address_reg>
+	<id_zl>{id_zl}</id_zl>
+	<doc>
+		<name_doc>{name_doc}</name_doc>
+		<s_doc>{s_doc}</s_doc>
+		<n_doc>{n_doc}</n_doc>
+		<data_doc>{data_doc}</data_doc>
+	</doc>
+</zl>
+{/zl}

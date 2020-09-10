@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:soap12bind="http://schemas.xmlsoap.org/wsdl/soap12/"
+             xmlns:soapbind="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:tns="http://www.kaysat-ps.org"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns:xsd1="http://www.commonTypes.org"
+             xmlns:xsd2="http://www.kaysat-ps.org"
+             name="ExchangeBL"
+             targetNamespace="http://www.kaysat-ps.org">
+    <types>
+        <xs:schema xmlns:tns="http://www.commonTypes.org"
+                   xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                   targetNamespace="http://www.commonTypes.org"
+                   attributeFormDefault="unqualified"
+                   elementFormDefault="qualified">
+            <xs:simpleType name="AgreementCode">
+                <xs:restriction base="xs:string">
+                    <xs:length value="9"/>
+                </xs:restriction>
+            </xs:simpleType>
+            <xs:simpleType name="AmbulatoryReferenceCode">
+                <xs:restriction base="xs:string">
+                    <xs:length value="11"/>
+                </xs:restriction>
+            </xs:simpleType>
+            <xs:simpleType name="ContractCode">
+                <xs:restriction base="xs:string">
+                    <xs:length value="9"/>
+                </xs:restriction>
+            </xs:simpleType>
+            <xs:simpleType name="Currency">
+                <xs:restriction base="xs:decimal">
+                    <xs:totalDigits value="20"/>
+                    <xs:fractionDigits value="10"/>
+                </xs:restriction>
+            </xs:simpleType>
+            <xs:simpleType name="EmployeeID">
+                <xs:restriction base="xs:unsignedLong"/>
+            </xs:simpleType>
+            <xs:simpleType name="OrganizationID">
+                <xs:restriction base="xs:unsignedLong"/>
+            </xs:simpleType>
+            <xs:simpleType name="RpnID">
+                <xs:restriction base="xs:unsignedLong"/>
+            </xs:simpleType>
+        </xs:schema>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                   xmlns:xs1="http://www.commonTypes.org"
+                   xmlns:xs2="http://www.kaysat-ps.org"
+                   targetNamespace="http://www.kaysat-ps.org"
+                   attributeFormDefault="unqualified"
+                   elementFormDefault="qualified">
+            <xs:import namespace="http://www.commonTypes.org"/>
+            <xs:simpleType name="MKB10Code">
+                <xs:restriction base="xs:string">
+                    <xs:maxLength value="5"/>
+                </xs:restriction>
+            </xs:simpleType>
+            <xs:complexType name="Result">
+                <xs:sequence>
+                    <xs:element name="ID"
+                                type="tns:ServiceID"/>
+                    <xs:element name="Status"
+                                type="xs:boolean"/>
+                    <xs:element name="Info"
+                                type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ServiceElement">
+                <xs:sequence>
+                    <xs:element name="ID"
+                                type="tns:ServiceID"/>
+                    <xs:element name="Date"
+                                type="xs:dateTime"/>
+                    <xs:element name="Customer"
+                                type="xs1:OrganizationID"/>
+                    <xs:element name="Performer"
+                                type="xs1:OrganizationID"/>
+                    <xs:element name="CustomerDepartament"
+                                type="xs:long"/>
+                    <xs:element name="PerformerDepartament"
+                                type="xs:long"/>
+                    <xs:element name="CustomerEmployee"
+                                type="xs1:EmployeeID"
+                                nillable="true"/>
+                    <xs:element name="PerformerEmployee"
+                                type="xs1:EmployeeID"
+                                nillable="true"/>
+                    <xs:element name="ServiceID"
+                                type="xs:long"/>
+                    <xs:element name="PatientID"
+                                type="xs1:RpnID"
+                                nillable="true"/>
+                    <xs:element name="PatientFirstName"
+                                type="xs:string"
+                                nillable="true"/>
+                    <xs:element name="PatientLastName"
+                                type="xs:string"
+                                nillable="true"/>
+                    <xs:element name="PatientMiddleName"
+                                type="xs:string"
+                                nillable="true"/>
+                    <xs:element name="PatientSexID"
+                                type="xs:long"
+                                nillable="true"/>
+                    <xs:element name="PatientIDN"
+                                type="xs:string"
+                                nillable="true"/>
+                    <xs:element name="PatientBirthDate"
+                                type="xs:dateTime"
+                                nillable="true"/>
+                    <xs:element name="FinanceSourceID"
+                                type="xs:long"/>
+                    <xs:element name="VisitKindID"
+                                type="xs:long"
+                                nillable="true"/>
+                    <xs:element name="TreatmentReasonID"
+                                type="xs:long"
+                                nillable="true"/>
+                    <xs:element name="Cost"
+                                type="xs1:Currency"
+                                nillable="true"/>
+                    <xs:element name="Count"
+                                type="xs:decimal"/>
+                    <xs:element name="ServiceKind2"
+                                type="xs:long"/>
+                    <xs:element name="LeasingID"
+                                type="xs:string"
+                                nillable="true"/>
+                    <xs:element name="MKB10"
+                                type="tns:MKB10Code"/>
+                    <xs:element name="DoctorFirstName"
+                                type="xs:string"
+                                nillable="true"/>
+                    <xs:element name="DoctorLastName"
+                                type="xs:string"
+                                nillable="true"/>
+                    <xs:element name="DoctorMiddleName"
+                                type="xs:string"
+                                nillable="true"/>
+                    <xs:element name="ServiceKind"
+                                type="xs:long"/>
+                    <xs:element name="ServiceCDSKind"
+                                type="xs:long"/>
+                    <xs:element name="PaymentType"
+                                type="xs:byte"/>
+                    <xs:element name="DateVerified"
+                                type="xs:dateTime"
+                                nillable="true"/>
+                    <xs:element name="Result"
+                                type="xs:string"
+                                nillable="true"/>
+                    <xs:element name="Service"
+                                type="xs:string"
+                                nillable="true"
+                                minOccurs="0"/>
+                    <xs:element name="DeleteDate"
+                                type="xs:dateTime"
+                                nillable="true"
+                                minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ServiceElementAmb">
+                <xs:sequence>
+                    <xs:element name="ID"
+                                type="tns:ServiceID"/>
+                    <xs:element name="Date"
+                                type="xs:dateTime"/>
+                    <xs:element name="Customer"
+                                type="xs1:OrganizationID"/>
+                    <xs:element name="CustomerDepartament"
+                                type="xs:long"/>
+                    <xs:element name="CustomerEmployee"
+                                type="xs1:EmployeeID"
+                                nillable="true"/>
+                    <xs:element name="CustomerEmployeePostID"
+                                type="xs1:EmployeeID"
+                                nillable="true"/>
+                    <xs:element name="DoctorFIO"
+                                type="xs:string"
+                                nillable="true"/>
+                    <xs:element name="PatientID"
+                                type="xs1:RpnID"
+                                nillable="true"/>
+                    <xs:element name="PatientFIO"
+                                type="xs:string"
+                                nillable="true"/>
+                    <xs:element name="PatientIDN"
+                                type="xs:string"
+                                nillable="true"/>
+                    <xs:element name="PatientBirthDate"
+                                type="xs:dateTime"
+                                nillable="true"/>
+                    <xs:element name="PatientAddress"
+                                type="xs:string"
+                                nillable="true"/>
+                    <xs:element name="VisitKindID"
+                                type="xs:long"/>
+                    <xs:element name="TypeCall"
+                                type="xs:byte"/>
+                    <xs:element name="СallReason"
+                                type="xs:string"
+                                nillable="true"/>
+                    <xs:element name="Note"
+                                type="xs:string"
+                                nillable="true"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:simpleType name="ServiceID">
+                <xs:restriction base="xs:unsignedLong"/>
+            </xs:simpleType>
+            <xs:complexType name="ServicesBatch">
+                <xs:sequence>
+                    <xs:element name="Services"
+                                type="tns:ServiceElement"
+                                minOccurs="0"
+                                maxOccurs="20000"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ServicesBatchAmb">
+                <xs:sequence>
+                    <xs:element name="Services"
+                                type="tns:ServiceElementAmb"
+                                minOccurs="0"
+                                maxOccurs="20000"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ServicesBatchResult">
+                <xs:sequence>
+                    <xs:element name="Results"
+                                type="tns:ServiceID"
+                                minOccurs="0"
+                                maxOccurs="99999"/>
+                    <xs:element name="Message"
+                                type="xs:string"/>
+                    <xs:element name="ResultsMIS"
+                                type="tns:Result"
+                                minOccurs="0"
+                                maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="SetData">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="sData"
+                                    type="tns:ServicesBatch"/>
+                        <xs:element name="Token"
+                                    type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="SetDataResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="return"
+                                    type="tns:ServicesBatchResult"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="SetDataAmb">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="sData"
+                                    type="tns:ServicesBatchAmb"/>
+                        <xs:element name="Token"
+                                    type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="SetDataAmbResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="return"
+                                    type="tns:ServicesBatchResult"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </types>
+    <message name="SetDataRequestMessage">
+        <part name="parameters"
+              element="tns:SetData"/>
+    </message>
+    <message name="SetDataResponseMessage">
+        <part name="parameters"
+              element="tns:SetDataResponse"/>
+    </message>
+    <message name="SetDataAmbRequestMessage">
+        <part name="parameters"
+              element="tns:SetDataAmb"/>
+    </message>
+    <message name="SetDataAmbResponseMessage">
+        <part name="parameters"
+              element="tns:SetDataAmbResponse"/>
+    </message>
+    <portType name="ExchangeBLPortType">
+        <operation name="SetData">
+            <input message="tns:SetDataRequestMessage"/>
+            <output message="tns:SetDataResponseMessage"/>
+        </operation>
+        <operation name="SetDataAmb">
+            <input message="tns:SetDataAmbRequestMessage"/>
+            <output message="tns:SetDataAmbResponseMessage"/>
+        </operation>
+    </portType>
+    <binding name="ExchangeBLSoapBinding"
+             type="tns:ExchangeBLPortType">
+        <soapbind:binding style="document"
+                          transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="SetData">
+            <soapbind:operation style="document"
+                                soapAction="http://www.kaysat-ps.org#ExchangeBL:SetData"/>
+            <input>
+                <soapbind:body use="literal"/>
+            </input>
+            <output>
+                <soapbind:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="SetDataAmb">
+            <soapbind:operation style="document"
+                                soapAction="http://www.kaysat-ps.org#ExchangeBL:SetDataAmb"/>
+            <input>
+                <soapbind:body use="literal"/>
+            </input>
+            <output>
+                <soapbind:body use="literal"/>
+            </output>
+        </operation>
+    </binding>
+    <binding name="ExchangeBLSoap12Binding"
+             type="tns:ExchangeBLPortType">
+        <soap12bind:binding style="document"
+                            transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="SetData">
+            <soap12bind:operation style="document"
+                                  soapAction="http://www.kaysat-ps.org#ExchangeBL:SetData"/>
+            <input>
+                <soap12bind:body use="literal"/>
+            </input>
+            <output>
+                <soap12bind:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="SetDataAmb">
+            <soap12bind:operation style="document"
+                                  soapAction="http://www.kaysat-ps.org#ExchangeBL:SetDataAmb"/>
+            <input>
+                <soap12bind:body use="literal"/>
+            </input>
+            <output>
+                <soap12bind:body use="literal"/>
+            </output>
+        </operation>
+    </binding>
+    <service name="ExchangeBL">
+        <port name="ExchangeBLSoap"
+              binding="tns:ExchangeBLSoapBinding">
+            <documentation>
+                <wsi:Claim xmlns:wsi="http://ws-i.org/schemas/conformanceClaim/"
+                           conformsTo="http://ws-i.org/profiles/basic/1.1"/>
+            </documentation>
+            <soapbind:address location="https://finerob.testlab.kz/appwais/ws/ws1.1cws"/>
+        </port>
+        <port name="ExchangeBLSoap12"
+              binding="tns:ExchangeBLSoap12Binding">
+            <soap12bind:address location="https://finerob.testlab.kz/appwais/ws/ws1.1cws"/>
+        </port>
+    </service>
+</definitions>

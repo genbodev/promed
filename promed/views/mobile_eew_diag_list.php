@@ -1,0 +1,1 @@
+<table width=&quot;100%&quot;><thead><tr><th>Дата установки</th><th>Шифр МКБ</th><th>Диагноз</th><th>ЛПУ</th><th>Профиль/Врач</th></tr></thead><tbody >{items}</tbody></table>

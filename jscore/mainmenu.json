@@ -1,0 +1,181 @@
+[{
+	text:'Паспорт ЛПУ',
+	expanded: true,
+	id:'passportLpu',
+    children:
+	[{
+        text:'Структура ЛПУ',
+		qtip:'Структура ЛПУ',
+		id: 'lpuStructure',
+        leaf:true,
+		listeners : {
+			'dblclick': function( )
+			{
+				swGetWindow('swLpuStructureViewWindow').show();
+			},
+			'click': function( )
+			{
+				document.getElementById('infodiv').innerHTML = '<div style="padding:5px ;font-size:10px; font-family:Verdana"><img src="/img/info.png" alt="" /> Просмотр, редактирование структуры ЛПУ, мест работы медицинского персонала.</div>';
+			}
+		}
+    }, {
+        text:'Медицинский персонал',
+		qtip:'Список медицинского персонала работающего в ЛПУ',
+		id: 'medPersonal',
+        leaf:true,
+		listeners : {
+			'dblclick': function( )
+			{
+				swGetWindow('swMedPersonalViewWindow').show();
+			},
+			'click': function( )
+			{
+				document.getElementById('infodiv').innerHTML = '<div style="padding:5px ;font-size:10px; font-family:Verdana"><img src="/img/info.png" alt="" /> Просмотр медицинского персонала. Добавление, удаление, редактирование мест работы.</div>';
+			}
+		}
+    }],
+		listeners : {
+			'click': function( )
+			{
+				document.getElementById('infodiv').innerHTML = '<div style="padding:5px ;font-size:10px; font-family:Verdana"><img src="/img/info.png" alt="" /> Общая структура ЛПУ, медицинский персонал.</div>';
+			}
+		}
+}, {
+	text:'ДЛО',
+	expanded: true,
+	id:'dlo',
+	children:[{
+		text:'Льготники',
+		id: 'lgotniki',
+		expanded: true,
+		children:
+		[{
+			text:'Поиск',
+			qtip:'Льготники: Поиск',
+			id:'lgotnikiSearch',
+			leaf:true
+		},{
+			text:'Просмотр по категориям льгот',
+			qtip:'Льготники: По категориям',
+			id:'lgotnikiView',
+			leaf:true
+		},{
+			text:'Просмотр удостоверений',
+			qtip:'Льготники: Просмотр',
+			id: 'lgotnikiUdostView',
+			leaf:true
+		}]
+	},{
+		text:'Рецепты',
+		id:'recepts',
+		expanded: true,
+		children:
+		[{
+			text:'Ввод',
+			qtip:'Рецепты: Ввод',
+			id:'receptsInput',
+			leaf:true
+		},{
+			text:'Поиск',
+			qtip:'Рецепты: Поиск',
+			id:'receptsSearch',
+			leaf:true
+		},{
+			text:'Отоваренные рецепты',
+			qtip:'Рецепты: Отоваренные',
+			id:'receptsOtovar',
+			leaf:true
+		}]
+	}, {
+		text:'Остатки',
+		id:'drugs',
+		children:
+		[{
+			text:'По аптекам',
+			qtip:'Остатки медикаментов: аптеки',
+			id:'drugsByStore',
+			leaf:true
+		},{
+			text:'По наименованию',
+			qtip:'Остатки медикаментов',
+			id:'drugsByTitle',
+			leaf:true
+		}]
+	}, {
+        text:'Регистр заболеваний',
+		qtip:'Регистр заболеваний',
+		id:'zabRegistr',
+        leaf:true
+    }, {
+		text: 'Отоваренные рецепты',
+		qtip: 'Отоваренные рецепты',
+		leaf:true
+	}]
+}, {
+    text:'Сервис',
+	id:'service',
+    children:
+	[{
+        text:'Пользователи',
+		qtip:'Пользователи',
+		id:'userList',
+        leaf:true
+    }, {
+        text:'Настройки',
+		qtip:'Настройки',
+		id:'userSettings',
+        leaf:true
+    }]
+},{
+    text:'Отчеты',
+	id:'reports',
+    children:
+	[{
+        text:'Госотчеты',
+		qtip:'Госотчеты',
+		id:'reportsGos',
+        leaf:true
+    },{
+        text:'Статотчеты',
+		qtip:'Статотчеты',
+		id:'reportsStat',
+	    children:
+		[{
+    	    text:'Льготники',
+			qtip:'Льготники',
+			id:'reportsLgot',
+		    children:
+			[{
+    	    	text:'Заявка ЛС: врач',
+				qtip:'Заявка ЛС: врач',
+				id:'zayavkaLSvrach',
+	    	    leaf:true
+		    },{
+	        	text:'ДЛО-мониторинг',
+		        qtip:'ДЛО-мониторинг',
+				id:'monitoringDLO',
+    		    leaf:true
+		    },{
+	        	text:'Удостоверения: количество (на льготное обеспечение лекарственными препаратами)',
+		        qtip:'Удостоверения: количество',
+				id:'udostCount',
+    		    leaf:true
+		    },{
+	        	text:'Список выписанных рецептов льготных категорий граждан',
+		        qtip:'Список выписанных рецептов',
+				id:'receptListLgot',
+    		    leaf:true
+		    },{
+	        	text:'Льготы: удостоверения, рецепты',
+		        qtip:'Льготы',
+				id:'lgotUdostRecept',
+    		    leaf:true
+		    },{
+	        	text:'Препараты: рецепты',
+		        qtip:'Препараты',
+				id:'prepRecept',
+    		    leaf:true
+		    }]
+    	}]
+    }]
+}]

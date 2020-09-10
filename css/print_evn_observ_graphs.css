@@ -1,0 +1,353 @@
+/* Eric Meyer's CSS Reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* End of Eric Meyer's CSS Reset */
+
+html {
+	height: 100%;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
+	display: block;
+}
+body {
+	font: 12px/1em Tahoma, sans-serif;
+	height: 100%;
+}
+.wrapper {
+	width: 100%;
+	min-width: 900px;
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+}
+
+
+/* Header
+-----------------------------------------------------------------------------*/
+.header {
+	height: 54px;
+	background: #FFE680;
+}
+
+
+/* Middle
+-----------------------------------------------------------------------------*/
+.middle {
+	width: 100%;
+	padding: 0 0 20px;
+	padding-bottom: 0; /* off footer */
+	position: relative;
+}
+.middle:after {
+	display: table;
+	clear: both;
+	content: '';
+}
+.container {
+	width: 100%;
+	float: left;
+	overflow: hidden;
+}
+.content {
+	padding: 0 0 0 370px;
+}
+
+
+/* Left Sidebar
+-----------------------------------------------------------------------------*/
+.left-sidebar {
+	float: left;
+	width: 350px;
+	margin-left: -100%;
+	position: relative;
+	background: #B5E3FF;
+}
+
+
+/* Footer
+-----------------------------------------------------------------------------*/
+.footer {
+	margin: -20px auto 0;
+	min-width: 900px;
+	height: 20px;
+	background: #BFF08E;
+	position: relative;
+	visibility: hidden;
+}
+
+
+/* Printable grid
+-----------------------------------------------------------------------------*/
+.print-wrapper {
+	width: 750px;
+	margin-left: 2px;
+}
+.head-wrapper {
+	margin: 0px;
+	overflow: hidden;
+}
+.head-wrapper h1 {
+	font-size: 1.3em;
+	margin-top: 30px;
+	margin-bottom: 20px;
+	text-align: center;
+	text-transform: uppercase;
+}
+.head-wrapper > div {
+	clear: both;
+	line-height: 18px;
+}
+.head-wrapper .right {
+	float: right;
+	overflow: hidden;
+}
+.head-wrapper .left {
+	float: left;
+	overflow: hidden;
+}
+.head-wrapper .OKUD span {
+	display: inline-block;
+	width: 100px;
+	border-bottom: #000 solid 1px;
+}
+.head-wrapper .OKPO span {
+	display: inline-block;
+	width: 66px;
+	border-bottom: #000 solid 1px;
+}
+.head-wrapper .info {
+	width: 220px;
+	margin-top: 15px;
+	text-align: center;
+}
+
+.patient-info {
+	margin-bottom: 5px;
+}
+.patient-info .writeable {
+	text-decoration: underline;
+}
+
+.list-print {
+	position: relative;
+}
+.list-print table {
+	width: 100%;
+}
+
+.list-print th,
+.list-print td {
+	border: #c1c1c1 solid 1px;
+	color: #474747;
+	font-size: 0.90em;
+	line-height: 0.8em;
+	text-align: center;
+}
+
+.list-print td.title {
+	width: 133px;
+	font-size: 12px;
+	padding: 2px 0 4px;
+}
+
+.list-print .time_type td {
+	width: 20px;
+	font-size: 12px;
+}
+.list-print .time_type .title.pulse {
+	width: 38px;
+}
+.list-print .time_type .title.pressure {
+	width: 38px;
+}
+.list-print .time_type .title.temperature {
+	width: auto;
+}
+
+.list-print .groups {
+	 vertical-align: top;
+}
+.list-print .groups table tr:first-child td {
+	border-top: none;
+}
+.list-print .groups table tr:last-child td {
+	border-bottom: none;
+}
+.list-print .groups table td:first-child {
+	border-left: none;
+}
+.list-print .groups table td:last-child {
+	border-right: none;
+}
+
+.list-print .grid-layout {
+	position: relative;
+/*	width: 614px;
+	height: 454px;*/
+	overflow: hidden;
+}
+.list-print .grid-layout .grid-wrapper {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.list-print .grid-layout .grid-wrapper .graph {
+/*	width: 614px;
+	height: 454px;*/
+}
+.list-print .grid-layout .grid {
+	margin: -1px 0 0 -1px;
+	display: block;
+}
+
+
+.list-print .simple-params .title {
+	padding-left: 10px;
+	padding-right: 5px;
+	width: 118px;
+	text-align: left;
+}
+
+.list-print .simple-params .value span {
+	display: block;
+	height: 15px;
+	width: 15px;
+	margin: 0 auto;
+	overflow: hidden;
+	text-indent: -9999px;
+}
+.list-print .simple-params td > span.val_1 { /* Нет */
+	text-indent: 0;
+}
+.list-print .simple-params td > span.val_2 { /* Да */
+	text-indent: -15px;
+}
+
+
+/* Vertical text */
+.list-print .simple-params.aqua td.value.vertical,
+.list-print .simple-params.urine td.value.vertical {
+	vertical-align: top;
+}
+
+.list-print .simple-params.aqua td.value.vertical > div,
+.list-print .simple-params.urine td.value.vertical > div {
+	position: relative;
+	overflow: hidden;
+	width: 19px;
+}
+.list-print .simple-params.aqua td.value.vertical > div {
+	height: 28px;
+}
+.list-print .simple-params.urine td.value.vertical > div {
+	height: 47px;
+}
+.list-print .simple-params.aqua td.value.vertical > div > span,
+.list-print .simple-params.urine td.value.vertical > div > span {
+	display: block;
+	-moz-transform: rotate(-90deg);
+	-webkit-transform: rotate(-90deg);
+	-o-transform: rotate(-90deg);
+	transform: rotate(-90deg);
+}
+.list-print .simple-params.aqua td.value.vertical > div > span {
+	display: block;
+	margin: 9px 0 0;
+}
+.list-print .simple-params.urine td.value.vertical > div > span {
+	margin: 18px 0 0;
+}
+/* /Vertical text */
+
+
+
+/* Самара
+-----------------------------------------------------------------------------*/
+body.samara {
+	
+}
+.samara .print-wrapper {
+	width: 1101px;
+	margin-left: 2px;
+}
+.samara .patient-info {
+	margin-top: 0px;
+}
+.samara .list-print .simple-params .title {
+	font-size: 0.9em;
+}
+
+/* Казахстан
+-----------------------------------------------------------------------------*/
+body.kazakhstan {
+	/*font-size: 0.5em;*/
+}
+.kazakhstan .print-wrapper {
+	width: 1000px;
+	margin-left: 2px;
+}
+.kazakhstan .patient-info {
+	margin-top: 0px;
+}
+.kazakhstan .list-print td {
+	font-size: 10px;
+}
+.kazakhstan .list-print .time_type td {
+	vertical-align: top;
+}
+.kazakhstan .list-print .time_type .title.pulse {
+	width: 73px;
+}
+.kazakhstan .list-print .time_type .title.pressure {
+	width: 74px;
+}
+.kazakhstan .list-print .simple-params .title {
+	font-size: 0.65em;
+	padding-top: 0px;
+	padding-left: 2px;
+	padding-right: 2px;
+}
+.kazakhstan .list-print .simple-params .value {
+	font-size: 0.65em;
+}

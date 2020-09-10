@@ -1,0 +1,342 @@
+<table border="0" cellpadding="0" cellspacing="0">
+	<tbody>
+		<tr>
+			<td rowspan="2" style="width: 319px;">
+				<p align="center">
+					Министерство здравоохранения и социального развития РФ</p>
+			</td>
+			<td style="width: 324px;">
+				<p align="center">
+					<strong><em>г. Пермь, ГКБ-4, ул. КИМ, 2</em></strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 324px;">
+				<p align="center">
+					(наименование и адрес ЛПУ)</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 319px; height: 15px;">
+				<p align="center">
+					&nbsp;</p>
+			</td>
+			<td style="width: 324px; height: 15px;">
+				<p align="center">
+					<strong>Клиническая лаборатория</strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="2" style="width: 319px; height: 15px;">
+				<p align="center">
+					<strong>КЛИНИЧЕСКИЙ АНАЛИЗ КРОВИ № 3205</strong></p>
+			</td>
+			<td style="width: 324px; height: 15px;">
+				<p align="center">
+					(наименование отделения)</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 324px; height: 15px;">
+				<p align="center">
+					&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 319px; height: 15px;">
+				<p align="center">
+					<strong>Дата выполнения: </strong>20.01.2011</p>
+			</td>
+			<td style="width: 324px; height: 15px;">
+				<p align="center">
+					(врач, код врача)</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p>
+	&nbsp;</p>
+<table border="1" cellpadding="0" cellspacing="0">
+	<tbody>
+		<tr>
+			<td style="width: 199px;">
+				<p>
+					Пациент</p>
+			</td>
+			<td style="width: 444px;">
+				<p>
+					Плесовских В.К., 06.05.1949 г.р., ИБ А882</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 199px;">
+				<p>
+					Пол</p>
+			</td>
+			<td style="width: 444px;">
+				<p>
+					Мужской</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 199px;">
+				<p>
+					Кто направил</p>
+			</td>
+			<td style="width: 444px;">
+				<p>
+					Сятчихин А.В.</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 199px;">
+				<p>
+					Палата / кабинет</p>
+			</td>
+			<td style="width: 444px;">
+				<p>
+					&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 199px;">
+				<p>
+					Диагноз</p>
+			</td>
+			<td style="width: 444px;">
+				<p>
+					I70.2 Атеросклероз артерий конечностей</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p align="center">
+	&nbsp;</p>
+<p align="center">
+	&nbsp;</p>
+<table border="1" cellpadding="0" cellspacing="0">
+	<tbody>
+		<tr>
+			<td style="width: 165px;">
+				<p>
+					<strong>Показатель</strong></p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					<strong>Значение</strong></p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					<strong>Единица измерения</strong></p>
+			</td>
+			<td style="width: 148px;">
+				<p>
+					<strong>Норма</strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 165px;">
+				<p>
+					Эритроциты (RBC)</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					4.63</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					тыс</p>
+			</td>
+			<td style="width: 148px;">
+				<p>
+					3.8-5.7</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 165px;">
+				<p>
+					Гемоглобин (HgB)</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					141</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					г/л</p>
+			</td>
+			<td style="width: 148px;">
+				<p>
+					120-173</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 165px;">
+				<p>
+					Цвет.показ.(MCH)</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					30.5</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					пг</p>
+			</td>
+			<td style="width: 148px;">
+				<p>
+					27-31</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 165px;">
+				<p>
+					Тромбоциты (PLT)</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					184</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					тыс</p>
+			</td>
+			<td style="width: 148px;">
+				<p>
+					150-320</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 165px;">
+				<p>
+					Лейкоциты (WBC)</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					9.3</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					тыс</p>
+			</td>
+			<td style="width: 148px;">
+				<p>
+					4-8</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 165px;">
+				<p>
+					Эозинофилы</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					3</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					кл</p>
+			</td>
+			<td style="width: 148px;">
+				<p>
+					0-5</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 165px;">
+				<p>
+					Палочки</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					8</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					кл</p>
+			</td>
+			<td style="width: 148px;">
+				<p>
+					1-6</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 165px;">
+				<p>
+					Сегменты (GR)</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					64</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					кл</p>
+			</td>
+			<td style="width: 148px;">
+				<p>
+					45-70</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 165px;">
+				<p>
+					Лимфоциты (LY)</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					22</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					кл</p>
+			</td>
+			<td style="width: 148px;">
+				<p>
+					18-40</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 165px;">
+				<p>
+					Моноциты (MO)</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					3</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					кл</p>
+			</td>
+			<td style="width: 148px;">
+				<p>
+					2-9</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 165px;">
+				<p>
+					СОЭ</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					20</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					мм/ч</p>
+			</td>
+			<td style="width: 148px;">
+				<p>
+					1-15</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p>
+	&nbsp;</p>
+<p>
+	<strong>Примечание:</strong></p>
+<p>
+	&nbsp;</p>

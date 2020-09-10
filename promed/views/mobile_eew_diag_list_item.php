@@ -1,0 +1,1 @@
+<tr >    <td>{Diag_setDate}</td>    <td>{Diag_Code}</td>    <td>{Diag_Name}</td>    <td>{Lpu_Nick}</td>    <td>{LpuSectionProfile_Name} / {MedPersonal_Fio} </td></tr>

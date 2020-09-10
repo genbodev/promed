@@ -1,0 +1,64 @@
+body, .header, .footer, .page#pageAdmin { background-color: white; color: black }
+
+/* Admin page styles */
+#pageAdmin .header { width: 100%; height: 48px; background-color: black; color: white }
+#pageAdmin .header a { color: white }
+#pageAdmin .header li#logout { float: right }
+#pageAdmin .header li#logout, #pageAdmin .header li#logout a { color: #6fa0df }
+#pageAdmin .header li#portal, #pageAdmin .header li#portal a { color: sandybrown }
+#pageAdmin .header > div { width: 970px; margin: auto; line-height: 48px; white-space: nowrap }
+#pageAdmin .header > div ul { list-style-type: none }
+#pageAdmin .header > div ul li { float: left; margin: 0 1em; font-size: 120% }
+
+#pageAdmin .content-wrapper { background-color: #ffffff; color: black }
+#pageAdmin .content-wrapper > div { width: 970px; margin: auto; padding-bottom: 2em; min-height: 600px }
+
+#pageAdmin .content { float: left; padding: 2em 12px; width: 940px }
+
+#pageAdmin .dashboard > h1 { margin-bottom: 1em }
+#pageAdmin .dashboard > h1 img { margin-right: 1em }
+#pageAdmin .dashboard .item { font-size: 200%; line-height: 200%; }
+#pageAdmin .dashboard .item img { float: left; margin-top: 8px; margin-right: 1em }
+#pageAdmin .dashboard .item .description { margin-left: 80px; font-size: 50% }
+
+#pageAdmin .list { padding-top: 0 }
+
+#pageAdmin .list > h1 { margin-bottom: 1em }
+#pageAdmin .list > h1 img { margin-right: 1em }
+#pageAdmin .list > h1 span { margin-left: 2em; font-size: 50% }
+
+#pageAdmin .list table { width: 100%; border: none; border-collapse: collapse }
+#pageAdmin .list table td { padding: 0.2em 1em; border: none; vertical-align: middle }
+#pageAdmin .list table tr:hover { background-color: #DAD9D9; cursor: pointer }
+#pageAdmin .list table td.body { color: grey; font-size: 75% }
+#pageAdmin .list table td.datetime { color: grey; font-size: 75% }
+#pageAdmin .list table td.tools { font-size: 75%; font-weight: bold; font-variant: small-caps }
+#pageAdmin .list table td.tools a { text-decoration: none; color: black }
+
+#pageAdmin .edit-form > h1 { margin-bottom: 1em }
+#pageAdmin .edit-form input#title { width: 100% }
+#pageAdmin .edit-form input, #pageAdmin .edit-form textarea, #pageAdmin .edit-form button, #pageAdmin .edit-form select {
+	font-size: 150%; border: 1px solid black; padding: 5px; margin-bottom: 1em;
+	-webkit-box-shadow: 2px 2px 2px 2px #adadad;
+	-moz-box-shadow: 2px 2px 2px 2px #adadad;
+	box-shadow: 2px 2px 2px 2px #adadad;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+#pageAdmin .edit-form select option { padding: 0 5px }
+
+#pageAdmin .edit-form textarea { font-size: 100%; margin-bottom: 2em }
+
+#pageAdmin .edit-form button {
+	border: none; font-size: 100%; margin-bottom: 1em; padding: 0.2em 1em; cursor: pointer;
+	color: white;
+	background-color: #0E3460;
+	margin-right: 2em;
+}
+
+#pageAdmin .edit-form button[type=submit] {
+	color: white;
+	background-color: #0f6007;
+}
+
+#pageAdmin .footer a { color: black }

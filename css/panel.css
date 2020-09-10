@@ -1,0 +1,42 @@
+
+.x-panel-collapsed {
+
+}
+
+.x-panel-collapsed-title{
+	font-size: 15px;
+	font-family: Arial;
+	cursor: pointer;
+}
+
+.section-over{
+	background-color: transparent;
+	/* background-color: #DFE8F6; */
+}
+.section-toolbar{
+	text-align: right;
+}
+.section-button{
+	font-weight: bold;
+	cursor: pointer;
+	color: blue;
+}
+.sectionlist-toolbar{
+	margin-left: 10px;
+	text-align: left;
+}
+.sectionlist-caption{
+	font-weight: bold;
+}
+.item-toolbar{
+	clear: right;
+	float: right;
+	text-align: right;
+}
+.printonly{
+	display: none;
+}
+.evn-separator{
+	text-align: center;
+	color: blue;
+}

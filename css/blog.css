@@ -1,0 +1,52 @@
+body, td {font-family: Verdana, Geneva, sans-serif;	color: #000;}
+body {background: url(/img/portal/background.jpg) repeat-x;	background-color: #dae8ff;	margin: 10px 10px 10px 10px;}
+img {border-width: 0px;}
+/* Gray frame */
+.gray-tl {height: 8px; width: 8px; background: url(/img/portal/gray-corners.gif) no-repeat 0px;}
+.gray-t  {background: url(/img/portal/gray-x.gif) repeat-x 0px 0px; height: 8px;}
+.gray-tr {height: 8px; width: 8px; background: url(/img/portal/gray-corners.gif) no-repeat -8px;}
+.gray-l  {width: 8px; background: url(/img/portal/gray-y.gif) repeat-y -8px;}
+.gray-bl {height: 8px; width: 8px; background: url(/img/portal/gray-corners.gif) no-repeat -24px;}
+.gray-b  {height: 8px; background: url(/img/portal/gray-x.gif) repeat-x 0px -8px;}
+.gray-br {height: 8px; width: 8px; background: url(/img/portal/gray-corners.gif) no-repeat -16px;}
+.gray-r  {width: 8px; background:url(/img/portal/gray-y.gif) repeat-y;}
+/* Yellow frame */
+.yellow-tl {height: 8px; width: 8px; background: url(/img/portal/yellow-corners.gif) no-repeat 0px;}
+.yellow-t  {background: url(/img/portal/yellow-x.gif) repeat-x 0px 0px; height: 8px;}
+.yellow-tr {height: 8px; width: 8px; background: url(/img/portal/yellow-corners.gif) no-repeat -8px;}
+.yellow-l  {width: 8px; background: url(/img/portal/yellow-y.gif) repeat-y -8px;}
+.yellow-bl {height: 8px; width: 8px; background: url(/img/portal/yellow-corners.gif) no-repeat -24px;}
+.yellow-b  {height: 8px; background: url(/img/portal/yellow-x.gif) repeat-x 0px -8px;}
+.yellow-br {height: 8px; width: 8px; background: url(/img/portal/yellow-corners.gif) no-repeat -16px;}
+.yellow-r  {width: 8px; background:url(/img/portal/yellow-y.gif) repeat-y;}
+/* White frame */
+.white-tl {height: 8px; width: 8px; background: url(/img/portal/white-corners.gif) no-repeat 0px;}
+.white-t  {height: 8px; background: #FFF;}
+.white-tr {height: 8px; width: 8px; background: url(/img/portal/white-corners.gif) no-repeat -8px;}
+.white-l  {width: 8px; background: #FFF;}
+.white-bl {height: 8px; width: 8px; background: url(/img/portal/white-corners.gif) no-repeat -24px;}
+.white-b  {height: 8px; background: #FFF;}
+.white-br {height: 8px; width: 8px; background: url(/img/portal/white-corners.gif) no-repeat -16px;}
+.white-r  {width: 8px; background: #FFF;}
+/* Login block */
+.username-wrapper, .password-wrapper {	background-image: url(/img/portal/input-bg.gif);	background-repeat: repeat-x;	height: 26px;	width: 115px;}
+.username-wrapper input, .password-wrapper input {	border-style: none;	margin: 0;	padding: 0 0 0 0;	height: 16px;	width: 115px;	font: bold 14px Arial, Helvetica, sans-serif;}
+.username-left-cap {	background: url(/img/portal/username-icon.gif) no-repeat;	height: 22px;	width: 25px;}
+.password-left-cap {	background: url(/img/portal/password-icon.gif) no-repeat;	height: 22px;	width: 25px;}
+.input-right-cap {	height: 22px;	width: 10px;	background-image: url(/img/portal/input-right.gif);	background-repeat: no-repeat;}
+/* Blog posts */
+.post-date 		{font-size: 9px; margin: 0px;}
+.post-title		{font-size: 18px; margin: 0px;}
+.post-author	{font-size: 12px; font-style: italic; margin: 0px;}
+.post-text		{font-family: Georgia, "Times New Roman", Times, serif; margin: 0em; padding-top: 1.12em; max-width: 600px;}
+.post-comment	{font-size: 10px; padding-top: 1.12em;}
+.post-attaches	{font-size: 10px; padding-top: 1.12em;}
+.post-attache	{font-size: 10px; padding-top: 1.12em;}
+.post-image		{font-size: 10px; padding-top: 1.12em;}
+.post-tags		{font-size: 12px; padding-top: 1em;}
+.post-files		{font-size: 12px; padding-top: 1.12em;}
+.post-cut		{font-size: 14px; padding-top: 1.12em;}
+/* Menu blocks */
+.left-menu		{font-weight: bolder;	font-size: 16px;	text-align: right;	padding-bottom: 5px;}
+.service-menu	{font-weight: bolder;	font-size: 12px;	text-align: right;	padding-bottom: 5px;}
+.right-menu		{font-weight: bolder;	font-size: 16px;	text-align: left;	padding-bottom: 5px;}

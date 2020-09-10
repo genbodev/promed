@@ -1,0 +1,1047 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://atria.cz/employee/main" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:pos="http://atria.cz/employee/main/position" xmlns:emp="http://atria.cz/employee/main/employee" xmlns:edu="http://atria.cz/employee/main/education" xmlns:bi="http://atria.cz/common/base/info/build/" name="employeeService" targetNamespace="http://atria.cz/employee/main">
+  <wsdl:types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://atria.cz/employee/main" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:pos="http://atria.cz/employee/main/position" xmlns:emp="http://atria.cz/employee/main/employee" xmlns:edu="http://atria.cz/employee/main/education" xmlns:bi="http://atria.cz/common/base/info/build/">
+            
+  <xsd:import namespace="http://atria.cz/employee/main/employee" schemaLocation="https://rmis66.mis66.ru/employees-ws/service?xsd=employee.xsd"/>
+            
+  <xsd:import namespace="http://atria.cz/employee/main/position" schemaLocation="https://rmis66.mis66.ru/employees-ws/service?xsd=position.xsd"/>
+            
+  <xsd:import namespace="http://atria.cz/employee/main/education" schemaLocation="https://rmis66.mis66.ru/employees-ws/service?xsd=education.xsd"/>
+            
+  <xsd:import namespace="http://atria.cz/common/base/info/build/" schemaLocation="https://rmis66.mis66.ru/employees-ws/service?xsd=http://atria.cz/common/base/buildInfo.xsd"/>
+        
+</xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="deleteEmployeeCertificateResponse">
+    <wsdl:part element="edu:deleteEmployeeCertificateResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPositionsRequest">
+    <wsdl:part element="pos:getPositionsRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deletePositionResponse">
+    <wsdl:part element="pos:deletePositionResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createEmployeeRewardRequest">
+    <wsdl:part element="emp:createEmployeeRewardRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmployeeCertificatesRequest">
+    <wsdl:part element="edu:getEmployeeCertificatesRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPositionNamesRequest">
+    <wsdl:part element="pos:getPositionNamesRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteEmployeeEducationResponse">
+    <wsdl:part element="edu:deleteEmployeeEducationResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deletePositionRequest">
+    <wsdl:part element="pos:deletePositionRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmployeePositionResponse">
+    <wsdl:part element="pos:getEmployeePositionResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createEmployeeEducationResponse">
+    <wsdl:part element="edu:createEmployeeEducationResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="complexDeleteEmployeeRequest">
+    <wsdl:part element="emp:complexDeleteEmployeeRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="editPositionNameResponse">
+    <wsdl:part element="pos:editPositionNameResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deletePositionNameResponse">
+    <wsdl:part element="pos:deletePositionNameResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteEmployeeCertificateRequest">
+    <wsdl:part element="edu:deleteEmployeeCertificateRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createEmployeeCertificateRequest">
+    <wsdl:part element="edu:createEmployeeCertificateRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmployeesRequest">
+    <wsdl:part element="emp:getEmployeesRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPositionRequest">
+    <wsdl:part element="pos:getPositionRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createPositionNameRequest">
+    <wsdl:part element="pos:createPositionNameRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmployeeCertificateResponse">
+    <wsdl:part element="edu:getEmployeeCertificateResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="editEmployeeEducationResponse">
+    <wsdl:part element="edu:editEmployeeEducationResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="transferEmployeeRequest">
+    <wsdl:part element="emp:transferEmployeeRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPositionNameResponse">
+    <wsdl:part element="pos:getPositionNameResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmployeesByIndividualRequest">
+    <wsdl:part element="emp:getEmployeesByIndividualRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmployeeEducationRequest">
+    <wsdl:part element="edu:getEmployeeEducationRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="editEmployeeRewardRequest">
+    <wsdl:part element="emp:editEmployeeRewardRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createEmployeePositionResponse">
+    <wsdl:part element="pos:createEmployeePositionResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createPositionRequest">
+    <wsdl:part element="pos:createPositionRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="editEmployeeCertificateResponse">
+    <wsdl:part element="edu:editEmployeeCertificateResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="editEmployeeEducationRequest">
+    <wsdl:part element="edu:editEmployeeEducationRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="editEmployeeRequest">
+    <wsdl:part element="emp:editEmployeeRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmployeeResponse">
+    <wsdl:part element="emp:getEmployeeResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteEmployeeEducationRequest">
+    <wsdl:part element="edu:deleteEmployeeEducationRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmployeePositionRequest">
+    <wsdl:part element="pos:getEmployeePositionRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createEmployeeRewardResponse">
+    <wsdl:part element="emp:createEmployeeRewardResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmployeeEducationResponse">
+    <wsdl:part element="edu:getEmployeeEducationResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPositionResponse">
+    <wsdl:part element="pos:getPositionResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmployeeRewardsRequest">
+    <wsdl:part element="emp:getEmployeeRewardsRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmployeeEducationsRequest">
+    <wsdl:part element="edu:getEmployeeEducationsRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="editPositionResponse">
+    <wsdl:part element="pos:editPositionResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmployeesResponse">
+    <wsdl:part element="emp:getEmployeesResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addSpecialityToEmployeeRequest">
+    <wsdl:part element="emp:addSpecialityToEmployeeRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmployeeRewardResponse">
+    <wsdl:part element="emp:getEmployeeRewardResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="editEmployeePositionResponse">
+    <wsdl:part element="pos:editEmployeePositionResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmployeeEducationsResponse">
+    <wsdl:part element="edu:getEmployeeEducationsResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmployeesByIndividualResponse">
+    <wsdl:part element="emp:getEmployeesByIndividualResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmployeeCertificateRequest">
+    <wsdl:part element="edu:getEmployeeCertificateRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="editEmployeePositionRequest">
+    <wsdl:part element="pos:editEmployeePositionRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteEmployeeResponse">
+    <wsdl:part element="emp:deleteEmployeeResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createPositionNameResponse">
+    <wsdl:part element="pos:createPositionNameResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deletePositionNameRequest">
+    <wsdl:part element="pos:deletePositionNameRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="editPositionRequest">
+    <wsdl:part element="pos:editPositionRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmployeeCertificatesResponse">
+    <wsdl:part element="edu:getEmployeeCertificatesResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmployeeRequest">
+    <wsdl:part element="emp:getEmployeeRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createEmployeeResponse">
+    <wsdl:part element="emp:createEmployeeResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getVersionResponse">
+    <wsdl:part element="bi:getVersionResponse" name="getVersionResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addSpecialityToEmployeeResponse">
+    <wsdl:part element="emp:addSpecialityToEmployeeResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getVersionRequest">
+    <wsdl:part element="bi:getVersionRequest" name="getVersionRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="editEmployeeRewardResponse">
+    <wsdl:part element="emp:editEmployeeRewardResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createPositionResponse">
+    <wsdl:part element="pos:createPositionResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteSpecialityFromEmployeeRequest">
+    <wsdl:part element="emp:deleteSpecialityFromEmployeeRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPositionNameRequest">
+    <wsdl:part element="pos:getPositionNameRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createEmployeePositionRequest">
+    <wsdl:part element="pos:createEmployeePositionRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="editPositionNameRequest">
+    <wsdl:part element="pos:editPositionNameRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="editEmployeeCertificateRequest">
+    <wsdl:part element="edu:editEmployeeCertificateRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createEmployeeRequest">
+    <wsdl:part element="emp:createEmployeeRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="editEmployeeResponse">
+    <wsdl:part element="emp:editEmployeeResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteSpecialityFromEmployeeResponse">
+    <wsdl:part element="emp:deleteSpecialityFromEmployeeResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmployeeSpecialitiesResponse">
+    <wsdl:part element="emp:getEmployeeSpecialitiesResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="complexCreateEmployeeRequest">
+    <wsdl:part element="emp:complexCreateEmployeeRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteEmployeeRewardRequest">
+    <wsdl:part element="emp:deleteEmployeeRewardRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteEmployeeRequest">
+    <wsdl:part element="emp:deleteEmployeeRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteEmployeeRewardResponse">
+    <wsdl:part element="emp:deleteEmployeeRewardResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmployeeSpecialitiesRequest">
+    <wsdl:part element="emp:getEmployeeSpecialitiesRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmployeePositionsRequest">
+    <wsdl:part element="pos:getEmployeePositionsRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmployeeRewardRequest">
+    <wsdl:part element="emp:getEmployeeRewardRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteEmployeePositionResponse">
+    <wsdl:part element="pos:deleteEmployeePositionResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPositionsResponse">
+    <wsdl:part element="pos:getPositionsResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createEmployeeEducationRequest">
+    <wsdl:part element="edu:createEmployeeEducationRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createEmployeeCertificateResponse">
+    <wsdl:part element="edu:createEmployeeCertificateResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmployeeRewardsResponse">
+    <wsdl:part element="emp:getEmployeeRewardsResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmployeePositionsResponse">
+    <wsdl:part element="pos:getEmployeePositionsResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteEmployeePositionRequest">
+    <wsdl:part element="pos:deleteEmployeePositionRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPositionNamesResponse">
+    <wsdl:part element="pos:getPositionNamesResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="EmployeeServiceEndPoint">
+<wsdl:documentation>
+            SOAP Server description file
+        </wsdl:documentation>
+    <wsdl:operation name="getEmployees">
+<wsdl:documentation>Получение списка сотрудников медицинской организации</wsdl:documentation>
+      <wsdl:input message="tns:getEmployeesRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:getEmployeesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmployee">
+<wsdl:documentation>Получение данных сотрудника медицинской организации</wsdl:documentation>
+      <wsdl:input message="tns:getEmployeeRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:getEmployeeResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createEmployee">
+<wsdl:documentation>Создание сотрудника медицинской организации</wsdl:documentation>
+      <wsdl:input message="tns:createEmployeeRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:createEmployeeResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="complexCreateEmployee">
+<wsdl:documentation>Cоздание физ.лица и сотрудника медицинской организации</wsdl:documentation>
+      <wsdl:input message="tns:complexCreateEmployeeRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:createEmployeeResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="editEmployee">
+<wsdl:documentation>Редактирование сотрудника медицинской организации</wsdl:documentation>
+      <wsdl:input message="tns:editEmployeeRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:editEmployeeResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteEmployee">
+<wsdl:documentation>Удаление сотрудника медицинской организации</wsdl:documentation>
+      <wsdl:input message="tns:deleteEmployeeRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:deleteEmployeeResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="complexDeleteEmployee">
+<wsdl:documentation>Удаление физ.лица и сотрудника медицинской организации</wsdl:documentation>
+      <wsdl:input message="tns:complexDeleteEmployeeRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:deleteEmployeeResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="transferEmployee">
+<wsdl:documentation>Перевод сотрудника на другую должность</wsdl:documentation>
+      <wsdl:input message="tns:transferEmployeeRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:createEmployeePositionResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPositions">
+<wsdl:documentation>Получение всех должностей в отделение</wsdl:documentation>
+      <wsdl:input message="tns:getPositionsRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:getPositionsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPosition">
+<wsdl:documentation>Получение должности сотрудника</wsdl:documentation>
+      <wsdl:input message="tns:getPositionRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:getPositionResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="editPosition">
+<wsdl:documentation>Редактирование должности сотрудника</wsdl:documentation>
+      <wsdl:input message="tns:editPositionRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:editPositionResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createPosition">
+<wsdl:documentation>Создание должности сотрудника</wsdl:documentation>
+      <wsdl:input message="tns:createPositionRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:createPositionResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deletePosition">
+<wsdl:documentation>Удаление должности сотрудника</wsdl:documentation>
+      <wsdl:input message="tns:deletePositionRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:deletePositionResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPositionNames">
+<wsdl:documentation>Получение списка названий должности сотрудника</wsdl:documentation>
+      <wsdl:input message="tns:getPositionNamesRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:getPositionNamesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPositionName">
+<wsdl:documentation>Получение названия должности сотрудника</wsdl:documentation>
+      <wsdl:input message="tns:getPositionNameRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:getPositionNameResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="editPositionName">
+<wsdl:documentation>Редактирование названия должности сотрудника</wsdl:documentation>
+      <wsdl:input message="tns:editPositionNameRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:editPositionNameResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createPositionName">
+<wsdl:documentation>Создание названия должности сотрудника</wsdl:documentation>
+      <wsdl:input message="tns:createPositionNameRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:createPositionNameResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deletePositionName">
+<wsdl:documentation>Удаление названия должности сотрудника</wsdl:documentation>
+      <wsdl:input message="tns:deletePositionNameRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:deletePositionNameResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmployeeSpecialities">
+<wsdl:documentation>Получение списка специальностей сотрудника</wsdl:documentation>
+      <wsdl:input message="tns:getEmployeeSpecialitiesRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:getEmployeeSpecialitiesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addSpecialityToEmployee">
+<wsdl:documentation>Привязка специальности к сотруднику</wsdl:documentation>
+      <wsdl:input message="tns:addSpecialityToEmployeeRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:addSpecialityToEmployeeResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteSpecialityFromEmployee">
+<wsdl:documentation>Удаление привязки специальности к сотруднику</wsdl:documentation>
+      <wsdl:input message="tns:deleteSpecialityFromEmployeeRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:deleteSpecialityFromEmployeeResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmployeePositions">
+<wsdl:documentation>Получение списка объектов привязки сотрудник-позиция</wsdl:documentation>
+      <wsdl:input message="tns:getEmployeePositionsRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:getEmployeePositionsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmployeePosition">
+<wsdl:documentation>Получение объекта привязки сотрудник-позиция</wsdl:documentation>
+      <wsdl:input message="tns:getEmployeePositionRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:getEmployeePositionResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="editEmployeePosition">
+<wsdl:documentation>Редактирование объекта привязки сотрудник-позиция</wsdl:documentation>
+      <wsdl:input message="tns:editEmployeePositionRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:editEmployeePositionResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createEmployeePosition">
+<wsdl:documentation>Создание объекта привязки сотрудник-позиция</wsdl:documentation>
+      <wsdl:input message="tns:createEmployeePositionRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:createEmployeePositionResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteEmployeePosition">
+<wsdl:documentation>Удаление объекта привязки сотрудник-позиция</wsdl:documentation>
+      <wsdl:input message="tns:deleteEmployeePositionRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:deleteEmployeePositionResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmployeeEducations">
+<wsdl:documentation>Получение списка образований</wsdl:documentation>
+      <wsdl:input message="tns:getEmployeeEducationsRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:getEmployeeEducationsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmployeeEducation">
+<wsdl:documentation>Получение данных образования</wsdl:documentation>
+      <wsdl:input message="tns:getEmployeeEducationRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:getEmployeeEducationResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createEmployeeEducation">
+<wsdl:documentation>Создание образования</wsdl:documentation>
+      <wsdl:input message="tns:createEmployeeEducationRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:createEmployeeEducationResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="editEmployeeEducation">
+<wsdl:documentation>Редактирование образования</wsdl:documentation>
+      <wsdl:input message="tns:editEmployeeEducationRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:editEmployeeEducationResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteEmployeeEducation">
+<wsdl:documentation>Удаление образования</wsdl:documentation>
+      <wsdl:input message="tns:deleteEmployeeEducationRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:deleteEmployeeEducationResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmployeeCertificates">
+<wsdl:documentation>Получение списка свидетельств</wsdl:documentation>
+      <wsdl:input message="tns:getEmployeeCertificatesRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:getEmployeeCertificatesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmployeeCertificate">
+<wsdl:documentation>Получение данных свидетельства</wsdl:documentation>
+      <wsdl:input message="tns:getEmployeeCertificateRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:getEmployeeCertificateResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createEmployeeCertificate">
+<wsdl:documentation>Создание свидетельства</wsdl:documentation>
+      <wsdl:input message="tns:createEmployeeCertificateRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:createEmployeeCertificateResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="editEmployeeCertificate">
+<wsdl:documentation>Редактирование свидетельства</wsdl:documentation>
+      <wsdl:input message="tns:editEmployeeCertificateRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:editEmployeeCertificateResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteEmployeeCertificate">
+<wsdl:documentation>Удаление свидетельства</wsdl:documentation>
+      <wsdl:input message="tns:deleteEmployeeCertificateRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:deleteEmployeeCertificateResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmployeeRewards">
+<wsdl:documentation>Получение списка наград сотрудника</wsdl:documentation>
+      <wsdl:input message="tns:getEmployeeRewardsRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:getEmployeeRewardsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmployeeReward">
+<wsdl:documentation>Получение данных наград сотрудника</wsdl:documentation>
+      <wsdl:input message="tns:getEmployeeRewardRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:getEmployeeRewardResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createEmployeeReward">
+<wsdl:documentation>Создание награды</wsdl:documentation>
+      <wsdl:input message="tns:createEmployeeRewardRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:createEmployeeRewardResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="editEmployeeReward">
+<wsdl:documentation>Редактирование награды</wsdl:documentation>
+      <wsdl:input message="tns:editEmployeeRewardRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:editEmployeeRewardResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteEmployeeReward">
+<wsdl:documentation>Удаление награды</wsdl:documentation>
+      <wsdl:input message="tns:deleteEmployeeRewardRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:deleteEmployeeRewardResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmployeesByIndividual">
+<wsdl:documentation>Получение сотрудников по id Физ лица</wsdl:documentation>
+      <wsdl:input message="tns:getEmployeesByIndividualRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:getEmployeesByIndividualResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVersion">
+      <wsdl:input message="tns:getVersionRequest" name="getVersionRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:getVersionResponse" name="getVersionResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SOAPServiceBinding" type="tns:EmployeeServiceEndPoint">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getEmployees">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmployee">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createEmployee">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="complexCreateEmployee">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="editEmployee">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteEmployee">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="complexDeleteEmployee">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="transferEmployee">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPositions">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPosition">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createPosition">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="editPosition">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deletePosition">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPositionNames">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPositionName">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createPositionName">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="editPositionName">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deletePositionName">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmployeeSpecialities">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addSpecialityToEmployee">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteSpecialityFromEmployee">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmployeePositions">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmployeePosition">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createEmployeePosition">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="editEmployeePosition">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteEmployeePosition">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmployeeEducations">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmployeeEducation">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createEmployeeEducation">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="editEmployeeEducation">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteEmployeeEducation">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmployeeCertificates">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmployeeCertificate">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createEmployeeCertificate">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="editEmployeeCertificate">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteEmployeeCertificate">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmployeeRewards">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmployeeReward">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createEmployeeReward">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="editEmployeeReward">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteEmployeeReward">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmployeesByIndividual">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVersion">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="employeeService">
+    <wsdl:port binding="tns:SOAPServiceBinding" name="SOAPServicePort">
+      <soap:address location="https://rmis66.mis66.ru/employees-ws/service"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

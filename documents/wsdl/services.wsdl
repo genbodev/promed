@@ -1,0 +1,239 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://atria.cz/service/main" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:bi="http://atria.cz/common/base/info/build/" name="serviceService" targetNamespace="http://atria.cz/service/main">
+  <wsdl:types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://atria.cz/service/main" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:bi="http://atria.cz/common/base/info/build/">
+            
+  <xsd:import namespace="http://atria.cz/service/main" schemaLocation="https://rmis66.mis66.ru/services-ws/services?xsd=service.xsd"/>
+            
+  <xsd:import namespace="http://atria.cz/common/base/info/build/" schemaLocation="https://rmis66.mis66.ru/services-ws/services?xsd=http://atria.cz/common/base/buildInfo.xsd"/>
+        
+</xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="clearComplexServiceResponse">
+    <wsdl:part element="tns:clearComplexServiceResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getServicesRequest">
+    <wsdl:part element="tns:getServicesRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getServiceResponse">
+    <wsdl:part element="tns:getServiceResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getServiceRequest">
+    <wsdl:part element="tns:getServiceRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createServiceRequest">
+    <wsdl:part element="tns:createServiceRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createServiceResponse">
+    <wsdl:part element="tns:createServiceResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createComplexServiceRequest">
+    <wsdl:part element="tns:createComplexServiceRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getVersionResponse">
+    <wsdl:part element="bi:getVersionResponse" name="getVersionResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteServiceRequest">
+    <wsdl:part element="tns:deleteServiceRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getComplexServicesRequest">
+    <wsdl:part element="tns:getComplexServicesRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getVersionRequest">
+    <wsdl:part element="bi:getVersionRequest" name="getVersionRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteServiceResponse">
+    <wsdl:part element="tns:deleteServiceResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createComplexServiceResponse">
+    <wsdl:part element="tns:createComplexServiceResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getServicesResponse">
+    <wsdl:part element="tns:getServicesResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="editServiceRequest">
+    <wsdl:part element="tns:editServiceRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="editServiceResponse">
+    <wsdl:part element="tns:editServiceResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="clearComplexServiceRequest">
+    <wsdl:part element="tns:clearComplexServiceRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getComplexServicesResponse">
+    <wsdl:part element="tns:getComplexServicesResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ServiceSOAPServicePortType">
+<wsdl:documentation>
+            SOAP Server description file
+        </wsdl:documentation>
+    <wsdl:operation name="getServices">
+<wsdl:documentation>Получение списка услуг медицинской организации</wsdl:documentation>
+      <wsdl:input message="tns:getServicesRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:getServicesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getService">
+<wsdl:documentation>Получение данных услуги медицинской организации</wsdl:documentation>
+      <wsdl:input message="tns:getServiceRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:getServiceResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createService">
+<wsdl:documentation>Создание услуги медицинской организации</wsdl:documentation>
+      <wsdl:input message="tns:createServiceRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:createServiceResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="editService">
+<wsdl:documentation>Редактирование услуги медицинской организации</wsdl:documentation>
+      <wsdl:input message="tns:editServiceRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:editServiceResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteService">
+<wsdl:documentation>Удаление услуги медицинской организации</wsdl:documentation>
+      <wsdl:input message="tns:deleteServiceRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:deleteServiceResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getComplexServices">
+<wsdl:documentation>Получение списка услуг медицинской организации, входящих в состав сложной услуги</wsdl:documentation>
+      <wsdl:input message="tns:getComplexServicesRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:getComplexServicesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createComplexService">
+<wsdl:documentation>Cоздание списка услуг медицинской организации, входящих в состав сложной услуги</wsdl:documentation>
+      <wsdl:input message="tns:createComplexServiceRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:createComplexServiceResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="clearComplexService">
+<wsdl:documentation>Очистка списка услуг медицинской организации, входящих в состав сложной услуги</wsdl:documentation>
+      <wsdl:input message="tns:clearComplexServiceRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:clearComplexServiceResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVersion">
+      <wsdl:input message="tns:getVersionRequest" name="getVersionRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:getVersionResponse" name="getVersionResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceSOAPServiceBinding" type="tns:ServiceSOAPServicePortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getServices">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getService">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createService">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="editService">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteService">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getComplexServices">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createComplexService">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="clearComplexService">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVersion">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="serviceService">
+    <wsdl:port binding="tns:ServiceSOAPServiceBinding" name="ServiceSOAPServicePort">
+      <soap:address location="https://rmis66.mis66.ru/services-ws/services"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

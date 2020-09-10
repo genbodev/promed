@@ -1,0 +1,1214 @@
+/**
+	Стили для конструктора анкет
+*/
+
+.AnketaMaker .possible-answer span{
+    font-size: 13px;
+}
+
+/*.AnketaMaker .x6-btn .print-rec {
+    background: url(../img/icons/emk/radio-variable.png) no-repeat center;
+}*/
+.AnketaMaker .x6-btn-wrap-default-toolbar-small.x6-btn-arrow-right:after{
+    font-size: 13px;
+}
+/*.radio-variable{
+    background: url(../img/icons/emk/radio-variable.png) no-repeat center;
+}
+.check-variable{
+    background: url(../img/icons/emk/chack-variable.png) no-repeat center;
+}
+.text-variable{
+    background: url(../img/icons/emk/text-variable.png) no-repeat center;
+}
+.date-variable{
+    background: url(../img/icons/emk/date-variable.png) no-repeat center;
+}*/
+
+.variable span.x6-menu-item-text-default,
+.variable:hover span.x6-menu-item-text-default{
+    color: #333333 !important;
+    margin-left: 40px;
+    margin-right: 10px;
+}
+
+.icon-variable{
+    margin-left: 6px;
+    margin-right: 6px;
+}
+
+.AnketaMaker-variable-btn > span > span{
+    padding-right: 4px !important;
+}
+
+.AnketaMaker .delete-question-icon {
+    background: url("../img/icons/emk/panelicons/deleteItem.png") no-repeat center;
+    opacity: 0.6;
+}
+
+.AnketaMaker .add-question-icon {
+    background: url("../img/icons/emk/evnPrescribePanel/addCourse.png") no-repeat center;
+    opacity: 0.6;
+}
+
+.AnketaMaker .add-subquery-icon {
+    background: url("../img/icons/emk/add-subquery.svg") no-repeat center;
+    opacity: 0.6;
+}
+.AnketaMaker .add-subquery:hover,
+.AnketaMaker .delete-question:hover,
+.AnketaMaker .delete-answer:hover{
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.AnketaMaker .delete-answer-icon{
+    background: url("../img/icons/emk/panelicons/deleteItem.png") no-repeat center;
+    opacity: 0.6;
+}
+
+.AnketaMaker .delete-answer:hover {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.AnketaMaker .delete-question:hover .delete-question-icon,
+.AnketaMaker .add-question:hover .add-question-icon,
+.AnketaMaker .add-subquery:hover .add-subquery-icon,
+.AnketaMaker .delete-answer:hover .delete-answer-icon{
+    opacity: 0.8;
+}
+
+.AnketaMaker .add-question span{
+    text-transform: none;
+    color: #666666;
+}
+
+.AnketaMaker .panel-settings label > span,
+.AnketaMaker .panel-settings label {
+    width: 72px !important;
+}
+
+.AnketaMaker .panel-settings label {
+    padding-right: 10px !important;
+}
+
+.AnketaMaker .panel-settings,
+.AnketaMaker .panel-settings > div > div,
+.AnketaMaker .settingsPanel > .x6-header,
+.AnketaMaker .settingsPanel .x6-panel-header-default .x6-tool-tool-el,
+.AnketaMaker .settingsPanel .x6-panel-body-default
+{
+    background: #ffffff;
+}
+
+.AnketaMaker .settingsPanel .x6-tool-expand-bottom:before{
+    content: '' !important;
+    background: url(../img/icons/emk/panelicons/arrowTreeDown.png);
+    width: 16px;
+    height: 16px;
+    transform: rotate(270deg);
+    display: block;
+}
+
+.AnketaMaker .settingsPanel .x6-tool-collapse-top:before{
+    content: '' !important;
+    background: url(../img/icons/emk/panelicons/arrowTreeDown.png);
+    width: 16px;
+    height: 16px;
+    display: block;
+}
+
+.AnketaMaker .title {
+    /* Чтобы спрятать часть линий, которые
+    ** будут вылазить за пределы блока */
+    overflow: hidden;
+    /* Выравнивание заголовка по центру,
+    ** можно использовать left, right */
+    text-align: left;
+    /* Тут можно добавить другие стили для заголовка */
+    font-size: 30px;
+}
+.AnketaMaker .title b {
+    /* Стили тега обертки для заголовков
+    ** в несколько строк */
+    display: inline-block;
+    vertical-align: middle;
+}
+.AnketaMaker .title:before,
+.AnketaMaker .title:after {
+    /* Обязательно указываем пустое свойство content,
+    ** иначе псевдоэлементы не появятся на сайте */
+    content: "";
+    /* Указываем что наши линии будут строчно-блочные и
+    ** выравнивание по высоте - по центру */
+    display: inline-block;
+    vertical-align: middle;
+    /* Задаем ширину 100% и выбираем высоту линии,
+    ** в нашем примере она равна 4 пикселям */
+    width: 100%;
+    height: 1px;
+    /* Добавляем цвет для линии */
+    background-color: #CCCCCC;
+    /* Добавляем пседоэлемантам возможность изменить
+    ** позицию линии, для создания отступов от текста */
+    position: relative;
+}
+.AnketaMaker .title:before {
+    /* Смещаем левую линию на 100% влево, чтобы линия
+    ** встала рядом с текстом слева */
+    margin-left: -100%;
+    /* Указываем в пикселях отступ линии от текста заголовка */
+    left: -14px;
+}
+.AnketaMaker .title:after {
+    /* Смещаем правую линию на 100% вправо, чтобы
+    ** линия встала рядом с текстом справа */
+    margin-right: -100%;
+    /* Указываем в пикселях отступ линии от текста заголовка */
+    right: -5px;
+}
+
+.AnketaMaker .AnketaMaker-constructor-region > div > div {
+    border-top-width: 0px;
+    border-left-width: 0px;
+    border-bottom-width: 0px;
+}
+
+.AnketaMaker .settingsPanel label {
+    width: auto !important;
+    border: 10px solid #FF0000; /* test */
+}
+
+.AnketaMaker .settingsPanel .x6-panel-body-default{
+    border-top-width: 0px;
+    color: #666666;
+    border: 10px solid #FF0000; /* test */
+}
+
+.AnketaMaker .panel-settings .input-no-border > div > div {
+    margin-top: 4px;
+}
+
+.AnketaMaker .constructorLayout .x6-panel-body-default{
+    border-width: 0px;
+}
+
+.AnketaMaker .AnketaMaker-save-btn {
+    background: inherit;
+}
+.AnketaMaker .AnketaMaker-save-btn span{
+    color: #2195F2;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.AnketaMaker .AnketaMaker-save-btn:hover{
+    background: transparent;
+    border-color: transparent;
+}
+.AnketaMaker .AnketaMaker-save-btn:hover span{
+    color: #1976d2;
+}
+.AnketaMaker .AnketaMaker-save-btn.x6-btn-pressed{
+    background: transparent;
+    border-color: transparent;
+}
+.AnketaMaker .AnketaMaker-save-btn.x6-btn-pressed span{
+    color: #38a0f3;
+}
+.AnketaMaker .AnketaMaker-save-btn.x6-item-disabled{
+    border-color: #CCCCCC;
+    color: #ffffff;
+    background: #CCCCCC;
+}
+.AnketaMaker .AnketaMaker-save-btn.x6-item-disabled span{
+    color: #ffffff;
+}
+
+.AnketaMaker .AnketaMaker-cancel-btn{
+    border-color: transparent;
+    background-color: transparent;
+}
+.AnketaMaker .AnketaMaker-cancel-btn span{
+    font-size: 14px;
+    color: #666666;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.AnketaMaker .AnketaMaker-cancel-btn.x6-btn-over{
+    background: transparent;
+    border-color: transparent;
+}
+.AnketaMaker .AnketaMaker-cancel-btn.x6-btn-over span{
+    color: #3687d7;
+}
+.AnketaMaker .AnketaMaker-cancel-btn.x6-btn-pressed{
+    background: transparent;
+    border-color: transparent;
+}
+.AnketaMaker .AnketaMaker-cancel-btn.x6-btn-pressed span{
+    color: #2195f2;
+}
+.AnketaMaker .AnketaMaker-cancel-btn.x6-item-disabled{
+    border-color: #DDDDDD;
+    color: #ABABAB;
+}
+.AnketaMaker .AnketaMaker-variable-btn > span:after{
+    width: 12px;
+    content: "\f0d7";
+    font: 13px/1 FontAwesome;
+    color: #333;
+}
+.AnketaMaker .AnketaMaker-variable-btn:hover{
+    color: transparent !important;
+}
+.AnketaMaker .title-question .x6-panel-header-default{
+    background-color: #ffffff;
+    border-color: #ffffff;
+    padding-left: 0px;
+}
+.AnketaMaker .title-answer .x6-panel-header-default{
+    background-color: #ffffff;
+    border-color: #ffffff;
+    padding-left: 0px;
+}
+
+.AnketaMaker .x6-tree-elbow-img.x6-tree-elbow{
+    height: 0px;
+}
+.AnketaMaker .x6-tree-node-text {
+    height:  0px;
+}
+.AnketaMaker .answerTree{
+    /*margin-left: 50px;*/
+}
+.AnketaMaker .answerTree .x6-panel-header.x6-header{
+    background-color: #ffffff;
+    border-color: #ffffff;
+    padding-left: 0px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+}
+.AnketaMaker .x6-grid-cell-inner-treecolumn{
+    padding: 0px;
+}
+.AnketaMaker table.x6-grid-item-selected,
+.AnketaMaker table.x6-grid-item-selected tr,
+.AnketaMaker table.x6-grid-item-over,
+.AnketaMaker table.x6-grid-item .x6-grid-row:hover{
+    background-color: transparent !important;
+}
+.AnketaMaker .question-answer-tree > div > div > div > div > table.x6-grid-item-selected{
+    -webkit-box-shadow: 1px 0px 10px 0px rgba(0,0,0,0.16);
+    -moz-box-shadow: 1px 0px 10px 0px rgba(0,0,0,0.16);
+    box-shadow: 1px 0px 10px 0px rgba(0,0,0,0.16);
+    /*margin: 5px 0px;*/
+    z-index: 100500;
+}
+.AnketaMaker .question-answer-tree > div > div > div > div > table.x6-grid-item-selected:before{
+    content: '';
+    width: 16px;
+    height: 2px;
+    margin-top: 6px;
+    margin-bottom: -16px;
+    margin-left: calc(50% - 8px);
+    display: block;
+    border: 0px solid transparent;
+    border-top: 2px solid #b2b2b2;
+    border-bottom: 2px solid #b2b2b2;
+}
+.AnketaMaker .question-answer-tree > div > div > div > div > table.x6-grid-item-selected:last-child{
+    margin: -5px 0px 5px 0px;
+}
+/*:not(:first-child)*/
+
+.AnketaMaker .answerTree table td > div:not(div.answerTree){
+    height: 45px;
+}
+.AnketaMaker .checkbox-custom > div{
+    margin-top: 3px;
+    padding-top: 0px;
+}
+.AnketaMaker .checkbox-custom span{
+    margin-top: 5px;
+}
+.AnketaMaker .checkbox-custom input{
+    margin-top: 0px;
+    margin-bottom: 3px;
+}
+.AnketaMaker .variable-add,
+.AnketaMaker .other-variable-add{
+    padding: 0px;
+    text-decoration: none !important;
+    border-color: transparent;
+    background-color: transparent;
+}
+.AnketaMaker .variable-add:hover,
+.AnketaMaker .other-variable-add:hover{
+    text-decoration: none !important;
+    border-color: transparent;
+    background-color: transparent;
+
+}
+.AnketaMaker .variable-add .x6-btn-inner-default-toolbar-small,
+.AnketaMaker .other-variable-add .x6-btn-inner-default-toolbar-small{
+    color: #2196F3;
+    padding: 0px;
+    font-weight: 400;
+}
+.AnketaMaker .variable-add:hover .x6-btn-inner-default-toolbar-small,
+.AnketaMaker .other-variable-add:hover .x6-btn-inner-default-toolbar-small{
+    color: #1b77d2;
+}
+.AnketaMaker .right-header-title{
+    border-color: transparent;
+}
+.AnketaMaker .right-header-title > .x6-panel-header{
+    background-color: transparent;
+    border-width: 0px !important;
+    padding-top: 40px;
+    padding-bottom: 5px;
+}
+.AnketaMaker .right-header-title > div{
+    padding-left: 40px;
+}
+.AnketaMaker .right-header-title .x6-panel-body{
+    border-width: 0px !important;
+    font-size: 11px;
+    color: #333333;
+}
+.AnketaMaker .right-header-title .x6-panel-header-title-default .x6-title-text{
+    color: #333333;
+    font-size: 15px;
+    font-weight: 500;
+}
+.AnketaMaker .right-header-title .x6-panel-body{
+    padding-right: 40px;
+}
+.AnketaMaker .questionPreview > .x6-panel-header{
+    border: none;
+    background-color: transparent;
+    padding-top: 0px;
+    padding-left: 0px;
+    padding-bottom: 0px;
+}
+.AnketaMaker .questionPreview > .x6-panel-header .x6-panel-header-title-default{
+    color: #333333;
+    font-size: 13px;
+    /*font-family: 'Roboto Medium';*/
+    font-weight: 500;
+}
+.AnketaMaker .questionPreview .x6-panel-body{
+    border: none;
+}
+.AnketaMaker .answerPreview > .x6-panel-header{
+    border: none;
+    background-color: transparent;
+    padding-top: 0px;
+    padding-left: 0px;
+    padding-bottom: 5px;
+}
+.AnketaMaker .questionPreview:first-child{
+    margin-top: 0px !important;
+}
+.AnketaMaker .other-textfield{
+    display: inline-table;
+}
+.AnketaMaker .other-textfield .x6-form-trigger-wrap{
+    border-width: 1px;
+}
+.AnketaMaker .other-textfield.x6-field-focus .x6-form-trigger-wrap{
+    border-width: 2px;
+}
+.AnketaMaker .other-textfield input{
+    min-height: 19px;
+    padding: 1px 2px;
+}
+.AnketaMaker .other-textfield.x6-field-focus input{
+    min-height: 19px;
+    padding: 1px 2px;
+}
+.AnketaMaker .textareaCustom .x6-form-trigger-wrap {
+    border-width: 1px;
+}
+.AnketaMaker .textareaCustom.x6-field-focus .x6-form-trigger-wrap {
+    border-width: 2px;
+}
+.AnketaMaker .textareaCustom textarea {
+    line-height: 15px;
+}
+.AnketaMaker .hidden-button-quest,
+.AnketaMaker .hidden-button-answer{
+//display: none;
+}
+.AnketaMaker .onetree > div > div > div > div > .x6-grid-item-selected .title-answer:hover .answerPanels .hidden-button-answer,
+.AnketaMaker .onetree > div > div > div > div > .x6-grid-item-selected .title-question:hover .questionPanels .hidden-button-quest,
+.AnketaMaker .onetree > div > div > div > div > .x6-grid-item-selected .questionPanels .hidden-button-quest/*,
+.AnketaMaker .onetree > div > div > div > div > .x6-grid-item-selected .x6-grid-item-selected .answerPanels .hidden-button-answer*/{
+    display: inline-block;
+}
+.AnketaMaker .onetree > div > div > div > div > .x6-grid-item-selected .dockPanel{
+    visibility: visible !important;
+}
+.AnketaMaker .no-border-custom .x6-form-trigger-wrap.x6-form-trigger-wrap-default{
+    border-width: 0px 0px 1px 0px;
+    border-color: #ffffff;
+    margin-bottom: 4px;
+}
+.AnketaMaker .no-border-custom:hover .x6-form-trigger-wrap.x6-form-trigger-wrap-default,
+.AnketaMaker .no-border-custom .x6-form-trigger-wrap-focus {
+    border-width: 0px 0px 1px 0px !important;
+    border-color: #d0d0d0 !important;
+}
+.AnketaMaker .input-no-border .x6-form-trigger-wrap.x6-form-trigger-wrap-default {
+    border-width: 0px 0px 1px 0px;
+    /*border-color: #ffffff;*/
+}
+
+.AnketaMaker .no-border-custom input{
+    padding: 0px 10px 0px 0px;
+    color: #333333;
+    height: 20px !important;
+    min-height: 20px !important;
+}
+.AnketaMaker .questionPanels .no-border-custom input {
+    font-weight: 500;
+}
+.AnketaMaker .onetree > div > div > div > div > .x6-grid-item-selected .no-border-custom input{
+    padding: 4px 0px;
+}
+.AnketaMaker .right-preview .checkbox-custom .x6-form-cb-wrap-default{
+    height: 20px;
+}
+.AnketaMaker .questionPanel .checkbox-custom .x6-form-cb-wrap-default{
+    height: 28px;
+}
+.AnketaMaker .custom-radio .x6-box-inner{
+    height: 28px !important;
+}
+.AnketaMaker .customLabel label{
+    color: #333333;
+}
+.AnketaMaker .checkbox-custom label{
+    color: #333333;
+}
+
+.AnketaMaker .previewDate input,
+.AnketaMaker .previewTime input{
+    color: #333333;
+    padding-left: 7px;
+    padding-right: 7px;
+}
+
+.AnketaMaker .questionPreview > div > div > div > .x6-panel-header-title-default > .x6-title-text-default{
+    white-space: normal;
+    line-height: 16px;
+}
+
+.AnketaMaker .textfieldCustomPreview{
+    display: inline-block;
+}
+
+.dateRangeField2017 .x6-form-date-trigger {
+    background-image: url(../img/icons/2017/calendar16.png) !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    opacity: 0.6;
+}
+
+.x6-css-shadow{
+    -webkit-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.16) !important;
+    -moz-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.16) !important;
+    box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.16) !important;
+}
+
+.AnketaMaker .x6-panel-header-default-horizontal{
+    padding-right: 0px;
+    background-color: transparent;
+    border: none;
+}
+
+.AnketaMaker .questionPreview.AnketaMaker-two{
+    border-color: rgb(231, 231, 231);
+    border-width: 0px 0px 0px 0px;
+    border-style: solid;
+    margin-left: 20px;
+}
+.AnketaMaker .questionPreview.AnketaMaker-two:last-child{
+    border-color: rgb(231, 231, 231);
+    border-width: 0px 0px 0px 0px;
+    border-style: solid;
+    margin-bottom: 0px;
+}
+.AnketaMaker .questionPreview.AnketaMaker-two:first-child{
+    margin-top: 10px !important;
+}
+.AnketaMaker .answerPreview.AnketaMaker-one:last-child > div > div > div > div > .questionPreview.AnketaMaker-two:first-child:last-child{
+    border-color: rgb(231, 231, 231);
+    border-width: 0px 0px 0px 0px;
+    border-style: solid;
+    padding-bottom: 0px !important;
+    margin-bottom: 0px !important;
+}
+.AnketaMaker .answerPreview.AnketaMaker-two:last-child > div > div > div > div > .questionPreview.AnketaMaker-two:first-child:last-child{
+    border-color: rgb(231, 231, 231);
+    border-width: 0px 0px 0px 0px;
+    border-style: solid;
+    padding-bottom: 0px !important;
+    margin-bottom: 0px !important;
+}
+.AnketaMaker .questionPreview.AnketaMaker-one{
+    /*padding-bottom: 10px !important;*/
+}
+.AnketaMaker .x6-btn{
+    vertical-align: inherit;
+}
+/*.segmentedButtonGroup.segmentedButtonGroupMini .x6-btn {
+	padding: 1px 7px 1px 7px !important;
+}
+.AnketaMaker .segmentedButtonGroup .x6-segmented-button-item:hover{
+	padding: 2px 8px 2px 8px !important;
+}
+.AnketaMaker .segmentedButtonGroup .x6-segmented-button-item.x6-btn-over.x6-focus{
+	padding: 2px 8px 2px 8px !important;
+}
+.AnketaMaker .segmentedButtonGroup .x6-segmented-button-item.x6-btn-pressed{
+	padding: 2px 8px 2px 8px !important;
+}*/
+.AnketaMaker .segmentedButtonGroup .x6-btn-focus.x6-btn-default-small{
+    box-shadow: 0px 0px 0px 1px #ccc;
+}
+.AnketaMaker .questPanel .x6-panel-header{
+    background-color: #fff;
+    border: none;
+}
+/*
+.AnketaMaker .segmentedButtonGroup .x6-btn{
+	border-radius: 4px 4px 4px 4px;
+	left: 0px;
+}
+.AnketaMaker .segmentedButtonGroup .x6-btn:first-child{
+	border-radius: 4px 0px 0px 4px;
+	left: 4px;
+	z-index: 10;
+}*/
+.AnketaMaker .questPanel .x6-panel-header .x6-title-text-default{
+    font-size: 13px;
+    color: #333333;
+    /*font-family: 'Roboto Medium';*/
+    font-weight: 500;
+}
+.AnketaMaker .questPanel .x6-panel-header{
+    padding-left: 0px;
+}
+.AnketaMaker .questPanel .x6-panel-header.x6-header{
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+
+.AnketaMaker .AnketaMaker-questionPreviewSegment > div > div > div > .x6-panel-header-title-default > .x6-title-text-default {
+    white-space: normal;
+    line-height: 16px;
+}
+.AnketaMaker .AnketaMaker-questionPreviewSegment > .x6-panel-header .x6-panel-header-title-default {
+    color: #333333;
+    font-size: 13px;
+    /*font-family: 'Roboto Medium';*/
+    font-weight: 500;
+}
+.AnketaMaker .AnketaMaker-questionPreviewSegment > .x6-panel-header {
+    border: none;
+    background-color: transparent;
+    padding-top: 15px;
+    padding-left: 0px;
+    padding-bottom: 0px;
+}
+
+.AnketaMaker .AnketaMaker-questionPreviewSegment.AnketaMaker-two > .x6-panel-header {
+    border: none;
+    background-color: transparent;
+    padding-top: 0px;
+    padding-left: 0px;
+    padding-bottom: 0px;
+}
+
+/*.AnketaMaker .AnketaMaker-questionPreviewSegment.one:first-child > .x6-panel-header {
+	border: none;
+	background-color: transparent;
+	padding-top: 0px;
+	padding-left: 0px;
+	padding-bottom: 0px;
+}*/
+.AnketaMaker .AnketaMaker-questionPreviewSegment .x6-panel-body {
+    border: none;
+}
+.AnketaMaker .AnketaMaker-questionPreviewSegment{
+    padding-top: 10px;
+}
+
+.AnketaMaker .AnketaMaker-questionPreviewSegment.AnketaMaker-two:first-child:last-child {
+    border-width: 0px 0px 0px 0px !important;
+}
+/*
+.AnketaMaker .AnketaMaker-questionPreviewSegment.AnketaMaker-two:last-child {
+	border-width: 0px 0px 0px 0px !important;
+}
+*/
+.AnketaMaker .panel-settings .x6-form-trigger-wrap-default{
+    margin-top: 3px;
+}
+
+/** Работа с выделением при наведении курсора на конструктор **/
+.AnketaMaker .question-answer-tree.onetree > div > div > div > div > .x6-grid-item-selected > tbody .title-question.lavel-one{
+    opacity: 0.3;
+}
+.AnketaMaker .question-answer-tree.onetree > div > div > div > div > .x6-grid-item-selected > tbody:hover .title-question.lavel-one{
+    opacity: 1;
+}
+.x6-grid-item-selected > tbody .answerTree.AnketaMaker-one{
+    opacity: 0.3;
+}
+.x6-grid-item-selected > tbody .answerTree.AnketaMaker-one:hover{
+    opacity: 1;
+}
+.x6-grid-item-selected > tbody .answerTree.AnketaMaker-one:hover table .title-question.lavel-two{
+    opacity: 0.3;
+}
+.x6-grid-item-selected > tbody .answerTree.AnketaMaker-one:hover table:hover .title-question.lavel-two{
+    opacity: 1;
+}
+.x6-grid-item-selected > tbody .answerTree.AnketaMaker-one:hover table .answerTree.AnketaMaker-two{
+    opacity: 0.3;
+}
+.x6-grid-item-selected > tbody .answerTree.AnketaMaker-one:hover table:hover .answerTree.AnketaMaker-two{
+    opacity: 1;
+}
+.x6-grid-item-selected > tbody .answerTree.AnketaMaker-one:hover table:hover .title-question.lavel-three{
+    opacity: 0.3;
+}
+.x6-grid-item-selected > tbody .answerTree.AnketaMaker-one:hover table:hover .answerTree.three{
+    opacity: 0.3;
+}
+.x6-grid-item-selected > tbody .answerTree.AnketaMaker-one:hover table:hover .answerTree.AnketaMaker-two table:hover .title-question.lavel-three{
+    opacity: 1;
+}
+.x6-grid-item-selected > tbody .answerTree.AnketaMaker-one:hover table:hover .answerTree.AnketaMaker-two table:hover .answerTree.three{
+    opacity: 1;
+}
+.AnketaMaker .title-question.lavel-one .x6-panel-header{
+    padding-top: 0px;
+}
+@-moz-document url-prefix() {
+    .dockedItemsCustom {
+        margin-bottom: 20px !important;
+    }
+}/*
+.AnketaMaker .settingsIcon {
+	background-image: url('../img/icons/2017/settings.png');
+}*/
+.AnketaMaker .desktopIcon {
+    background-image: url('../img/icons/emk/panelicons/desktopIcon.png');
+}
+.AnketaMaker .tbarConstructor {
+    -webkit-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.16);
+    -moz-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.16);
+    box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.16);
+    z-index: 100500;
+}
+.AnketaMaker .AnketaMaker-settings-btn {
+
+}
+.AnketaMaker .AnketaMaker-settings-btn.x6-btn-pressed {
+    background-color: #CCCCCC;
+    border-color: #CCCCCC;
+    border-width: 1px;
+}
+.AnketaMaker .AnketaMaker-settings-btn:hover {
+    background-color: #DDDDDD;
+    border-color: #DDDDDD;
+    border-width: 1px;
+}
+.AnketaMaker .AnketaMaker-settings-btn span {
+    font-size: 13px;
+    color: #666666;
+    text-transform: none;
+}
+.AnketaMaker .AnketaMaker-settings-btn:hover span {
+    color: #333333;
+}
+.AnketaMaker .inputConstructor-tbar-name input {
+    color: #666666;
+    font-weight: bold;
+    font-size: 14px;
+}
+.AnketaMaker .inputConstructor-tbar-name {
+    max-width: calc(100% - 50px);
+}
+.AnketaMaker .inputConstructor-tbar-note {
+    max-width: calc(100% - 50px);
+}
+.AnketaMaker .inputConstructor-tbar-note input {
+    color: #666666;
+    font-size: 12px;
+    font-weight: 500;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    min-height: 20px;
+    height: 20px !important;
+}
+.AnketaMaker .inputConstructor-tbar-name .x6-form-trigger-wrap,
+.AnketaMaker .inputConstructor-tbar-note .x6-form-trigger-wrap{
+    border-color: transparent;
+    border-width: 2px;
+}
+.AnketaMaker .inputConstructor-tbar-name:hover .x6-form-trigger-wrap,
+.AnketaMaker .inputConstructor-tbar-note:hover .x6-form-trigger-wrap{
+    border-color: #DCDCDC;
+    border-width: 1px;
+    padding: 1px;
+}
+/*.AnketaMaker .inputConstructor-tbar-name:hover input,
+.AnketaMaker .inputConstructor-tbar-note:hover input {
+	padding: 5px 11px;
+}*/
+.AnketaMaker .inputConstructor-tbar-name .x6-form-trigger-wrap.x6-form-trigger-wrap-focus,
+.AnketaMaker .inputConstructor-tbar-note .x6-form-trigger-wrap.x6-form-trigger-wrap-focus{
+    border-color: #2196F3;
+    border-width: 2px;
+    padding: 0px;
+}
+.AnketaMaker .inputConstructor-tbar-name .x6-form-trigger-wrap.x6-form-trigger-wrap-focus input,
+.AnketaMaker .inputConstructor-tbar-note .x6-form-trigger-wrap.x6-form-trigger-wrap-focus input {
+    /*padding-right: 0px;*/
+}
+.AnketaMaker .tabPanelConstructor .x6-panel-body{
+    border-width: 0px;
+}
+.AnketaMaker .tabPanelConstructor .leftTabControl{
+    background-color: transparent;
+    width: 30px !important;
+    display: block;
+}
+.AnketaMaker .tabPanelConstructor .leftTabControl .leftTabControl-icon:before {
+    content: '';
+    border: 1px solid #2196F3;
+    height: 6px;
+    width: 6px;
+    border-radius: 50%;
+    display: block;
+    margin-top: 4px;
+    margin-left: 4px;
+}
+.AnketaMaker .tabPanelConstructor .leftTabControl.select .leftTabControl-icon:before {
+    content: '';
+    border: 1px solid #2196F3;
+    height: 6px;
+    width: 6px;
+    border-radius: 50%;
+    display: block;
+    margin-top: 4px;
+    margin-left: 4px;
+    background: #2196F3;
+}
+.AnketaMaker .tabPanelConstructor .leftTabControl:hover .leftTabControl-icon:before {
+    background: #b5dcf7;
+}
+.AnketaMaker .tabPanelConstructor .leftTabControl.select:hover .leftTabControl-icon:before {
+    background: #2196F3;
+}
+.AnketaMaker .tabPanelConstructor .leftTabControl:hover {
+    background: transparent;
+    border-color: transparent;
+}
+.addQuestionAbsolute {
+    height: 32px;
+    width: 32px;
+    padding: 0;
+    position: absolute;
+}
+.addQuestionAbsolute:hover {
+    background-color: transparent !important;
+    border-color: transparent !important;
+}
+.prava-dostup-icon.icon_menu_custs {
+    background-image: url(../img/icons/2017/sign.png);
+    margin-left: 15px;
+}
+.prava-dostup span{
+    font-size: 13px;
+    color: #333333 !important;
+    margin-left: 50px !important;
+}
+.selectedSettingsMenu .x6-form-checkbox {
+    margin-left: 16px;
+    cursor: pointer;
+}
+.selectedSettingsMenu label.x6-form-cb-label {
+    margin-left: 27px;
+    font-size: 13px;
+    color: #333333;
+    cursor: pointer;
+}
+.AnketaMaker .AnketaMaker-questionPreviewSegment.AnketaMaker-one.select{
+    border-left-color: #2196F3 !important;
+    background: #f7f7f7;
+}
+.AnketaMaker .AnketaMaker-questionPreviewSegment.AnketaMaker-one.select .x6-toolbar,
+.AnketaMaker .AnketaMaker-questionPreviewSegment.AnketaMaker-one.select .x6-panel,
+.AnketaMaker .AnketaMaker-questionPreviewSegment.AnketaMaker-one.select .x6-panel-body {
+    background-color: #f7f7f7;
+}
+.AnketaMaker .questionPreview.AnketaMaker-one.select{
+    border-left-color: #2196F3 !important;
+    background: #f7f7f7;
+}
+.AnketaMaker .questionPreview.AnketaMaker-one.select .x6-panel-body {
+    background: #f7f7f7;
+}
+.AnketaMaker .AnketaMaker-Panel .x6-tool-expand-bottom:before {
+    content: '' !important;
+    background: url(../img/icons/emk/panelicons/arrowMonthDown.png);
+    background-position-x: 2px;
+    width: 16px;
+    height: 16px;
+    transform: rotate(270deg);
+    display: block;
+    opacity: 0.5;
+}
+.AnketaMaker .AnketaMaker-Panel .x6-tool-collapse-top:before {
+    content: '' !important;
+    background: url(../img/icons/emk/panelicons/arrowMonthDown.png);
+    background-position-y: -1px;
+    width: 16px;
+    height: 16px;
+    display: block;
+    opacity: 0.5;
+}
+
+.AnketaMaker .AnketaMaker-Panel .x6-panel-header-default .x6-tool-tool-el {
+    background-color: transparent;
+    margin-right: 5px;
+    margin-bottom: 2px;
+}
+.AnketaMaker .panelVariableAnswer .x6-panel-header {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 6px;
+}
+.menuQuestion {
+    height: 34px !important;
+    padding: 3px 0px !important;
+}
+.menuQuestion .menuQuestion-btn:hover{
+    background-color: transparent;
+    border-color: transparent;
+}
+.menuQuestion .menuQuestion-btn:hover span{
+    color: #666666;
+}
+.menuQuestion .menuQuestion-btn {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.type-quest.menuQuestion-btn > span {
+    padding: 0px 0px 0px 6px;
+}
+.menuQuestion-btn:hover .x6-btn-icon-el {
+    opacity: 0.8;
+}
+.menuQuestion-btn:hover .x6-btn-inner {
+    color: #333333 !important;
+}
+.menuQuestion .add-answer-icon,
+.menuAnswer .add-answer-icon{
+    content: '' !important;
+    background: url(../img/icons/emk/evnPrescribePanel/addCourse.png) no-repeat;
+    opacity: 0.6;
+}
+.menuQuestion .copy-quest-icon,
+.menuAnswer .copy-quest-icon {
+    content: '' !important;
+    background: url(../img/icons/emk/panelicons/copy16.png) no-repeat;
+    opacity: 0.6;
+}
+.menuQuestion .delete-quest-icon,
+.menuAnswer .delete-quest-icon {
+    content: '' !important;
+    background: url(../img/icons/emk/panelicons/deleteItem.png) no-repeat;
+    opacity: 0.6;
+}
+.menuQuestion .up-quest-icon,
+.menuAnswer .up-quest-icon {
+    content: '' !important;
+    background: url(../img/icons/emk/panelicons/panelicon60_16.png) no-repeat;
+    opacity: 0.6;
+}
+.menuQuestion .down-quest-icon,
+.menuAnswer .down-quest-icon {
+    content: '' !important;
+    background: url(../img/icons/emk/panelicons/panelicon61_16.png) no-repeat;
+    opacity: 0.6;
+}
+.menuQuestion .type-quest.menuQuestion-btn {
+    width: 87px !important;
+    display: inline;
+    left: 6px !important;
+}
+.menuQuestion .copy-quest.menuQuestion-btn {
+    display: inline;
+    top: 0px !important;
+    left: 143px !important;
+    width: 20px !important;
+}
+.menuQuestion .delete-quest.menuQuestion-btn {
+    display: inline;
+    top: 0px !important;
+    left: 170px !important;
+    width: 20px !important;
+}
+.menuQuestion .up-quest.menuQuestion-btn {
+    display: inline;
+    top: 0px !important;
+    left: 195px !important;
+    width: 20px !important;
+}
+.menuQuestion .down-quest.menuQuestion-btn {
+    display: inline;
+    top: 0px !important;
+    left: 220px !important;
+    width: 20px !important;
+}
+.menuQuestion .add-answer.menuQuestion-btn {
+    width: 32px !important;
+    display: inline;
+    top: 0px !important;
+    left: 103px !important;
+}
+.menuQuestion-btn .x6-btn-wrap-default-small.x6-btn-arrow-right:after {
+    width: 8px;
+    content: "\f0d7";
+    font: 11px/1 FontAwesome;
+    color: #000000;
+    opacity: 0.5;
+}
+.type-quest.menuQuestion-btn span {
+    padding: 0px;
+    text-transform: none
+}
+.add-subquery-menuAnswer-icon {
+    background: url(../img/icons/emk/add-subquery.svg) no-repeat center;
+    opacity: 0.6;
+}
+.add-answers-icon {
+    background: url(../img/icons/emk/panelicons/add-answer.png) no-repeat center;
+}
+.other-answer-icon {
+    background: url(../img/icons/emk/panelicons/other-answer.png) no-repeat center;
+}
+.menuAnswer {
+    height: 34px !important;
+    padding: 3px 0px !important;
+}
+.menuAnswer .add-answer.menuQuestion-btn {
+    width: 32px !important;
+    display: inline;
+    top: 0px !important;
+    left: 6px !important;
+}
+.menuAnswer .copy-quest.menuQuestion-btn {
+    display: inline;
+    top: 0px !important;
+    left: 42px !important;
+    width: 20px !important;
+}
+.menuAnswer .delete-quest.menuQuestion-btn {
+    display: inline;
+    top: 0px !important;
+    left: 68px !important;
+    width: 20px !important;
+}
+.menuAnswer .up-quest.menuQuestion-btn {
+    display: inline;
+    top: 0px !important;
+    left: 94px !important;
+    width: 20px !important;
+}
+.menuAnswer .down-quest.menuQuestion-btn {
+    display: inline;
+    top: 0px !important;
+    left: 116px !important;
+    width: 20px !important;
+}
+.menuAnswer .menuQuestion-btn {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.menuAnswer .menuQuestion-btn:hover{
+    background-color: transparent;
+    border-color: transparent;
+}
+.menuAnswer .menuQuestion-btn:hover span{
+    color: #666666;
+}
+.AnketaMaker .hidden-button-answer-other {
+    display: none;
+}
+.AnketaMaker .answerPanels-other:hover .hidden-button-answer-other {
+    display: inline-block;
+    position: absolute;
+}
+.AnketaMaker .desktop-or-mobile .x6-btn-wrap-default-small.x6-btn-arrow-right:after {
+    width: 11px;
+    content: "\f0d7";
+    font: 11px/1 FontAwesome;
+    color: #7f7f7f;
+}
+.desktopIcon {
+    background-image: url('../img/icons/emk/panelicons/desktopIcon.png');
+}
+.AnketaMaker .questionPreview.AnketaMaker-Panel.AnketaMaker-two:first-child {
+    margin-top: 0px !important;
+}
+.AnketaMaker .answerPanels .x6-form-radio-default {
+    margin-top: 6px;
+}
+.AnketaMaker .panelVariableAnswer.radioButton > div > div > div > div > .x6-tool-tool-el {
+    padding-top: 3px
+}
+.AnketaMaker .AnketaMaker-Panel.two > .x6-panel-header {
+    padding-top: 5px;
+}
+.AnketaMaker .AnketaMaker-Panel.AnketaMaker-one > .x6-panel-header {
+    padding-bottom: 0px;
+}
+.AnketaMaker .AnketaMaker-Panel.AnketaMaker-one .title-answer.dateOrTime {
+    margin-left: 50px !important;
+}
+.AnketaMaker .AnketaMaker-Panel.two .title-answer.dateOrTime {
+    margin-left: 45px !important;
+}
+.AnketaMaker .AnketaMaker-questionPreviewSegment .other-textfield .x6-form-trigger-wrap-default {
+    border-top-color: #BABABA;
+}
+.AnketaMaker .AnketaMaker-questionPreviewSegment .other-textfield .x6-form-trigger-wrap-default.x6-form-trigger-wrap-focus {
+    border-color: #3892d4;
+}
+.AnketaMaker .AnketaMaker-questionPreviewSegment .segmentedButtonGroup .x6-segmented-button-item {
+    border-radius: 0;
+    box-shadow:
+            0px -1px 0px 0px #ccc,
+            0px 0px 0px 1px #BABABA !important;
+}
+.AnketaMaker .AnketaMaker-questionPreviewSegment .segmentedButtonGroup .x6-segmented-button-item.x6-btn-pressed  {
+    box-shadow: 0px 0px 0px 1px #1976D2 !important;
+}
+.AnketaMaker .AnketaMaker-previewSegmentWorksheet.mobilePreview .AnketaMaker-questionPreviewSegment .segmentedButtonGroup .x6-segmented-button-item {
+    box-shadow: 0px 0px 0px 0px #fff !important;
+    background: transparent;
+    padding-right: 14px !important;
+    padding-left: 0px !important;
+    margin-right: 14px;
+}
+.AnketaMaker .AnketaMaker-previewSegmentWorksheet.mobilePreview .AnketaMaker-questionPreviewSegment .segmentedButtonGroup span {
+    padding-left: 0px;
+}
+.AnketaMaker .AnketaMaker-previewSegmentWorksheet.mobilePreview .AnketaMaker-questionPreviewSegment .segmentedButtonGroup .x6-segmented-button-item:hover,
+.AnketaMaker .AnketaMaker-questionPreviewSegment .segmentedButtonGroup .x6-segmented-button-item
+.AnketaMaker .AnketaMaker-previewSegmentWorksheet.mobilePreview .AnketaMaker-questionPreviewSegment .segmentedButtonGroup .x6-segmented-button-item.x6-btn-pressed {
+    padding: 2px 15px 2px 1px !important;
+    background-color: transparent !important;
+    margin-right: 14px;
+}
+.AnketaMaker .AnketaMaker-previewSegmentWorksheet.mobilePreview .AnketaMaker-questionPreviewSegment .segmentedButtonGroup .x6-segmented-button-item:hover span,
+.AnketaMaker .AnketaMaker-previewSegmentWorksheet.mobilePreview .AnketaMaker-questionPreviewSegment .segmentedButtonGroup .x6-segmented-button-item.x6-btn-pressed span {
+    color: #2196F3;
+}
+.AnketaMaker .AnketaMaker-previewSegmentWorksheet.mobilePreview .AnketaMaker-questionPreviewSegment .x6-toolbar {
+    margin-bottom: 0px !important;
+}
+.AnketaMaker .textareaCustomConstructor textarea {
+    line-height: 15px;
+    padding: 5px 0px;
+}
+.AnketaMaker .textareaCustomConstructor .x6-form-trigger-wrap {
+    border-width: 0px 0px 1px 0px;
+    border-color: #FFFFFF;
+}
+.AnketaMaker .textareaCustomConstructor:hover .x6-form-trigger-wrap,
+.AnketaMaker .textareaCustomConstructor .x6-form-trigger-wrap-focus{
+    border-color: #DDDDDD !important;
+}
+.AnketaMaker .previewSegmentWorksheet.mobilePreview .segmentedButtonGroup.possible-answer {
+    padding-top: 15px !important;
+}
+.AnketaMaker .AnketaMaker-questionPreviewSegment.AnketaMaker-one:first-child,
+.AnketaMaker .AnketaMaker-questionPreview.AnketaMaker-one:first-child {
+    border-top: 1px solid #E7E7E7 !important;
+}
+.addQuestionAbsolute:hover .addQuestionAbsolute-icon:before {
+    content: '';
+    width: 30px;
+    height: 30px;
+    margin-top: 1px;
+    display: block;
+    border-radius: 50%;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.6);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.6);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.6);
+    position: fixed;
+}
+.mobileOrDesktop a:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.mobileOrDesktop a:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.AnketaMaker .mobileOrDesktop a.x6-segmented-button-item.x6-btn-pressed,
+.AnketaMaker .mobileOrDesktop a.x6-segmented-button-item.x6-btn-pressed:hover,
+.AnketaMaker .mobileOrDesktop a.x6-segmented-button-item.x6-btn-pressed.x6-focus {
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+    box-shadow: none !important;
+    background: transparent !important;
+
+}
+.AnketaMaker .segmentedButtonGroup.mobileOrDesktop .x6-segmented-button-item.x6-btn-over.x6-focus{
+    padding: 2px 5px 2px 5px !important;
+}
+.AnketaMaker .mobileOrDesktop a.x6-segmented-button-item {
+    padding-left:4px !important;
+    padding-right: 4px !important;
+    box-shadow: none !important;
+    background: transparent !important;
+}
+.AnketaMaker .mobileOrDesktop a.x6-segmented-button-item:hover {
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+}
+.AnketaMaker .activateSegment.x6-item-disabled label {
+    color: #000000;
+}
+.AnketaMaker .activateSegment.x6-item-disabled {
+    opacity: 0.3;
+}
+
+.AnketaMaker .mobileIcon {  background-image: url('../img/Worksheet/mobileIcon.png');}
+.AnketaMaker .settingsIcon {    background-image: url('../img/Worksheet/settings.png');}
+.addQuestionAbsolute-icon {
+    background-image: url(../img/Worksheet/btn-add-quest.png);
+    background-size: 30px 30px;
+    height: 32px !important;
+    width: 32px !important;
+}
+.AnketaMaker .mobileOrDesktop a.x6-segmented-button-item.x6-btn-pressed .desktopIcon {
+    background-image: url(../img/icons/emk/panelicons/desktopIconBlue.png);
+}
+.AnketaMaker .checkbox > .x6-panel-header > div > div > div > .x6-tool-tool-el {
+    margin-top: 3px !important;
+}
+.AnketaMaker .segmentedButtonGroup .x6-segmented-button-item .x6-btn-inner{
+	text-transform: none;
+}

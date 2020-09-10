@@ -1,0 +1,41 @@
+<ZL_LIST>
+	{ZGLV}
+	<ZGLV>
+		<VERSION>1.0</VERSION>
+		<DATA><?php echo date('Y-m-d'); ?></DATA>
+		{FILENAME}
+		{FILENAME1}
+		{CODMOF}
+		{YEAR}
+		{QUART}
+	</ZGLV>
+	{/ZGLV}
+	{SV_PR_MER}
+	<SV_PR_MER>
+		{NOMER_Z}
+		{PERSON_ID}
+		{SMOCOD}
+		{ENP}
+		{FAM}
+		{IM}
+		{OT}
+		{DR}
+		{W}
+		{DOCTYPE}
+		{DOCSER}
+		{DOCNUM}
+		{SNILS}
+		{VPOLIS}
+		{SPOLIS}
+		{NPOLIS}
+		{TEL}
+		{KAT_LG}
+		{COMMENT}
+
+		<SV_PL_MER>
+			{QUART}
+			{DISP}
+		</SV_PL_MER>
+	</SV_PR_MER>
+	{/SV_PR_MER}
+</ZL_LIST>

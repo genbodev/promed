@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="HOSPITALISATION_REFERRAL">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="ZGLV">
+                    <xs:complexType>
+                        <xs:sequence>
+							<xs:element name="DATA" type="xs:date" />
+                            <xs:element name="TYPE">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:maxLength value="6" />
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="ID" type="xs:string" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="ZAP" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="NOM_NAP">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:length value="16" />
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="DTA_NAP" type="xs:date" />
+                            <xs:element name="FRM_MP" type="xs:int" />
+                            <xs:element name="MCOD_NAP">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:int">
+                                        <xs:pattern value="\d{0,6}" />
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="MPODR_NAP" type="xs:string" minOccurs="0" />
+                            <xs:element name="MCOD_STC">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:int">
+                                        <xs:pattern value="\d{0,6}" />
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="MPODR_STC" type="xs:int" />
+                            <xs:element name="USL_OK" type="xs:int" minOccurs="0" />
+                            <xs:element name="VPOLIS" type="xs:int" />
+                            <xs:element name="SPOLIS" type="xs:string" minOccurs="0" />
+                            <xs:element name="NPOLIS" type="xs:string" />
+                            <xs:element name="SMO_CODE" type="xs:string" />
+                            <xs:element name="ST_OKATO" type="xs:string" />
+                            <xs:element name="FAM" type="xs:string" />
+                            <xs:element name="IM" type="xs:string" />
+                            <xs:element name="OT" type="xs:string" minOccurs="0" />
+                            <xs:element name="W" type="xs:int" />
+                            <xs:element name="DR" type="xs:date" />
+                            <xs:element name="TLF" type="xs:string" />
+                            <xs:element name="DS" type="xs:string" />
+                            <xs:element name="KOD_PFO" type="xs:int" />
+                            <xs:element name="KOD_PFK" type="xs:int" />
+                            <xs:element name="KOD_DCT" type="xs:string" />
+                            <xs:element name="DTA_PLN" type="xs:date" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

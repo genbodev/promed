@@ -1,0 +1,1 @@
+<p>Дата записи: {PersonMedHistory_setDT} <br />{PersonMedHistory_Descr}</p>

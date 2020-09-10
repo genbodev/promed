@@ -1,0 +1,569 @@
+<?xml version='1.0' encoding='UTF-8'?><definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://atria.cz/individuals/api/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ind="http://atria.cz/individuals/" xmlns:bi="http://atria.cz/common/base/info/build/" xmlns="http://schemas.xmlsoap.org/wsdl/" name="IndividualsEndPointService" targetNamespace="http://atria.cz/individuals/api/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://atria.cz/individuals/api/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ind="http://atria.cz/individuals/" xmlns:bi="http://atria.cz/common/base/info/build/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+            
+  <xsd:import namespace="http://atria.cz/individuals/" schemaLocation="https://rmis66.mis66.ru/individuals-ws/individuals?xsd=individuals.xsd"/>
+            
+  <xsd:import namespace="http://atria.cz/common/base/info/build/" schemaLocation="https://rmis66.mis66.ru/individuals-ws/individuals?xsd=http://atria.cz/common/base/buildInfo.xsd"/>
+        
+</xsd:schema>
+  </types>
+  <message name="deleteIndividualAddressRequest">
+    <part element="ind:deleteIndividualAddressRequest" name="id">
+    </part>
+  </message>
+  <message name="editIndividualResponse">
+    <part element="ind:editIndividualResponse" name="result">
+    </part>
+  </message>
+  <message name="removeTypeFromIndividualAddressRequest">
+    <part element="ind:removeTypeFromIndividualAddressRequest" name="id">
+    </part>
+  </message>
+  <message name="deleteIndividualAddressResponse">
+    <part element="ind:deleteIndividualAddressResponse" name="result">
+    </part>
+  </message>
+  <message name="getIndividualDocumentsRequest">
+    <part element="ind:getIndividualDocumentsRequest" name="uid">
+    </part>
+  </message>
+  <message name="getIndividualCodeRequest">
+    <part element="ind:getIndividualCodeRequest" name="id">
+    </part>
+  </message>
+  <message name="deleteIndividualResponse">
+    <part element="ind:deleteIndividualResponse" name="result">
+    </part>
+  </message>
+  <message name="editIndividualCodeResponse">
+    <part element="ind:editIndividualCodeResponse" name="result">
+    </part>
+  </message>
+  <message name="createDocumentRequest">
+    <part element="ind:createDocumentRequest" name="document">
+    </part>
+  </message>
+  <message name="getIndividualAddressesRequest">
+    <part element="ind:getIndividualAddressesRequest" name="uid">
+    </part>
+  </message>
+  <message name="deleteIndividualRequest">
+    <part element="ind:deleteIndividualRequest" name="uid">
+    </part>
+  </message>
+  <message name="editIndividualAddressResponse">
+    <part element="ind:editIndividualAddressResponse" name="result">
+    </part>
+  </message>
+  <message name="createIndividualAddressResponse">
+    <part element="ind:createIndividualAddressResponse" name="result">
+    </part>
+  </message>
+  <message name="getIndividualRequest">
+    <part element="ind:getIndividualRequest" name="uid">
+    </part>
+  </message>
+  <message name="getIndividualCodesByIndividualIdResponse">
+    <part element="ind:getIndividualCodesByIndividualIdResponse" name="result">
+    </part>
+  </message>
+  <message name="createIndividualCodeRequest">
+    <part element="ind:createIndividualCodeRequest" name="xIndividualCode">
+    </part>
+  </message>
+  <message name="getDocumentResponse">
+    <part element="ind:getDocumentResponse" name="result">
+    </part>
+  </message>
+  <message name="addTypeToIndividualAddressResponse">
+  </message>
+  <message name="deleteIndividualCodeResponse">
+    <part element="ind:deleteIndividualCodeResponse" name="result">
+    </part>
+  </message>
+  <message name="deleteIndividualCodeRequest">
+    <part element="ind:deleteIndividualCodeRequest" name="id">
+    </part>
+  </message>
+  <message name="getIndividualDocumentsResponse">
+    <part element="ind:getIndividualDocumentsResponse" name="result">
+    </part>
+  </message>
+  <message name="getVersionRequest">
+    <part element="bi:getVersionRequest" name="getVersionRequest">
+    </part>
+  </message>
+  <message name="getVersionResponse">
+    <part element="bi:getVersionResponse" name="getVersionResponse">
+    </part>
+  </message>
+  <message name="editDocumentRequest">
+    <part element="ind:editDocumentRequest" name="document">
+    </part>
+  </message>
+  <message name="createIndividualAddressRequest">
+    <part element="ind:createIndividualAddressRequest" name="address">
+    </part>
+  </message>
+  <message name="addTypeToIndividualAddressRequest">
+    <part element="ind:addTypeToIndividualAddressRequest" name="typeToIndividualAddress">
+    </part>
+  </message>
+  <message name="createDocumentResponse">
+    <part element="ind:createDocumentResponse" name="result">
+    </part>
+  </message>
+  <message name="getDocumentRequest">
+    <part element="ind:getDocumentRequest" name="uid">
+    </part>
+  </message>
+  <message name="getIndividualAddressResponse">
+    <part element="ind:getIndividualAddressResponse" name="result">
+    </part>
+  </message>
+  <message name="getIndividualCodeResponse">
+    <part element="ind:getIndividualCodeResponse" name="result">
+    </part>
+  </message>
+  <message name="searchIndividualResponse">
+    <part element="ind:searchIndividualResponse" name="result">
+    </part>
+  </message>
+  <message name="getIndividualAddressTypesRequest">
+    <part element="ind:getIndividualAddressTypesRequest" name="id">
+    </part>
+  </message>
+  <message name="getIndividualCodesByIndividualIdRequest">
+    <part element="ind:getIndividualCodesByIndividualIdRequest" name="individualId">
+    </part>
+  </message>
+  <message name="editDocumentResponse">
+    <part element="ind:editDocumentResponse" name="result">
+    </part>
+  </message>
+  <message name="deleteDocumentResponse">
+    <part element="ind:deleteDocumentResponse" name="result">
+    </part>
+  </message>
+  <message name="createIndividualCodeResponse">
+    <part element="ind:createIndividualCodeResponse" name="result">
+    </part>
+  </message>
+  <message name="searchIndividualRequest">
+    <part element="ind:searchIndividualRequest" name="searchOptions">
+    </part>
+  </message>
+  <message name="createIndividualResponse">
+    <part element="ind:createIndividualResponse" name="result">
+    </part>
+  </message>
+  <message name="removeTypeFromIndividualAddressResponse">
+  </message>
+  <message name="deleteDocumentRequest">
+    <part element="ind:deleteDocumentRequest" name="documentId">
+    </part>
+  </message>
+  <message name="getIndividualAddressesResponse">
+    <part element="ind:getIndividualAddressesResponse" name="result">
+    </part>
+  </message>
+  <message name="getIndividualResponse">
+    <part element="ind:getIndividualResponse" name="result">
+    </part>
+  </message>
+  <message name="getIndividualAddressTypesResponse">
+    <part element="ind:getIndividualAddressTypesResponse" name="result">
+    </part>
+  </message>
+  <message name="createIndividualRequest">
+    <part element="ind:createIndividualRequest" name="individual">
+    </part>
+  </message>
+  <message name="editIndividualCodeRequest">
+    <part element="ind:editIndividualCodeRequest" name="request">
+    </part>
+  </message>
+  <message name="getIndividualAddressRequest">
+    <part element="ind:getIndividualAddressRequest" name="id">
+    </part>
+  </message>
+  <message name="editIndividualAddressRequest">
+    <part element="ind:editIndividualAddressRequest" name="address">
+    </part>
+  </message>
+  <message name="editIndividualRequest">
+    <part element="ind:editIndividualRequest" name="individual">
+    </part>
+  </message>
+  <portType name="IndividualsEndPoint">
+    <operation name="createIndividual">
+      <input message="tns:createIndividualRequest" name="createIndividualRequest">
+    </input>
+      <output message="tns:createIndividualResponse" name="createIndividualResponse">
+    </output>
+    </operation>
+    <operation name="editIndividual">
+      <input message="tns:editIndividualRequest" name="editIndividualRequest">
+    </input>
+      <output message="tns:editIndividualResponse" name="editIndividualResponse">
+    </output>
+    </operation>
+    <operation name="getIndividual">
+      <input message="tns:getIndividualRequest" name="getIndividualRequest">
+    </input>
+      <output message="tns:getIndividualResponse" name="getIndividualResponse">
+    </output>
+    </operation>
+    <operation name="searchIndividual">
+      <input message="tns:searchIndividualRequest" name="searchIndividualRequest">
+    </input>
+      <output message="tns:searchIndividualResponse" name="searchIndividualResponse">
+    </output>
+    </operation>
+    <operation name="deleteIndividual">
+      <input message="tns:deleteIndividualRequest" name="deleteIndividualRequest">
+    </input>
+      <output message="tns:deleteIndividualResponse" name="deleteIndividualResponse">
+    </output>
+    </operation>
+    <operation name="getIndividualDocuments">
+      <input message="tns:getIndividualDocumentsRequest" name="getIndividualDocumentsRequest">
+    </input>
+      <output message="tns:getIndividualDocumentsResponse" name="getIndividualDocumentsResponse">
+    </output>
+    </operation>
+    <operation name="getDocument">
+      <input message="tns:getDocumentRequest" name="getDocumentRequest">
+    </input>
+      <output message="tns:getDocumentResponse" name="getDocumentResponse">
+    </output>
+    </operation>
+    <operation name="createDocument">
+      <input message="tns:createDocumentRequest" name="createDocumentRequest">
+    </input>
+      <output message="tns:createDocumentResponse" name="createDocumentResponse">
+    </output>
+    </operation>
+    <operation name="editDocument">
+      <input message="tns:editDocumentRequest" name="editDocumentRequest">
+    </input>
+      <output message="tns:editDocumentResponse" name="editDocumentResponse">
+    </output>
+    </operation>
+    <operation name="deleteDocument">
+      <input message="tns:deleteDocumentRequest" name="deleteDocumentRequest">
+    </input>
+      <output message="tns:deleteDocumentResponse" name="deleteDocumentResponse">
+    </output>
+    </operation>
+    <operation name="getIndividualAddresses">
+      <input message="tns:getIndividualAddressesRequest" name="getIndividualAddressesRequest">
+    </input>
+      <output message="tns:getIndividualAddressesResponse" name="getIndividualAddressesResponse">
+    </output>
+    </operation>
+    <operation name="getIndividualAddress">
+      <input message="tns:getIndividualAddressRequest" name="getIndividualAddressRequest">
+    </input>
+      <output message="tns:getIndividualAddressResponse" name="getIndividualAddressResponse">
+    </output>
+    </operation>
+    <operation name="createIndividualAddress">
+      <input message="tns:createIndividualAddressRequest" name="createIndividualAddressRequest">
+    </input>
+      <output message="tns:createIndividualAddressResponse" name="createIndividualAddressResponse">
+    </output>
+    </operation>
+    <operation name="editIndividualAddress">
+      <input message="tns:editIndividualAddressRequest" name="editIndividualAddressRequest">
+    </input>
+      <output message="tns:editIndividualAddressResponse" name="editIndividualAddressResponse">
+    </output>
+    </operation>
+    <operation name="deleteIndividualAddress">
+      <input message="tns:deleteIndividualAddressRequest" name="deleteIndividualAddressRequest">
+    </input>
+      <output message="tns:deleteIndividualAddressResponse" name="deleteIndividualAddressResponse">
+    </output>
+    </operation>
+    <operation name="getIndividualAddressTypes">
+      <input message="tns:getIndividualAddressTypesRequest" name="getIndividualAddressTypesRequest">
+    </input>
+      <output message="tns:getIndividualAddressTypesResponse" name="getIndividualAddressTypesResponse">
+    </output>
+    </operation>
+    <operation name="addTypeToIndividualAddress">
+      <input message="tns:addTypeToIndividualAddressRequest" name="addTypeToIndividualAddressRequest">
+    </input>
+      <output message="tns:addTypeToIndividualAddressResponse" name="addTypeToIndividualAddressResponse">
+    </output>
+    </operation>
+    <operation name="removeTypeFromIndividualAddress">
+      <input message="tns:removeTypeFromIndividualAddressRequest" name="removeTypeFromIndividualAddressRequest">
+    </input>
+      <output message="tns:removeTypeFromIndividualAddressResponse" name="removeTypeFromIndividualAddressResponse">
+    </output>
+    </operation>
+    <operation name="createIndividualCode">
+      <input message="tns:createIndividualCodeRequest" name="createIndividualCodeRequest">
+    </input>
+      <output message="tns:createIndividualCodeResponse" name="createIndividualCodeResponse">
+    </output>
+    </operation>
+    <operation name="editIndividualCode">
+      <input message="tns:editIndividualCodeRequest" name="editIndividualCodeRequest">
+    </input>
+      <output message="tns:editIndividualCodeResponse" name="editIndividualCodeResponse">
+    </output>
+    </operation>
+    <operation name="getIndividualCode">
+      <input message="tns:getIndividualCodeRequest" name="getIndividualCodeRequest">
+    </input>
+      <output message="tns:getIndividualCodeResponse" name="getIndividualCodeResponse">
+    </output>
+    </operation>
+    <operation name="getIndividualCodeByIndividualId">
+      <input message="tns:getIndividualCodesByIndividualIdRequest" name="getIndividualCodesByIndividualIdRequest">
+    </input>
+      <output message="tns:getIndividualCodesByIndividualIdResponse" name="getIndividualCodesByIndividualIdResponse">
+    </output>
+    </operation>
+    <operation name="deleteIndividualCode">
+      <input message="tns:deleteIndividualCodeRequest" name="deleteIndividualCodeRequest">
+    </input>
+      <output message="tns:deleteIndividualCodeResponse" name="deleteIndividualCodeResponse">
+    </output>
+    </operation>
+    <operation name="getVersion">
+      <input message="tns:getVersionRequest" name="getVersionRequest">
+    </input>
+      <output message="tns:getVersionResponse" name="getVersionResponse">
+    </output>
+    </operation>
+  </portType>
+  <binding name="IndividualsEndPointBinding" type="tns:IndividualsEndPoint">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="createIndividual">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="editIndividual">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getIndividual">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="searchIndividual">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="deleteIndividual">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getIndividualDocuments">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getDocument">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="createDocument">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="editDocument">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="deleteDocument">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getIndividualAddresses">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getIndividualAddress">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="createIndividualAddress">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="editIndividualAddress">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="deleteIndividualAddress">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getIndividualAddressTypes">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="addTypeToIndividualAddress">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="removeTypeFromIndividualAddress">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="createIndividualCode">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="editIndividualCode">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getIndividualCode">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getIndividualCodeByIndividualId">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="deleteIndividualCode">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getVersion">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="IndividualsEndPointService">
+    <port binding="tns:IndividualsEndPointBinding" name="InterchangeEndPointPort">
+      <soap:address location="https://rmis66.mis66.ru/individuals-ws/individuals"/>
+    </port>
+  </service>
+</definitions>

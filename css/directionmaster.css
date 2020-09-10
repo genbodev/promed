@@ -1,0 +1,21 @@
+.dm-group{
+}
+.dm-group .dm-group-hd div{
+	color: black;
+	font-weight: normal;
+}
+.dm-group .dm-group-hd .dm-group-hd-name{
+	font-weight: bold;
+}
+.dm-group .dm-group-hd .dm-group-hd-warning{
+	color: red;
+	font-weight: bold;
+}
+.dm-link{
+	color: #000079;
+	text-decoration: underline;
+	cursor: pointer;
+}
+.dm-link:hover{
+	color: #5f44ff;
+}

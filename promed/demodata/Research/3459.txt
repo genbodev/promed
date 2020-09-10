@@ -1,0 +1,234 @@
+<table border="0" cellpadding="0" cellspacing="0">
+	<tbody>
+		<tr>
+			<td rowspan="2" style="width: 319px;">
+				<p align="center">
+					Министерство здравоохранения и социального развития РФ</p>
+			</td>
+			<td style="width: 324px;">
+				<p align="center">
+					<strong><em>г. Пермь, ГКБ-4, ул. КИМ, 2</em></strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 324px;">
+				<p align="center">
+					(наименование и адрес ЛПУ)</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 319px; height: 15px;">
+				<p align="center">
+					&nbsp;</p>
+			</td>
+			<td style="width: 324px; height: 15px;">
+				<p align="center">
+					<strong>Клиническая лаборатория</strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="2" style="width: 319px; height: 15px;">
+				<p align="center">
+					<strong>АНАЛИЗ КРОВИ НА КОАГУЛОГРАММУ</strong></p>
+				<p align="center">
+					<strong>№ </strong><strong>3459</strong></p>
+			</td>
+			<td style="width: 324px; height: 15px;">
+				<p align="center">
+					(наименование отделения)</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 324px; height: 15px;">
+				<p align="center">
+					&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 319px; height: 15px;">
+				<p align="center">
+					<strong>Дата выполнения</strong>: 31.01.2011</p>
+			</td>
+			<td style="width: 324px; height: 15px;">
+				<p align="center">
+					(врач, код врача)</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p>
+	&nbsp;</p>
+<table border="1" cellpadding="0" cellspacing="0">
+	<tbody>
+		<tr>
+			<td style="width: 199px;">
+				<p>
+					Пациент</p>
+			</td>
+			<td style="width: 444px;">
+				<p>
+					Плесовских В.К., 06.05.1949 г.р., ИБ А882</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 199px;">
+				<p>
+					Пол</p>
+			</td>
+			<td style="width: 444px;">
+				<p>
+					Мужской</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 199px;">
+				<p>
+					Кто направил</p>
+			</td>
+			<td style="width: 444px;">
+				<p>
+					Сятчихин А.В.</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 199px;">
+				<p>
+					Палата / кабинет</p>
+			</td>
+			<td style="width: 444px;">
+				<p>
+					&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 199px;">
+				<p>
+					Диагноз</p>
+			</td>
+			<td style="width: 444px;">
+				<p>
+					I70.2 Атеросклероз артерий конечностей</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p align="center">
+	&nbsp;</p>
+<p align="center">
+	&nbsp;</p>
+<table border="1" cellpadding="0" cellspacing="0">
+	<tbody>
+		<tr>
+			<td style="width: 165px;">
+				<p>
+					<strong>Показатель</strong></p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					<strong>Значение</strong></p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					<strong>Единица измерения</strong></p>
+			</td>
+			<td style="width: 148px;">
+				<p>
+					<strong>Норма</strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 165px;">
+				<p>
+					АПТВ</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					33</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					сек</p>
+			</td>
+			<td style="width: 148px;">
+				<p>
+					27-37</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 165px;">
+				<p>
+					ПТВ</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					19</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					сек</p>
+			</td>
+			<td style="width: 148px;">
+				<p>
+					16</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 165px;">
+				<p>
+					МНО</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					1.07</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					1.0</p>
+			</td>
+			<td style="width: 148px;">
+				<p>
+					&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 165px;">
+				<p>
+					АДФ агрегация</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					20</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					сек</p>
+			</td>
+			<td style="width: 148px;">
+				<p>
+					12</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 165px;">
+				<p>
+					ХЗФ</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					60</p>
+			</td>
+			<td style="width: 165px;">
+				<p>
+					мин</p>
+			</td>
+			<td style="width: 148px;">
+				<p>
+					8-12</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p>
+	&nbsp;</p>
+<p>
+	<strong>Примечание:</strong></p>

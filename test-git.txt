@@ -1,0 +1,6 @@
+Временный файл для ознакомления с работой Git.
+Схема работы: https://docs.google.com/document/d/1_M7qnffe_lHzs7m0YtjdrQOxfCfBkHytoffga334UGM/edit#
+Инструкция: https://redmine.swan-it.ru/projects/knowledgebase/wiki/Инструкция_разработчика_по_работе_с_Git
+
+Список ознакомившихся сотрудников:
+1. Власенко Дмитрий

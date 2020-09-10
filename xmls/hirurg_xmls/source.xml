@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<source>
+	<DocumentDate></DocumentDate>
+	<DocumentTime></DocumentTime>
+	<Person_FIO></Person_FIO>
+	<Jaloby>Доктор, у меня что-то болит</Jaloby>
+	<Anamnes_Zab>Начало болеть здесь, потом вот здесь.</Anamnes_Zab>
+	<Anamnez_Jizn>Родился, учился, заболел</Anamnez_Jizn>
+	<Expert_Anamn>Да, поциент конечно в хорошей форме, но вряд ли выживет.</Expert_Anamn>
+	<Object_Stat>Поциент держится молодцом!</Object_Stat>
+	<Local_Stat>О, сейчас вроде хорошо выглядит</Local_Stat>
+	<MedPersonal_FIO></MedPersonal_FIO>
+</source>

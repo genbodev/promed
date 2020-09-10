@@ -1,0 +1,147 @@
+<?php
+$isTFOMSAutoInteract = isset($isTFOMSAutoInteract)?$isTFOMSAutoInteract:false;
+$region = getRegionNick();
+?>
+
+<?php if ($isTFOMSAutoInteract && $region == 'kareliya') { ?>
+<PLAN_HOSPITALISATION>
+	<ZGLV>
+		{DATA}
+		{TYPE}
+		{ID}
+	</ZGLV>
+	<ZAP>
+		{NOM_NAP}
+		{DTA_NAP}
+		{FRM_MP}
+		{MCOD_STC}
+		{MPODR_STC}
+		{MCOD_NAP}
+		{MPODR_NAP}
+		{DTA_FKT}
+		{TIM_FKT}
+		{VPOLIS}
+		{SPOLIS}
+		{NPOLIS}
+		{SMO_CODE}
+		{FAM}
+		{IM}
+		{OT}
+		{W}
+		{DR}
+		{USL_OK}
+		{KOD_PFO}
+		{KOD_PFK}
+		{NHISTORY}
+		{DS}
+	</ZAP>
+</PLAN_HOSPITALISATION>
+<?php } else if ($isTFOMSAutoInteract) { ?>
+<HOSPITALISATION>
+	<HEADER>
+		{OPERATIONTYPE}
+		{DATA}
+		{CODE_MO}
+		{H_ID}
+	</HEADER>
+	<?php if($OPERATIONTYPE!='Delete'){ ?><BODY>
+		{REFERRAL_NUMBER}
+		{REFERRAL_DATE}
+		{REFERRAL_MO}
+		{REFERRAL_BRANCH}
+		{MO}
+		{BRANCH}
+		{DIVISION}
+		{FORM_MEDICAL_CARE}
+		{HOSPITALISATION_DATE}
+		{HOSPITALISATION_TIME}
+		{POLICY_TYPE}
+		{POLIS_SERIAL}
+		{POLIS_NUMBER}
+		{SMO}
+		{FIRST_NAME}
+		{LAST_NAME}
+		{FATHER_NAME}
+		{SEX}
+		{BIRTHDAY}
+		{STRUCTURE_BED}
+		{BEDPROFIL}
+		{DLSB}
+		{CARETYPE}
+		{MED_CARD_NUMBER}
+		{MKB}
+		{DIAGNOSIS}
+		{PATIENT}
+	</BODY><?php } ?>
+</HOSPITALISATION>
+<?php } else if ($region == 'buryatiya') { ?>
+<HOSPITALISATION>
+	<header>
+		{LPU}
+		{TYPE}
+		{ID}
+	</header>
+	<?php if($TYPE!='Delete'){ ?><body>
+		{REFERRAL_NUMBER}
+		{REFERRAL_DATE}
+		{REFERRAL_MO}
+		{MO}
+		{BRANCH}
+		{DIVISION}
+		{FORM_MEDICAL_CARE}
+		{HOSPITALISATION_DATE}
+		{HOSPITALISATION_TIME}
+		{POLICY_TYPE}
+		{POLIS_SERIAL}
+		{POLIS_NUMBER}
+		{SMO}
+		{FIRST_NAME}
+		{LAST_NAME}
+		{FATHER_NAME}
+		{SEX}
+		{BIRTHDAY}
+		{USL_OK}
+		{V020_STRUCTURE_BED}
+		{STRUCTURE_BED}
+		{MED_CARD_NUMBER}
+		{MKB}
+		{DIAGNOSIS}
+		{PATIENT}
+	</body><?php } ?>
+</HOSPITALISATION>
+<?php } else { ?>
+<HOSPITALISATION>
+	<header>
+		{LPU}
+		{TYPE}
+		{ID}
+	</header>
+	<?php if($TYPE!='Delete'){ ?><body>
+		{REFERRAL_NUMBER}
+		{REFERRAL_DATE}
+		{REFERRAL_MO}
+		{MO}
+		{BRANCH}
+		{DIVISION}
+		{FORM_MEDICAL_CARE}
+		{HOSPITALISATION_DATE}
+		{HOSPITALISATION_TIME}
+		{POLICY_TYPE}
+		{POLIS_SERIAL}
+		{POLIS_NUMBER}
+		{SMO}
+		{FIRST_NAME}
+		{LAST_NAME}
+		{FATHER_NAME}
+		{SEX}
+		{BIRTHDAY}
+		{USL_OK}
+		{V020_STRUCTURE_BED}
+		{STRUCTURE_BED}
+		{MED_CARD_NUMBER}
+		{MKB}
+		{DIAGNOSIS}
+		{PATIENT}
+	</body><?php } ?>
+</HOSPITALISATION>
+<?php } ?>

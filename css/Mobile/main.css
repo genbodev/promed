@@ -1,0 +1,207 @@
+.text-align-center {
+  text-align: center;
+}
+.text-align-right {
+  text-align: right;
+}
+
+.split-wrapper {
+  width: 100%;
+  min-height: 200px;
+  clear: both;
+}
+@media all and (min-width: 650px) {
+  .content-secondary {
+    text-align: left;
+    float: left;
+    width: 45%;
+    background: none;
+    padding: 1.5em 6% 3em 0;
+    margin: 0;
+  }
+  .content-secondary {
+    background: none;
+    border-top: none;
+  }
+  .content-primary {
+    width: 45%;
+    float: right;
+    margin-right: 1%;
+    padding-right: 1%;
+  }
+  .content-primary ul:first-child {
+    margin-top: 0;
+  }
+  .content-secondary ul.ui-listview, .content-secondary ul.ui-listview-inset {
+    margin: 0;
+  }
+  .content-secondary ul.ui-listview .ui-li-divider, .content-secondary ul.ui-listview .ui-li {
+    border-radius: 0px;
+  }
+  .content-secondary ul.ui-listview .ui-li {
+    border-left: 0;
+    border-right: 0;
+  }
+  .content-secondary h2 {
+    position: absolute;
+    left: -9999px;
+  }
+  .content-secondary .ui-li-divider {
+    padding-top: 1em;
+    padding-bottom: 1em;
+  }
+  .content-secondary {
+    margin: 0;
+    padding: 0;
+  }
+  
+}
+@media all and (min-width: 750px){
+  .content-secondary {
+    width: 34%;
+  }
+  .content-primary {
+    width: 60%;
+    padding-right: 1%;
+  }	
+}
+
+@media all and (min-width: 1200px){
+  .content-secondary {
+    width: 30%;
+    padding-right:6%;
+    margin: 0px 0 20px 5%;
+  }
+  .content-secondary ul {
+    margin: 0;
+  }
+  .content-secondary {
+    margin: 0;
+    padding: 0;
+  }
+  .content-primary {
+    width: 50%;
+    margin-right: 5%;
+    padding-right: 3%;
+  }
+  .content-primary {
+    width: 60%;
+  }
+}
+/* Portrait */
+@media screen and (orientation:portrait) {
+   span.time {display:none}
+}
+@media screen and (orientation:portrait) and (min-width: 400px) and (max-width: 725px) {
+    menu ul li a span {display:none}
+}
+
+body, html {margin:0; padding:0; height: 100%; margin: 0; padding: 0; width: 100%; background:#E2E2E2;  font-family: Arial, Tahoma, Verdana}
+body {}
+h1, h2, h3, h4, h5, h6, p, ul, li, ol {margin:0; padding:0; font-family: Arial, Tahoma, Verdana}
+header {height:59px; background:#436bb6 url(../../img/Mobile/header.png) repeat-x left top; padding:0 15px; color:#FFF; line-height:59px;}
+	header p { font-size:16px;}
+	header p img {float:left; margin:8px 13px 0 0}
+	header p span {color:#c6c6c6}
+	header p span.stat {color:#8ec6ff}
+	header p span.time {color:#FFF; float:right}
+	header p span.time span {color:#c6c6c6}
+
+menu {height:49px; background:#1d1d1d url(../../img/Mobile/menu.png) repeat-x left top; margin:0 0 25px; padding:0 15px;}
+	menu ul {line-height: 43px; width:100%; padding: 3px 0;}
+	menu ul li {display: table-cell; font-size: 1em; font-weight: bold; margin: 0; width: 33em; text-align:center; border-radius:3px;}
+	menu ul li  a {text-decoration:none; text-shadow: 0 -1px 1px #000; color: #FFF; display: inline-block; padding: 0 1em}
+	menu ul li span {width:43px; height:43px; float:left}
+	menu ul li.active {background: url(../../img/Mobile/menu_hover.png) repeat-x left top }
+	menu ul li.active a {color:#70b7ff}
+		menu ul li.call span {background: url(../../img/Mobile/menu_stenc.png) no-repeat scroll left -4px transparent;}
+		menu ul li.call.active span {background: url(../../img/Mobile/menu_stenc.png) no-repeat scroll left -53px transparent;}
+		menu ul li.call.disabledMenuItemClass span {background: url(../../img/Mobile/menu_stenc.png) no-repeat scroll left -103px transparent;}
+		menu ul li.patient span {background: url(../../img/Mobile/menu_stenc.png) no-repeat scroll -138px -6px transparent;}
+		menu ul li.patient.active span {background: url(../../img/Mobile/menu_stenc.png) no-repeat scroll -138px -53px transparent;}
+		menu ul li.patient.disabledMenuItemClass span {background: url(../../img/Mobile/menu_stenc.png) no-repeat scroll -138px -103px transparent;}
+		menu ul li.brig span {background: url(../../img/Mobile/menu_stenc.png) no-repeat scroll -283px -4px transparent;}
+		menu ul li.brig.active span {background: url(../../img/Mobile/menu_stenc.png) no-repeat scroll -283px -52px transparent;}
+		menu ul li.brig.disabledMenuItemClass span {background: url(../../img/Mobile/menu_stenc.png) no-repeat scroll -283px -102px transparent;}
+		menu ul li.stac span {background: url(../../img/Mobile/menu_stenc.png) no-repeat scroll -411px -4px transparent;}
+		menu ul li.stac.active span {background: url(../../img/Mobile/menu_stenc.png) no-repeat scroll -411px -53px transparent;}
+		menu ul li.stac.disabledMenuItemClass span {background: url(../../img/Mobile/menu_stenc.png) no-repeat scroll -411px -103px transparent;}
+section.content {min-height:300px; background: #e2e2e2; padding:0 0 110px; margin: 0 ;}
+	.content .header {background: #7e7e7e; border-bottom:1px solid #FFF; height:8px; text-align:center; margin:25px -30px 25px;}
+	.content .header:first-child {margin:0 -30px 25px}
+	.content .header span {background: #e2e2e2; padding:0 10px; font-size:14px; color:#5e5e5e; font-weight:bold; text-shadow: 0px 1px 1px #FFF; position: relative; top:-8px}
+.callcard {border:1px solid #F00; border-radius:5px; background:#FFF; padding:1em; position:relative; margin:0 0 25px 0}
+.callcard.closed {background:transparent; border: 1px solid #B6B6B6; box-shadow: 0 3px 3px #555555;}
+	.callcard em .ds {color:#800723; font-weight:bold}
+	.callcard  .approve {background: none repeat scroll 0 0 #EBECEE; border-radius: 5px 0 5px 0; bottom: 0; padding: 0 0 0 10px; position: absolute; right: 0; z-index:3}
+	.callcard span.timestamp {float: left; line-height: 30px; padding: 0 20px 0 0; font-weight:bold; font-size:14px}
+	.callcard.closed .approve {background:transparent}
+	.callcard.closed .approve .ui-btn-inner {border-radius: 4px 0; box-shadow: 1px 1px 5px #555555 inset; font-size: 24px; margin: -1px 0 0; padding: 0 20px; text-shadow: 1px 1px 1px #FFFFFF;}
+	.callcard  .approve .ui-btn-block {background: #a8aeb6; float: right; margin: 0;}
+	.callcard.closed .approve .ui-btn-block {background: none repeat scroll 0 0 #969DA7; border-color: #9FA3A9 #E2E2E2 #E2E2E2 #B6B6B6; border-radius: 4px 0; border-width: 1px 0 0 1px; box-shadow: 5px 8px 8px 6px #E2E2E2; float: right; margin: 0;}
+	.ui-btn-active {color:#FFF; background: -moz-linear-gradient(top, #2f3e6b 0%, #207cca 23%, #6292eb 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#2f3e6b), color-stop(23%,#207cca), color-stop(100%,#6292eb)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #2f3e6b 0%,#207cca 23%,#6292eb 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #2f3e6b 0%,#207cca 23%,#6292eb 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #2f3e6b 0%,#207cca 23%,#6292eb 100%); /* IE10+ */
+background: linear-gradient(to bottom, #2f3e6b 0%,#207cca 23%,#6292eb 100%); /* W3C */}
+	a.ui-btn-active span {}
+	label.classic {width:30%; display:inline-block}
+	strong.red {font-style:normal; color:#800723}
+	.paddding30 {padding: 0 0 0 19px;}
+	h3 small {color:#5e5e5e; font-weight:normal; font-style:italic;}
+	table {border-collapse: collapse; border-left: 1px solid #FFF}
+	th {text-align:left; background:#c6c6c6; border-right:1px solid #FFF}
+	td {border-right:1px solid #FFF; border-bottom: 1px solid #c6c6c6}
+	td, th {padding: 4px 10px}
+	h3 span.stac, h3 span.surg, h3 span.polic, h3 span.emerg {height:18px; width:20px; float: left; background: url(../../img/Mobile/stac.png) no-repeat left top; margin:0 10px 0 0}
+	h3 span.stac {background-position: 0 0px}
+	h3 span.surg {background-position: 0 -26px}
+	h3 span.polic {background-position: 0 -56px}
+	h3 span.emerg {background-position: 0 -84px }
+
+footer {height:82px; background:#c6c6c6; width:100%; z-index: 100;}
+nav {height:33px; background:#7e7e7e}
+
+/*New*/
+
+.width30 {width:300px; display:inline-block}
+
+.autocomplete-w1 { 
+	background-color: white;
+	position:absolute;
+	top:0px;
+	left:0px;
+	/*	margin:6px 0 0 6px;*/
+	/* IE6 fix: */
+/*	_background:none;*/
+/*	_margin:1px 0 0 0; */
+}
+.autocomplete { 
+	border:1px solid #999; 
+	background:#FFF; 
+	cursor:default; 
+	text-align:left; 
+	max-height:600px;
+	width: 500px;
+	overflow:auto; 
+/*	margin:-6px 6px 6px -6px; */
+	/* IE6 specific: */
+	_height:600px;  
+	_margin:0; 
+	_overflow-x:hidden; 
+}
+.autocomplete .selected { 
+	background:#F0F0F0; 
+}
+.autocomplete div { 
+/*	padding:2px 5px; */
+	white-space:nowrap; 
+	overflow:hidden; 
+}
+.autocomplete strong { 
+	font-weight:normal; 
+	color:#3399FF; 
+}
+li.disabledMenuItemClass a {color:#666}
+@media 

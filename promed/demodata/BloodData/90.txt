@@ -1,0 +1,24 @@
+<table border="1" cellpadding="5" cellspacing="0">
+	<tbody>
+		<tr>
+			<td style="width: 169px;">
+				<p>
+					<strong>Группа крови</strong></p>
+			</td>
+			<td style="width: 169px;">
+				<p>
+					<strong>Резус-фактор</strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 169px;">
+				<p>
+					O(I)</p>
+			</td>
+			<td style="width: 169px;">
+				<p>
+					Rh + (положительная)</p>
+			</td>
+		</tr>
+	</tbody>
+</table>

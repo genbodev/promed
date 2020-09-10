@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="ATTACH_DATA">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ZGLV">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="VERSION">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:pattern value="\d+\.\d+" />
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="DATE" type="xs:date" />
+							<xs:element name="CODE_MO">
+								<xs:simpleType>
+									<xs:restriction base="xs:int">
+										<xs:pattern value="\d{0,6}" />
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="ID_MO">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:pattern value="\d+(\.\d+)+" />
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="PERS" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="ID_PAC" type="xs:long" />
+							<xs:element name="FAM" type="xs:string" />
+							<xs:element name="IM" type="xs:string" />
+							<xs:element name="OT" type="xs:string" minOccurs="0" />
+							<xs:element name="W" type="xs:int" />
+							<xs:element name="DR" type="xs:string" />
+							<xs:element name="SMO" type="xs:string" minOccurs="0" />
+							<xs:element name="VPOLIS" type="xs:int" minOccurs="0" />
+							<xs:element name="SPOLIS" type="xs:string" minOccurs="0" />
+							<xs:element name="NPOLIS" type="xs:string" minOccurs="0" />
+							<xs:element name="OPER_TYPE">
+								<xs:simpleType>
+									<xs:restriction base="xs:int">
+										<xs:enumeration value="1" />
+										<xs:enumeration value="2" />
+										<xs:enumeration value="3" />
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="INFO_TYPE" type="xs:int" />
+							<xs:element name="DATE" type="xs:date" />
+							<xs:element name="SP_PRIK" type="xs:int" />
+							<xs:element name="T_PRIK" type="xs:int" />
+							<xs:element name="KOD_PODR" type="xs:int" minOccurs="0" />
+							<xs:element name="NUM_UCH" type="xs:string" />
+							<xs:element name="TIP_UCH" type="xs:int" minOccurs="0" />
+							<xs:element name="SNILS_VR" minOccurs="0">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:maxLength value="14" />
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="PHONE1" type="xs:string" minOccurs="0"/>
+							<xs:element name="PHONE2" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

@@ -1,0 +1,1706 @@
+<?xml version="1.0" encoding="utf-8"?>
+<registry>
+	<globals region="76" collapseEmptyAttributes="1" collapseEmptyTags="1" path="export/register_files/"/>
+	<inputParams>
+		<param name="Registry_id" value=""/>
+		<param name="RegistryType_id" value=""/>
+	</inputParams>
+	<files>
+		<file name="eventData" type="master" description="Случаи реестра" signTemplate="bill" ext="xml">
+			<map>
+				<elements>
+					<element name="package" required="1">
+						<elements>
+							<element name="body" dataProvider="body" required="1">
+								<attributes>
+									<attribute name="version" required="1"/>
+									<attribute name="protocol" required="1"/>
+									<attribute name="creator" required="1"/>
+									<attribute name="telcreator" required="1"/>
+									<attribute name="ogrn_mo" required="1"/>
+									<attribute name="kpp_mo" required="1"/>
+									<attribute name="year" required="1"/>
+									<attribute name="month" required="1"/>
+									<attribute name="date_1" required="1"/>
+								</attributes>
+								<elements>
+									<element name="bill" dataProvider="bill" required="1">
+										<attributes>
+											<attribute name="t_opl" required="1"/>
+											<attribute name="ogrn_smo" required="1"/>
+											<attribute name="date_2" required="1"/>
+											<attribute name="n_out" required="1"/>
+											<attribute name="date_in" required="1"/>
+											<attribute name="expert_fio"/>
+											<attribute name="number_mek"/>
+											<attribute name="type_control"/>
+											<attribute name="comment"/>
+										</attributes>
+										<elements>
+											<element name="account_sum">
+												<elements>
+													<element name="account_elem_t">
+														<elements>
+															<element name="account_elem" multiple="1" dataProvider="account_elem_t">
+																<attributes>
+																	<attribute name="type_acc"/>
+																	<attribute name="amountl"/>
+																	<attribute name="amount"/>
+																</attributes>
+															</element> <!-- account_elem -->
+														</elements>
+													</element> <!-- account_elem_t -->
+													<element name="account_elem_f">
+														<elements>
+															<element name="account_elem" multiple="1" dataProvider="account_elem_f">
+																<attributes>
+																	<attribute name="type_acc"/>
+																	<attribute name="amountl"/>
+																	<attribute name="amount"/>
+																	<attribute name="invnumber"/>
+																	<attribute name="invdate"/>
+																	<attribute name="n_adult"/>
+																	<attribute name="t_adult"/>
+																	<attribute name="n_child"/>
+																	<attribute name="t_child"/>
+																	<attribute name="n_all"/>
+																	<attribute name="t_all"/>
+																</attributes>
+															</element> <!-- account_elem -->
+														</elements>
+													</element> <!-- account_elem_f -->
+													<element name="account_elem_s">
+														<elements>
+															<element name="account_elem" multiple="1" dataProvider="account_elem_s">
+																<attributes>
+																	<attribute name="type_acc"/>
+																	<attribute name="amountl"/>
+																	<attribute name="amount"/>
+																	<attribute name="invnumber"/>
+																	<attribute name="invdate"/>
+																</attributes>
+															</element> <!-- account_elem -->
+														</elements>
+													</element> <!-- account_elem_s -->
+												</elements>
+											</element> <!-- account_sum -->
+											<element name="patients" source="patientsData"/>
+											<element name="personals">
+												<attributes>
+													<attribute name="surname"/>
+													<attribute name="name"/>
+													<attribute name="patronymic"/>
+													<attribute name="birthdate"/>
+													<attribute name="sex"/>
+													<attribute name="ss"/>
+												</attributes>
+												<elements>
+													<element name="specializations">
+														<attributes>
+															<attribute name="spec"/>
+															<attribute name="work_start"/>
+															<attribute name="order_s"/>
+															<attribute name="order_start"/>
+															<attribute name="work_end"/>
+															<attribute name="order_n"/>
+															<attribute name="order_end"/>
+														</attributes>
+													</element> <!-- specializations -->
+												</elements>
+											</element> <!-- personals -->
+											<element name="expertises">
+												<elements>
+													<element name="expertise">
+														<attributes>
+															<attribute name="number"/>
+															<attribute name="date"/>
+															<attribute name="number_p"/>
+															<attribute name="date_p"/>
+															<attribute name="n_exp"/>
+															<attribute name="type_opl"/>
+															<attribute name="xkey"/>
+															<attribute name="x_key2"/>
+															<attribute name="ref_occ"/>
+															<attribute name="type"/>
+															<attribute name="n_card"/>
+															<attribute name="fio_d"/>
+															<attribute name="percent"/>
+															<attribute name="process"/>
+															<attribute name="defect"/>
+															<attribute name="final"/>
+															<attribute name="final_rec"/>
+															<attribute name="final_rec_n"/>
+														</attributes>
+														<elements>
+															<element name="ps_sum">
+																<elements>
+																	<element name="ps_elem">
+																		<attributes>
+																			<attribute name="type_acc"/>
+																			<attribute name="suml"/>
+																			<attribute name="sum"/>
+																		</attributes>
+																	</element> <!-- ps_elem -->
+																</elements>
+															</element> <!-- ps_sum -->
+															<element name="defects">
+																<attributes>
+																	<attribute name="code_type"/>
+																	<attribute name="code"/>
+																</attributes>
+															</element> <!-- defects -->
+															<element name="diagnoses">
+																<elements>
+																	<element name="diagnose">
+																		<attributes>
+																			<attribute name="type"/>
+																			<attribute name="mkb"/>
+																			<attribute name="mkb_o"/>
+																			<attribute name="mkb_v"/>
+																			<attribute name="mkb_t"/>
+																			<attribute name="diagn_err"/>
+																			<attribute name="t_diagn"/>
+																		</attributes>
+																	</element> <!-- diagnose -->
+																</elements>
+															</element> <!-- diagnoses -->
+															<element name="experts">
+																<elements>
+																	<element name="expert">
+																		<attributes>
+																			<attribute name="type_expert"/>
+																			<attribute name="snils"/>
+																			<attribute name="fio"/>
+																			<attribute name="expert_n"/>
+																		</attributes>
+																	</element> <!-- expert -->
+																</elements>
+															</element> <!-- experts -->
+															<element name="treatments">
+																<elements>
+																	<element name="treatment">
+																		<attributes>
+																			<attribute name="divname2"/>
+																			<attribute name="divname2adr"/>
+																			<attribute name="dop_doc"/>
+																			<attribute name="inf_sbor_r"/>
+																			<attribute name="inf_sbor_f"/>
+																			<attribute name="inf_sbor_li"/>
+																			<attribute name="inf_sbor_sp"/>
+																			<attribute name="inf_sbor_con"/>
+																			<attribute name="inf_sbor_err"/>
+																			<attribute name="lech_h"/>
+																			<attribute name="lech_m"/>
+																			<attribute name="lech_pr"/>
+																			<attribute name="lech_err"/>
+																			<attribute name="pre_in"/>
+																			<attribute name="pre_d"/>
+																			<attribute name="pre_tr"/>
+																			<attribute name="pre_rec"/>
+																			<attribute name="pre_err"/>
+																		</attributes>
+																	</element> <!-- treatment -->
+																</elements>
+															</element> <!-- treatments -->
+														</elements>
+													</element> <!-- expertise -->
+												</elements>
+											</element> <!-- expertises -->
+										</elements>
+									</element> <!-- bill -->
+									<element name="flk">
+										<attributes>
+											<attribute name="version"/>
+											<attribute name="year"/>
+											<attribute name="month"/>
+											<attribute name="type"/>
+											<attribute name="creator"/>
+											<attribute name="creator_tel"/>
+											<attribute name="org_name"/>
+											<attribute name="org_ogrn"/>
+											<attribute name="org_kpp"/>
+											<attribute name="datetime"/>
+											<attribute name="comment"/>
+										</attributes>
+										<elements>
+											<element name="plan">
+												<elements>
+													<element name="test">
+														<attributes>
+															<attribute name="code"/>
+															<attribute name="category"/>
+															<attribute name="element"/>
+															<attribute name="condition"/>
+															<attribute name="expression"/>
+															<attribute name="defect_code"/>
+															<attribute name="count_total"/>
+															<attribute name="count_fail"/>
+															<attribute name="ns"/>
+														</attributes>
+													</element> <!-- test -->
+												</elements>
+											</element> <!-- plan -->
+											<element name="register">
+												<attributes>
+													<attribute name="filename"/>
+													<attribute name="creator"/>
+													<attribute name="creator_tel"/>
+													<attribute name="provider"/>
+												</attributes>
+												<elements>
+													<element name="fact">
+														<attributes>
+															<attribute name="bill"/>
+															<attribute name="pat"/>
+															<attribute name="acc"/>
+															<attribute name="man"/>
+															<attribute name="test"/>
+															<attribute name="fact"/>
+															<attribute name="defect_code"/>
+															<attribute name="ns"/>
+														</attributes>
+														<elements>
+															<element name="dt">
+																<attributes>
+																	<attribute name="t"/>
+																	<attribute name="d"/>
+																</attributes>
+															</element> <!-- dt -->
+														</elements>
+													</element> <!-- fact -->
+												</elements>
+											</element> <!-- register -->
+										</elements>
+									</element> <!-- flk -->
+								</elements>
+							</element> <!-- body -->
+						</elements>
+					</element> <!-- package -->
+				</elements>
+			</map>
+		</file>
+		<file name="patientsData" type="slave" recLimit="100" signTemplate="patient.tmp" ext="xml" tabs="4">
+			<map>
+				<elements>
+					<element name="patient" required="1" multiple="1" dataProvider="main" dataToStore="evnnum">
+						<attributes>
+							<attribute name="patientcod" required="1"/>
+							<attribute name="surname" required="1"/>
+							<attribute name="name" required="1"/>
+							<attribute name="patronymic"/>
+							<attribute name="birthdate" required="1"/>
+							<attribute name="sex" required="1"/>
+							<attribute name="b_place"/>
+							<attribute name="ss"/>
+						</attributes>
+						<elements>
+							<element name="lawful_repr" dataProvider="main">
+								<attributes>
+									<attribute name="surname_p"/>
+									<attribute name="name_p"/>
+									<attribute name="patronymic_p"/>
+									<attribute name="birthdate_p"/>
+									<attribute name="sex_p"/>
+									<attribute name="b_place_p"/>
+									<attribute name="ss_p"/>
+								</attributes>
+							</element> <!-- lawful_repr -->
+							<element name="polises">
+								<elements>
+									<element name="polis" dataProvider="main">
+										<attributes>
+											<attribute name="region_oms" required="1"/>
+											<attribute name="type_polis" required="1"/>
+											<attribute name="polisser"/>
+											<attribute name="polisnum" required="1"/>
+											<attribute name="begin_p" required="1"/>
+											<attribute name="end_p"/>
+											<attribute name="ogrn_smo"/>
+										</attributes>
+									</element> <!-- polis -->
+								</elements>
+							</element> <!-- polises -->
+							<element name="docs">
+								<elements>
+									<element name="doc" dataProvider="main">
+										<attributes>
+											<attribute name="doctype" required="1"/>
+											<attribute name="docser" required="1"/>
+											<attribute name="docnum" required="1"/>
+										</attributes>
+									</element> <!-- doc -->
+								</elements>
+							</element> <!-- docs -->
+							<element name="addresses">
+								<elements>
+									<element name="address" iterate="2" dataProvider="main">
+										<attributes>
+											<attribute name="type_adress" required="1"/>
+											<attribute name="kladr" required="1"/>
+											<attribute name="dom"/>
+											<attribute name="korpus"/>
+											<attribute name="kvart"/>
+										</attributes>
+									</element> <!-- address -->
+								</elements>
+							</element> <!-- addresses -->
+							<element name="additional_data" dataProvider="main">
+								<attributes>
+									<attribute name="socialstat" required="1"/>
+									<attribute name="privilege_code"/>
+									<attribute name="foster_family"/>
+									<attribute name="weight"/>
+								</attributes>
+							</element> <!-- additional_data -->
+							<element name="register_accounts">
+								<elements>
+									<element name="personal_account" dataProvider="main">
+										<attributes>
+											<attribute name="help_type" required="1"/>
+											<attribute name="help_cond" required="1"/>
+											<attribute name="n_pp" required="1"/>
+											<attribute name="xkey" required="1"/>
+											<attribute name="n_card" required="1"/>
+											<attribute name="curestart" required="1"/>
+											<attribute name="cureend" required="1"/>
+											<attribute name="doctor" required="1"/>
+											<attribute name="spec" required="1"/>
+											<attribute name="result" required="1"/>
+											<attribute name="outcome"/>
+											<attribute name="vg" required="1"/>
+											<attribute name="x_key2"/>
+											<attribute name="comment"/>
+										</attributes>
+										<elements>
+											<element name="directions">
+												<conditions>
+													<condition param="inputParams:RegistryType_id">
+														<value value="1"/>
+														<value value="2"/>
+														<value value="15"/>
+														<value value="16"/>
+													</condition>
+												</conditions>
+												<elements>
+													<element name="direction" dataProvider="directions" multiple="1" groupKeyDataProvider="main" groupKey="MaxEvn_id">
+														<attributes>
+															<attribute name="xkey" required="1"/>
+															<attribute name="direction" required="1"/>
+															<attribute name="number" required="1"/>
+															<attribute name="date_1" required="1"/>
+															<attribute name="ogrn_lpu" required="1"/>
+															<attribute name="kpp_lpu" required="1"/>
+															<attribute name="direction_type" required="1"/>
+															<attribute name="reason" required="1"/>
+															<attribute name="other_reason"/>
+															<attribute name="mkb" required="1"/>
+															<attribute name="mkb_ext"/>
+															<attribute name="mkb_acc"/>
+															<attribute name="mkb_comp"/>
+															<attribute name="direction_help_type"/>
+															<attribute name="spec"/>
+															<attribute name="met_issl"/>
+															<attribute name="snils"/>
+														</attributes>
+														<elements>
+															<element name="simple_services">
+																<elements>
+																	<element name="simple_service" dataProvider="directions:current">
+																		<attributes>
+																			<attribute name="code" required="1" alias="simple_service_code"/>
+																		</attributes>
+																	</element> <!-- simple_service -->
+																</elements>
+															</element> <!-- simple_services -->
+															<element name="consultation" dataProvider="directions:current">
+																<attributes>
+																	<attribute name="spec" alias="spec_c"/>
+																</attributes>
+															</element> <!-- consultation -->
+															<element name="profile" dataProvider="directions:current">
+																<attributes>
+																	<attribute name="profile"/>
+																</attributes>
+															</element> <!-- profile -->
+														</elements>
+													</element> <!-- direction -->
+													<element name="direction_smp">
+														<attributes>
+															<attribute name="ogrn_smp" required="1"/>
+															<attribute name="kpp_smp" required="1"/>
+															<attribute name="date_smp" required="1"/>
+															<attribute name="order_smp" required="1"/>
+														</attributes>
+													</element> <!-- direction_smp -->
+												</elements>
+											</element> <!-- directions -->
+											<element name="manipulations">
+												<elements>
+													<element name="manipulation" dataProvider="manipulations" multiple="1" groupKeyDataProvider="main" groupKey="MaxEvn_id">
+														<attributes>
+															<attribute name="xkey" required="1"/>
+															<attribute name="main_xkey"/>
+															<attribute name="prof_oms" required="1"/>
+															<attribute name="prof_vmp"/>
+															<attribute name="det" required="1"/>
+															<attribute name="service" required="1"/>
+															<attribute name="quantity" required="1"/>
+															<attribute name="doctor"/>
+															<attribute name="spec" required="1"/>
+															<attribute name="date_1" required="1"/>
+															<attribute name="date_2" required="1"/>
+														</attributes>
+														<elements>
+															<element name="sum">
+																<elements>
+																	<element name="elem" iterate="2" dataProvider="manipulations:current">
+																		<attributes>
+																			<attribute name="type_acc" required="1"/>
+																			<attribute name="suml"/>
+																			<attribute name="sum"/>
+																		</attributes>
+																	</element> <!-- elem -->
+																</elements>
+															</element> <!-- sum -->
+															<element name="an_tariffs">
+																<elements>
+																	<element name="an_tariff">
+																		<attributes>
+																			<attribute name="date"/>
+																			<attribute name="provcode"/>
+																			<attribute name="provname"/>
+																			<attribute name="service"/>
+																			<attribute name="doctor"/>
+																			<attribute name="spec"/>
+																			<attribute name="date_1"/>
+																			<attribute name="servcount"/>
+																			<attribute name="curestart"/>
+																			<attribute name="cureend"/>
+																			<attribute name="ksg"/>
+																			<attribute name="count_d"/>
+																			<attribute name="prof_oms"/>
+																			<attribute name="сomment"/>
+																		</attributes>
+																	</element> <!-- an_tariff -->
+																</elements>
+															</element> <!-- an_tariffs -->
+															<element name="additionals">
+																<elements>
+																	<element name="additional" dataProvider="manipulations:current">
+																		<attributes>
+																			<attribute name="ogrn_lpu" required="1"/>
+																			<attribute name="kpp_lpu" required="1"/>
+																			<attribute name="ksg"/>
+																			<attribute name="refusal"/>
+																			<attribute name="pos_kod"/>
+																			<attribute name="code_s"/>
+																			<attribute name="count_d"/>
+																			<attribute name="opertype"/>
+																			<attribute name="oper_complication"/>
+																			<attribute name="c_teh"/>
+																			<attribute name="chambertype"/>
+																			<attribute name="child"/>
+																			<attribute name="place"/>
+																			<attribute name="c_anes"/>
+																			<attribute name="dep_num"/>
+																			<attribute name="prof_h"/>
+																			<attribute name="koef_z"/>
+																			<attribute name="koef_up"/>
+																			<attribute name="bztsz"/>
+																			<attribute name="koef_d"/>
+																			<attribute name="koef_u"/>
+																			<attribute name="it_sl"/>
+																			<attribute name="vid_vme"/>
+																			<attribute name="vmp_kind"/>
+																			<attribute name="vmp_method"/>
+																			<attribute name="vmp_group"/>
+																			<attribute name="vmp_model"/>
+																			<attribute name="partial"/>
+																		</attributes>
+																	</element> <!-- additional -->
+																	<element name="coefficients">
+																		<conditions>
+																			<condition param="inputParams:RegistryType_id">
+																				<value value="1"/>
+																			</condition>
+																		</conditions>
+																		<elements>
+																			<element name="kslp" dataProvider="coefficients" multiple="1" groupKeyDataProvider="manipulations:current" groupKey="EvnUsluga_id">
+																				<attributes>
+																					<attribute name="coeff" required="1"/>
+																					<attribute name="value" required="1"/>
+																					<attribute name="act_coeff"/>
+																				</attributes>
+																			</element> <!-- kslp -->
+																		</elements>
+																	</element> <!-- coefficients -->
+																	<element name="onkologies">
+																		<conditions>
+																			<condition param="inputParams:RegistryType_id">
+																				<value value="1"/>
+																				<value value="7"/>
+																				<value value="9"/>
+																				<value value="11"/>
+																				<value value="12"/>
+																			</condition>
+																		</conditions>
+																		<elements>
+																			<element name="onkologie" dataProvider="manipulations:current">
+																				<attributes>
+																					<attribute name="usl_tip" required="1"/>
+																					<attribute name="hir_tip"/>
+																					<attribute name="lek_tip_l"/>
+																					<attribute name="lek_tip_v"/>
+																					<attribute name="pptr"/>
+																					<attribute name="luch_tip"/>
+																				</attributes>
+																				<elements>
+																					<element name="medicaments">
+																						<conditions>
+																							<condition param="inputParams:RegistryType_id">
+																								<value value="1"/>
+																							</condition>
+																						</conditions>
+																						<elements>
+																							<element name="medicament" dataProvider="medicaments" multiple="1" groupKeyDataProvider="manipulations:current" groupKey="EvnUsluga_id">
+																								<attributes>
+																									<attribute name="regnum"/>
+																									<attribute name="code_sh"/>
+																									<attribute name="dose"/>
+																									<attribute name="dose_type"/>
+																									<attribute name="mult"/>
+																									<attribute name="freq"/>
+																									<attribute name="dura"/>
+																								</attributes>
+																								<elements>
+																									<element name="injections">
+																										<elements>
+																											<element name="injection" dataProvider="medicaments:current">
+																												<attributes>
+																													<attribute name="date"/>
+																												</attributes>
+																											</element> <!-- injection -->
+																										</elements>
+																									</element> <!-- injections -->
+																								</elements>
+																							</element> <!-- medicament -->
+																						</elements>
+																					</element> <!-- medicaments -->
+																				</elements>
+																			</element> <!-- onkologie -->
+																		</elements>
+																	</element> <!-- onkologies -->
+																	<element name="criterias">
+																		<conditions>
+																			<condition param="inputParams:RegistryType_id">
+																				<value value="1"/>
+																			</condition>
+																		</conditions>
+																		<elements>
+																			<element name="criteria" dataProvider="criterias" multiple="1" groupKeyDataProvider="manipulations:current" groupKey="EvnUsluga_id">
+																				<attributes>
+																					<attribute name="crit" required="1"/>
+																				</attributes>
+																			</element> <!-- criteria -->
+																		</elements>
+																	</element> <!-- criterias -->
+																	<element name="stomats">
+																		<conditions>
+																			<condition param="inputParams:RegistryType_id">
+																				<value value="16"/>
+																			</condition>
+																		</conditions>
+																		<elements>
+																			<element name="stomat" dataProvider="manipulations:current">
+																				<attributes>
+																					<attribute name="n_tooth" required="1"/>
+																					<attribute name="p_tooth" required="1"/>
+																				</attributes>
+																			</element> <!-- stomat -->
+																		</elements>
+																	</element> <!-- stomats -->
+																	<element name="diagnoses">
+																		<elements>
+																			<element name="diagnose" dataProvider="manipulations:current">
+																				<attributes>
+																					<attribute name="mkb" required="1"/>
+																				</attributes>
+																			</element> <!-- diagnose -->
+																		</elements>
+																	</element> <!-- diagnoses -->
+																	<element name="medicines">
+																		<elements>
+																			<element name="medicine">
+																				<attributes>
+																					<attribute name="xkey" required="1"/>
+																					<attribute name="mkb" required="1"/>
+																					<attribute name="code" required="1"/>
+																					<attribute name="doses" required="1"/>
+																					<attribute name="doctor" required="1"/>
+																					<attribute name="spec" required="1"/>
+																					<attribute name="date_b"/>
+																					<attribute name="date_e"/>
+																				</attributes>
+																			</element> <!-- medicine -->
+																		</elements>
+																	</element> <!-- medicines -->
+																	<element name="consumables">
+																		<elements>
+																			<element name="consumable">
+																				<attributes>
+																					<attribute name="xkey" required="1"/>
+																					<attribute name="mkb" required="1"/>
+																					<attribute name="code" required="1"/>
+																					<attribute name="doses" required="1"/>
+																					<attribute name="doctor" required="1"/>
+																					<attribute name="spec" required="1"/>
+																					<attribute name="date_b"/>
+																					<attribute name="date_e"/>
+																				</attributes>
+																			</element> <!-- consumable -->
+																		</elements>
+																	</element> <!-- consumables -->
+																</elements>
+															</element> <!-- additionals -->
+														</elements>
+													</element> <!-- manipulation -->
+												</elements>
+											</element> <!-- manipulations -->
+											<element name="diagnoses">
+												<elements>
+													<element name="diagnose" dataProvider="diagnoses" multiple="1" groupKeyDataProvider="main" groupKey="MaxEvn_id">
+														<attributes>
+															<attribute name="type" required="1"/>
+															<attribute name="type_b"/>
+															<attribute name="mkb" required="1"/>
+															<attribute name="code_z"/>
+															<attribute name="code_d"/>
+															<attribute name="code_t"/>
+															<attribute name="spec"/>
+														</attributes>
+													</element> <!-- diagnose -->
+												</elements>
+											</element> <!-- diagnoses -->
+											<element name="consiliums">
+												<conditions>
+													<condition param="inputParams:RegistryType_id">
+														<value value="1"/>
+														<value value="2"/>
+													</condition>
+												</conditions>
+												<elements>
+													<element name="consilium" dataProvider="consiliums" multiple="1" groupKeyDataProvider="main" groupKey="MaxEvn_id">
+														<attributes>
+															<attribute name="pr" required="1"/>
+															<attribute name="dt"/>
+														</attributes>
+													</element> <!-- consilium -->
+												</elements>
+											</element> <!-- consiliums -->
+											<element name="additionals">
+												<elements>
+													<element name="additional" dataProvider="main">
+														<attributes>
+															<attribute name="division" required="1"/>
+															<attribute name="finsource" required="1"/>
+															<attribute name="invnumber"/>
+															<attribute name="invdate"/>
+															<attribute name="type_r" required="1"/>
+															<attribute name="ident_r"/>
+															<attribute name="phase"/>
+															<attribute name="ds_onk"/>
+															<attribute name="inv"/>
+															<attribute name="mse"/>
+														</attributes>
+													</element> <!-- additional -->
+													<element name="additional_p" dataProvider="main">
+														<conditions>
+															<condition param="inputParams:RegistryType_id">
+																<value value="2"/>
+																<value value="7"/>
+																<value value="9"/>
+																<value value="11"/>
+																<value value="12"/>
+																<value value="15"/>
+																<value value="16"/>
+															</condition>
+														</conditions>
+														<attributes>
+															<attribute name="ad_pur" required="1"/>
+															<attribute name="togmh" required="1"/>
+															<attribute name="treatment_places" required="1"/>
+															<attribute name="g_health"/>
+															<attribute name="locality"/>
+															<attribute name="appointment"/>
+															<attribute name="disp_result"/>
+															<attribute name="disp_type"/>
+														</attributes>
+													</element> <!-- additional_p -->
+													<element name="additional_h_d" dataProvider="main">
+														<conditions>
+															<condition param="inputParams:RegistryType_id">
+																<value value="1"/>
+															</condition>
+														</conditions>
+														<attributes>
+															<attribute name="n_ward"/>
+															<attribute name="c_abortion"/>
+															<attribute name="pregnancy"/>
+															<attribute name="c_childbirth"/>
+															<attribute name="expert"/>
+															<attribute name="act_expert"/>
+															<attribute name="inner_transfer"/>
+															<attribute name="arrival_type"/>
+														</attributes>
+													</element> <!-- additional_h_d -->
+													<element name="additional_f" dataProvider="main">
+														<conditions>
+															<condition param="inputParams:RegistryType_id">
+																<value value="6"/>
+															</condition>
+														</conditions>
+														<attributes>
+															<attribute name="occasion" required="1"/>
+															<attribute name="s_occasion"/>
+															<attribute name="call" required="1"/>
+															<attribute name="delay"/>
+															<attribute name="place" required="1"/>
+															<attribute name="cause"/>
+															<attribute name="condition"/>
+															<attribute name="result_t" required="1"/>
+															<attribute name="kilometrage" required="1"/>
+														</attributes>
+														<elements>
+															<element name="times">
+																<elements>
+																	<element name="time" dataProvider="times" multiple="1" groupKeyDataProvider="main" groupKey="MaxEvn_id">
+																		<attributes>
+																			<attribute name="type_time" required="1"/>
+																			<attribute name="time" required="1"/>
+																			<attribute name="ogrn_m"/>
+																		</attributes>
+																	</element> <!-- time -->
+																</elements>
+															</element> <!-- times -->
+															<element name="complications">
+																<elements>
+																	<element name="complication" dataProvider="complications" multiple="1" groupKeyDataProvider="main" groupKey="MaxEvn_id">
+																		<attributes>
+																			<attribute name="code" required="1"/>
+																		</attributes>
+																	</element> <!-- complication -->
+																</elements>
+															</element> <!-- complications -->
+															<element name="brigade_structure" dataProvider="main">
+																<attributes>
+																	<attribute name="doctor" alias="doctor_smp"/>
+																	<attribute name="one_assistent"/>
+																	<attribute name="two_assistent"/>
+																	<attribute name="attendant"/>
+																	<attribute name="driver"/>
+																</attributes>
+															</element> <!-- brigade_structure -->
+														</elements>
+													</element> <!-- additional_f -->
+													<element name="additional_onk" dataProvider="main">
+														<conditions>
+															<condition param="inputParams:RegistryType_id">
+																<value value="1"/>
+																<value value="2"/>
+															</condition>
+														</conditions>
+														<attributes>
+															<attribute name="ds1_t" required="1"/>
+															<attribute name="stad"/>
+															<attribute name="onk_t"/>
+															<attribute name="onk_n"/>
+															<attribute name="onk_m"/>
+															<attribute name="mtstz"/>
+															<attribute name="sod"/>
+															<attribute name="k_fr"/>
+															<attribute name="b_weight"/>
+															<attribute name="b_height"/>
+															<attribute name="b_area"/>
+														</attributes>
+														<elements>
+															<element name="diagnostics">
+																<conditions>
+																	<condition param="inputParams:RegistryType_id">
+																		<value value="1"/>
+																		<value value="2"/>
+																	</condition>
+																</conditions>
+																<elements>
+																	<element name="diagnostic" dataProvider="diagnostics" multiple="1" groupKeyDataProvider="main" groupKey="MaxEvn_id">
+																		<attributes>
+																			<attribute name="diag_date" required="1"/>
+																			<attribute name="diag_tip" required="1"/>
+																			<attribute name="diag_code" required="1"/>
+																			<attribute name="diag_rslt"/>
+																			<attribute name="rec_rslt"/>
+																		</attributes>
+																	</element> <!-- diagnostic -->
+																</elements>
+															</element> <!-- diagnostics -->
+															<element name="contraindications">
+																<conditions>
+																	<condition param="inputParams:RegistryType_id">
+																		<value value="1"/>
+																		<value value="2"/>
+																	</condition>
+																</conditions>
+																<elements>
+																	<element name="contraindication" dataProvider="contraindications" multiple="1" groupKeyDataProvider="main" groupKey="MaxEvn_id">
+																		<attributes>
+																			<attribute name="prot" required="1"/>
+																			<attribute name="d_prot" required="1"/>
+																		</attributes>
+																	</element> <!-- contraindication -->
+																</elements>
+															</element> <!-- contraindications -->
+															<element name="localization_metastases">
+																<conditions>
+																	<condition param="inputParams:RegistryType_id">
+																		<value value="1"/>
+																		<value value="2"/>
+																	</condition>
+																</conditions>
+																<elements>
+																	<element name="localization_metastase" dataProvider="localization_metastases" multiple="1" groupKeyDataProvider="main" groupKey="MaxEvn_id">
+																		<attributes>
+																			<attribute name="code"/>
+																		</attributes>
+																	</element> <!-- localization_metastase -->
+																</elements>
+															</element> <!-- localization_metastases -->
+														</elements>
+													</element> <!-- additional_onk -->
+												</elements>
+											</element> <!-- additionals -->
+											<element name="sum">
+												<elements>
+													<element name="elem" dataProvider="main" iterate="2">
+														<attributes>
+															<attribute name="type_acc" required="1"/>
+															<attribute name="suml"/>
+															<attribute name="sum"/>
+														</attributes>
+													</element> <!-- elem -->
+												</elements>
+											</element> <!-- sum -->
+											<element name="smo">
+												<attributes>
+													<attribute name="pay" required="1"/>
+												</attributes>
+												<elements>
+													<element name="an_pss">
+														<elements>
+															<element name="an_ps">
+																<attributes>
+																	<attribute name="an_ps" required="1"/>
+																	<attribute name="polisser"/>
+																	<attribute name="polisnum"/>
+																	<attribute name="begin_date"/>
+																	<attribute name="end_date"/>
+																	<attribute name="comment"/>
+																</attributes>
+															</element> <!-- an_ps -->
+														</elements>
+													</element> <!-- an_pss -->
+													<element name="an_sums">
+														<elements>
+															<element name="an_sum">
+																<attributes>
+																	<attribute name="an_sum" required="1"/>
+																	<attribute name="date_1"/>
+																	<attribute name="provcode"/>
+																	<attribute name="provname"/>
+																	<attribute name="n_pp"/>
+																	<attribute name="curestart"/>
+																	<attribute name="cureend"/>
+																	<attribute name="doctor"/>
+																	<attribute name="comment"/>
+																</attributes>
+															</element> <!-- an_sum -->
+														</elements>
+													</element> <!-- an_sums -->
+													<element name="an_mess">
+														<elements>
+															<element name="an_mes">
+																<attributes>
+																	<attribute name="an_mes" required="1"/>
+																	<attribute name="mkb"/>
+																	<attribute name="comment"/>
+																</attributes>
+															</element> <!-- an_mes -->
+														</elements>
+													</element> <!-- an_mess -->
+												</elements>
+											</element> <!-- smo -->
+										</elements>
+									</element> <!-- personal_account -->
+								</elements>
+							</element> <!-- register_accounts -->
+							<element name="an_p">
+								<attributes>
+									<attribute name="an_p" required="1"/>
+									<attribute name="surname"/>
+									<attribute name="name"/>
+									<attribute name="patronymic"/>
+									<attribute name="birthdate"/>
+									<attribute name="sex"/>
+									<attribute name="docser"/>
+									<attribute name="docnum"/>
+									<attribute name="doctype"/>
+									<attribute name="comment"/>
+								</attributes>
+							</element> <!-- an_p -->
+						</elements>
+					</element> <!-- patient -->
+				</elements>
+			</map>
+		</file>
+	</files>
+	<zip signTemplate="{{ogrn_mo}}{{kpp_mo}}{{yy}}{{month}}0{{ind}}{{plat_code}}" dataProvider="body" ext="7z">
+		<files>
+			<file name="eventData"/>
+		</files>
+	</zip>
+	<queryMap>
+		<queryMapElem depends="inputParams:RegistryType_id">
+			<param name="{{object}}">
+				<elem input="1" value="EvnPS"/>
+				<elem input="2" value="EvnPL"/>
+				<elem input="6" value="SMP"/>
+				<elem input="7" value="EvnPLDD13"/>
+				<elem input="9" value="EvnPLOrp13"/>
+				<elem input="11" value="EvnPLProf"/>
+				<elem input="12" value="EvnPLProfTeen"/>
+				<elem input="15" value="EvnUslugaPar"/>
+				<elem input="16" value="EvnPLStom"/>
+			</param>
+		</queryMapElem>
+	</queryMap>
+	<dataProviders>
+		<dataProvider name="commonDataProviders">
+			<elem name="body" source="query" method="array" multiple="0">
+				<query><![CDATA[
+					select top 1
+						{{fields}}
+					from r76.v_Registry as R with (nolock)
+						inner join dbo.v_Lpu as L on L.Lpu_id = R.Lpu_id
+						inner join dbo.v_Org as O on O.Org_id = L.Org_id
+						left join dbo.v_KatNasel as KN on KN.KatNasel_id = R.KatNasel_id
+						outer apply (
+							select top 1 OrgSmoCodeTFOMS_CodeEn
+							from r76.v_OrgSmoCodeTFOMS with (nolock)
+							where OrgSMO_id = R.OrgSMO_id
+								and (OrgSmoCodeTFOMS_begDate is null or OrgSmoCodeTFOMS_begDate <= R.Registry_accDate)
+								and (OrgSmoCodeTFOMS_endDate is null or OrgSmoCodeTFOMS_endDate >= R.Registry_accDate)
+						) as OSCT
+					where R.Registry_id = :Registry_id
+				]]></query>
+				<baseFields>
+					<field><![CDATA['6.15' as "version"]]></field>
+					<field><![CDATA['Reestr' as "protocol"]]></field>
+					<field><![CDATA['Promed' as "creator"]]></field>
+					<field><![CDATA['(342) 263-11-99' as "telcreator"]]></field>
+					<field><![CDATA[right('0000000000000' + ISNULL(O.Org_OGRN, ''), 13) as "ogrn_mo"]]></field>
+					<field><![CDATA[right('000000000' + ISNULL(O.Org_KPP, ''), 9) as "kpp_mo"]]></field>
+					<field><![CDATA[YEAR(R.Registry_endDate) as "year"]]></field>
+					<field><![CDATA[right(cast(YEAR(R.Registry_endDate) as varchar(4)), 2) as "yy"]]></field>
+					<field><![CDATA[right('0' + cast(MONTH(R.Registry_endDate) as varchar(2)), 2) as "month"]]></field>
+					<field><![CDATA[convert(varchar(10), R.Registry_accDate, 120) as "date_1"]]></field>
+					<field><![CDATA[case when KN.KatNasel_SysNick = 'all' then '3' else '7' end as "ind"]]></field>
+					<field><![CDATA[case when KN.KatNasel_SysNick = 'all' then 'X' else OSCT.OrgSmoCodeTFOMS_CodeEn end as "plat_code"]]></field>
+				</baseFields>
+				<additionalFields/>
+				<queryParams>
+					<param value="inputParams:Registry_id"/>
+				</queryParams>
+			</elem>
+			<elem name="account_elem_t" source="query" method="array" multiple="1">
+				<query><![CDATA[
+					select
+						{{fields}}
+					from r76.p_Registry_expAccElemT_f(:Registry_id)
+				]]></query>
+				<baseFields>
+					<field><![CDATA[type_acc as "type_acc"]]></field>
+					<field><![CDATA[amountl as "amountl"]]></field>
+					<field><![CDATA[amount as "amount"]]></field>
+				</baseFields>
+				<additionalFields/>
+				<queryParams>
+					<param value="inputParams:Registry_id"/>
+				</queryParams>
+			</elem>
+			<elem name="account_elem_f" source="query" method="array" multiple="1">
+				<query><![CDATA[
+					select
+						{{fields}}
+					from r76.p_Registry_expAccElemF_f(:Registry_id)
+				]]></query>
+				<baseFields>
+					<field><![CDATA[type_acc as "type_acc"]]></field>
+					<field><![CDATA[amountl as "amountl"]]></field>
+					<field><![CDATA[amount as "amount"]]></field>
+				</baseFields>
+				<additionalFields/>
+				<queryParams>
+					<param value="inputParams:Registry_id"/>
+				</queryParams>
+			</elem>
+			<elem name="account_elem_s" source="query" method="array" multiple="1">
+				<query><![CDATA[
+					select
+						{{fields}}
+					from r76.p_Registry_expAccElemS_f(:Registry_id)
+				]]></query>
+				<baseFields>
+					<field><![CDATA[type_acc as "type_acc"]]></field>
+					<field><![CDATA[amountl as "amountl"]]></field>
+					<field><![CDATA[amount as "amount"]]></field>
+					<field><![CDATA[invnumber as "invnumber"]]></field>
+					<field><![CDATA[invdate as "invdate"]]></field>
+				</baseFields>
+				<additionalFields/>
+				<queryParams>
+					<param value="inputParams:Registry_id"/>
+				</queryParams>
+			</elem>
+			<elem name="bill" source="query" method="array" multiple="0">
+				<query><![CDATA[
+					select top 1
+						{{fields}}
+					from r76.v_Registry as R with (nolock)
+						left join dbo.v_KatNasel as KN with (nolock) on KN.KatNasel_id = R.KatNasel_id
+						left join dbo.v_OrgSMO as SMO with (nolock) on SMO.OrgSMO_id = R.OrgSMO_id
+						left join dbo.v_Org as OrgSMO on OrgSMO.Org_id = SMO.Org_id
+						outer apply (
+							select top 1 Org_id
+							from dbo.v_OrgSMO with (nolock)
+							where OrgSMO_IsTFOMS = 2
+								and KLRgn_id = 76
+						) as TFOMS
+						left join dbo.v_Org as OrgTFOMS on OrgTFOMS.Org_id = TFOMS.Org_id
+					where R.Registry_id = :Registry_id
+				]]></query>
+				<baseFields>
+					<field><![CDATA['1' as "t_opl"]]></field>
+					<field><![CDATA[case when KN.KatNasel_SysNick = 'oblast' then OrgSMO.Org_OGRN else OrgTFOMS.Org_OGRN end as "ogrn_smo"]]></field>
+				</baseFields>
+				<additionalFields/>
+				<queryParams>
+					<param value="inputParams:Registry_id"/>
+				</queryParams>
+			</elem>
+		</dataProvider>
+		<dataProvider name="customDataProviders">
+			<elem name="directions" source="query" method="array" multiple="1" groupKey="MaxEvn_id">
+				<conditions>
+					<condition param="inputParams:RegistryType_id">
+						<value value="1"/>
+						<value value="2"/>
+						<value value="15"/>
+						<value value="16"/>
+					</condition>
+				</conditions>
+				<query><![CDATA[
+					select
+						{{fields}}
+					from r76.p_Registry_{{object}}_expDir_f(:Registry_id)
+				]]></query>
+				<baseFields>
+					<field><![CDATA[MaxEvn_id as "MaxEvn_id"]]></field>
+					<field><![CDATA[xkey_d as "xkey"]]></field>
+					<field><![CDATA[direction as "direction"]]></field>
+					<field><![CDATA[number as "number"]]></field>
+					<field><![CDATA[date_1 as "date_1"]]></field>
+					<field><![CDATA[ogrn_lpu as "ogrn_lpu"]]></field>
+					<field><![CDATA[kpp_lpu as "kpp_lpu"]]></field>
+					<field><![CDATA[direction_type as "direction_type"]]></field>
+					<field><![CDATA[reason as "reason"]]></field>
+					<field><![CDATA[other_reason as "other_reason"]]></field>
+					<field><![CDATA[mkb as "mkb"]]></field>
+					<field><![CDATA[mkb_ext as "mkb_ext"]]></field>
+					<field><![CDATA[mkb_acc as "mkb_acc"]]></field>
+					<field><![CDATA[mkb_comp as "mkb_comp"]]></field>
+					<field><![CDATA[direction_help_type as "direction_help_type"]]></field>
+					<field><![CDATA[spec as "spec"]]></field>
+					<field><![CDATA[met_issl as "met_issl"]]></field>
+					<field><![CDATA[snils as "snils"]]></field>
+					<field><![CDATA[code as "code"]]></field>
+					<field><![CDATA[spec_c as "spec_c"]]></field>
+					<field><![CDATA[profile as "profile"]]></field>
+					<field><![CDATA[simple_service_code as "simple_service_code"]]></field>
+				</baseFields>
+				<additionalFields/>
+				<queryParams>
+					<param value="inputParams:Registry_id"/>
+				</queryParams>
+			</elem>
+			<elem name="manipulations" source="query" method="array" multiple="1" groupKey="MaxEvn_id">
+				<query><![CDATA[
+					select
+						{{fields}}
+					from r76.p_Registry_{{object}}_expUsl_f(:Registry_id)
+				]]></query>
+				<baseFields>
+					<field><![CDATA[MaxEvn_id as "MaxEvn_id"]]></field>
+					<field><![CDATA[xkey as "xkey"]]></field>
+					<field><![CDATA[main_xkey as "main_xkey"]]></field>
+					<field><![CDATA[prof_oms as "prof_oms"]]></field>
+					<field><![CDATA[prof_vmp as "prof_vmp"]]></field>
+					<field><![CDATA[det as "det"]]></field>
+					<field><![CDATA[service as "service"]]></field>
+					<field><![CDATA[quantity as "quantity"]]></field>
+					<field><![CDATA[doctor as "doctor"]]></field>
+					<field><![CDATA[spec as "spec"]]></field>
+					<field><![CDATA[date_1 as "date_1"]]></field>
+					<field><![CDATA[date_2 as "date_2"]]></field>
+					<field><![CDATA[type_acc_0 as "type_acc1"]]></field>
+					<field><![CDATA[suml_0 as "suml1"]]></field>
+					<field><![CDATA[sum_0 as "sum1"]]></field>
+					<field><![CDATA[type_acc as "type_acc2"]]></field>
+					<field><![CDATA[suml as "suml2"]]></field>
+					<field><![CDATA[sum as "sum2"]]></field>
+					<field><![CDATA[ogrn_lpu as "ogrn_lpu"]]></field>
+					<field><![CDATA[kpp_lpu as "kpp_lpu"]]></field>
+					<field><![CDATA[ksg as "ksg"]]></field>
+					<field><![CDATA[refusal as "refusal"]]></field>
+					<field><![CDATA[pos_kod as "pos_kod"]]></field>
+					<field><![CDATA[code_s as "code_s"]]></field>
+					<field><![CDATA[count_d as "count_d"]]></field>
+					<field><![CDATA[opertype as "opertype"]]></field>
+					<field><![CDATA[oper_complication as "oper_complication"]]></field>
+					<field><![CDATA[c_teh as "c_teh"]]></field>
+					<field><![CDATA[chambertype as "chambertype"]]></field>
+					<field><![CDATA[child as "child"]]></field>
+					<field><![CDATA[place as "place"]]></field>
+					<field><![CDATA[c_anes as "c_anes"]]></field>
+					<field><![CDATA[dep_num as "dep_num"]]></field>
+					<field><![CDATA[prof_h as "prof_h"]]></field>
+					<field><![CDATA[koef_z as "koef_z"]]></field>
+					<field><![CDATA[koef_up as "koef_up"]]></field>
+					<field><![CDATA[bztsz as "bztsz"]]></field>
+					<field><![CDATA[koef_d as "koef_d"]]></field>
+					<field><![CDATA[koef_u as "koef_u"]]></field>
+					<field><![CDATA[it_sl as "it_sl"]]></field>
+					<field><![CDATA[vid_vme as "vid_vme"]]></field>
+					<field><![CDATA[vmp_kind as "vmp_kind"]]></field>
+					<field><![CDATA[vmp_method as "vmp_method"]]></field>
+					<field><![CDATA[vmp_group as "vmp_group"]]></field>
+					<field><![CDATA[vmp_model as "vmp_model"]]></field>
+					<field><![CDATA[partial as "partial"]]></field>
+					<field><![CDATA[mkb as "mkb"]]></field>
+				</baseFields>
+				<additionalFields>
+					<elem>
+						<conditions>
+							<condition param="inputParams:RegistryType_id">
+								<value value="1"/>
+								<value value="7"/>
+								<value value="9"/>
+								<value value="11"/>
+								<value value="12"/>
+							</condition>
+						</conditions>
+						<fields>
+							<field><![CDATA[EvnUsluga_id as "EvnUsluga_id"]]></field>
+							<field><![CDATA[usl_tip as "usl_tip"]]></field>
+							<field><![CDATA[hir_tip as "hir_tip"]]></field>
+							<field><![CDATA[lek_tip_l as "lek_tip_l"]]></field>
+							<field><![CDATA[lek_tip_v as "lek_tip_v"]]></field>
+							<field><![CDATA[pptr as "pptr"]]></field>
+							<field><![CDATA[luch_tip as "luch_tip"]]></field>
+						</fields>
+					</elem>
+					<elem>
+						<conditions>
+							<condition param="inputParams:RegistryType_id">
+								<value value="16"/>
+							</condition>
+						</conditions>
+						<fields>
+							<field><![CDATA[n_tooth as "n_tooth"]]></field>
+							<field><![CDATA[p_tooth as "p_tooth"]]></field>
+						</fields>
+					</elem>
+				</additionalFields>
+				<queryParams>
+					<param value="inputParams:Registry_id"/>
+				</queryParams>
+			</elem>
+			<elem name="diagnoses" source="query" method="array" multiple="1" groupKey="MaxEvn_id">
+				<query><![CDATA[
+					select
+						{{fields}}
+					from r76.p_Registry_{{object}}_expDiag_f(:Registry_id)
+				]]></query>
+				<baseFields>
+					<field><![CDATA[MaxEvn_id as "MaxEvn_id"]]></field>
+					<field><![CDATA[type as "type"]]></field>
+					<field><![CDATA[type_b as "type_b"]]></field>
+					<field><![CDATA[mkb as "mkb"]]></field>
+					<field><![CDATA[code_z as "code_z"]]></field>
+					<field><![CDATA[code_d as "code_d"]]></field>
+					<field><![CDATA[code_t as "code_t"]]></field>
+					<field><![CDATA[spec as "spec"]]></field>
+				</baseFields>
+				<additionalFields/>
+				<queryParams>
+					<param value="inputParams:Registry_id"/>
+				</queryParams>
+			</elem>
+			<elem name="consiliums" source="query" method="array" multiple="1" groupKey="MaxEvn_id">
+				<conditions>
+					<condition param="inputParams:RegistryType_id">
+						<value value="1"/>
+						<value value="2"/>
+					</condition>
+				</conditions>
+				<query><![CDATA[
+					select
+						{{fields}}
+					from r76.p_Registry_{{object}}_expCONS_f(:Registry_id)
+				]]></query>
+				<baseFields>
+					<field><![CDATA[MaxEvn_id as "MaxEvn_id"]]></field>
+					<field><![CDATA[pr as "pr"]]></field>
+					<field><![CDATA[dt as "dt"]]></field>
+				</baseFields>
+				<additionalFields/>
+				<queryParams>
+					<param value="inputParams:Registry_id"/>
+				</queryParams>
+			</elem>
+			<elem name="diagnostics" source="query" method="array" multiple="1" groupKey="MaxEvn_id">
+				<conditions>
+					<condition param="inputParams:RegistryType_id">
+						<value value="1"/>
+						<value value="2"/>
+					</condition>
+				</conditions>
+				<query><![CDATA[
+					select
+						{{fields}}
+					from r76.p_Registry_{{object}}_expBDIAG_f(:Registry_id)
+				]]></query>
+				<baseFields>
+					<field><![CDATA[MaxEvn_id as "MaxEvn_id"]]></field>
+					<field><![CDATA[diag_date as "diag_date"]]></field>
+					<field><![CDATA[diag_tip as "diag_tip"]]></field>
+					<field><![CDATA[diag_code as "diag_code"]]></field>
+					<field><![CDATA[diag_rslt as "diag_rslt"]]></field>
+					<field><![CDATA[rec_rslt as "rec_rslt"]]></field>
+				</baseFields>
+				<additionalFields/>
+				<queryParams>
+					<param value="inputParams:Registry_id"/>
+				</queryParams>
+			</elem>
+			<elem name="contraindications" source="query" method="array" multiple="1" groupKey="MaxEvn_id">
+				<conditions>
+					<condition param="inputParams:RegistryType_id">
+						<value value="1"/>
+						<value value="2"/>
+					</condition>
+				</conditions>
+				<query><![CDATA[
+					select
+						{{fields}}
+					from r76.p_Registry_{{object}}_expBPROT_f(:Registry_id)
+				]]></query>
+				<baseFields>
+					<field><![CDATA[MaxEvn_id as "MaxEvn_id"]]></field>
+					<field><![CDATA[prot as "prot"]]></field>
+					<field><![CDATA[d_prot as "d_prot"]]></field>
+				</baseFields>
+				<additionalFields/>
+				<queryParams>
+					<param value="inputParams:Registry_id"/>
+				</queryParams>
+			</elem>
+			<elem name="localization_metastases" source="query" method="array" multiple="1" groupKey="MaxEvn_id">
+				<conditions>
+					<condition param="inputParams:RegistryType_id">
+						<value value="1"/>
+						<value value="2"/>
+					</condition>
+				</conditions>
+				<query><![CDATA[
+					select
+						{{fields}}
+					from r76.p_Registry_{{object}}_expLocal_f(:Registry_id)
+				]]></query>
+				<baseFields>
+					<field><![CDATA[MaxEvn_id as "MaxEvn_id"]]></field>
+					<field><![CDATA[code as "code"]]></field>
+				</baseFields>
+				<additionalFields/>
+				<queryParams>
+					<param value="inputParams:Registry_id"/>
+				</queryParams>
+			</elem>
+			<elem name="coefficients" source="query" method="array" multiple="1" groupKey="EvnUsluga_id">
+				<conditions>
+					<condition param="inputParams:RegistryType_id">
+						<value value="1"/>
+					</condition>
+				</conditions>
+				<query><![CDATA[
+					select
+						{{fields}}
+					from r76.p_Registry_{{object}}_expKSLP_f(:Registry_id)
+				]]></query>
+				<baseFields>
+					<field><![CDATA[EvnUsluga_id as "EvnUsluga_id"]]></field>
+					<field><![CDATA[coeff as "coeff"]]></field>
+					<field><![CDATA[value as "value"]]></field>
+				</baseFields>
+				<additionalFields/>
+				<queryParams>
+					<param value="inputParams:Registry_id"/>
+				</queryParams>
+			</elem>
+			<elem name="medicaments" source="query" method="array" multiple="1" groupKey="EvnUsluga_id">
+				<conditions>
+					<condition param="inputParams:RegistryType_id">
+						<value value="1"/>
+					</condition>
+				</conditions>
+				<query><![CDATA[
+					select
+						{{fields}}
+					from r76.p_Registry_{{object}}_expLEK_PR_f(:Registry_id)
+				]]></query>
+				<baseFields>
+					<field><![CDATA[EvnUsluga_id as "EvnUsluga_id"]]></field>
+					<field><![CDATA[regnum as "regnum"]]></field>
+					<field><![CDATA[code_sh as "code_sh"]]></field>
+					<field><![CDATA[dose as "dose"]]></field>
+					<field><![CDATA[dose_type as "dose_type"]]></field>
+					<field><![CDATA[mult as "mult"]]></field>
+					<field><![CDATA[freq as "freq"]]></field>
+					<field><![CDATA[dura as "dura"]]></field>
+					<field><![CDATA[date as "date"]]></field>
+				</baseFields>
+				<additionalFields/>
+				<queryParams>
+					<param value="inputParams:Registry_id"/>
+				</queryParams>
+			</elem>
+			<elem name="criterias" source="query" method="array" multiple="1" groupKey="EvnUsluga_id">
+				<conditions>
+					<condition param="inputParams:RegistryType_id">
+						<value value="1"/>
+					</condition>
+				</conditions>
+				<query><![CDATA[
+					select
+						{{fields}}
+					from r76.p_Registry_{{object}}_expCRIT_f(:Registry_id)
+				]]></query>
+				<baseFields>
+					<field><![CDATA[EvnUsluga_id as "EvnUsluga_id"]]></field>
+					<field><![CDATA[CRIT as "crit"]]></field>
+				</baseFields>
+				<additionalFields/>
+				<queryParams>
+					<param value="inputParams:Registry_id"/>
+				</queryParams>
+			</elem>
+			<elem name="times" source="query" method="array" multiple="1" groupKey="MaxEvn_id">
+				<conditions>
+					<condition param="inputParams:RegistryType_id">
+						<value value="6"/>
+					</condition>
+				</conditions>
+				<query><![CDATA[
+					select
+						{{fields}}
+					from r76.p_Registry_{{object}}_expTime_f(:Registry_id)
+				]]></query>
+				<baseFields>
+					<field><![CDATA[MaxEvn_id as "MaxEvn_id"]]></field>
+					<field><![CDATA[type_time as "type_time"]]></field>
+					<field><![CDATA[time as "time"]]></field>
+					<field><![CDATA[ogrn_m as "ogrn_m"]]></field>
+				</baseFields>
+				<additionalFields/>
+				<queryParams>
+					<param value="inputParams:Registry_id"/>
+				</queryParams>
+			</elem>
+			<elem name="complications" source="query" method="array" multiple="1" groupKey="MaxEvn_id">
+				<conditions>
+					<condition param="inputParams:RegistryType_id">
+						<value value="6"/>
+					</condition>
+				</conditions>
+				<query><![CDATA[
+					select
+						{{fields}}
+					from r76.p_Registry_{{object}}_expComplication_f(:Registry_id)
+				]]></query>
+				<baseFields>
+					<field><![CDATA[MaxEvn_id as "MaxEvn_id"]]></field>
+					<field><![CDATA[code as "code"]]></field>
+				</baseFields>
+				<additionalFields/>
+				<queryParams>
+					<param value="inputParams:Registry_id"/>
+				</queryParams>
+			</elem>
+			<elem name="main" source="query" method="fetch" multiple="1">
+				<query><![CDATA[
+					select
+						{{fields}}
+					from
+						r76.p_Registry_{{object}}_expPac_f(:Registry_id) as p
+						inner join r76.p_Registry_{{object}}_expSL_f(:Registry_id) as s on s.ID_PAC = p.ID_PAC
+				]]></query>
+				<baseFields>
+					<field><![CDATA[s.Registry_id as "Registry_id"]]></field>
+					<field><![CDATA[s.MaxEvn_id as "MaxEvn_id"]]></field>
+					<field><![CDATA[s.ID_PAC as "ID_PAC"]]></field>
+					<field><![CDATA[p.patientcod as "patientcod"]]></field>
+					<field><![CDATA[p.surname as "surname"]]></field>
+					<field><![CDATA[p.name as "name"]]></field>
+					<field><![CDATA[p.patronymic as "patronymic"]]></field>
+					<field><![CDATA[p.birthdate as "birthdate"]]></field>
+					<field><![CDATA[p.sex as "sex"]]></field>
+					<field><![CDATA[p.b_place as "b_place"]]></field>
+					<field><![CDATA[p.ss as "ss"]]></field>
+					<field><![CDATA[p.surname_p as "surname_p"]]></field>
+					<field><![CDATA[p.name_p as "name_p"]]></field>
+					<field><![CDATA[p.patronymic_p as "patronymic_p"]]></field>
+					<field><![CDATA[p.birthdate_p as "birthdate_p"]]></field>
+					<field><![CDATA[p.sex_p as "sex_p"]]></field>
+					<field><![CDATA[p.b_place_p as "b_place_p"]]></field>
+					<field><![CDATA[p.ss_p as "ss_p"]]></field>
+					<field><![CDATA[p.region_oms as "region_oms"]]></field>
+					<field><![CDATA[p.type_polis as "type_polis"]]></field>
+					<field><![CDATA[p.polisser as "polisser"]]></field>
+					<field><![CDATA[p.polisnum as "polisnum"]]></field>
+					<field><![CDATA[p.begin_p as "begin_p"]]></field>
+					<field><![CDATA[p.end_p as "end_p"]]></field>
+					<field><![CDATA[p.ogrn_smo as "ogrn_smo"]]></field>
+					<field><![CDATA[p.doctype as "doctype"]]></field>
+					<field><![CDATA[p.docser as "docser"]]></field>
+					<field><![CDATA[p.docnum as "docnum"]]></field>
+					<field><![CDATA[case
+								when p.kladr is not null or p.dom is not null or p.korpus is not null or p.kvart is not null
+								then p.type_adress
+								else null
+							 end as "type_adress1"]]></field>
+					<field><![CDATA[p.kladr as "kladr1"]]></field>
+					<field><![CDATA[p.dom as "dom1"]]></field>
+					<field><![CDATA[p.korpus as "korpus1"]]></field>
+					<field><![CDATA[p.kvart as "kvart1"]]></field>
+					<field><![CDATA[case
+								when p.kladr_p is not null or p.dom_p is not null or p.korpus_p is not null or p.kvart_p is not null
+								then p.type_adress_p
+								else null
+							 end as "type_adress2"]]></field>
+					<field><![CDATA[p.kladr_p as "kladr2"]]></field>
+					<field><![CDATA[p.dom_p as "dom2"]]></field>
+					<field><![CDATA[p.korpus_p as "korpus2"]]></field>
+					<field><![CDATA[p.kvart_p as "kvart2"]]></field>
+					<field><![CDATA[p.socialstat as "socialstat"]]></field>
+					<field><![CDATA[p.privilege_code as "privilege_code"]]></field>
+					<field><![CDATA[p.foster_family as "foster_family"]]></field>
+					<field><![CDATA[p.weight as "weight"]]></field>
+					<field><![CDATA[s.help_type as "help_type"]]></field>
+					<field><![CDATA[s.help_cond as "help_cond"]]></field>
+					<field><![CDATA[s.n_pp as "n_pp"]]></field>
+					<field><![CDATA[s.xkey as "xkey"]]></field>
+					<field><![CDATA[s.n_card as "n_card"]]></field>
+					<field><![CDATA[s.curestart as "curestart"]]></field>
+					<field><![CDATA[s.cureend as "cureend"]]></field>
+					<field><![CDATA[s.doctor as "doctor"]]></field>
+					<field><![CDATA[s.spec as "spec"]]></field>
+					<field><![CDATA[s.result as "result"]]></field>
+					<field><![CDATA[s.outcome as "outcome"]]></field>
+					<field><![CDATA[s.vg as "vg"]]></field>
+					<field><![CDATA[s.x_key2 as "x_key2"]]></field>
+					<field><![CDATA[s.comment as "comment"]]></field>
+					<!-- additional -->
+					<field><![CDATA[s.division as "division"]]></field>
+					<field><![CDATA[s.finsource as "finsource"]]></field>
+					<field><![CDATA[s.invnumber as "invnumber"]]></field>
+					<field><![CDATA[s.invdate as "invdate"]]></field>
+					<field><![CDATA[s.type_r as "type_r"]]></field>
+					<field><![CDATA[s.ident_r as "ident_r"]]></field>
+					<field><![CDATA[s.phase as "phase"]]></field>
+					<field><![CDATA[s.ds_onk as "ds_onk"]]></field>
+					<field><![CDATA[s.inv as "inv"]]></field>
+					<field><![CDATA[s.mse as "mse"]]></field>
+					<!-- sum -->
+					<field><![CDATA[s.type_acc1 as "type_acc1"]]></field>
+					<field><![CDATA[s.suml1 as "suml1"]]></field>
+					<field><![CDATA[s.sum1 as "sum1"]]></field>
+					<field><![CDATA[s.type_acc2 as "type_acc2"]]></field>
+					<field><![CDATA[s.suml2 as "suml2"]]></field>
+					<field><![CDATA[s.sum2 as "sum2"]]></field>
+				</baseFields>
+				<additionalFields>
+					<elem>
+						<conditions>
+							<condition param="inputParams:RegistryType_id">
+								<value value="1"/>
+							</condition>
+						</conditions>
+						<fields>
+							<!-- additional_h_d -->
+							<field><![CDATA[s.n_ward as "n_ward"]]></field>
+							<field><![CDATA[s.c_abortion as "c_abortion"]]></field>
+							<field><![CDATA[s.pregnancy as "pregnancy"]]></field>
+							<field><![CDATA[s.c_childbirth as "c_childbirth"]]></field>
+							<field><![CDATA[s.expert as "expert"]]></field>
+							<field><![CDATA[s.act_expert as "act_expert"]]></field>
+							<field><![CDATA[s.inner_transfer as "inner_transfer"]]></field>
+							<field><![CDATA[s.arrival_type as "arrival_type"]]></field>
+							<!-- additional_onk -->
+							<field><![CDATA[s.DS1_T as "ds1_t"]]></field>
+							<field><![CDATA[s.STAD as "stad"]]></field>
+							<field><![CDATA[s.ONK_T as "onk_t"]]></field>
+							<field><![CDATA[s.ONK_N as "onk_n"]]></field>
+							<field><![CDATA[s.ONK_M as "onk_m"]]></field>
+							<field><![CDATA[s.MTSTZ as "mtstz"]]></field>
+							<field><![CDATA[s.sod as "sod"]]></field>
+							<field><![CDATA[s.k_fr as "k_fr"]]></field>
+							<field><![CDATA[s.b_weight as "b_weight"]]></field>
+							<field><![CDATA[s.b_height as "b_height"]]></field>
+							<field><![CDATA[s.b_area as "b_area"]]></field>
+						</fields>
+					</elem>
+					<elem>
+						<conditions>
+							<condition param="inputParams:RegistryType_id">
+								<value value="2"/>
+							</condition>
+						</conditions>
+						<fields>
+							<!-- additional_p -->
+							<field><![CDATA[s.ad_pur as "ad_pur"]]></field>
+							<field><![CDATA[s.togmh as "togmh"]]></field>
+							<field><![CDATA[s.treatment_places as "treatment_places"]]></field>
+							<field><![CDATA[s.g_health as "g_health"]]></field>
+							<field><![CDATA[s.locality as "locality"]]></field>
+							<field><![CDATA[s.appointment as "appointment"]]></field>
+							<field><![CDATA[s.disp_result as "disp_result"]]></field>
+							<field><![CDATA[s.disp_type as "disp_type"]]></field>
+							<!-- additional_onk -->
+							<field><![CDATA[s.DS1_T as "ds1_t"]]></field>
+							<field><![CDATA[s.STAD as "stad"]]></field>
+							<field><![CDATA[s.ONK_T as "onk_t"]]></field>
+							<field><![CDATA[s.ONK_N as "onk_n"]]></field>
+							<field><![CDATA[s.ONK_M as "onk_m"]]></field>
+							<field><![CDATA[s.MTSTZ as "mtstz"]]></field>
+							<field><![CDATA[s.sod as "sod"]]></field>
+							<field><![CDATA[s.k_fr as "k_fr"]]></field>
+							<field><![CDATA[s.b_weight as "b_weight"]]></field>
+							<field><![CDATA[s.b_height as "b_height"]]></field>
+							<field><![CDATA[s.b_area as "b_area"]]></field>
+						</fields>
+					</elem>
+					<elem>
+						<conditions>
+							<condition param="inputParams:RegistryType_id">
+								<value value="16"/>
+							</condition>
+						</conditions>
+						<fields>
+							<!-- additional_p -->
+							<field><![CDATA[s.ad_pur as "ad_pur"]]></field>
+							<field><![CDATA[s.togmh as "togmh"]]></field>
+							<field><![CDATA[s.treatment_places as "treatment_places"]]></field>
+							<field><![CDATA[s.g_health as "g_health"]]></field>
+							<field><![CDATA[s.locality as "locality"]]></field>
+							<field><![CDATA[s.appointment as "appointment"]]></field>
+							<field><![CDATA[s.disp_result as "disp_result"]]></field>
+							<field><![CDATA[s.disp_type as "disp_type"]]></field>
+						</fields>
+					</elem>
+					<elem>
+						<conditions>
+							<condition param="inputParams:RegistryType_id">
+								<value value="6"/>
+							</condition>
+						</conditions>
+						<fields>
+							<!-- additional_f -->
+							<field><![CDATA[s.occasion as "occasion"]]></field>
+							<field><![CDATA[s.s_occasion as "s_occasion"]]></field>
+							<field><![CDATA[s.call as "call"]]></field>
+							<field><![CDATA[s.delay as "delay"]]></field>
+							<field><![CDATA[s.place as "place"]]></field>
+							<field><![CDATA[s.cause as "cause"]]></field>
+							<field><![CDATA[s.condition as "condition"]]></field>
+							<field><![CDATA[s.result_t as "result_t"]]></field>
+							<field><![CDATA[s.kilometrage as "kilometrage"]]></field>
+							<!-- brigade_structure -->
+							<field><![CDATA[s.doctor_smp as "doctor_smp"]]></field>
+							<field><![CDATA[s.one_assistent as "one_assistent"]]></field>
+							<field><![CDATA[s.two_assistent as "two_assistent"]]></field>
+							<field><![CDATA[s.attendant as "attendant"]]></field>
+							<field><![CDATA[s.Driver as "driver"]]></field>
+						</fields>
+					</elem>
+					<elem>
+						<conditions>
+							<condition param="inputParams:RegistryType_id">
+								<value value="7"/>
+								<value value="9"/>
+								<value value="11"/>
+								<value value="12"/>
+							</condition>
+						</conditions>
+						<fields>
+							<!-- additional_p -->
+							<field><![CDATA[s.ad_pur as "ad_pur"]]></field>
+							<field><![CDATA[s.togmh as "togmh"]]></field>
+							<field><![CDATA[s.treatment_places as "treatment_places"]]></field>
+							<field><![CDATA[s.g_health as "g_health"]]></field>
+							<field><![CDATA[s.locality as "locality"]]></field>
+							<field><![CDATA[s.appointment as "appointment"]]></field>
+							<field><![CDATA[s.disp_result as "disp_result"]]></field>
+							<field><![CDATA[s.disp_type as "disp_type"]]></field>
+						</fields>
+					</elem>
+					<elem>
+						<conditions>
+							<condition param="inputParams:RegistryType_id">
+								<value value="15"/>
+							</condition>
+						</conditions>
+						<fields>
+							<!-- additional_p -->
+							<field><![CDATA[s.ad_pur as "ad_pur"]]></field>
+							<field><![CDATA[s.togmh as "togmh"]]></field>
+							<field><![CDATA[s.treatment_places as "treatment_places"]]></field>
+							<field><![CDATA[s.g_health as "g_health"]]></field>
+							<field><![CDATA[s.locality as "locality"]]></field>
+							<field><![CDATA[s.appointment as "appointment"]]></field>
+							<field><![CDATA[s.disp_result as "disp_result"]]></field>
+							<field><![CDATA[s.disp_type as "disp_type"]]></field>
+						</fields>
+					</elem>
+				</additionalFields>
+				<queryParams>
+					<param value="inputParams:Registry_id"/>
+				</queryParams>
+			</elem>
+		</dataProvider>
+	</dataProviders>
+	<dataToStore>
+		<elem name="evnnum" key="ID_PAC" file="evnnum.txt" format="json" packSize="1000">
+			<fields>
+				<field index="r" name="Registry_id"/>
+				<field index="t" name="RegistryType_id"/>
+			</fields>
+		</elem>
+	</dataToStore>
+</registry>

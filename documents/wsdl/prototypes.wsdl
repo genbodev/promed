@@ -1,0 +1,167 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://atria.cz/service/prototype/main" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:bi="http://atria.cz/common/base/info/build/" name="serviceService" targetNamespace="http://atria.cz/service/prototype/main">
+  <wsdl:types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://atria.cz/service/prototype/main" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:bi="http://atria.cz/common/base/info/build/">
+            
+  <xsd:import namespace="http://atria.cz/service/prototype/main" schemaLocation="https://rmis66.mis66.ru/services-ws/prototypes?xsd=prototype.xsd"/>
+            
+  <xsd:import namespace="http://atria.cz/common/base/info/build/" schemaLocation="https://rmis66.mis66.ru/services-ws/prototypes?xsd=http://atria.cz/common/base/buildInfo.xsd"/>
+        
+</xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="getPrototypeResponse">
+    <wsdl:part element="tns:getPrototypeResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPrototypesResponse">
+    <wsdl:part element="tns:getPrototypesResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deletePrototypeRequest">
+    <wsdl:part element="tns:deletePrototypeRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deletePrototypeResponse">
+    <wsdl:part element="tns:deletePrototypeResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPrototypeRequest">
+    <wsdl:part element="tns:getPrototypeRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPrototypesRequest">
+    <wsdl:part element="tns:getPrototypesRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="editPrototypeResponse">
+    <wsdl:part element="tns:editPrototypeResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="editPrototypeRequest">
+    <wsdl:part element="tns:editPrototypeRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getVersionRequest">
+    <wsdl:part element="bi:getVersionRequest" name="getVersionRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createPrototypeResponse">
+    <wsdl:part element="tns:createPrototypeResponse" name="response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getVersionResponse">
+    <wsdl:part element="bi:getVersionResponse" name="getVersionResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createPrototypeRequest">
+    <wsdl:part element="tns:createPrototypeRequest" name="request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="PrototypeSOAPServicePortType">
+<wsdl:documentation>
+            SOAP Server description file
+        </wsdl:documentation>
+    <wsdl:operation name="getPrototypes">
+<wsdl:documentation>Получение списка услуг медицинской организации</wsdl:documentation>
+      <wsdl:input message="tns:getPrototypesRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:getPrototypesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPrototype">
+<wsdl:documentation>Получение данных услуги медицинской организации</wsdl:documentation>
+      <wsdl:input message="tns:getPrototypeRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:getPrototypeResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createPrototype">
+<wsdl:documentation>Создание услуги медицинской организации</wsdl:documentation>
+      <wsdl:input message="tns:createPrototypeRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:createPrototypeResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="editPrototype">
+<wsdl:documentation>Редактирование услуги медицинской организации</wsdl:documentation>
+      <wsdl:input message="tns:editPrototypeRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:editPrototypeResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deletePrototype">
+<wsdl:documentation>Удаление услуги медицинской организации</wsdl:documentation>
+      <wsdl:input message="tns:deletePrototypeRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:deletePrototypeResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVersion">
+      <wsdl:input message="tns:getVersionRequest" name="getVersionRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:getVersionResponse" name="getVersionResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PrototypeSOAPServiceBinding" type="tns:PrototypeSOAPServicePortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getPrototypes">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPrototype">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createPrototype">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="editPrototype">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deletePrototype">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVersion">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="prototypeService">
+    <wsdl:port binding="tns:PrototypeSOAPServiceBinding" name="PrototypeSOAPServicePort">
+      <soap:address location="https://rmis66.mis66.ru/services-ws/prototypes"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

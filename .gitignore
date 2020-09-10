@@ -1,0 +1,17 @@
+.project
+.idea
+.htaccess
+promed/config/
+!promed/config/files.php
+!promed/config/files6.php
+!promed/config/menu.php
+!promed/config/rest.php
+!promed/config/routes.php
+ermp
+logs
+export
+uploads
+rest_client
+.vscode
+jscore/node-video-chat/node_modules
+logssql-log-2020-04-14.php

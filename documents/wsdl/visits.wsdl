@@ -1,0 +1,151 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:typens="http://atria.cz/visits/types" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:bi="http://atria.cz/common/base/info/build/" name="visitsService" targetNamespace="http://atria.cz/visits/types">
+  <wsdl:types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:typens="http://atria.cz/visits/types" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:bi="http://atria.cz/common/base/info/build/">
+            
+  <xsd:import namespace="http://atria.cz/visits/types" schemaLocation="https://rmis66.mis66.ru/visits-ws/visits?xsd=visits.xsd"/>
+            
+  <xsd:import namespace="http://atria.cz/common/base/info/build/" schemaLocation="https://rmis66.mis66.ru/visits-ws/visits?xsd=http://atria.cz/common/base/buildInfo.xsd"/>
+        
+</xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="getVersionResponse">
+    <wsdl:part element="bi:getVersionResponse" name="getVersionResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteVisitResponse">
+    <wsdl:part element="typens:deleteVisitResponse" name="deleteVisitResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="sendVisitResponse">
+    <wsdl:part element="typens:sendVisitResponse" name="sendVisitResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteVisitRequest">
+    <wsdl:part element="typens:deleteVisitRequest" name="deleteVisitRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getVisitByIdResponse">
+    <wsdl:part element="typens:getVisitByIdResponse" name="getVisitByIdResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getVersionRequest">
+    <wsdl:part element="bi:getVersionRequest" name="getVersionRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="sendVisitRequest">
+    <wsdl:part element="typens:sendVisitRequest" name="sendVisitRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="searchVisitResponse">
+    <wsdl:part element="typens:searchVisitResponse" name="searchVisitResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getVisitByIdRequest">
+    <wsdl:part element="typens:getVisitByIdRequest" name="getVisitByIdRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="searchVisitRequest">
+    <wsdl:part element="typens:searchVisitRequest" name="searchVisitRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="VisitsPortType">
+<wsdl:documentation>
+            SOAP Server description file
+        </wsdl:documentation>
+    <wsdl:operation name="sendVisit">
+<wsdl:documentation>
+                Передача данных объекта учёта «Посещение» и получение его уникального идентификатора
+            </wsdl:documentation>
+      <wsdl:input message="typens:sendVisitRequest">
+    </wsdl:input>
+      <wsdl:output message="typens:sendVisitResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVisitById">
+<wsdl:documentation>
+                Получение данных объекта учёта «Посещение» по ее уникальному идентификатору
+            </wsdl:documentation>
+      <wsdl:input message="typens:getVisitByIdRequest">
+    </wsdl:input>
+      <wsdl:output message="typens:getVisitByIdResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="searchVisit">
+<wsdl:documentation>
+                Поиск объекта учёта «Посещение» по набору параметров
+            </wsdl:documentation>
+      <wsdl:input message="typens:searchVisitRequest">
+    </wsdl:input>
+      <wsdl:output message="typens:searchVisitResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteVisit">
+<wsdl:documentation>
+                Удаление данных объекта учёта «Посещение» по ее уникальному идентификатору
+            </wsdl:documentation>
+      <wsdl:input message="typens:deleteVisitRequest">
+    </wsdl:input>
+      <wsdl:output message="typens:deleteVisitResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVersion">
+      <wsdl:input message="typens:getVersionRequest" name="getVersionRequest">
+    </wsdl:input>
+      <wsdl:output message="typens:getVersionResponse" name="getVersionResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="VisitsBinding" type="typens:VisitsPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="sendVisit">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVisitById">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="searchVisit">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteVisit">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVersion">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="VisitsService">
+    <wsdl:port binding="typens:VisitsBinding" name="VisitsPort">
+      <soap:address location="https://rmis66.mis66.ru/visits-ws/visits"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

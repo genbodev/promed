@@ -1,0 +1,16 @@
+	<SCHET>
+		{CODE}
+		{CODE_MO}
+		{LPU_1}
+		{YEAR}
+		{MONTH}
+		{NSCHET}
+		{DSCHET}
+		{PLAT}
+		{SUMMAV}
+		{SUMMAP}
+		{SANK_MEK}
+		{SANK_MEE}
+		{SANK_EKMP}
+		{COMENT}
+		{D_TIP}

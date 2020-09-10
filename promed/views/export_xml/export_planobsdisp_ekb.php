@@ -1,0 +1,26 @@
+<ZL_LIST>
+	{FILENAME}
+	{CODE_ORG}
+	{YEAR}
+	{MONTH}
+	{NRECORDS}
+	{ZAP}
+	<ZAP>
+		{N_ZAP}
+		{ID}
+		{DS}
+		<DS>
+			{MKB}
+			{MKBDT}
+			{EXCLDS}
+			{PERIOD}
+			{DOCTOR}
+			{SIGNHOME}
+			{PLAN_MONTH}
+				{PLAN_P}
+			{/PLAN_MONTH}
+		</DS>
+		{/DS}
+	</ZAP>
+	{/ZAP}
+</ZL_LIST>

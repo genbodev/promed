@@ -1,0 +1,167 @@
+/*
+
+Родительский селектор .mainCenterPanel.increased-size
+
+*/
+
+.mainCenterPanel.increased-size .vizitPanelEmk .x6-field label .x6-form-item-label-text {
+	font-size: 15px;
+}
+.mainCenterPanel.increased-size .vizitPanelEmk .x6-field .x6-form-item-body .x6-form-field.x6-form-text.x6-form-text-default{
+	font-size: 15px;
+	padding-right: 0px;
+	padding-left: 8px;
+}
+.mainCenterPanel.increased-size .accordion-panel-window .x6-title .x6-title-text {
+	padding-top: 2px;
+	font-size: 16px;
+}
+.mainCenterPanel.increased-size .accordion-panel-window .x6-title .x6-title-text .titleCount {
+	font-size: 14px;
+}
+.mainCenterPanel.increased-size .accordion-panel-window .evnPrescribeGrid .x6-title .x6-title-text {
+	font-size: 13px;
+}
+.mainCenterPanel.increased-size .accordion-panel-emk .emk-top-panel .x6-toolbar a.x6-btn span {
+	font-size: 14px;
+}
+.mainCenterPanel.increased-size .emk-top-panel .x6-tab.evn-pl-tab-panel-items span {
+	font-size: 15px;
+}
+.mainCenterPanel.increased-size .button-without-frame.coll-exp-all.button-expand-all span {
+	font-size: 14px;
+}
+.mainCenterPanel.increased-size .x6-grid-cell.x6-grid-td .x6-grid-cell-inner {
+	font-size: 14px;
+}
+.mainCenterPanel.increased-size .x6-grid-item-container .x6-grid-item .x6-grid-rowbody-tr .x6-grid-rowbody p {
+	font-size: 13px;
+}
+.mainCenterPanel.increased-size ~ .x6-menu.menuWithoutIcons .x6-menu-item a span {
+	font-size: 15px;
+}
+.mainCenterPanel.increased-size .header-collapsible-by-title .button-add-duplicate span {
+	font-size: 15px;
+}
+.mainCenterPanel.increased-size .accordion-panel-with-dropdown-menu .header-collapsible-by-title .button-add-duplicate .x6-btn-wrap:after {
+	width: 11px;
+	background-size: 7px 4px;
+	height: 10px;
+}
+.mainCenterPanel.increased-size ~ .x6-menu .x6-menu-item a span {
+	font-size: 15px;
+}
+.mainCenterPanel.increased-size .rightEmkPanel .no-wrap-ellipsis {
+	font-size: 18px !important;
+}
+.mainCenterPanel.increased-size .header-collapsible-by-title .button-add-duplicate {
+	margin-left: 10px !important;
+}
+.mainCenterPanel.increased-size .emkFilterPanel a.x6-btn {
+	margin-right: 20px !important;
+	padding-right: 8px !important;
+}
+.mainCenterPanel.increased-size .emkFilterPanel a.x6-btn.filter-deactive {
+	padding-right: 0 !important;
+	margin-right: 0 !important;
+}
+.mainCenterPanel.increased-size .emkFilterPanel a.x6-btn span {
+	font-size: 15px;
+}
+.mainCenterPanel.increased-size .case .ICD10 a {
+	font-size: 14px;
+}
+.mainCenterPanel.increased-size .case .ICD10 li:first-child a {
+	font-size: 16px;
+}
+.mainCenterPanel.increased-size .case ul.date {
+	padding-right: 10px;
+	width: 80px;
+}
+.mainCenterPanel.increased-size .case ul.date a {
+	font-size: 15px;
+}
+.mainCenterPanel.increased-size .archive-button {
+	font-size: 15px;
+}
+.mainCenterPanel.increased-size .signalinfo a {
+	font-size: 14px;
+	letter-spacing: 1px;
+}
+.mainCenterPanel.increased-size .fastSearch .x6-form-text-field-body .x6-form-field.x6-form-text {
+	font-size: 13px;
+}
+.mainCenterPanel.increased-size .history .case {
+	background-position: 90px 0;
+}
+.mainCenterPanel.increased-size .personPanel.accordion-panel-window .x6-field label span {
+	font-size: 15px;
+}
+.mainCenterPanel.increased-size .personPanel.accordion-panel-window .x6-field .x6-form-item-body > div {
+	font-size: 15px;
+}
+.mainCenterPanel.increased-size .personPanel.accordion-panel-window .x6-panel a.x6-btn span {
+	font-size: 15px;
+}
+.mainCenterPanel.increased-size .rightEmkPanel .x6-toolbar a.button-without-frame span {
+	font-size: 14px;
+}
+.mainCenterPanel.increased-size .x6-panel.EmkGrid .x6-column-header .x6-column-header-text span {
+	font-size: 15px;
+}
+.mainCenterPanel.increased-size .x6-panel.EmkGrid .x6-grid-cell.x6-grid-td .x6-grid-cell-inner {
+	font-size: 15px;
+}
+.mainCenterPanel.increased-size .x6-panel.person-frame-content .PersonFrame div {
+	font-size: 14px;
+}
+.mainCenterPanel.increased-size .x6-panel.person-frame-content .PersonFrame div i {
+	font-size: 14px;
+}
+.mainCenterPanel.increased-size .x6-panel.person-frame-content .PersonFrame div a {
+	font-size: 14px;
+}
+.mainCenterPanel.increased-size div.PersonFrame {
+	column-width: 390px;
+	-moz-column-width: 390px;
+	-webkit-column-width: 390px;
+	width: 1180px;
+}
+.mainCenterPanel.increased-size div.PersonFrame > div {
+	max-width: 390px;
+	width: 390px;
+}
+.mainCenterPanel.increased-size .person-frame-title-expander {
+	font-size: 20px;
+	letter-spacing: 1px;
+}
+.mainCenterPanel.increased-size .person-frame-title-expander span {
+	font-size: 15px !important;
+}
+.mainCenterPanel.increased-size .evn-pl-tab-panel-items .x6-tab-inner {
+	font-size: 15px;
+	letter-spacing: 1px;
+}
+.mainCenterPanel.increased-size .person-panel-emk-info .x6-field span,
+.mainCenterPanel.increased-size .person-panel-emk-info .x6-field a {
+	font-size: 15px;
+}
+.mainCenterPanel.increased-size ~ .x6-tip .x6-autocontainer-innerCt {
+	font-size: 14px;
+}
+.mainCenterPanel.increased-size ~ .x6-boundlist.swMedStaffFactSearch table tr td div {
+	font-size: 15px !important;
+}
+.mainCenterPanel.increased-size ~ .x6-boundlist.swMedStaffFactSearch table tr td div nobr {
+	font-size: 14px !important;
+}
+.mainCenterPanel.increased-size ~ .x6-boundlist.swMedStaffFactSearch table tr td p,
+.mainCenterPanel.increased-size ~ .x6-boundlist.swMedStaffFactSearch table tr td p nobr {
+	font-size: 14px !important;
+}
+.mainCenterPanel.increased-size ~ .x6-boundlist ul li {
+	font-size: 15px;
+}
+.mainCenterPanel.increased-size ~ .x6-boundlist.choose-bound-list-menu table tr td div {
+	font-size: 15px !important;
+}

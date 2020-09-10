@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="PERSCANCER">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="HEADER">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="OPERATIONTYPE">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:maxLength value="6" />
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="DATA" type="xs:date" />
+							<xs:element name="REG_ID" type="xs:long" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="BODY" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="BDZ_ID" type="xs:long" />
+							<xs:element name="DS" type="xs:string" />
+							<xs:element name="DATE_IN" type="xs:date" />
+							<xs:element name="DATE_OUT" type="xs:date" minOccurs="0" />
+							<xs:element name="CAUSEOUT" type="xs:int" minOccurs="0" />
+							<xs:element name="CANCERCOMMENT" type="xs:string" minOccurs="0" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

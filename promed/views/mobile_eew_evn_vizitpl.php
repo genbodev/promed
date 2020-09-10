@@ -1,0 +1,1 @@
+<div><div>Создан: {insDT} {ins_Name}</div><div>{EvnVizitPL_data}<div>{EvnVizitPL_protocol}</div></br></br>{EvnDiagPL}{EvnPrescrPolka}{EvnDirection}{EvnUsluga}{EvnRecept}</div></div><hr>

@@ -1,0 +1,15 @@
+<PERSCANCER>
+	<HEADER>
+		{OPERATIONTYPE}
+		{DATA}
+		{REG_ID}
+	</HEADER>
+	<?php if($OPERATIONTYPE!='Delete'){ ?><BODY>
+		{BDZ_ID}
+		{DS}
+		{DATE_IN}
+		{DATE_OUT}
+		{CAUSEOUT}
+		{CANCERCOMMENT}
+	</BODY><?php } ?>
+</PERSCANCER>

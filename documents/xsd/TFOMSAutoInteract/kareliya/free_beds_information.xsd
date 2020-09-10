@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--Created with Liquid Studio 2018 (https://www.liquid-technologies.com)-->
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="FREE_BEDS_INFORMATION">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="ZGLV">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="DATA" type="xs:date" />
+                            <xs:element name="TYPE">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:maxLength value="6" />
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="ID">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:pattern value="[0-9A-F-]{36}" />
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="ZAP">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="DTA_RAB" type="xs:date" />
+                            <xs:element name="MCOD_STC">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:int">
+                                        <xs:pattern value="\d{0,6}" />
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="MPODR_STC" type="xs:int" minOccurs="0" />
+                            <xs:element name="USL_OK" type="xs:int" minOccurs="0" />
+                            <xs:element name="KOD_PFK" type="xs:int" />
+                            <xs:element name="KOL_PAC" type="xs:int" />
+                            <xs:element name="KOL_IN" type="xs:int" />
+                            <xs:element name="KOL_OUT" type="xs:int" />
+                            <xs:element name="KOL_PLN" type="xs:int" />
+                            <xs:element name="KOL_PUS" type="xs:int" />
+                            <xs:element name="KOL_PUS_V" type="xs:int" />
+                            <xs:element name="KOL_PUS_D" type="xs:int" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

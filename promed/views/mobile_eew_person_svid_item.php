@@ -1,0 +1,1 @@
+<tr ><td>{PersonSvidType_Name}</td><td>{PersonSvid_Ser}</td><td>{Diag_Name}</td><td>{PersonSvid_GiveDate}</td></tr>

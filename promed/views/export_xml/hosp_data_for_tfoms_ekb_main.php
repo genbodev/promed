@@ -1,0 +1,14 @@
+<PACKET>
+	<VERS>{VERS}</VERS>
+	<DATE_REPT>{DATE_REPT}</DATE_REPT>
+
+	<?php if (!empty($TYPECONT)) { ?>
+	<TYPECONT>{TYPECONT}</TYPECONT>
+	<?php } ?>
+
+	<INF_MO>
+		<MO>{MO}</MO>
+		<RCOUNT>{RCOUNT}</RCOUNT>
+		{ZAP}
+	</INF_MO>
+</PACKET>
